@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Name>Drive Manager 2</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{e35dc163-64e9-49a6-89f9-d59339abe463}</ProjectGuid>
+    <TcPath>
+    </TcPath>
+    <AssemblyName>AX_Drives</AssemblyName>
+    <RootNamespace>AX_Drives</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include="Term 23 %28EL7047%29.tcdmdrv">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Term 24 %28EL7047%29.tcdmdrv">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Term 25 %28EL7047%29.tcdmdrv">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Term 26 %28EL7047%29.tcdmdrv">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Term 70 %28AX8640-0000-0103%29.tcdmdrv">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Term 70 %28AX8640-0000-0103%29\Drive 71 %28AX8206-0210-0104%29.tcdmdrv">
+      <SubType>Content</SubType>
+      <DependentUpon>Term 70 (AX8640-0000-0103).tcdmdrv</DependentUpon>
+    </Content>
+    <Content Include="Term 70 %28AX8640-0000-0103%29\Drive 74 %28AX8206-0210-0104%29.tcdmdrv">
+      <SubType>Content</SubType>
+      <DependentUpon>Term 70 (AX8640-0000-0103).tcdmdrv</DependentUpon>
+    </Content>
+  </ItemGroup>
+</Project>

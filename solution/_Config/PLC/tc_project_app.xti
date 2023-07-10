@@ -1,9 +1,35 @@
 <?xml version="1.0"?>
 <TcSmItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2012/07/TcSmProject" TcSmVersion="1.0" TcVersion="3.1.4024.32" ClassName="CNestedPlcProjDef">
 	<Project GUID="{FB261665-FD20-4BF2-97F8-2854C82B752D}" Name="tc_project_app" PrjFilePath="..\..\tc_project_app\tc_project_app.plcproj" TmcFilePath="..\..\tc_project_app\tc_project_app.tmc" ReloadTmc="true" AmsPort="852" FileArchiveSettings="#x000e" SymbolicMapping="true">
-		<Instance Id="#x08502040" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="tc_project_app\tc_project_app.tmc" TmcHash="{4D60DAD6-60EF-E84B-B0BE-6EF31A5C5743}">
+		<Instance Id="#x08502040" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="tc_project_app\tc_project_app.tmc" TmcHash="{EA3F7B72-12EC-9C51-2B93-0A7FDA48C896}">
 			<Name>tc_project_app Instance</Name>
 			<CLSID ClassFactory="TcPlc30">{08500001-0000-0000-F000-000000000064}</CLSID>
+			<Vars VarGrpType="1">
+				<Name>PlcTask Inputs</Name>
+				<Var>
+					<Name>GVL_Safety.SafetyReset_ButtonIn</Name>
+					<Type>BOOL</Type>
+				</Var>
+			</Vars>
+			<Vars VarGrpType="2" AreaNo="1">
+				<Name>PlcTask Outputs</Name>
+				<Var>
+					<Name>GVL_Safety.SafetyReset</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Safety.SafetyReset_ButtonOut</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Safety.RUN_SAFETY</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Safety.SAFTEY_ACK</Name>
+					<Type>BOOL</Type>
+				</Var>
+			</Vars>
 			<Contexts>
 				<Context>
 					<Id NeedCalleeCall="true">0</Id>
@@ -20,4 +46,19 @@
 			</TaskPouOids>
 		</Instance>
 	</Project>
+	<Mappings>
+		<OwnerA Name="tc_project_app Instance">
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 7 (EL1008)">
+				<Link VarA="PlcTask Inputs^GVL_Safety.SafetyReset_ButtonIn" VarB="Channel 1^Input" Size="1"/>
+			</OwnerB>
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 8 (EL2008)">
+				<Link VarA="PlcTask Outputs^GVL_Safety.SafetyReset_ButtonOut" VarB="Channel 1^Output" Size="1"/>
+			</OwnerB>
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 27 (EK1100)^Term 28 (EL6910)">
+				<Link VarA="PlcTask Outputs^GVL_Safety.RUN_SAFETY" VarB="StandardOutputs^Standard In Var 7" Size="1"/>
+				<Link VarA="PlcTask Outputs^GVL_Safety.SAFTEY_ACK" VarB="StandardOutputs^Standard In Var 1" Size="1"/>
+				<Link VarA="PlcTask Outputs^GVL_Safety.SafetyReset" VarB="StandardOutputs^Standard In Var 6" Size="1"/>
+			</OwnerB>
+		</OwnerA>
+	</Mappings>
 </TcSmItem>
