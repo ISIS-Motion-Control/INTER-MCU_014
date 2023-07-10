@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Refactors>
+  <Renames>
+    <RenamedType>
+      <Type guid="0f34f732-07ed-43ff-ba09-f9229513977f">AXIS_TEMPLATE_1</Type>
+      <From>Axis_Template_1</From>
+      <To>Combined_Vertical</To>
+    </RenamedType>
+    <RenamedType>
+      <Type guid="da882cbd-e5f0-4d53-ba38-d4a40a10691f">AXIS_TEMPLATE_2</Type>
+      <From>Axis_Template_2</From>
+      <To>Horizontal_Translation</To>
+    </RenamedType>
+    <RenamedType>
+      <Type guid="3b7b9996-05d4-43b8-8768-65e5883d1014">AXIS_TEMPLATE_3</Type>
+      <From>Axis_Template_3</From>
+      <To>Vertical_Translation_Left</To>
+    </RenamedType>
+    <RenamedType>
+      <Type guid="a65cebc1-4639-406e-a269-5da0d9aebcb0">AXIS_TEMPLATE_4</Type>
+      <From>Axis_Template_4</From>
+      <To>Vertical_Translation_Right</To>
+    </RenamedType>
+    <RenamedType>
+      <Type guid="83b74736-0e2a-4820-b07c-7378d567dc02">AXIS_TEMPLATE_5</Type>
+      <From>Axis_Template_5</From>
+      <To>Rotation</To>
+    </RenamedType>
+  </Renames>
+</Refactors>

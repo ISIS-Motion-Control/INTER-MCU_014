@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
+  <GVL Name="AXIS_NAMES" Id="{7e200d6d-9582-4793-a72f-19347bc4f265}">
+    <Declaration><![CDATA[VAR_GLOBAL CONSTANT
+    
+    //RAW AXES
+    AXIS_1_xxx : UINT :=1;
+    AXIS_2_xxx : UINT :=2;
+    AXIS_3_xxx : UINT :=3;
+    AXIS_4_XXX : UINT :=4;
+    AXIS_HORIZONTAL_TRANSLATION : UINT :=5;
+    AXIS_VERTICAL_TRANSLATION_LEFT : UINT :=6;
+    AXIS_VERTICAL_TRANSLATION_RIGHT : UINT :=7;
+    AXIS_ROTATION : UINT:= 8;
+    
+    //COMBINED MOTION AXES
+    AXIS_COMBINED_VERTICAL : UINT :=9;
+    
+    
+    
+END_VAR]]></Declaration>
+  </GVL>
+</TcPlcObject>

@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
+  <POU Name="INTER_LOGIC" Id="{da89d596-93f4-468f-9a43-1a72f2055b25}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM INTER_LOGIC
+VAR
+    NcAxisError : BOOL;
+    LogicError : BOOL;
+    
+    
+    CombinedVerticalSetupComplete : BOOL := FALSE;
+    AllowedVerticalLag : LREAL := 0.2;  //How much offset is allowed between two vertical axes when synced
+    VerticalAxesCalibrated : BOOL := FALSE;
+
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[IF GVL_INTER.ENABLE_ALL_AXES THEN
+    EnableAxes();
+END_IF
+
+IF GVL_INTER.DISABLE_ALL_AXES THEN
+    DisableAxes();
+END_IF
+
+IF GVL_INTER.RESET_ALL THEN
+    ResetAll();
+END_IF
+
+//Check for errors at NC level
+NcAxisError := CheckNcErrors();
+VerticalAxesCalibrated := CheckVerticalCalibration();
+
+IF GVL_INTER.RUN_COUPLED_VERTICAL THEN
+        
+    //Enable linking
+    IF astAxes[Vertical_Translation_Left].stStatus.bEnabled AND astAxes[Vertical_Translation_Right].stStatus.bEnabled THEN
+        //Only enable virtual axis if both RAW axes are homed/calibrated
+        IF VerticalAxesCalibrated THEN
+            astAxes[Combined_Vertical].stControl.bEnable := TRUE;
+		END_IF        
+	END_IF
+    
+    //Fwd limit linking
+    astAxes[Combined_Vertical].stInputs.bLimitFwd := (astAxes[Vertical_Translation_Left].stInputs.bLimitFwd AND astAxes[Vertical_Translation_Right].stInputs.bLimitFwd);
+    //Bwd limit linking
+    astAxes[Combined_Vertical].stInputs.bLimitBwd := (astAxes[Vertical_Translation_Left].stInputs.bLimitBwd AND astAxes[Vertical_Translation_Right].stInputs.bLimitBwd);
+    
+    
+    
+    //SETPOINT GENERATOR LOGIC TO GO HERE
+    IF VerticalAxesCalibrated THEN
+        //We need to do some stuff here
+	END_IF
+    
+END_IF
+
+
+
+IF CombinedVerticalSetupComplete AND GVL_INTER.RUN_KINEMATICS THEN
+    //
+END_IF
+
+]]></ST>
+    </Implementation>
+    <Method Name="CheckNcErrors" Id="{7139bf26-abbf-4cba-b321-d9387e4f0885}">
+      <Declaration><![CDATA[METHOD CheckNcErrors : BOOL
+VAR_INPUT
+END_VAR
+VAR
+    i : UINT := 5;
+    Error : BOOL := FALSE;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[FOR i :=5 TO GVL_APP.nAXIS_NUM DO
+    IF astAxes[i].stStatus.bError THEN
+        Error := TRUE;
+	END_IF
+END_FOR
+CheckNcErrors := Error;
+]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="CheckVerticalCalibration" Id="{e1036243-04e4-4263-b466-d17b80a88071}">
+      <Declaration><![CDATA[METHOD CheckVerticalCalibration : BOOL
+VAR_INPUT
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[CheckVerticalCalibration := astAxes[Vertical_Translation_Left].Axis.Status.Homed AND astAxes[Vertical_Translation_Right].Axis.Status.Homed;]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="DisableAxes" Id="{445cd5b3-7fd2-4adb-8098-44aeb3439028}">
+      <Declaration><![CDATA[METHOD DisableAxes : BOOL
+VAR_INPUT
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[astAxes[AXIS_HORIZONTAL_TRANSLATION].stControl.bEnable :=FALSE;
+astAxes[AXIS_VERTICAL_TRANSLATION_LEFT].stControl.bEnable :=FALSE;
+astAxes[AXIS_VERTICAL_TRANSLATION_RIGHT].stControl.bEnable :=FALSE;
+astAxes[AXIS_ROTATION].stControl.bEnable :=FALSE;
+GVL_INTER.DISABLE_ALL_AXES := FALSE;
+]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="EnableAxes" Id="{b0c85ed2-0ac0-448f-af10-0513bd266d32}">
+      <Declaration><![CDATA[METHOD EnableAxes : BOOL
+VAR_INPUT
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[astAxes[AXIS_HORIZONTAL_TRANSLATION].stControl.bEnable :=TRUE;
+astAxes[AXIS_VERTICAL_TRANSLATION_LEFT].stControl.bEnable :=TRUE;
+astAxes[AXIS_VERTICAL_TRANSLATION_RIGHT].stControl.bEnable :=TRUE;
+astAxes[AXIS_ROTATION].stControl.bEnable :=TRUE;
+GVL_INTER.ENABLE_ALL_AXES := FALSE;
+]]></ST>
+      </Implementation>
+    </Method>
+    <Method Name="ResetAll" Id="{e4647f95-e102-4ec6-b060-9c49e98b19a4}">
+      <Declaration><![CDATA[METHOD ResetAll : BOOL
+VAR_INPUT
+END_VAR
+
+VAR
+    i : UINT :=5;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[FOR i :=5 TO GVL_APP.nAXIS_NUM DO
+        astAxes[i].stControl.bReset:= TRUE;
+END_FOR
+
+GVL_INTER.RESET_ALL := FALSE;]]></ST>
+      </Implementation>
+    </Method>
+  </POU>
+</TcPlcObject>

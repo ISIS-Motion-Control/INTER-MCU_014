@@ -117,6 +117,16 @@ GVL.fbGetCurTaskIndex();
 
 //Application program calls
 //Application_Template();
+
+Horizontal_Translation();
+Vertical_Translation_Left();
+Vertical_Translation_Right();
+Rotation();
+
+Combined_Vertical();
+
+INTER_LOGIC();
+
 ]]></ST>
       </Implementation>
     </Action>
