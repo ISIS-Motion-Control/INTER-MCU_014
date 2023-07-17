@@ -63,7 +63,7 @@
           <TcLink>
             <TcPrjPath>..\solution\solution.tsproj</TcPrjPath>
             <IoItemPathName>TIID^Device 1 (EtherCAT)^Term 70 (AX8640-0000-0103)^Drive 74 (AX8206-0210-0104)</IoItemPathName>
-            <NcItemPathName>TINC^NC-Task 1 SAF^Axes^Axis 7</NcItemPathName>
+            <NcItemPathName>TINC^NC-Task 1 SAF^Axes^Vertical Z1</NcItemPathName>
           </TcLink>
           <SelectedModifyOptPDOsMode>0</SelectedModifyOptPDOsMode>
           <Modulo>
@@ -92,14 +92,14 @@
           <Block Id="0">
             <Motor IsManualInput="false" IsManualMFiInput="false" DataSource="2">
               <DatabaseType>
-                <SchemaVersion></SchemaVersion>
+                <SchemaVersion />
                 <DataVersion>1.25</DataVersion>
                 <OrderCode>AM8053-1GH1-0000</OrderCode>
-                <GroupType></GroupType>
+                <GroupType />
                 <ElectricMotorType>AM8053-xGx1</ElectricMotorType>
                 <MotorfeedbackType>EDM35-2KF0A0S03</MotorfeedbackType>
                 <MotorbrakeType>AM8053-1GH1-0000-brake</MotorbrakeType>
-                <AssemblyType></AssemblyType>
+                <AssemblyType />
                 <VendorName>Beckhoff</VendorName>
                 <IsAc>true</IsAc>
                 <ConstructType>0</ConstructType>
@@ -116,7 +116,7 @@
                 </Parameter>
                 <Parameter>
                   <Name>SerialNr</Name>
-                  <Data type="visibleString">aa865407</Data>
+                  <Data type="visibleString">aa865404</Data>
                 </Parameter>
                 <Parameter>
                   <Name>OrderCode</Name>
@@ -521,8 +521,8 @@
                 <OrderCode>EDM35-2KF0A0S03</OrderCode>
                 <IsRotary>true</IsRotary>
                 <AbsolutePosInterface>7</AbsolutePosInterface>
-                <GroupType></GroupType>
-                <ElectricFeedbackType></ElectricFeedbackType>
+                <GroupType />
+                <ElectricFeedbackType />
               </DatabaseType>
               <DatabaseParameters>
                 <Parameter>
@@ -551,7 +551,7 @@
                 </Parameter>
               </DatabaseParameters>
               <FeedbackUse>Commutation</FeedbackUse>
-              <SerialNo>Y4170691U</SerialNo>
+              <SerialNo>Y4170692U</SerialNo>
               <Calc>
                 <CoE>
                   <InitCmd>
@@ -662,11 +662,11 @@
               </Parameter>
               <Parameter>
                 <PropertyName>MaxApplicationTorqueForce</PropertyName>
-                <Value>3.99735</Value>
+                <Value>14.04783</Value>
               </Parameter>
               <Parameter>
                 <PropertyName>MaxApplicationSpeed</PropertyName>
-                <Value>188.49556</Value>
+                <Value>895.35391</Value>
               </Parameter>
             </Load>
             <Controller />
@@ -698,7 +698,7 @@
           <TcLink>
             <TcPrjPath>..\solution\solution.tsproj</TcPrjPath>
             <IoItemPathName>TIID^Device 1 (EtherCAT)^Term 70 (AX8640-0000-0103)^Drive 74 (AX8206-0210-0104)</IoItemPathName>
-            <NcItemPathName>TINC^NC-Task 1 SAF^Axes^Axis 8</NcItemPathName>
+            <NcItemPathName>TINC^NC-Task 1 SAF^Axes^VERTICAL Z2</NcItemPathName>
           </TcLink>
           <SelectedModifyOptPDOsMode>0</SelectedModifyOptPDOsMode>
           <Modulo>
@@ -727,14 +727,14 @@
           <Block Id="0">
             <Motor IsManualInput="false" IsManualMFiInput="false" DataSource="2">
               <DatabaseType>
-                <SchemaVersion></SchemaVersion>
+                <SchemaVersion />
                 <DataVersion>1.25</DataVersion>
                 <OrderCode>AM8053-1GH1-0000</OrderCode>
-                <GroupType></GroupType>
+                <GroupType />
                 <ElectricMotorType>AM8053-xGx1</ElectricMotorType>
                 <MotorfeedbackType>EDM35-2KF0A0S03</MotorfeedbackType>
                 <MotorbrakeType>AM8053-1GH1-0000-brake</MotorbrakeType>
-                <AssemblyType></AssemblyType>
+                <AssemblyType />
                 <VendorName>Beckhoff</VendorName>
                 <IsAc>true</IsAc>
                 <ConstructType>0</ConstructType>
@@ -751,7 +751,7 @@
                 </Parameter>
                 <Parameter>
                   <Name>SerialNr</Name>
-                  <Data type="visibleString">aa865404</Data>
+                  <Data type="visibleString">aa865407</Data>
                 </Parameter>
                 <Parameter>
                   <Name>OrderCode</Name>
@@ -1156,8 +1156,8 @@
                 <OrderCode>EDM35-2KF0A0S03</OrderCode>
                 <IsRotary>true</IsRotary>
                 <AbsolutePosInterface>7</AbsolutePosInterface>
-                <GroupType></GroupType>
-                <ElectricFeedbackType></ElectricFeedbackType>
+                <GroupType />
+                <ElectricFeedbackType />
               </DatabaseType>
               <DatabaseParameters>
                 <Parameter>
@@ -1186,7 +1186,7 @@
                 </Parameter>
               </DatabaseParameters>
               <FeedbackUse>Commutation</FeedbackUse>
-              <SerialNo>Y4170692U</SerialNo>
+              <SerialNo>Y4170691U</SerialNo>
               <Calc>
                 <CoE>
                   <InitCmd>
@@ -1297,11 +1297,11 @@
               </Parameter>
               <Parameter>
                 <PropertyName>MaxApplicationTorqueForce</PropertyName>
-                <Value>3.99735</Value>
+                <Value>14.04783</Value>
               </Parameter>
               <Parameter>
                 <PropertyName>MaxApplicationSpeed</PropertyName>
-                <Value>188.49556</Value>
+                <Value>895.35391</Value>
               </Parameter>
             </Load>
             <Controller />
@@ -1357,7 +1357,7 @@
       </Info>
       <ProcessData>
         <Send>
-          <BitStart>1168</BitStart>
+          <BitStart>1184</BitStart>
           <BitLength>176</BitLength>
         </Send>
         <Send>
@@ -1365,7 +1365,7 @@
           <BitLength>80</BitLength>
         </Send>
         <Recv>
-          <BitStart>1168</BitStart>
+          <BitStart>1184</BitStart>
           <BitLength>208</BitLength>
         </Recv>
         <Recv>
@@ -2333,14 +2333,6 @@
               <Data>5f006400680000000000000000000000000000000000000000000000000000000000000000000000000071006800000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000e80368000000000000000000b80b6800000000000000000070176800000000000000000000000000102768000000000000000000000000000000000000000000000000000000000050466800000000000000000000000000f0556800d95968000000000000000000000000000000000000000000000000000000000000000000e80368000000000000000000b80b6800000000000000000070176800000000000000000000000000102768000000000000000000000000000000000000000000000000000000000050466800000000000000000000000000f0556800d959680000000000000000000000000000000000000000000000000000000000</Data>
             </InitCmd>
             <InitCmd>
-              <Transition>IP</Transition>
-              <Timeout>0</Timeout>
-              <Ccs>1</Ccs>
-              <Index>4339</Index>
-              <SubIndex>5</SubIndex>
-              <Data>0100</Data>
-            </InitCmd>
-            <InitCmd>
               <Transition>PS</Transition>
               <Comment><![CDATA[DeviceMain Parameters / Mains max voltage]]></Comment>
               <Timeout>0</Timeout>
@@ -2369,12 +2361,21 @@
             </InitCmd>
             <InitCmd>
               <Transition>PS</Transition>
+              <Comment><![CDATA[DeviceMain Parameters / Max DC link voltage]]></Comment>
+              <Timeout>0</Timeout>
+              <Ccs>1</Ccs>
+              <Index>11266</Index>
+              <SubIndex>2</SubIndex>
+              <Data>6b03</Data>
+            </InitCmd>
+            <InitCmd>
+              <Transition>PS</Transition>
               <Comment><![CDATA[Ch A Autotuning command parameters / Permissible movement positive direction]]></Comment>
               <Timeout>0</Timeout>
               <Ccs>1</Ccs>
               <Index>12301</Index>
               <SubIndex>5</SubIndex>
-              <Data>0000400600000000</Data>
+              <Data>0000100000000000</Data>
             </InitCmd>
             <InitCmd>
               <Transition>PS</Transition>
@@ -2383,7 +2384,7 @@
               <Ccs>1</Ccs>
               <Index>12301</Index>
               <SubIndex>6</SubIndex>
-              <Data>0000400600000000</Data>
+              <Data>0000100000000000</Data>
             </InitCmd>
             <InitCmd>
               <Transition>PS</Transition>
@@ -2392,7 +2393,7 @@
               <Ccs>1</Ccs>
               <Index>12301</Index>
               <SubIndex>7</SubIndex>
-              <Data>00001644</Data>
+              <Data>00007042</Data>
             </InitCmd>
             <InitCmd>
               <Transition>PS</Transition>
@@ -2405,75 +2406,12 @@
             </InitCmd>
             <InitCmd>
               <Transition>PS</Transition>
-              <Comment><![CDATA[Ch B Autotuning command parameters / Permissible movement positive direction]]></Comment>
-              <Timeout>0</Timeout>
-              <Ccs>1</Ccs>
-              <Index>13325</Index>
-              <SubIndex>5</SubIndex>
-              <Data>0000400600000000</Data>
-            </InitCmd>
-            <InitCmd>
-              <Transition>PS</Transition>
-              <Comment><![CDATA[Ch B Autotuning command parameters / Permissible movement negative direction]]></Comment>
-              <Timeout>0</Timeout>
-              <Ccs>1</Ccs>
-              <Index>13325</Index>
-              <SubIndex>6</SubIndex>
-              <Data>0000400600000000</Data>
-            </InitCmd>
-            <InitCmd>
-              <Transition>PS</Transition>
-              <Comment><![CDATA[Ch B Autotuning command parameters / Base velocity amplitude]]></Comment>
-              <Timeout>0</Timeout>
-              <Ccs>1</Ccs>
-              <Index>13325</Index>
-              <SubIndex>7</SubIndex>
-              <Data>00001644</Data>
-            </InitCmd>
-            <InitCmd>
-              <Transition>PS</Transition>
-              <Comment><![CDATA[Ch B Autotuning command parameters / Signal velocity amplitude]]></Comment>
-              <Timeout>0</Timeout>
-              <Ccs>1</Ccs>
-              <Index>13325</Index>
-              <SubIndex>8</SubIndex>
-              <Data>0000f041</Data>
-            </InitCmd>
-            <InitCmd>
-              <Transition>PS</Transition>
-              <Comment><![CDATA[DeviceMain Parameters / Max DC link voltage]]></Comment>
-              <Timeout>0</Timeout>
-              <Ccs>1</Ccs>
-              <Index>11266</Index>
-              <SubIndex>2</SubIndex>
-              <Data>6b03</Data>
-            </InitCmd>
-            <InitCmd>
-              <Transition>PS</Transition>
-              <Comment><![CDATA[Ch A Velocity factor / Numerator]]></Comment>
-              <Timeout>0</Timeout>
-              <Ccs>1</Ccs>
-              <Index>24726</Index>
-              <SubIndex>1</SubIndex>
-              <Data>9f240000</Data>
-            </InitCmd>
-            <InitCmd>
-              <Transition>PS</Transition>
-              <Comment><![CDATA[Ch A Velocity factor / Divisor]]></Comment>
-              <Timeout>0</Timeout>
-              <Ccs>1</Ccs>
-              <Index>24726</Index>
-              <SubIndex>2</SubIndex>
-              <Data>00400000</Data>
-            </InitCmd>
-            <InitCmd>
-              <Transition>PS</Transition>
               <Comment><![CDATA[Ch A VeloCtrl parameters mappable / Velocity control proportional gain]]></Comment>
               <Timeout>0</Timeout>
               <Ccs>1</Ccs>
               <Index>12608</Index>
               <SubIndex>1</SubIndex>
-              <Data>f12fa63f</Data>
+              <Data>6832a93e</Data>
             </InitCmd>
             <InitCmd>
               <Transition>PS</Transition>
@@ -2482,7 +2420,7 @@
               <Ccs>1</Ccs>
               <Index>12608</Index>
               <SubIndex>2</SubIndex>
-              <Data>2aab603b</Data>
+              <Data>6f12033c</Data>
             </InitCmd>
             <InitCmd>
               <Transition>PS</Transition>
@@ -3175,7 +3113,7 @@
               <Ccs>1</Ccs>
               <Index>12867</Index>
               <SubIndex>2</SubIndex>
-              <Data>9a995941</Data>
+              <Data>66665e41</Data>
             </InitCmd>
             <InitCmd>
               <Transition>PS</Transition>
@@ -3202,7 +3140,7 @@
               <Ccs>1</Ccs>
               <Index>12608</Index>
               <SubIndex>3</SubIndex>
-              <Data>0000e144</Data>
+              <Data>00980546</Data>
             </InitCmd>
             <InitCmd>
               <Transition>PS</Transition>
@@ -3239,6 +3177,104 @@
               <Index>12992</Index>
               <SubIndex>15</SubIndex>
               <Data>0100</Data>
+            </InitCmd>
+            <InitCmd>
+              <Transition>PS</Transition>
+              <Comment><![CDATA[Ch A Velocity factor / Numerator]]></Comment>
+              <Timeout>0</Timeout>
+              <Ccs>1</Ccs>
+              <Index>24726</Index>
+              <SubIndex>1</SubIndex>
+              <Data>9f240000</Data>
+            </InitCmd>
+            <InitCmd>
+              <Transition>PS</Transition>
+              <Comment><![CDATA[Ch A Velocity factor / Divisor]]></Comment>
+              <Timeout>0</Timeout>
+              <Ccs>1</Ccs>
+              <Index>24726</Index>
+              <SubIndex>2</SubIndex>
+              <Data>00400000</Data>
+            </InitCmd>
+            <InitCmd>
+              <Transition>PS</Transition>
+              <Comment><![CDATA[Ch A Bipolar torque/force limit value]]></Comment>
+              <Timeout>0</Timeout>
+              <Ccs>1</Ccs>
+              <Index>24690</Index>
+              <SubIndex>0</SubIndex>
+              <Data>ce04</Data>
+            </InitCmd>
+            <InitCmd>
+              <Transition>PS</Transition>
+              <Comment><![CDATA[Ch A VeloCtrl parameters mappable / Load inertia/mass]]></Comment>
+              <Timeout>0</Timeout>
+              <Ccs>1</Ccs>
+              <Index>12608</Index>
+              <SubIndex>7</SubIndex>
+              <Data>45f5d639</Data>
+            </InitCmd>
+            <InitCmd>
+              <Transition>IP</Transition>
+              <Timeout>0</Timeout>
+              <Ccs>1</Ccs>
+              <Index>4339</Index>
+              <SubIndex>5</SubIndex>
+              <Data>0000</Data>
+            </InitCmd>
+            <InitCmd>
+              <Transition>PS</Transition>
+              <Comment><![CDATA[Ch B Autotuning command parameters / Permissible movement positive direction]]></Comment>
+              <Timeout>0</Timeout>
+              <Ccs>1</Ccs>
+              <Index>13325</Index>
+              <SubIndex>5</SubIndex>
+              <Data>0000100000000000</Data>
+            </InitCmd>
+            <InitCmd>
+              <Transition>PS</Transition>
+              <Comment><![CDATA[Ch B Autotuning command parameters / Permissible movement negative direction]]></Comment>
+              <Timeout>0</Timeout>
+              <Ccs>1</Ccs>
+              <Index>13325</Index>
+              <SubIndex>6</SubIndex>
+              <Data>0000100000000000</Data>
+            </InitCmd>
+            <InitCmd>
+              <Transition>PS</Transition>
+              <Comment><![CDATA[Ch B Autotuning command parameters / Base velocity amplitude]]></Comment>
+              <Timeout>0</Timeout>
+              <Ccs>1</Ccs>
+              <Index>13325</Index>
+              <SubIndex>7</SubIndex>
+              <Data>00007042</Data>
+            </InitCmd>
+            <InitCmd>
+              <Transition>PS</Transition>
+              <Comment><![CDATA[Ch B Autotuning command parameters / Signal velocity amplitude]]></Comment>
+              <Timeout>0</Timeout>
+              <Ccs>1</Ccs>
+              <Index>13325</Index>
+              <SubIndex>8</SubIndex>
+              <Data>0000f041</Data>
+            </InitCmd>
+            <InitCmd>
+              <Transition>PS</Transition>
+              <Comment><![CDATA[Ch B VeloCtrl parameters mappable / Velocity control proportional gain]]></Comment>
+              <Timeout>0</Timeout>
+              <Ccs>1</Ccs>
+              <Index>13632</Index>
+              <SubIndex>1</SubIndex>
+              <Data>6832a93e</Data>
+            </InitCmd>
+            <InitCmd>
+              <Transition>PS</Transition>
+              <Comment><![CDATA[Ch B VeloCtrl parameters mappable / Velocity control integral action time]]></Comment>
+              <Timeout>0</Timeout>
+              <Ccs>1</Ccs>
+              <Index>13632</Index>
+              <SubIndex>2</SubIndex>
+              <Data>6f12033c</Data>
             </InitCmd>
             <InitCmd>
               <Transition>PS</Transition>
@@ -3931,7 +3967,7 @@
               <Ccs>1</Ccs>
               <Index>13891</Index>
               <SubIndex>2</SubIndex>
-              <Data>9a995941</Data>
+              <Data>66665e41</Data>
             </InitCmd>
             <InitCmd>
               <Transition>PS</Transition>
@@ -3953,30 +3989,12 @@
             </InitCmd>
             <InitCmd>
               <Transition>PS</Transition>
-              <Comment><![CDATA[Ch B VeloCtrl parameters mappable / Velocity control proportional gain]]></Comment>
-              <Timeout>0</Timeout>
-              <Ccs>1</Ccs>
-              <Index>13632</Index>
-              <SubIndex>1</SubIndex>
-              <Data>8955813e</Data>
-            </InitCmd>
-            <InitCmd>
-              <Transition>PS</Transition>
-              <Comment><![CDATA[Ch B VeloCtrl parameters mappable / Velocity control integral action time]]></Comment>
-              <Timeout>0</Timeout>
-              <Ccs>1</Ccs>
-              <Index>13632</Index>
-              <SubIndex>2</SubIndex>
-              <Data>e182c43d</Data>
-            </InitCmd>
-            <InitCmd>
-              <Transition>PS</Transition>
               <Comment><![CDATA[Ch B VeloCtrl parameters mappable / Bipolar velocity limit value]]></Comment>
               <Timeout>0</Timeout>
               <Ccs>1</Ccs>
               <Index>13632</Index>
               <SubIndex>3</SubIndex>
-              <Data>0000e144</Data>
+              <Data>00980546</Data>
             </InitCmd>
             <InitCmd>
               <Transition>PS</Transition>
@@ -4034,93 +4052,12 @@
             </InitCmd>
             <InitCmd>
               <Transition>PS</Transition>
-              <Comment><![CDATA[Ch A VeloCtrl parameters mappable / Load inertia/mass]]></Comment>
-              <Timeout>0</Timeout>
-              <Ccs>1</Ccs>
-              <Index>12608</Index>
-              <SubIndex>7</SubIndex>
-              <Data>bac4d539</Data>
-            </InitCmd>
-            <InitCmd>
-              <Transition>PS</Transition>
-              <Comment><![CDATA[Ch A PosCtrl parameters mappable / Position control proportional gain]]></Comment>
-              <Timeout>0</Timeout>
-              <Ccs>1</Ccs>
-              <Index>12480</Index>
-              <SubIndex>1</SubIndex>
-              <Data>b1d99143</Data>
-            </InitCmd>
-            <InitCmd>
-              <Transition>PS</Transition>
               <Comment><![CDATA[Ch B VeloCtrl parameters mappable / Load inertia/mass]]></Comment>
               <Timeout>0</Timeout>
               <Ccs>1</Ccs>
               <Index>13632</Index>
               <SubIndex>7</SubIndex>
-              <Data>4175af3b</Data>
-            </InitCmd>
-            <InitCmd>
-              <Transition>PS</Transition>
-              <Comment><![CDATA[Ch B PosCtrl parameters mappable / Position control proportional gain]]></Comment>
-              <Timeout>0</Timeout>
-              <Ccs>1</Ccs>
-              <Index>13504</Index>
-              <SubIndex>1</SubIndex>
-              <Data>a7bf2641</Data>
-            </InitCmd>
-            <InitCmd>
-              <Transition>PS</Transition>
-              <Comment><![CDATA[Ch A Autotuning command parameters / Excitation signal type]]></Comment>
-              <Timeout>0</Timeout>
-              <Ccs>1</Ccs>
-              <Index>12301</Index>
-              <SubIndex>3</SubIndex>
-              <Data>01</Data>
-            </InitCmd>
-            <InitCmd>
-              <Transition>PS</Transition>
-              <Comment><![CDATA[Ch A Autotuning command parameters / Additive excitation amplitude]]></Comment>
-              <Timeout>0</Timeout>
-              <Ccs>1</Ccs>
-              <Index>12301</Index>
-              <SubIndex>4</SubIndex>
-              <Data>03</Data>
-            </InitCmd>
-            <InitCmd>
-              <Transition>PS</Transition>
-              <Comment><![CDATA[Ch B Autotuning command parameters / Excitation signal type]]></Comment>
-              <Timeout>0</Timeout>
-              <Ccs>1</Ccs>
-              <Index>13325</Index>
-              <SubIndex>3</SubIndex>
-              <Data>01</Data>
-            </InitCmd>
-            <InitCmd>
-              <Transition>PS</Transition>
-              <Comment><![CDATA[Ch A AxisMain parameters position offset / Offset position actual value source]]></Comment>
-              <Timeout>0</Timeout>
-              <Ccs>1</Ccs>
-              <Index>12295</Index>
-              <SubIndex>2</SubIndex>
-              <Data>0200</Data>
-            </InitCmd>
-            <InitCmd>
-              <Transition>PS</Transition>
-              <Comment><![CDATA[Ch B AxisMain parameters position offset / Offset position actual value source]]></Comment>
-              <Timeout>0</Timeout>
-              <Ccs>1</Ccs>
-              <Index>13319</Index>
-              <SubIndex>2</SubIndex>
-              <Data>0200</Data>
-            </InitCmd>
-            <InitCmd>
-              <Transition>PS</Transition>
-              <Comment><![CDATA[Ch A Bipolar torque/force limit value]]></Comment>
-              <Timeout>0</Timeout>
-              <Ccs>1</Ccs>
-              <Index>24690</Index>
-              <SubIndex>0</SubIndex>
-              <Data>5e01</Data>
+              <Data>0e4faf3b</Data>
             </InitCmd>
             <InitCmd>
               <Transition>PS</Transition>
@@ -4129,7 +4066,7 @@
               <Ccs>1</Ccs>
               <Index>26738</Index>
               <SubIndex>0</SubIndex>
-              <Data>5e01</Data>
+              <Data>ce04</Data>
             </InitCmd>
             <InitCmd>
               <Transition>PS</Transition>
@@ -4566,7 +4503,7 @@
           <Cmd>5</Cmd>
           <Adp>1035</Adp>
           <Ado>1536</Ado>
-          <Data>38000001160000070018000201000000</Data>
+          <Data>3a000001160000070018000201000000</Data>
           <Cnt>1</Cnt>
           <Retries>3</Retries>
         </InitCmd>
@@ -4576,7 +4513,7 @@
           <Cmd>5</Cmd>
           <Adp>1035</Adp>
           <Ado>1552</Ado>
-          <Data>380000011a000007002a000101000000</Data>
+          <Data>3a0000011a000007002a000101000000</Data>
           <Cnt>1</Cnt>
           <Retries>3</Retries>
         </InitCmd>
@@ -4981,7 +4918,7 @@
                   <AmsPort>11</AmsPort>
                 </AmsAddress>
                 <IndexGroup>50593824</IndexGroup>
-                <IndexOffset>-2130706286</IndexOffset>
+                <IndexOffset>-2130706284</IndexOffset>
                 <Length>2</Length>
               </AdsInfo>
             </Entry>
@@ -6299,7 +6236,7 @@
                   <AmsPort>11</AmsPort>
                 </AmsAddress>
                 <IndexGroup>50593824</IndexGroup>
-                <IndexOffset>-1073740655</IndexOffset>
+                <IndexOffset>-1073740639</IndexOffset>
                 <Length>1</Length>
               </AdsInfo>
             </Entry>
@@ -6315,7 +6252,7 @@
                   <AmsPort>11</AmsPort>
                 </AmsAddress>
                 <IndexGroup>50593824</IndexGroup>
-                <IndexOffset>-1073740654</IndexOffset>
+                <IndexOffset>-1073740638</IndexOffset>
                 <Length>1</Length>
               </AdsInfo>
             </Entry>
@@ -6351,7 +6288,7 @@
                   <AmsPort>11</AmsPort>
                 </AmsAddress>
                 <IndexGroup>50593824</IndexGroup>
-                <IndexOffset>-2147483501</IndexOffset>
+                <IndexOffset>-2147483499</IndexOffset>
                 <Length>2</Length>
               </AdsInfo>
             </Entry>
@@ -6367,7 +6304,7 @@
                   <AmsPort>11</AmsPort>
                 </AmsAddress>
                 <IndexGroup>50593824</IndexGroup>
-                <IndexOffset>-2147483499</IndexOffset>
+                <IndexOffset>-2147483497</IndexOffset>
                 <Length>4</Length>
               </AdsInfo>
             </Entry>
@@ -6400,7 +6337,7 @@
                   <AmsPort>11</AmsPort>
                 </AmsAddress>
                 <IndexGroup>50593824</IndexGroup>
-                <IndexOffset>-2130706284</IndexOffset>
+                <IndexOffset>-2130706282</IndexOffset>
                 <Length>2</Length>
               </AdsInfo>
             </Entry>
@@ -6456,7 +6393,7 @@
                   <AmsPort>11</AmsPort>
                 </AmsAddress>
                 <IndexGroup>50593824</IndexGroup>
-                <IndexOffset>-2130706282</IndexOffset>
+                <IndexOffset>-2130706280</IndexOffset>
                 <Length>4</Length>
               </AdsInfo>
             </Entry>
@@ -6472,7 +6409,7 @@
                   <AmsPort>11</AmsPort>
                 </AmsAddress>
                 <IndexGroup>50593824</IndexGroup>
-                <IndexOffset>-2130706278</IndexOffset>
+                <IndexOffset>-2130706276</IndexOffset>
                 <Length>4</Length>
               </AdsInfo>
             </Entry>
@@ -6520,7 +6457,7 @@
                   <AmsPort>11</AmsPort>
                 </AmsAddress>
                 <IndexGroup>50593824</IndexGroup>
-                <IndexOffset>-2147483495</IndexOffset>
+                <IndexOffset>-2147483493</IndexOffset>
                 <Length>4</Length>
               </AdsInfo>
             </Entry>
@@ -6648,7 +6585,7 @@
                   <AmsPort>11</AmsPort>
                 </AmsAddress>
                 <IndexGroup>50593824</IndexGroup>
-                <IndexOffset>-2147483491</IndexOffset>
+                <IndexOffset>-2147483489</IndexOffset>
                 <Length>2</Length>
               </AdsInfo>
             </Entry>
@@ -6814,7 +6751,7 @@
                   <AmsPort>11</AmsPort>
                 </AmsAddress>
                 <IndexGroup>50593824</IndexGroup>
-                <IndexOffset>-1073740551</IndexOffset>
+                <IndexOffset>-1073740535</IndexOffset>
                 <Length>1</Length>
               </AdsInfo>
             </Entry>
@@ -6830,7 +6767,7 @@
                   <AmsPort>11</AmsPort>
                 </AmsAddress>
                 <IndexGroup>50593824</IndexGroup>
-                <IndexOffset>-1073740550</IndexOffset>
+                <IndexOffset>-1073740534</IndexOffset>
                 <Length>1</Length>
               </AdsInfo>
             </Entry>
@@ -6866,7 +6803,7 @@
                   <AmsPort>11</AmsPort>
                 </AmsAddress>
                 <IndexGroup>50593824</IndexGroup>
-                <IndexOffset>-2147483488</IndexOffset>
+                <IndexOffset>-2147483486</IndexOffset>
                 <Length>2</Length>
               </AdsInfo>
             </Entry>
@@ -6882,7 +6819,7 @@
                   <AmsPort>11</AmsPort>
                 </AmsAddress>
                 <IndexGroup>50593824</IndexGroup>
-                <IndexOffset>-2147483486</IndexOffset>
+                <IndexOffset>-2147483484</IndexOffset>
                 <Length>4</Length>
               </AdsInfo>
             </Entry>
@@ -6915,7 +6852,7 @@
                   <AmsPort>11</AmsPort>
                 </AmsAddress>
                 <IndexGroup>50593824</IndexGroup>
-                <IndexOffset>-2130706274</IndexOffset>
+                <IndexOffset>-2130706272</IndexOffset>
                 <Length>2</Length>
               </AdsInfo>
             </Entry>
@@ -6971,7 +6908,7 @@
                   <AmsPort>11</AmsPort>
                 </AmsAddress>
                 <IndexGroup>50593824</IndexGroup>
-                <IndexOffset>-2130706272</IndexOffset>
+                <IndexOffset>-2130706270</IndexOffset>
                 <Length>4</Length>
               </AdsInfo>
             </Entry>
@@ -6987,7 +6924,7 @@
                   <AmsPort>11</AmsPort>
                 </AmsAddress>
                 <IndexGroup>50593824</IndexGroup>
-                <IndexOffset>-2130706268</IndexOffset>
+                <IndexOffset>-2130706266</IndexOffset>
                 <Length>4</Length>
               </AdsInfo>
             </Entry>
@@ -7035,7 +6972,7 @@
                   <AmsPort>11</AmsPort>
                 </AmsAddress>
                 <IndexGroup>50593824</IndexGroup>
-                <IndexOffset>-2147483482</IndexOffset>
+                <IndexOffset>-2147483480</IndexOffset>
                 <Length>4</Length>
               </AdsInfo>
             </Entry>
@@ -7163,7 +7100,7 @@
                   <AmsPort>11</AmsPort>
                 </AmsAddress>
                 <IndexGroup>50593824</IndexGroup>
-                <IndexOffset>-2147483478</IndexOffset>
+                <IndexOffset>-2147483476</IndexOffset>
                 <Length>2</Length>
               </AdsInfo>
             </Entry>
@@ -7350,7 +7287,7 @@
       <AmsPort>1035</AmsPort>
     </AmsAddress>
     <CoeDS402Channels>2</CoeDS402Channels>
-    <LinkedAxis Chn="0">TINC^NC-Task 1 SAF^Axes^Axis 7</LinkedAxis>
-    <LinkedAxis Chn="1">TINC^NC-Task 1 SAF^Axes^Axis 8</LinkedAxis>
+    <LinkedAxis Chn="0">TINC^NC-Task 1 SAF^Axes^Vertical Z1</LinkedAxis>
+    <LinkedAxis Chn="1">TINC^NC-Task 1 SAF^Axes^VERTICAL Z2</LinkedAxis>
   </EtherCAT>
 </TreeItem>

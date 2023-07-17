@@ -24,10 +24,10 @@
 		<Axis File="Axis 2.xti" Id="2"/>
 		<Axis File="Axis 3.xti" Id="3"/>
 		<Axis File="Axis 4.xti" Id="4"/>
-		<Axis File="Horizontal Translation.xti" Id="5"/>
-		<Axis File="Vertical Translation (Left Or right%_3F).xti" Id="6"/>
-		<Axis File="Vertical Translation.xti" Id="7"/>
-		<Axis File="Rotation.xti" Id="8"/>
+		<Axis File="Rotation.xti" Id="5"/>
+		<Axis File="Horizontal Translation.xti" Id="6"/>
+		<Axis File="Vertical Z1.xti" Id="7"/>
+		<Axis File="Vertical Z2.xti" Id="8"/>
 		<Axis File="Combined Vertical.xti" Id="9"/>
 	</NC>
 </TcSmItem>

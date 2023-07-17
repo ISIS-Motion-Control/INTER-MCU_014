@@ -117,7 +117,7 @@ GVL.fbGetCurTaskIndex();
 
 //Application program calls
 //Application_Template();
-
+(*
 Horizontal_Translation();
 Vertical_Translation_Left();
 Vertical_Translation_Right();
@@ -127,7 +127,7 @@ Combined_Vertical();
 
 INTER_LOGIC();
 
-]]></ST>
+*)]]></ST>
       </Implementation>
     </Action>
     <Action Name="RESTORE_POSITIONS" Id="{0c7ee537-7bd9-4833-b428-c17cbb57e893}" FolderPath="POSITION_RECOVERY\">

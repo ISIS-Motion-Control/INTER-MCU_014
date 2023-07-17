@@ -63,7 +63,7 @@
           <TcLink>
             <TcPrjPath>..\solution\solution.tsproj</TcPrjPath>
             <IoItemPathName>TIID^Device 1 (EtherCAT)^Term 70 (AX8640-0000-0103)^Drive 71 (AX8206-0210-0104)</IoItemPathName>
-            <NcItemPathName>TINC^NC-Task 1 SAF^Axes^Axis 5</NcItemPathName>
+            <NcItemPathName>TINC^NC-Task 1 SAF^Axes^ROTATION</NcItemPathName>
           </TcLink>
           <SelectedModifyOptPDOsMode>0</SelectedModifyOptPDOsMode>
           <Modulo>
@@ -698,7 +698,7 @@
           <TcLink>
             <TcPrjPath>..\solution\solution.tsproj</TcPrjPath>
             <IoItemPathName>TIID^Device 1 (EtherCAT)^Term 70 (AX8640-0000-0103)^Drive 71 (AX8206-0210-0104)</IoItemPathName>
-            <NcItemPathName>TINC^NC-Task 1 SAF^Axes^Axis 6</NcItemPathName>
+            <NcItemPathName>TINC^NC-Task 1 SAF^Axes^Horizontal Translation</NcItemPathName>
           </TcLink>
           <SelectedModifyOptPDOsMode>0</SelectedModifyOptPDOsMode>
           <Modulo>
@@ -7332,7 +7332,7 @@
       <AmsPort>1034</AmsPort>
     </AmsAddress>
     <CoeDS402Channels>2</CoeDS402Channels>
-    <LinkedAxis Chn="0">TINC^NC-Task 1 SAF^Axes^Axis 5</LinkedAxis>
-    <LinkedAxis Chn="1">TINC^NC-Task 1 SAF^Axes^Axis 6</LinkedAxis>
+    <LinkedAxis Chn="0">TINC^NC-Task 1 SAF^Axes^ROTATION</LinkedAxis>
+    <LinkedAxis Chn="1">TINC^NC-Task 1 SAF^Axes^Horizontal Translation</LinkedAxis>
   </EtherCAT>
 </TreeItem>

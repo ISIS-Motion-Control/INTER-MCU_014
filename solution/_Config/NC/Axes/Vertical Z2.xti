@@ -1406,15 +1406,15 @@ External Setpoint Generation:
 			</Relations>
 		</DataType>
 	</DataTypes>
-	<Axis Id="6" CreateSymbols="true" AxisType="1" AxisFolder="Raw AX Drives" GroupId="2">
-		<Name>Vertical Translation (Left Or right?)</Name>
+	<Axis Id="8" CreateSymbols="true" AxisType="1" AxisFolder="Raw AX Drives" GroupId="4">
+		<Name>__FILENAME__</Name>
 		<AxisPara>
-			<Dynamic Acceleration="34.773" Deceleration="34.773" Jerk="104.319"/>
-			<Velo RefSearch="0.23182" RefSync="0.23182" SlowManual="1.1591" FastManual="6.9546" Fast="23.182" Maximum="23.182"/>
+			<Dynamic Acceleration="55.5435" Deceleration="55.5435" Jerk="166.6305"/>
+			<Velo RefSearch="0.37029" RefSync="0.37029" SlowManual="1.85145" FastManual="11.1087" Fast="37.029" Maximum="37.029"/>
 			<OtherSettings AllowMotionCmdToSlave="true"/>
 		</AxisPara>
 		<Encoder Name="Enc" EncType="19">
-			<EncPara ScaleFactorNumerator="5" ScaleFactorDenominator="10485760" MaxCount="#xffffffff"/>
+			<EncPara ScaleFactorNumerator="7" ScaleFactorDenominator="7340032" MaxCount="#xffffffff"/>
 			<Vars VarGrpType="1">
 				<Name>Inputs</Name>
 				<Var>
@@ -1473,7 +1473,7 @@ External Setpoint Generation:
 		</Encoder>
 		<Drive Name="Drive" DrvType="16">
 			<DrvPara MaxCount="#xffffffff" DriveControlDWord="#x00020100">
-				<Analog VeloReferenz="25.5002" VeloScale="71.5255737304688" TorqueSetpointScale="10" ScaleFactorActTorque="0.1"/>
+				<Analog VeloReferenz="40.7319" VeloScale="71.5255737304688" TorqueSetpointScale="10" ScaleFactorActTorque="0.1"/>
 				<TimeComp TaskDelayCycles="1"/>
 			</DrvPara>
 			<Vars VarGrpType="1">
@@ -1529,7 +1529,6 @@ External Setpoint Generation:
 		</Drive>
 		<Controller Name="Ctrl" CtrType="1">
 			<CtrPara PriorControlFactor="1">
-				<PID PosKp="2"/>
 				<Observer BandWidth="20"/>
 			</CtrPara>
 		</Controller>
@@ -1550,7 +1549,7 @@ External Setpoint Generation:
 	</Axis>
 	<Mappings>
 		<OwnerA>
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 70 (AX8640-0000-0103)^Drive 71 (AX8206-0210-0104)">
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 70 (AX8640-0000-0103)^Drive 74 (AX8206-0210-0104)">
 				<Link VarA="Drive^Inputs^In^nDataIn1" VarB="Ch B^Ch B PositionControl Inputs^Ch B Following error actual value"/>
 				<Link VarA="Drive^Inputs^In^nDataIn3[0]" VarB="Ch B^Ch B TorqueControl Inputs^Ch B Torque/force actual value"/>
 				<Link VarA="Drive^Inputs^In^nDcOutputTime" VarB="InfoData^DcOutputShift"/>
