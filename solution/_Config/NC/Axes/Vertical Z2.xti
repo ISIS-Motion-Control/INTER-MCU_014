@@ -1410,11 +1410,13 @@ External Setpoint Generation:
 		<Name>__FILENAME__</Name>
 		<AxisPara>
 			<Dynamic Acceleration="55.5435" Deceleration="55.5435" Jerk="166.6305"/>
-			<Velo RefSearch="0.37029" RefSync="0.37029" SlowManual="1.85145" FastManual="11.1087" Fast="37.029" Maximum="37.029"/>
+			<Velo RefSearch="0.37029" RefSync="0.37029" SlowManual="0.5" FastManual="11.1087" Fast="37.029" Maximum="37.029"/>
 			<OtherSettings AllowMotionCmdToSlave="true"/>
 		</AxisPara>
 		<Encoder Name="Enc" EncType="19">
-			<EncPara ScaleFactorNumerator="7" ScaleFactorDenominator="7340032" MaxCount="#xffffffff"/>
+			<EncPara ScaleFactorNumerator="0.001" ScaleFactorDenominator="1000" MaxCount="#xffffffff">
+				<Inc RefSoftSyncMask="#x000f423f"/>
+			</EncPara>
 			<Vars VarGrpType="1">
 				<Name>Inputs</Name>
 				<Var>

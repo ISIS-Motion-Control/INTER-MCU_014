@@ -1,11 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
-  <POU Name="Vertical_Translation_Right" Id="{a65cebc1-4639-406e-a269-5da0d9aebcb0}" SpecialFunc="None">
-    <Declaration><![CDATA[PROGRAM Vertical_Translation_Right
+  <POU Name="Vertical_Translation_Z1" Id="{a65cebc1-4639-406e-a269-5da0d9aebcb0}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM Vertical_Translation_Z1
 VAR
 //Outputs: Power for Limit switches, Home Sensors, etc.
     //bPowerSwitchesAxis1 AT %Q*: BOOL:= TRUE;
-
+    bFwdLimitPower AT %Q* : BOOL := TRUE;
+    bBwdLimitPower AT %Q* : BOOL := TRUE;
 //Hardware interlocks
     //bInterlockFwdOK AT %I*: BOOL;
 END_VAR
@@ -20,6 +21,7 @@ END_VAR
     GVL.astAxes[1].stConfig.eRestorePosition := E_RestorePosition.eRestoreWithoutHome;
 END_IF*)
 
+astAxes[AXIS_VERTICAL_TRANSLATION_Z2].stControl.bEnable := TRUE;
 //Define ACTIONS() or write exclusive code for an specific axis.
 (*Eg. Stop when temperature reaches certain values, reduce speed if  a signal is activated, etc.
 Eg. GVL.astAxes[x].stControl.bInterlockFwd := NOT bInterlockFwdOK;*)

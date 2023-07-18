@@ -33,7 +33,7 @@ VerticalAxesCalibrated := CheckVerticalCalibration();
 IF GVL_INTER.RUN_COUPLED_VERTICAL THEN
         
     //Enable linking
-    IF astAxes[Vertical_Translation_Left].stStatus.bEnabled AND astAxes[Vertical_Translation_Right].stStatus.bEnabled THEN
+    IF astAxes[Vertical_Translation_Z2].stStatus.bEnabled AND astAxes[Vertical_Translation_Z1].stStatus.bEnabled THEN
         //Only enable virtual axis if both RAW axes are homed/calibrated
         IF VerticalAxesCalibrated THEN
             astAxes[Combined_Vertical].stControl.bEnable := TRUE;
@@ -41,9 +41,9 @@ IF GVL_INTER.RUN_COUPLED_VERTICAL THEN
 	END_IF
     
     //Fwd limit linking
-    astAxes[Combined_Vertical].stInputs.bLimitFwd := (astAxes[Vertical_Translation_Left].stInputs.bLimitFwd AND astAxes[Vertical_Translation_Right].stInputs.bLimitFwd);
+    astAxes[Combined_Vertical].stInputs.bLimitFwd := (astAxes[Vertical_Translation_Z2].stInputs.bLimitFwd AND astAxes[Vertical_Translation_Z1].stInputs.bLimitFwd);
     //Bwd limit linking
-    astAxes[Combined_Vertical].stInputs.bLimitBwd := (astAxes[Vertical_Translation_Left].stInputs.bLimitBwd AND astAxes[Vertical_Translation_Right].stInputs.bLimitBwd);
+    astAxes[Combined_Vertical].stInputs.bLimitBwd := (astAxes[Vertical_Translation_Z2].stInputs.bLimitBwd AND astAxes[Vertical_Translation_Z1].stInputs.bLimitBwd);
     
     
     
@@ -86,7 +86,7 @@ VAR_INPUT
 END_VAR
 ]]></Declaration>
       <Implementation>
-        <ST><![CDATA[CheckVerticalCalibration := astAxes[Vertical_Translation_Left].Axis.Status.Homed AND astAxes[Vertical_Translation_Right].Axis.Status.Homed;]]></ST>
+        <ST><![CDATA[CheckVerticalCalibration := astAxes[Vertical_Translation_Z2].Axis.Status.Homed AND astAxes[Vertical_Translation_Z1].Axis.Status.Homed;]]></ST>
       </Implementation>
     </Method>
     <Method Name="DisableAxes" Id="{445cd5b3-7fd2-4adb-8098-44aeb3439028}">

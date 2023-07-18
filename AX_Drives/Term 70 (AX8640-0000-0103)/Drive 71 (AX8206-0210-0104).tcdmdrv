@@ -662,7 +662,7 @@
               </Parameter>
               <Parameter>
                 <PropertyName>MaxApplicationTorqueForce</PropertyName>
-                <Value>2.05578</Value>
+                <Value>5.02524</Value>
               </Parameter>
               <Parameter>
                 <PropertyName>MaxApplicationSpeed</PropertyName>
@@ -1456,7 +1456,7 @@
               </Parameter>
               <Parameter>
                 <PropertyName>MaxApplicationTorqueForce</PropertyName>
-                <Value>28.275</Value>
+                <Value>39.98085</Value>
               </Parameter>
               <Parameter>
                 <PropertyName>MaxApplicationSpeed</PropertyName>
@@ -4278,21 +4278,12 @@
             </InitCmd>
             <InitCmd>
               <Transition>PS</Transition>
-              <Comment><![CDATA[Ch B AxisMain parameters position offset / Offset position actual value source]]></Comment>
-              <Timeout>0</Timeout>
-              <Ccs>1</Ccs>
-              <Index>13319</Index>
-              <SubIndex>2</SubIndex>
-              <Data>0200</Data>
-            </InitCmd>
-            <InitCmd>
-              <Transition>PS</Transition>
               <Comment><![CDATA[Ch A Bipolar torque/force limit value]]></Comment>
               <Timeout>0</Timeout>
               <Ccs>1</Ccs>
               <Index>24690</Index>
               <SubIndex>0</SubIndex>
-              <Data>b400</Data>
+              <Data>b801</Data>
             </InitCmd>
             <InitCmd>
               <Transition>PS</Transition>
@@ -4431,15 +4422,6 @@
             </InitCmd>
             <InitCmd>
               <Transition>PS</Transition>
-              <Comment><![CDATA[Ch B Feed constant / Feed]]></Comment>
-              <Timeout>0</Timeout>
-              <Ccs>1</Ccs>
-              <Index>26770</Index>
-              <SubIndex>1</SubIndex>
-              <Data>e8030000</Data>
-            </InitCmd>
-            <InitCmd>
-              <Transition>PS</Transition>
               <Comment><![CDATA[Ch B Additional feed constant feed / SubIndex 001]]></Comment>
               <Timeout>0</Timeout>
               <Ccs>1</Ccs>
@@ -4482,6 +4464,24 @@
               <Index>13317</Index>
               <SubIndex>6</SubIndex>
               <Data>036a0000</Data>
+            </InitCmd>
+            <InitCmd>
+              <Transition>PS</Transition>
+              <Comment><![CDATA[Ch B Bipolar torque/force limit value]]></Comment>
+              <Timeout>0</Timeout>
+              <Ccs>1</Ccs>
+              <Index>26738</Index>
+              <SubIndex>0</SubIndex>
+              <Data>9e1b</Data>
+            </InitCmd>
+            <InitCmd>
+              <Transition>PS</Transition>
+              <Comment><![CDATA[Ch B Feed constant / Feed]]></Comment>
+              <Timeout>0</Timeout>
+              <Ccs>1</Ccs>
+              <Index>26770</Index>
+              <SubIndex>1</SubIndex>
+              <Data>e8030000</Data>
             </InitCmd>
             <InitCmd>
               <Transition>PS</Transition>
