@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Refactors>
+  <Renames>
+    <RenamedSymbol>
+      <Type guid="7e200d6d-9582-4793-a72f-19347bc4f265">AXIS_NAMES</Type>
+      <From>AXIS_VERTICAL_TRANSLATION_Z1</From>
+      <To>AXIS_VERTICAL_TRANSLATION_Y1</To>
+    </RenamedSymbol>
+    <RenamedSymbol>
+      <Type guid="7e200d6d-9582-4793-a72f-19347bc4f265">AXIS_NAMES</Type>
+      <From>AXIS_VERTICAL_TRANSLATION_Z2</From>
+      <To>AXIS_VERTICAL_TRANSLATION_Y2</To>
+    </RenamedSymbol>
+    <RenamedType>
+      <Type guid="a65cebc1-4639-406e-a269-5da0d9aebcb0">VERTICAL_TRANSLATION_Z1</Type>
+      <From>Vertical_Translation_Z1</From>
+      <To>Vertical_Translation_Y1</To>
+    </RenamedType>
+    <RenamedType>
+      <Type guid="3b7b9996-05d4-43b8-8768-65e5883d1014">VERTICAL_TRANSLATION_Z2</Type>
+      <From>Vertical_Translation_Z2</From>
+      <To>Vertical_Translation_Y2</To>
+    </RenamedType>
+  </Renames>
+</Refactors>

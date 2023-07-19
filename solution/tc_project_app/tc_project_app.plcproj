@@ -59,10 +59,10 @@
     <Compile Include="POUs\Application_Specific\Axes\Horizontal_Translation.TcPOU">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="POUs\Application_Specific\Axes\Vertical_Translation_Z2.TcPOU">
+    <Compile Include="POUs\Application_Specific\Axes\Vertical_Translation_Y2.TcPOU">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="POUs\Application_Specific\Axes\Vertical_Translation_Z1.TcPOU">
+    <Compile Include="POUs\Application_Specific\Axes\Vertical_Translation_Y1.TcPOU">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="POUs\Application_Specific\Axes\Rotation.TcPOU">

@@ -119,8 +119,8 @@ GVL.fbGetCurTaskIndex();
 //Application_Template();
 
 Horizontal_Translation();
-Vertical_Translation_Z2();
-Vertical_Translation_Z1();
+Vertical_Translation_Y2();
+Vertical_Translation_Y1();
 Rotation();
 
 Combined_Vertical();

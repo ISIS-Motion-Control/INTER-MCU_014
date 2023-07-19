@@ -20,14 +20,39 @@
 		<AxisFolder Name="Raw AX Drives"/>
 		<AxisFolder Name="Encoder Only"/>
 		<AxisFolder Name="Combined Motion"/>
+		<AxisFolder Name="Calibration Constants"/>
+		<AxisFolder Name="Control Inputs"/>
+		<AxisFolder Name="Offsets"/>
+		<AxisFolder Name="Sample Offsets"/>
 		<Axis File="Axis 1.xti" Id="1"/>
 		<Axis File="Axis 2.xti" Id="2"/>
 		<Axis File="Axis 3.xti" Id="3"/>
 		<Axis File="Axis 4.xti" Id="4"/>
 		<Axis File="Rotation.xti" Id="5"/>
-		<Axis File="Horizontal Translation.xti" Id="6"/>
-		<Axis File="Vertical Z1.xti" Id="7"/>
-		<Axis File="Vertical Z2.xti" Id="8"/>
+		<Axis File="Horizontal Z Translation.xti" Id="6"/>
+		<Axis File="Vertical Y1.xti" Id="7"/>
+		<Axis File="Vertical Y2.xti" Id="8"/>
+		<Axis File="Detector Tank Internal Offset Angle.xti" Id="14"/>
+		<Axis File="Delta.xti" Id="17"/>
+		<Axis File="Tau.xti" Id="18"/>
 		<Axis File="Combined Vertical.xti" Id="9"/>
+		<Axis File="Rotation Virtual.xti" Id="23"/>
+		<Axis File="Horizontal Virtual.xti" Id="30"/>
+		<Axis File="Combined Vertical Virtual.xti" Id="27"/>
+		<Axis File="Detector Radius External.xti" Id="10"/>
+		<Axis File="Detector Radius Internal.xti" Id="11"/>
+		<Axis File="Detector Tank Length.xti" Id="15"/>
+		<Axis File="Detector Tank Pivot To Window.xti" Id="16"/>
+		<Axis File="Rotation Calibration.xti" Id="22"/>
+		<Axis File="Combined Vertical Calibration.xti" Id="25"/>
+		<Axis File="Horizontal Calibration.xti" Id="28"/>
+		<Axis File="Detector Offset Angled.xti" Id="12"/>
+		<Axis File="Detector Offset Parallel.xti" Id="13"/>
+		<Axis File="Detector Radius.xti" Id="19"/>
+		<Axis File="Measurement Angle.xti" Id="20"/>
+		<Axis File="Measurement Angle Offset.xti" Id="21"/>
+		<Axis File="Rotation Sample.xti" Id="24"/>
+		<Axis File="Combined Vertical Sample.xti" Id="26"/>
+		<Axis File="Horizontal Sample.xti" Id="29"/>
 	</NC>
 </TcSmItem>

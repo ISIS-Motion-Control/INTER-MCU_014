@@ -19,8 +19,8 @@ END_VAR
     GVL.astAxes[1].stConfig.fHomeFinishDistance := 0.0;
     GVL.astAxes[1].stConfig.eRestorePosition := E_RestorePosition.eRestoreWithoutHome;
 END_IF*)
-astAxes[AXIS_COMBINED_VERTICAL].stInputs.bLimitFwd := astAxes[AXIS_VERTICAL_TRANSLATION_Z1].stInputs.bLimitFwd AND astAxes[AXIS_VERTICAL_TRANSLATION_Z2].stInputs.bLimitFwd;
-astAxes[AXIS_COMBINED_VERTICAL].stInputs.bLimitBwd := astAxes[AXIS_VERTICAL_TRANSLATION_Z1].stInputs.bLimitBwd AND astAxes[AXIS_VERTICAL_TRANSLATION_Z2].stInputs.bLimitBwd;
+astAxes[AXIS_COMBINED_VERTICAL].stInputs.bLimitFwd := astAxes[AXIS_VERTICAL_TRANSLATION_Y1].stInputs.bLimitFwd AND astAxes[AXIS_VERTICAL_TRANSLATION_Y2].stInputs.bLimitFwd;
+astAxes[AXIS_COMBINED_VERTICAL].stInputs.bLimitBwd := astAxes[AXIS_VERTICAL_TRANSLATION_Y1].stInputs.bLimitBwd AND astAxes[AXIS_VERTICAL_TRANSLATION_Y2].stInputs.bLimitBwd;
 
 //Define ACTIONS() or write exclusive code for an specific axis.
 (*Eg. Stop when temperature reaches certain values, reduce speed if  a signal is activated, etc.

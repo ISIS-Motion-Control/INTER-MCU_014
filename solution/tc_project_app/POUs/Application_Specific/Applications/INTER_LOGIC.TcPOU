@@ -77,7 +77,7 @@ And what happens when something falls over
 IF GVL_INTER.RUN_COUPLED_VERTICAL THEN
     ////////////// RUN ALL THE TIME ///////////////////////////////////////        
     //Enable linking
-    IF astAxes[AXIS_VERTICAL_TRANSLATION_Z2].stStatus.bEnabled AND astAxes[AXIS_VERTICAL_TRANSLATION_Z1].stStatus.bEnabled THEN
+    IF astAxes[AXIS_VERTICAL_TRANSLATION_Y2].stStatus.bEnabled AND astAxes[AXIS_VERTICAL_TRANSLATION_Y1].stStatus.bEnabled THEN
         //Only enable virtual axis if both RAW axes are homed/calibrated
         IF VerticalAxesCalibrated AND  VerticalAxesSpgEnabled THEN
             astAxes[AXIS_COMBINED_VERTICAL].stControl.bEnable := TRUE;
@@ -87,22 +87,22 @@ IF GVL_INTER.RUN_COUPLED_VERTICAL THEN
 	END_IF
     
     //Fwd limit linking
-    astAxes[AXIS_COMBINED_VERTICAL].stInputs.bLimitFwd := (astAxes[AXIS_VERTICAL_TRANSLATION_Z2].stInputs.bLimitFwd AND astAxes[AXIS_VERTICAL_TRANSLATION_Z1].stInputs.bLimitFwd);
+    astAxes[AXIS_COMBINED_VERTICAL].stInputs.bLimitFwd := (astAxes[AXIS_VERTICAL_TRANSLATION_Y2].stInputs.bLimitFwd AND astAxes[AXIS_VERTICAL_TRANSLATION_Y1].stInputs.bLimitFwd);
     //Bwd limit linking
-    astAxes[AXIS_COMBINED_VERTICAL].stInputs.bLimitBwd := (astAxes[AXIS_VERTICAL_TRANSLATION_Z2].stInputs.bLimitBwd AND astAxes[AXIS_VERTICAL_TRANSLATION_Z1].stInputs.bLimitBwd);
+    astAxes[AXIS_COMBINED_VERTICAL].stInputs.bLimitBwd := (astAxes[AXIS_VERTICAL_TRANSLATION_Y2].stInputs.bLimitBwd AND astAxes[AXIS_VERTICAL_TRANSLATION_Y1].stInputs.bLimitBwd);
     
-    fVerticalSimulatedDeviation := astAxes[AXIS_COMBINED_VERTICAL].stStatus.fActPosition - astAxes[AXIS_VERTICAL_TRANSLATION_Z1].stStatus.fActPosition;
+    fVerticalSimulatedDeviation := astAxes[AXIS_COMBINED_VERTICAL].stStatus.fActPosition - astAxes[AXIS_VERTICAL_TRANSLATION_Y1].stStatus.fActPosition;
     
     confirmSpgTimeout(PT:=T#1S);
     /////////////////////////////////////////////////////////////////////
     
-    IF astAxes[AXIS_VERTICAL_TRANSLATION_Z1].stStatus.bError AND astAxes[AXIS_VERTICAL_TRANSLATION_Z2].stStatus.bError THEN
+    IF astAxes[AXIS_VERTICAL_TRANSLATION_Y1].stStatus.bError AND astAxes[AXIS_VERTICAL_TRANSLATION_Y2].stStatus.bError THEN
         eStateVertical:= eState_Vertical.init;
 	END_IF
     
     CASE eStateVertical OF
         eState_Vertical.init:
-            IF NOT astAxes[AXIS_VERTICAL_TRANSLATION_Z1].stStatus.bError AND NOT astAxes[AXIS_VERTICAL_TRANSLATION_Z2].stStatus.bError THEN
+            IF NOT astAxes[AXIS_VERTICAL_TRANSLATION_Y1].stStatus.bError AND NOT astAxes[AXIS_VERTICAL_TRANSLATION_Y2].stStatus.bError THEN
                 IF NOT decoupleVerticalMotion THEN
                     eStateVertical := eState_Vertical.checkPosition;
                 END_IF
@@ -117,7 +117,7 @@ IF GVL_INTER.RUN_COUPLED_VERTICAL THEN
 			END_IF
             
         eState_Vertical.setPosition:
-            combinedVerticalSetPos.Position:= astAxes[AXIS_VERTICAL_TRANSLATION_Z1].stStatus.fActPosition;
+            combinedVerticalSetPos.Position:= astAxes[AXIS_VERTICAL_TRANSLATION_Y1].stStatus.fActPosition;
             combinedVerticalSetPos.Execute:= TRUE;
             eStateVertical := eState_Vertical.checkPosition;
             
@@ -127,8 +127,8 @@ IF GVL_INTER.RUN_COUPLED_VERTICAL THEN
                 verticalZ2SpgEnable.Execute := TRUE;
                 eStateVertical := eState_Vertical.confirmEnableSpg;
             ELSE
-                tempZ1Power(Axis:= astAxes[AXIS_VERTICAL_TRANSLATION_Z1].Axis, Enable:= TRUE, Enable_Negative:=TRUE, Enable_Positive:=TRUE);
-			    tempZ2Power(Axis:= astAxes[AXIS_VERTICAL_TRANSLATION_Z2].Axis, Enable:= TRUE, Enable_Negative:=TRUE, Enable_Positive:=TRUE);
+                tempZ1Power(Axis:= astAxes[AXIS_VERTICAL_TRANSLATION_Y1].Axis, Enable:= TRUE, Enable_Negative:=TRUE, Enable_Positive:=TRUE);
+			    tempZ2Power(Axis:= astAxes[AXIS_VERTICAL_TRANSLATION_Y2].Axis, Enable:= TRUE, Enable_Negative:=TRUE, Enable_Positive:=TRUE);
                 verticalZ1SpgEnable.Execute := TRUE;
                 verticalZ2SpgEnable.Execute := TRUE;
                 eStateVertical := eState_Vertical.confirmEnableSpg;
@@ -161,7 +161,7 @@ IF GVL_INTER.RUN_COUPLED_VERTICAL THEN
             eStateVertical := eState_Vertical.confirmDisableSpg;
             
         eState_Vertical.confirmDisableSpg:
-            IF NOT astAxes[AXIS_VERTICAL_TRANSLATION_Z1].Axis.Status.ExtSetPointGenEnabled AND NOT astAxes[AXIS_VERTICAL_TRANSLATION_Z2].Axis.Status.ExtSetPointGenEnabled THEN
+            IF NOT astAxes[AXIS_VERTICAL_TRANSLATION_Y1].Axis.Status.ExtSetPointGenEnabled AND NOT astAxes[AXIS_VERTICAL_TRANSLATION_Y2].Axis.Status.ExtSetPointGenEnabled THEN
                 eStateVertical := eState_Vertical.init;
             ELSE
                 eStateVertical := eState_Vertical.disableSpg;
@@ -173,21 +173,21 @@ IF GVL_INTER.RUN_COUPLED_VERTICAL THEN
     
 END_IF
 
-verticalZ1SpgEnable(Axis:=astAxes[AXIS_VERTICAL_TRANSLATION_Z1].Axis);
+verticalZ1SpgEnable(Axis:=astAxes[AXIS_VERTICAL_TRANSLATION_Y1].Axis);
 verticalZ1SpgEnable.Execute:= FALSE;
-verticalZ1SpgDisable(Axis:=astAxes[AXIS_VERTICAL_TRANSLATION_Z1].Axis);
+verticalZ1SpgDisable(Axis:=astAxes[AXIS_VERTICAL_TRANSLATION_Y1].Axis);
 verticalZ1SpgDisable.Execute:= FALSE;
-verticalZ2SpgEnable(Axis:=astAxes[AXIS_VERTICAL_TRANSLATION_Z2].Axis);
+verticalZ2SpgEnable(Axis:=astAxes[AXIS_VERTICAL_TRANSLATION_Y2].Axis);
 verticalZ2SpgEnable.Execute:= FALSE;
-verticalZ2SpgDisable(Axis:=astAxes[AXIS_VERTICAL_TRANSLATION_Z2].Axis);
+verticalZ2SpgDisable(Axis:=astAxes[AXIS_VERTICAL_TRANSLATION_Y2].Axis);
 verticalZ2SpgDisable.Execute:= FALSE;
 
 combinedVerticalSetPos(Axis:= astAxes[AXIS_COMBINED_VERTICAL].Axis);
 combinedVerticalSetPos.Execute:= FALSE;
 
-IF(astAxes[AXIS_COMBINED_VERTICAL].Axis.Status.PositiveDirection) THEN
+IF(astAxes[AXIS_COMBINED_VERTICAL].Axis.NcToPlc.ActVelo>0) THEN
     combinedVerticalDirection := 1;
-ELSIF (astAxes[AXIS_COMBINED_VERTICAL].Axis.Status.NegativeDirection) THEN
+ELSIF (astAxes[AXIS_COMBINED_VERTICAL].Axis.NcToPlc.ActVelo<0) THEN
     combinedVerticalDirection := -1;
 ELSE 
     combinedVerticalDirection := 0;
@@ -205,12 +205,12 @@ END_IF
       <Implementation>
         <ST><![CDATA[
 //Z1 position check
-IF astAxes[AXIS_COMBINED_VERTICAL].Axis.NcToPlc.SetPos < astAxes[AXIS_VERTICAL_TRANSLATION_Z1].stStatus.fActPosition AND NOT astAxes[AXIS_VERTICAL_TRANSLATION_Z1].stInputs.bLimitBwd THEN
-    fZ1SetPos := astAxes[AXIS_VERTICAL_TRANSLATION_Z1].stStatus.fActPosition; // DON'T MOVE
+IF astAxes[AXIS_COMBINED_VERTICAL].Axis.NcToPlc.SetPos < astAxes[AXIS_VERTICAL_TRANSLATION_Y1].stStatus.fActPosition AND NOT astAxes[AXIS_VERTICAL_TRANSLATION_Y1].stInputs.bLimitBwd THEN
+    fZ1SetPos := astAxes[AXIS_VERTICAL_TRANSLATION_Y1].Axis.NcToPlc.ActPos; // DON'T MOVE
     fZ1SetVelo :=0;
     fZ1SetDir := 0;
-ELSIF astAxes[AXIS_COMBINED_VERTICAL].Axis.NcToPlc.SetPos > astAxes[AXIS_VERTICAL_TRANSLATION_Z1].stStatus.fActPosition AND NOT astAxes[AXIS_VERTICAL_TRANSLATION_Z1].stInputs.bLimitFwd THEN
-    fZ1SetPos := astAxes[AXIS_VERTICAL_TRANSLATION_Z1].stStatus.fActPosition; // DON'T MOVE
+ELSIF astAxes[AXIS_COMBINED_VERTICAL].Axis.NcToPlc.SetPos > astAxes[AXIS_VERTICAL_TRANSLATION_Y1].stStatus.fActPosition AND NOT astAxes[AXIS_VERTICAL_TRANSLATION_Y1].stInputs.bLimitFwd THEN
+    fZ1SetPos := astAxes[AXIS_VERTICAL_TRANSLATION_Y1].Axis.NcToPlc.ActPos; // DON'T MOVE
     fZ1SetVelo :=0;
     fZ1SetDir := 0;
 ELSE
@@ -220,12 +220,12 @@ ELSE
 END_IF
 
 //Z2 position check
-IF astAxes[AXIS_COMBINED_VERTICAL].Axis.NcToPlc.SetPos < astAxes[AXIS_VERTICAL_TRANSLATION_Z2].stStatus.fActPosition AND NOT astAxes[AXIS_VERTICAL_TRANSLATION_Z2].stInputs.bLimitBwd THEN
-    fZ2SetPos := astAxes[AXIS_VERTICAL_TRANSLATION_Z1].stStatus.fActPosition; // DON'T MOVE
+IF astAxes[AXIS_COMBINED_VERTICAL].Axis.NcToPlc.SetPos < astAxes[AXIS_VERTICAL_TRANSLATION_Y2].stStatus.fActPosition AND NOT astAxes[AXIS_VERTICAL_TRANSLATION_Y2].stInputs.bLimitBwd THEN
+    fZ2SetPos := astAxes[AXIS_VERTICAL_TRANSLATION_Y2].Axis.NcToPlc.ActPos; // DON'T MOVE
     fZ2SetVelo :=0;
     fZ2SetDir := 0;
-ELSIF astAxes[AXIS_COMBINED_VERTICAL].Axis.NcToPlc.SetPos > astAxes[AXIS_VERTICAL_TRANSLATION_Z2].stStatus.fActPosition AND NOT astAxes[AXIS_VERTICAL_TRANSLATION_Z2].stInputs.bLimitFwd THEN
-    fZ2SetPos := astAxes[AXIS_VERTICAL_TRANSLATION_Z1].stStatus.fActPosition; // DON'T MOVE
+ELSIF astAxes[AXIS_COMBINED_VERTICAL].Axis.NcToPlc.SetPos > astAxes[AXIS_VERTICAL_TRANSLATION_Y2].stStatus.fActPosition AND NOT astAxes[AXIS_VERTICAL_TRANSLATION_Y2].stInputs.bLimitFwd THEN
+    fZ2SetPos := astAxes[AXIS_VERTICAL_TRANSLATION_Y2].Axis.NcToPlc.ActPos; // DON'T MOVE
     fZ2SetVelo :=0;
     fZ2SetDir := 0;
 ELSE
@@ -234,8 +234,8 @@ ELSE
     fZ2SetDir := combinedVerticalDirection;
 END_IF
 
-MC_ExtSetPointGenFeed(Axis:=astAxes[AXIS_VERTICAL_TRANSLATION_Z1].Axis, Position:= fZ1SetPos, Velocity:= fZ1SetVelo, Acceleration:= 0, Direction:= fZ1SetDir);
-MC_ExtSetPointGenFeed(Axis:=astAxes[AXIS_VERTICAL_TRANSLATION_Z2].Axis, Position:= fZ2SetPos, Velocity:= fZ2SetVelo, Acceleration:= 0, Direction:= fZ2SetDir);
+MC_ExtSetPointGenFeed(Axis:=astAxes[AXIS_VERTICAL_TRANSLATION_Y1].Axis, Position:= fZ1SetPos, Velocity:= fZ1SetVelo, Acceleration:= 0, Direction:= fZ1SetDir);
+MC_ExtSetPointGenFeed(Axis:=astAxes[AXIS_VERTICAL_TRANSLATION_Y2].Axis, Position:= fZ2SetPos, Velocity:= fZ2SetVelo, Acceleration:= 0, Direction:= fZ2SetDir);
 ]]></ST>
       </Implementation>
     </Action>
@@ -263,7 +263,7 @@ VAR_INPUT
 END_VAR
 ]]></Declaration>
       <Implementation>
-        <ST><![CDATA[CheckVerticalCalibration := astAxes[AXIS_VERTICAL_TRANSLATION_Z2].Axis.Status.Homed AND astAxes[AXIS_VERTICAL_TRANSLATION_Z1].Axis.Status.Homed;]]></ST>
+        <ST><![CDATA[CheckVerticalCalibration := astAxes[AXIS_VERTICAL_TRANSLATION_Y2].Axis.Status.Homed AND astAxes[AXIS_VERTICAL_TRANSLATION_Y1].Axis.Status.Homed;]]></ST>
       </Implementation>
     </Method>
     <Method Name="CheckZSpgStatus" Id="{be3f907d-6383-4f00-95cd-2d71447606c2}">
@@ -273,7 +273,7 @@ VAR
 END_VAR
 ]]></Declaration>
       <Implementation>
-        <ST><![CDATA[SpgSet := astAxes[AXIS_VERTICAL_TRANSLATION_Z1].Axis.Status.ExtSetPointGenEnabled AND astAxes[AXIS_VERTICAL_TRANSLATION_Z2].Axis.Status.ExtSetPointGenEnabled;
+        <ST><![CDATA[SpgSet := astAxes[AXIS_VERTICAL_TRANSLATION_Y1].Axis.Status.ExtSetPointGenEnabled AND astAxes[AXIS_VERTICAL_TRANSLATION_Y2].Axis.Status.ExtSetPointGenEnabled;
 CheckZSpgStatus := SpgSet;]]></ST>
       </Implementation>
     </Method>
@@ -284,8 +284,8 @@ END_VAR
 ]]></Declaration>
       <Implementation>
         <ST><![CDATA[astAxes[AXIS_HORIZONTAL_TRANSLATION].stControl.bEnable :=FALSE;
-astAxes[AXIS_VERTICAL_TRANSLATION_Z2].stControl.bEnable :=FALSE;
-astAxes[AXIS_VERTICAL_TRANSLATION_Z1].stControl.bEnable :=FALSE;
+astAxes[AXIS_VERTICAL_TRANSLATION_Y2].stControl.bEnable :=FALSE;
+astAxes[AXIS_VERTICAL_TRANSLATION_Y1].stControl.bEnable :=FALSE;
 astAxes[AXIS_ROTATION].stControl.bEnable :=FALSE;
 GVL_INTER.DISABLE_ALL_AXES := FALSE;
 ]]></ST>
@@ -298,8 +298,8 @@ END_VAR
 ]]></Declaration>
       <Implementation>
         <ST><![CDATA[astAxes[AXIS_HORIZONTAL_TRANSLATION].stControl.bEnable :=TRUE;
-astAxes[AXIS_VERTICAL_TRANSLATION_Z2].stControl.bEnable :=TRUE;
-astAxes[AXIS_VERTICAL_TRANSLATION_Z1].stControl.bEnable :=TRUE;
+astAxes[AXIS_VERTICAL_TRANSLATION_Y2].stControl.bEnable :=TRUE;
+astAxes[AXIS_VERTICAL_TRANSLATION_Y1].stControl.bEnable :=TRUE;
 astAxes[AXIS_ROTATION].stControl.bEnable :=TRUE;
 GVL_INTER.ENABLE_ALL_AXES := FALSE;
 ]]></ST>

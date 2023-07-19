@@ -1408,6 +1408,7 @@ External Setpoint Generation:
 	</DataTypes>
 	<Axis Id="7" CreateSymbols="true" AxisType="1" AxisFolder="Raw AX Drives" GroupId="3">
 		<Name>__FILENAME__</Name>
+		<Comment><![CDATA[ACTUALLY Y?]]></Comment>
 		<AxisPara>
 			<Dynamic Acceleration="55.5435" Deceleration="200" Jerk="400"/>
 			<Velo RefSearch="0.37029" RefSync="0.37029" SlowManual="1.85145" FastManual="11.1087" Fast="37.029" Maximum="37.029"/>
