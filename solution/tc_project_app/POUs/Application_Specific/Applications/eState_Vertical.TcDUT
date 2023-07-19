@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
+  <DUT Name="eState_Vertical" Id="{1fdeffad-8678-440d-bae5-75dbad51c410}">
+    <Declaration><![CDATA[{attribute 'qualified_only'}
+{attribute 'strict'}
+TYPE eState_Vertical :
+(
+	init := 0,
+    checkPosition := 1,
+    setPosition := 2,
+    enableSpg := 3,
+    confirmEnableSpg := 4,
+    disableSpg := 5,
+    confirmDisableSpg :=6,
+    operation :=7
+    
+);
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

@@ -7,7 +7,7 @@
 				<IoIdleTask Priority="6"/>
 			</Settings>
 			<Tasks>
-				<Task Id="4" Priority="10" CycleTime="100000" AmsPort="351" AdtTasks="true">
+				<Task Id="4" Priority="10" CycleTime="20000" AmsPort="351" AdtTasks="true">
 					<Name>PlcTask</Name>
 				</Task>
 			</Tasks>

@@ -1409,13 +1409,13 @@ External Setpoint Generation:
 	<Axis Id="9" CreateSymbols="true" AxisType="1" AxisFolder="Combined Motion" GroupId="5">
 		<Name>__FILENAME__</Name>
 		<AxisPara>
-			<Dynamic Acceleration="34.773" Deceleration="34.773" Jerk="104.319"/>
-			<Velo RefSearch="0.23182" RefSync="0.23182" SlowManual="1.1591" FastManual="6.9546" Fast="23.182" Maximum="23.182"/>
+			<Dynamic Acceleration="55.5435" Deceleration="200" Jerk="400"/>
+			<Velo RefSearch="0.37029" RefSync="0.37029" SlowManual="1.85145" FastManual="11.1087" Fast="37.029" Maximum="37.029"/>
 			<OtherSettings AllowMotionCmdToSlave="true"/>
 		</AxisPara>
 		<Encoder Name="Enc" EncType="1">
-			<EncPara ScaleFactorNumerator="5" ScaleFactorDenominator="10485760">
-				<ParameterChanged>25</ParameterChanged>
+			<EncPara ScaleFactorNumerator="0.001" ScaleFactorDenominator="1000" Offset="300" Inverse="true" ReferenceSystem="1">
+				<ParameterChanged>7</ParameterChanged>
 			</EncPara>
 			<Vars VarGrpType="1">
 				<Name>Inputs</Name>
@@ -1474,8 +1474,8 @@ External Setpoint Generation:
 			</Vars>
 		</Encoder>
 		<Drive Name="Drive" DrvType="5">
-			<DrvPara>
-				<Analog VeloReferenz="25.5002" TorqueSetpointScale="10" ScaleFactorActTorque="0.1"/>
+			<DrvPara Inverse="true">
+				<Analog VeloReferenz="40.7319" TorqueSetpointScale="10" ScaleFactorActTorque="0.1"/>
 				<TimeComp TaskDelayCycles="1"/>
 			</DrvPara>
 			<Vars VarGrpType="1">
@@ -1547,7 +1547,6 @@ External Setpoint Generation:
 		</Drive>
 		<Controller Name="Ctrl" CtrType="1">
 			<CtrPara PriorControlFactor="1">
-				<PID PosKp="2"/>
 				<Observer BandWidth="20"/>
 			</CtrPara>
 		</Controller>

@@ -5,7 +5,9 @@
 VAR
 //Outputs: Power for Limit switches, Home Sensors, etc.
     //bPowerSwitchesAxis1 AT %Q*: BOOL:= TRUE;
-
+    bFwdLimitPower AT %Q* : BOOL := TRUE;
+    bBwdLimitPower AT %Q* : BOOL := TRUE;
+    bEnable : BOOL := TRUE;
 //Hardware interlocks
     //bInterlockFwdOK AT %I*: BOOL;
 END_VAR
@@ -19,7 +21,7 @@ END_VAR
     GVL.astAxes[1].stConfig.fHomeFinishDistance := 0.0;
     GVL.astAxes[1].stConfig.eRestorePosition := E_RestorePosition.eRestoreWithoutHome;
 END_IF*)
-
+astAxes[AXIS_ROTATION].stControl.bEnable := bEnable;
 //Define ACTIONS() or write exclusive code for an specific axis.
 (*Eg. Stop when temperature reaches certain values, reduce speed if  a signal is activated, etc.
 Eg. GVL.astAxes[x].stControl.bInterlockFwd := NOT bInterlockFwdOK;*)

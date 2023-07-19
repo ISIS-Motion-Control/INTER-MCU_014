@@ -3559,15 +3559,6 @@
               <Data>581b</Data>
             </InitCmd>
             <InitCmd>
-              <Transition>PS</Transition>
-              <Comment><![CDATA[Ch B AxisMain parameters position offset / Offset position actual value source]]></Comment>
-              <Timeout>0</Timeout>
-              <Ccs>1</Ccs>
-              <Index>13319</Index>
-              <SubIndex>2</SubIndex>
-              <Data>0200</Data>
-            </InitCmd>
-            <InitCmd>
               <Transition>IP</Transition>
               <Timeout>0</Timeout>
               <Ccs>1</Ccs>
@@ -4527,7 +4518,7 @@
               <Ccs>1</Ccs>
               <Index>12296</Index>
               <SubIndex>1</SubIndex>
-              <Data>00</Data>
+              <Data>01</Data>
             </InitCmd>
             <InitCmd>
               <Transition>PS</Transition>
@@ -4572,7 +4563,7 @@
               <Ccs>1</Ccs>
               <Index>24677</Index>
               <SubIndex>0</SubIndex>
-              <Data>e8030000</Data>
+              <Data>40420f00</Data>
             </InitCmd>
             <InitCmd>
               <Transition>PS</Transition>
@@ -4635,7 +4626,7 @@
               <Ccs>1</Ccs>
               <Index>26725</Index>
               <SubIndex>0</SubIndex>
-              <Data>e8030000</Data>
+              <Data>40420f00</Data>
             </InitCmd>
             <InitCmd>
               <Transition>PS</Transition>
@@ -4806,7 +4797,7 @@
               <Ccs>1</Ccs>
               <Index>13320</Index>
               <SubIndex>1</SubIndex>
-              <Data>00</Data>
+              <Data>01</Data>
             </InitCmd>
             <InitCmd>
               <Transition>PS</Transition>

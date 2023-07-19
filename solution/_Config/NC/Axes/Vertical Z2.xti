@@ -1409,12 +1409,12 @@ External Setpoint Generation:
 	<Axis Id="8" CreateSymbols="true" AxisType="1" AxisFolder="Raw AX Drives" GroupId="4">
 		<Name>__FILENAME__</Name>
 		<AxisPara>
-			<Dynamic Acceleration="55.5435" Deceleration="55.5435" Jerk="166.6305"/>
+			<Dynamic Acceleration="55.5435" Deceleration="200" Jerk="400"/>
 			<Velo RefSearch="0.37029" RefSync="0.37029" SlowManual="0.5" FastManual="11.1087" Fast="37.029" Maximum="37.029"/>
 			<OtherSettings AllowMotionCmdToSlave="true"/>
 		</AxisPara>
 		<Encoder Name="Enc" EncType="19">
-			<EncPara ScaleFactorNumerator="0.001" ScaleFactorDenominator="1000" MaxCount="#xffffffff">
+			<EncPara ScaleFactorNumerator="0.001" ScaleFactorDenominator="1000" Offset="-6.2002" MaxCount="#xffffffff" ReferenceSystem="1">
 				<Inc RefSoftSyncMask="#x000f423f"/>
 			</EncPara>
 			<Vars VarGrpType="1">

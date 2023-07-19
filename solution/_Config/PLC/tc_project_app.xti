@@ -965,7 +965,7 @@ External Setpoint Generation:
 		</DataType>
 	</DataTypes>
 	<Project GUID="{FB261665-FD20-4BF2-97F8-2854C82B752D}" Name="tc_project_app" PrjFilePath="..\..\tc_project_app\tc_project_app.plcproj" TmcFilePath="..\..\tc_project_app\tc_project_app.tmc" ReloadTmc="true" AmsPort="852" FileArchiveSettings="#x000e" SymbolicMapping="true">
-		<Instance Id="#x08502040" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="tc_project_app\tc_project_app.tmc" TmcHash="{1464972D-759E-E977-9E18-84062FE9BD3A}">
+		<Instance Id="#x08502040" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="tc_project_app\tc_project_app.tmc" TmcHash="{3E1A030A-7651-4711-500F-D205C709D11C}">
 			<Name>tc_project_app Instance</Name>
 			<CLSID ClassFactory="TcPlc30">{08500001-0000-0000-F000-000000000064}</CLSID>
 			<Vars VarGrpType="1">
@@ -1221,19 +1221,12 @@ External Setpoint Generation:
 			<Vars VarGrpType="2" AreaNo="1">
 				<Name>PlcTask Outputs</Name>
 				<Var>
-					<Name>GVL_Safety.SafetyReset</Name>
+					<Name>Horizontal_Translation.bFwdLimitPower</Name>
+					<Comment><![CDATA[Outputs: Power for Limit switches, Home Sensors, etc.]]></Comment>
 					<Type>BOOL</Type>
 				</Var>
 				<Var>
-					<Name>GVL_Safety.SafetyReset_ButtonOut</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Safety.RUN_SAFETY</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Safety.SAFTEY_ACK</Name>
+					<Name>Horizontal_Translation.bBwdLimitPower</Name>
 					<Type>BOOL</Type>
 				</Var>
 				<Var>
@@ -1256,12 +1249,29 @@ bPowerSwitchesAxis1 AT %Q*: BOOL:= TRUE;]]></Comment>
 					<Type>BOOL</Type>
 				</Var>
 				<Var>
-					<Name>Horizontal_Translation.bFwdLimitPower</Name>
-					<Comment><![CDATA[Outputs: Power for Limit switches, Home Sensors, etc.]]></Comment>
+					<Name>Rotation.bFwdLimitPower</Name>
+					<Comment><![CDATA[Outputs: Power for Limit switches, Home Sensors, etc.
+bPowerSwitchesAxis1 AT %Q*: BOOL:= TRUE;]]></Comment>
 					<Type>BOOL</Type>
 				</Var>
 				<Var>
-					<Name>Horizontal_Translation.bBwdLimitPower</Name>
+					<Name>Rotation.bBwdLimitPower</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Safety.SafetyReset</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Safety.SafetyReset_ButtonOut</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Safety.RUN_SAFETY</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Safety.SAFTEY_ACK</Name>
 					<Type>BOOL</Type>
 				</Var>
 				<Var>
@@ -1309,7 +1319,7 @@ bPowerSwitchesAxis1 AT %Q*: BOOL:= TRUE;]]></Comment>
 						<OTCID>#x02010040</OTCID>
 					</ManualConfig>
 					<Priority>10</Priority>
-					<CycleTime>10000000</CycleTime>
+					<CycleTime>2000000</CycleTime>
 				</Context>
 			</Contexts>
 			<TaskPouOids>
@@ -1322,6 +1332,8 @@ bPowerSwitchesAxis1 AT %Q*: BOOL:= TRUE;]]></Comment>
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 13 (EL2008)">
 				<Link VarA="PlcTask Outputs^Horizontal_Translation.bBwdLimitPower" VarB="Channel 2^Horizontal Bwd Limit Out" Size="1"/>
 				<Link VarA="PlcTask Outputs^Horizontal_Translation.bFwdLimitPower" VarB="Channel 1^Horizontal Fwd Limit Out" Size="1"/>
+				<Link VarA="PlcTask Outputs^Rotation.bBwdLimitPower" VarB="Channel 8^Rotation Bwd Limit Out" Size="1"/>
+				<Link VarA="PlcTask Outputs^Rotation.bFwdLimitPower" VarB="Channel 7^Rotation Fwd Limit Out" Size="1"/>
 				<Link VarA="PlcTask Outputs^Vertical_Translation_Z1.bBwdLimitPower" VarB="Channel 4^Vertical Z1 Bwd Limit Out" Size="1"/>
 				<Link VarA="PlcTask Outputs^Vertical_Translation_Z1.bFwdLimitPower" VarB="Channel 3^Vertical Z1 Fwd Limit Out" Size="1"/>
 				<Link VarA="PlcTask Outputs^Vertical_Translation_Z2.bBwdLimitPower" VarB="Channel 6^Vertical Z2 Bwd Limit Out" Size="1"/>
@@ -1334,6 +1346,8 @@ bPowerSwitchesAxis1 AT %Q*: BOOL:= TRUE;]]></Comment>
 				<Link VarA="PlcTask Outputs^GVL_Safety.SafetyReset_ButtonOut" VarB="Channel 1^Output" Size="1"/>
 			</OwnerB>
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 9 (EL1008)">
+				<Link VarA="PlcTask Inputs^GVL.astAxes[5].stInputs.bLimitBwd" VarB="Channel 8^Rotation Bwd Limit In" Size="1"/>
+				<Link VarA="PlcTask Inputs^GVL.astAxes[5].stInputs.bLimitFwd" VarB="Channel 7^Rotation Fwd Limit In" Size="1"/>
 				<Link VarA="PlcTask Inputs^GVL.astAxes[6].stInputs.bLimitBwd" VarB="Channel 2^Horizontal Bwd Limit In" Size="1"/>
 				<Link VarA="PlcTask Inputs^GVL.astAxes[6].stInputs.bLimitFwd" VarB="Channel 1^Horizontal Fwd Limit In" Size="1"/>
 				<Link VarA="PlcTask Inputs^GVL.astAxes[7].stInputs.bLimitBwd" VarB="Channel 4^Vertical Z1 Bwd Limit In" Size="1"/>
@@ -1346,9 +1360,17 @@ bPowerSwitchesAxis1 AT %Q*: BOOL:= TRUE;]]></Comment>
 				<Link VarA="PlcTask Outputs^GVL_Safety.SAFTEY_ACK" VarB="StandardOutputs^Standard In Var 1" Size="1"/>
 				<Link VarA="PlcTask Outputs^GVL_Safety.SafetyReset" VarB="StandardOutputs^Standard In Var 6" Size="1"/>
 			</OwnerB>
+			<OwnerB Name="TINC^NC-Task 1 SAF^Axes^Combined Vertical">
+				<Link VarA="PlcTask Inputs^GVL.astAxes[9].Axis.NcToPlc" VarB="Outputs^ToPlc"/>
+				<Link VarA="PlcTask Outputs^GVL.astAxes[9].Axis.PlcToNc" VarB="Inputs^FromPlc"/>
+			</OwnerB>
 			<OwnerB Name="TINC^NC-Task 1 SAF^Axes^Horizontal Translation">
 				<Link VarA="PlcTask Inputs^GVL.astAxes[6].Axis.NcToPlc" VarB="Outputs^ToPlc"/>
 				<Link VarA="PlcTask Outputs^GVL.astAxes[6].Axis.PlcToNc" VarB="Inputs^FromPlc"/>
+			</OwnerB>
+			<OwnerB Name="TINC^NC-Task 1 SAF^Axes^Rotation">
+				<Link VarA="PlcTask Inputs^GVL.astAxes[5].Axis.NcToPlc" VarB="Outputs^ToPlc"/>
+				<Link VarA="PlcTask Outputs^GVL.astAxes[5].Axis.PlcToNc" VarB="Inputs^FromPlc"/>
 			</OwnerB>
 			<OwnerB Name="TINC^NC-Task 1 SAF^Axes^Vertical Z1">
 				<Link VarA="PlcTask Inputs^GVL.astAxes[7].Axis.NcToPlc" VarB="Outputs^ToPlc"/>

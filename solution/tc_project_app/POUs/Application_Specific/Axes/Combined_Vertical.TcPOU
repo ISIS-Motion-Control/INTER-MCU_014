@@ -19,12 +19,14 @@ END_VAR
     GVL.astAxes[1].stConfig.fHomeFinishDistance := 0.0;
     GVL.astAxes[1].stConfig.eRestorePosition := E_RestorePosition.eRestoreWithoutHome;
 END_IF*)
+astAxes[AXIS_COMBINED_VERTICAL].stInputs.bLimitFwd := astAxes[AXIS_VERTICAL_TRANSLATION_Z1].stInputs.bLimitFwd AND astAxes[AXIS_VERTICAL_TRANSLATION_Z2].stInputs.bLimitFwd;
+astAxes[AXIS_COMBINED_VERTICAL].stInputs.bLimitBwd := astAxes[AXIS_VERTICAL_TRANSLATION_Z1].stInputs.bLimitBwd AND astAxes[AXIS_VERTICAL_TRANSLATION_Z2].stInputs.bLimitBwd;
 
 //Define ACTIONS() or write exclusive code for an specific axis.
 (*Eg. Stop when temperature reaches certain values, reduce speed if  a signal is activated, etc.
 Eg. GVL.astAxes[x].stControl.bInterlockFwd := NOT bInterlockFwdOK;*)
 
-
+//astAxes[AXIS_COMBINED_VERTICAL].stControl.bEnable := astAxes[AXIS_VERTICAL_TRANSLATION_Z1].stStatus.bEnabled AND astAxes[AXIS_VERTICAL_TRANSLATION_Z2].stStatus.bEnabled;
 (*
 This will be the axis that drives the vertical stages, there will be no "real master"
 This axis will only be able to run if the two axes below it are coupled in.
