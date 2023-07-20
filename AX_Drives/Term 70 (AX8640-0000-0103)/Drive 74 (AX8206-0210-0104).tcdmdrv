@@ -63,7 +63,7 @@
           <TcLink>
             <TcPrjPath>..\solution\solution.tsproj</TcPrjPath>
             <IoItemPathName>TIID^Device 1 (EtherCAT)^Term 70 (AX8640-0000-0103)^Drive 74 (AX8206-0210-0104)</IoItemPathName>
-            <NcItemPathName>TINC^NC-Task 1 SAF^Axes^Vertical Z1</NcItemPathName>
+            <NcItemPathName>TINC^NC-Task 1 SAF^Axes^Vertical Y1</NcItemPathName>
           </TcLink>
           <SelectedModifyOptPDOsMode>0</SelectedModifyOptPDOsMode>
           <Modulo>
@@ -92,14 +92,14 @@
           <Block Id="0">
             <Motor IsManualInput="false" IsManualMFiInput="false" DataSource="2">
               <DatabaseType>
-                <SchemaVersion />
+                <SchemaVersion></SchemaVersion>
                 <DataVersion>1.25</DataVersion>
                 <OrderCode>AM8053-1GH1-0000</OrderCode>
-                <GroupType />
+                <GroupType></GroupType>
                 <ElectricMotorType>AM8053-xGx1</ElectricMotorType>
                 <MotorfeedbackType>EDM35-2KF0A0S03</MotorfeedbackType>
                 <MotorbrakeType>AM8053-1GH1-0000-brake</MotorbrakeType>
-                <AssemblyType />
+                <AssemblyType></AssemblyType>
                 <VendorName>Beckhoff</VendorName>
                 <IsAc>true</IsAc>
                 <ConstructType>0</ConstructType>
@@ -521,8 +521,8 @@
                 <OrderCode>EDM35-2KF0A0S03</OrderCode>
                 <IsRotary>true</IsRotary>
                 <AbsolutePosInterface>7</AbsolutePosInterface>
-                <GroupType />
-                <ElectricFeedbackType />
+                <GroupType></GroupType>
+                <ElectricFeedbackType></ElectricFeedbackType>
               </DatabaseType>
               <DatabaseParameters>
                 <Parameter>
@@ -609,32 +609,32 @@
                   <Data type="int8" unitSiNumerator="second">3</Data>
                 </Parameter>
                 <Parameter>
-                  <Comment LcId="1033" />
+                  <Comment LcId="1033"></Comment>
                   <Name>PowerManagement_DelayTimeAfterPowerUp</Name>
                   <Data type="real64" unitSiNumerator="second">0.7</Data>
                 </Parameter>
                 <Parameter>
-                  <Comment LcId="1033" />
+                  <Comment LcId="1033"></Comment>
                   <Name>RelativePositonData_LengthPerSignalPeriod</Name>
                   <Data type="real64" unitPrefix="-9" unitSiNumerator="metre">20000</Data>
                 </Parameter>
                 <Parameter>
-                  <Comment LcId="1033" />
+                  <Comment LcId="1033"></Comment>
                   <Name>AbsolutePositionData_ResolutionSinglePos</Name>
                   <Data type="int16">32</Data>
                 </Parameter>
                 <Parameter>
-                  <Comment LcId="1033" />
+                  <Comment LcId="1033"></Comment>
                   <Name>AbsolutePositionData_NumberOfClockCyclesForSinglePos</Name>
                   <Data type="int16">32</Data>
                 </Parameter>
                 <Parameter>
-                  <Comment LcId="1033" />
+                  <Comment LcId="1033"></Comment>
                   <Name>AbsolutePositionData_LinearResolution_Numerator</Name>
                   <Data type="real64" unitPrefix="-9" unitSiNumerator="metre">1</Data>
                 </Parameter>
                 <Parameter>
-                  <Comment LcId="1033" />
+                  <Comment LcId="1033"></Comment>
                   <Name>AbsolutePositionData_LinearResolution_Denominator</Name>
                   <Data type="real64">1</Data>
                 </Parameter>
@@ -644,22 +644,22 @@
                   <Data type="real64">1</Data>
                 </Parameter>
                 <Parameter>
-                  <Comment LcId="1033" />
+                  <Comment LcId="1033"></Comment>
                   <Name>AbsolutePositionData_SensorMode_CrcPolynomial</Name>
                   <Data type="real64">67</Data>
                 </Parameter>
                 <Parameter>
-                  <Comment LcId="1033" />
+                  <Comment LcId="1033"></Comment>
                   <Name>AbsolutePositionData_SensorMode_InvertedCrc</Name>
                   <Data type="real64">1</Data>
                 </Parameter>
                 <Parameter>
-                  <Comment LcId="1033" />
+                  <Comment LcId="1033"></Comment>
                   <Name>AbsolutePositionData_SensorMode_MaxClockSpeed</Name>
                   <Data type="real64" unitSiNumerator="hertz">10000000</Data>
                 </Parameter>
                 <Parameter>
-                  <Comment LcId="1033" />
+                  <Comment LcId="1033"></Comment>
                   <Name>AbsolutePositionData_MaxPositionCalculationTime</Name>
                   <Data type="real64" unitPrefix="-6" unitSiNumerator="second">20</Data>
                 </Parameter>
@@ -861,7 +861,7 @@
           <TcLink>
             <TcPrjPath>..\solution\solution.tsproj</TcPrjPath>
             <IoItemPathName>TIID^Device 1 (EtherCAT)^Term 70 (AX8640-0000-0103)^Drive 74 (AX8206-0210-0104)</IoItemPathName>
-            <NcItemPathName>TINC^NC-Task 1 SAF^Axes^Vertical Z2</NcItemPathName>
+            <NcItemPathName>TINC^NC-Task 1 SAF^Axes^Vertical Y2</NcItemPathName>
           </TcLink>
           <SelectedModifyOptPDOsMode>0</SelectedModifyOptPDOsMode>
           <Modulo>
@@ -890,14 +890,14 @@
           <Block Id="0">
             <Motor IsManualInput="false" IsManualMFiInput="false" DataSource="2">
               <DatabaseType>
-                <SchemaVersion />
+                <SchemaVersion></SchemaVersion>
                 <DataVersion>1.25</DataVersion>
                 <OrderCode>AM8053-1GH1-0000</OrderCode>
-                <GroupType />
+                <GroupType></GroupType>
                 <ElectricMotorType>AM8053-xGx1</ElectricMotorType>
                 <MotorfeedbackType>EDM35-2KF0A0S03</MotorfeedbackType>
                 <MotorbrakeType>AM8053-1GH1-0000-brake</MotorbrakeType>
-                <AssemblyType />
+                <AssemblyType></AssemblyType>
                 <VendorName>Beckhoff</VendorName>
                 <IsAc>true</IsAc>
                 <ConstructType>0</ConstructType>
@@ -1319,8 +1319,8 @@
                 <OrderCode>EDM35-2KF0A0S03</OrderCode>
                 <IsRotary>true</IsRotary>
                 <AbsolutePosInterface>7</AbsolutePosInterface>
-                <GroupType />
-                <ElectricFeedbackType />
+                <GroupType></GroupType>
+                <ElectricFeedbackType></ElectricFeedbackType>
               </DatabaseType>
               <DatabaseParameters>
                 <Parameter>
@@ -1407,32 +1407,32 @@
                   <Data type="int8" unitSiNumerator="second">3</Data>
                 </Parameter>
                 <Parameter>
-                  <Comment LcId="1033" />
+                  <Comment LcId="1033"></Comment>
                   <Name>PowerManagement_DelayTimeAfterPowerUp</Name>
                   <Data type="real64" unitSiNumerator="second">0.7</Data>
                 </Parameter>
                 <Parameter>
-                  <Comment LcId="1033" />
+                  <Comment LcId="1033"></Comment>
                   <Name>RelativePositonData_LengthPerSignalPeriod</Name>
                   <Data type="real64" unitPrefix="-9" unitSiNumerator="metre">20000</Data>
                 </Parameter>
                 <Parameter>
-                  <Comment LcId="1033" />
+                  <Comment LcId="1033"></Comment>
                   <Name>AbsolutePositionData_ResolutionSinglePos</Name>
                   <Data type="int16">32</Data>
                 </Parameter>
                 <Parameter>
-                  <Comment LcId="1033" />
+                  <Comment LcId="1033"></Comment>
                   <Name>AbsolutePositionData_NumberOfClockCyclesForSinglePos</Name>
                   <Data type="int16">32</Data>
                 </Parameter>
                 <Parameter>
-                  <Comment LcId="1033" />
+                  <Comment LcId="1033"></Comment>
                   <Name>AbsolutePositionData_LinearResolution_Numerator</Name>
                   <Data type="real64" unitPrefix="-9" unitSiNumerator="metre">1</Data>
                 </Parameter>
                 <Parameter>
-                  <Comment LcId="1033" />
+                  <Comment LcId="1033"></Comment>
                   <Name>AbsolutePositionData_LinearResolution_Denominator</Name>
                   <Data type="real64">1</Data>
                 </Parameter>
@@ -1442,22 +1442,22 @@
                   <Data type="real64">1</Data>
                 </Parameter>
                 <Parameter>
-                  <Comment LcId="1033" />
+                  <Comment LcId="1033"></Comment>
                   <Name>AbsolutePositionData_SensorMode_CrcPolynomial</Name>
                   <Data type="real64">67</Data>
                 </Parameter>
                 <Parameter>
-                  <Comment LcId="1033" />
+                  <Comment LcId="1033"></Comment>
                   <Name>AbsolutePositionData_SensorMode_InvertedCrc</Name>
                   <Data type="real64">1</Data>
                 </Parameter>
                 <Parameter>
-                  <Comment LcId="1033" />
+                  <Comment LcId="1033"></Comment>
                   <Name>AbsolutePositionData_SensorMode_MaxClockSpeed</Name>
                   <Data type="real64" unitSiNumerator="hertz">10000000</Data>
                 </Parameter>
                 <Parameter>
-                  <Comment LcId="1033" />
+                  <Comment LcId="1033"></Comment>
                   <Name>AbsolutePositionData_MaxPositionCalculationTime</Name>
                   <Data type="real64" unitPrefix="-6" unitSiNumerator="second">20</Data>
                 </Parameter>
@@ -1683,7 +1683,7 @@
       </Info>
       <ProcessData>
         <Send>
-          <BitStart>1184</BitStart>
+          <BitStart>1216</BitStart>
           <BitLength>176</BitLength>
         </Send>
         <Send>
@@ -1691,7 +1691,7 @@
           <BitLength>80</BitLength>
         </Send>
         <Recv>
-          <BitStart>1184</BitStart>
+          <BitStart>1216</BitStart>
           <BitLength>208</BitLength>
         </Recv>
         <Recv>
@@ -2737,7 +2737,7 @@
               <Ccs>1</Ccs>
               <Index>13325</Index>
               <SubIndex>5</SubIndex>
-              <Data>0000100000000000</Data>
+              <Data>80841e0000000000</Data>
             </InitCmd>
             <InitCmd>
               <Transition>PS</Transition>
@@ -2746,7 +2746,7 @@
               <Ccs>1</Ccs>
               <Index>13325</Index>
               <SubIndex>6</SubIndex>
-              <Data>0000100000000000</Data>
+              <Data>80841e0000000000</Data>
             </InitCmd>
             <InitCmd>
               <Transition>PS</Transition>
@@ -2773,7 +2773,7 @@
               <Ccs>1</Ccs>
               <Index>13632</Index>
               <SubIndex>1</SubIndex>
-              <Data>6832a93e</Data>
+              <Data>fa4e2e3f</Data>
             </InitCmd>
             <InitCmd>
               <Transition>PS</Transition>
@@ -2782,7 +2782,7 @@
               <Ccs>1</Ccs>
               <Index>13632</Index>
               <SubIndex>2</SubIndex>
-              <Data>6f12033c</Data>
+              <Data>5cf1433e</Data>
             </InitCmd>
             <InitCmd>
               <Transition>PS</Transition>
@@ -3573,7 +3573,7 @@
               <Ccs>1</Ccs>
               <Index>12301</Index>
               <SubIndex>5</SubIndex>
-              <Data>0000100000000000</Data>
+              <Data>80841e0000000000</Data>
             </InitCmd>
             <InitCmd>
               <Transition>PS</Transition>
@@ -3582,7 +3582,7 @@
               <Ccs>1</Ccs>
               <Index>12301</Index>
               <SubIndex>6</SubIndex>
-              <Data>0000100000000000</Data>
+              <Data>80841e0000000000</Data>
             </InitCmd>
             <InitCmd>
               <Transition>PS</Transition>
@@ -3609,7 +3609,7 @@
               <Ccs>1</Ccs>
               <Index>12608</Index>
               <SubIndex>1</SubIndex>
-              <Data>6832a93e</Data>
+              <Data>49a95e3f</Data>
             </InitCmd>
             <InitCmd>
               <Transition>PS</Transition>
@@ -3618,7 +3618,7 @@
               <Ccs>1</Ccs>
               <Index>12608</Index>
               <SubIndex>2</SubIndex>
-              <Data>6f12033c</Data>
+              <Data>9ee83f3e</Data>
             </InitCmd>
             <InitCmd>
               <Transition>PS</Transition>
@@ -4819,6 +4819,42 @@
             </InitCmd>
             <InitCmd>
               <Transition>PS</Transition>
+              <Comment><![CDATA[Ch A PosCtrl parameters mappable / Position control proportional gain]]></Comment>
+              <Timeout>0</Timeout>
+              <Ccs>1</Ccs>
+              <Index>12480</Index>
+              <SubIndex>1</SubIndex>
+              <Data>79bfaa40</Data>
+            </InitCmd>
+            <InitCmd>
+              <Transition>PS</Transition>
+              <Comment><![CDATA[Ch A Autotuning command parameters / Excitation signal type]]></Comment>
+              <Timeout>0</Timeout>
+              <Ccs>1</Ccs>
+              <Index>12301</Index>
+              <SubIndex>3</SubIndex>
+              <Data>01</Data>
+            </InitCmd>
+            <InitCmd>
+              <Transition>PS</Transition>
+              <Comment><![CDATA[Ch B Autotuning command parameters / Excitation signal type]]></Comment>
+              <Timeout>0</Timeout>
+              <Ccs>1</Ccs>
+              <Index>13325</Index>
+              <SubIndex>3</SubIndex>
+              <Data>01</Data>
+            </InitCmd>
+            <InitCmd>
+              <Transition>PS</Transition>
+              <Comment><![CDATA[Ch B PosCtrl parameters mappable / Position control proportional gain]]></Comment>
+              <Timeout>0</Timeout>
+              <Ccs>1</Ccs>
+              <Index>13504</Index>
+              <SubIndex>1</SubIndex>
+              <Data>843ba740</Data>
+            </InitCmd>
+            <InitCmd>
+              <Transition>PS</Transition>
               <Comment><![CDATA[Startup key]]></Comment>
               <Timeout>0</Timeout>
               <Ccs>1</Ccs>
@@ -5252,7 +5288,7 @@
           <Cmd>5</Cmd>
           <Adp>1035</Adp>
           <Ado>1536</Ado>
-          <Data>3a000001160000070018000201000000</Data>
+          <Data>3e000001160000070018000201000000</Data>
           <Cnt>1</Cnt>
           <Retries>3</Retries>
         </InitCmd>
@@ -5262,7 +5298,7 @@
           <Cmd>5</Cmd>
           <Adp>1035</Adp>
           <Ado>1552</Ado>
-          <Data>3a0000011a000007002a000101000000</Data>
+          <Data>3e0000011a000007002a000101000000</Data>
           <Cnt>1</Cnt>
           <Retries>3</Retries>
         </InitCmd>
@@ -5667,7 +5703,7 @@
                   <AmsPort>11</AmsPort>
                 </AmsAddress>
                 <IndexGroup>50593824</IndexGroup>
-                <IndexOffset>-2130706284</IndexOffset>
+                <IndexOffset>-2130706280</IndexOffset>
                 <Length>2</Length>
               </AdsInfo>
             </Entry>
@@ -6985,7 +7021,7 @@
                   <AmsPort>11</AmsPort>
                 </AmsAddress>
                 <IndexGroup>50593824</IndexGroup>
-                <IndexOffset>-1073740639</IndexOffset>
+                <IndexOffset>-1073740607</IndexOffset>
                 <Length>1</Length>
               </AdsInfo>
             </Entry>
@@ -7001,7 +7037,7 @@
                   <AmsPort>11</AmsPort>
                 </AmsAddress>
                 <IndexGroup>50593824</IndexGroup>
-                <IndexOffset>-1073740638</IndexOffset>
+                <IndexOffset>-1073740606</IndexOffset>
                 <Length>1</Length>
               </AdsInfo>
             </Entry>
@@ -7037,7 +7073,7 @@
                   <AmsPort>11</AmsPort>
                 </AmsAddress>
                 <IndexGroup>50593824</IndexGroup>
-                <IndexOffset>-2147483499</IndexOffset>
+                <IndexOffset>-2147483495</IndexOffset>
                 <Length>2</Length>
               </AdsInfo>
             </Entry>
@@ -7053,7 +7089,7 @@
                   <AmsPort>11</AmsPort>
                 </AmsAddress>
                 <IndexGroup>50593824</IndexGroup>
-                <IndexOffset>-2147483497</IndexOffset>
+                <IndexOffset>-2147483493</IndexOffset>
                 <Length>4</Length>
               </AdsInfo>
             </Entry>
@@ -7086,7 +7122,7 @@
                   <AmsPort>11</AmsPort>
                 </AmsAddress>
                 <IndexGroup>50593824</IndexGroup>
-                <IndexOffset>-2130706282</IndexOffset>
+                <IndexOffset>-2130706278</IndexOffset>
                 <Length>2</Length>
               </AdsInfo>
             </Entry>
@@ -7142,7 +7178,7 @@
                   <AmsPort>11</AmsPort>
                 </AmsAddress>
                 <IndexGroup>50593824</IndexGroup>
-                <IndexOffset>-2130706280</IndexOffset>
+                <IndexOffset>-2130706276</IndexOffset>
                 <Length>4</Length>
               </AdsInfo>
             </Entry>
@@ -7158,7 +7194,7 @@
                   <AmsPort>11</AmsPort>
                 </AmsAddress>
                 <IndexGroup>50593824</IndexGroup>
-                <IndexOffset>-2130706276</IndexOffset>
+                <IndexOffset>-2130706272</IndexOffset>
                 <Length>4</Length>
               </AdsInfo>
             </Entry>
@@ -7206,7 +7242,7 @@
                   <AmsPort>11</AmsPort>
                 </AmsAddress>
                 <IndexGroup>50593824</IndexGroup>
-                <IndexOffset>-2147483493</IndexOffset>
+                <IndexOffset>-2147483489</IndexOffset>
                 <Length>4</Length>
               </AdsInfo>
             </Entry>
@@ -7334,7 +7370,7 @@
                   <AmsPort>11</AmsPort>
                 </AmsAddress>
                 <IndexGroup>50593824</IndexGroup>
-                <IndexOffset>-2147483489</IndexOffset>
+                <IndexOffset>-2147483485</IndexOffset>
                 <Length>2</Length>
               </AdsInfo>
             </Entry>
@@ -7512,7 +7548,7 @@
                   <AmsPort>11</AmsPort>
                 </AmsAddress>
                 <IndexGroup>50593824</IndexGroup>
-                <IndexOffset>-1073740535</IndexOffset>
+                <IndexOffset>-1073740503</IndexOffset>
                 <Length>1</Length>
               </AdsInfo>
             </Entry>
@@ -7528,7 +7564,7 @@
                   <AmsPort>11</AmsPort>
                 </AmsAddress>
                 <IndexGroup>50593824</IndexGroup>
-                <IndexOffset>-1073740534</IndexOffset>
+                <IndexOffset>-1073740502</IndexOffset>
                 <Length>1</Length>
               </AdsInfo>
             </Entry>
@@ -7564,7 +7600,7 @@
                   <AmsPort>11</AmsPort>
                 </AmsAddress>
                 <IndexGroup>50593824</IndexGroup>
-                <IndexOffset>-2147483486</IndexOffset>
+                <IndexOffset>-2147483482</IndexOffset>
                 <Length>2</Length>
               </AdsInfo>
             </Entry>
@@ -7580,7 +7616,7 @@
                   <AmsPort>11</AmsPort>
                 </AmsAddress>
                 <IndexGroup>50593824</IndexGroup>
-                <IndexOffset>-2147483484</IndexOffset>
+                <IndexOffset>-2147483480</IndexOffset>
                 <Length>4</Length>
               </AdsInfo>
             </Entry>
@@ -7613,7 +7649,7 @@
                   <AmsPort>11</AmsPort>
                 </AmsAddress>
                 <IndexGroup>50593824</IndexGroup>
-                <IndexOffset>-2130706272</IndexOffset>
+                <IndexOffset>-2130706268</IndexOffset>
                 <Length>2</Length>
               </AdsInfo>
             </Entry>
@@ -7669,7 +7705,7 @@
                   <AmsPort>11</AmsPort>
                 </AmsAddress>
                 <IndexGroup>50593824</IndexGroup>
-                <IndexOffset>-2130706270</IndexOffset>
+                <IndexOffset>-2130706266</IndexOffset>
                 <Length>4</Length>
               </AdsInfo>
             </Entry>
@@ -7685,7 +7721,7 @@
                   <AmsPort>11</AmsPort>
                 </AmsAddress>
                 <IndexGroup>50593824</IndexGroup>
-                <IndexOffset>-2130706266</IndexOffset>
+                <IndexOffset>-2130706262</IndexOffset>
                 <Length>4</Length>
               </AdsInfo>
             </Entry>
@@ -7733,7 +7769,7 @@
                   <AmsPort>11</AmsPort>
                 </AmsAddress>
                 <IndexGroup>50593824</IndexGroup>
-                <IndexOffset>-2147483480</IndexOffset>
+                <IndexOffset>-2147483476</IndexOffset>
                 <Length>4</Length>
               </AdsInfo>
             </Entry>
@@ -7861,7 +7897,7 @@
                   <AmsPort>11</AmsPort>
                 </AmsAddress>
                 <IndexGroup>50593824</IndexGroup>
-                <IndexOffset>-2147483476</IndexOffset>
+                <IndexOffset>-2147483472</IndexOffset>
                 <Length>2</Length>
               </AdsInfo>
             </Entry>
@@ -8060,7 +8096,7 @@
       <AmsPort>1035</AmsPort>
     </AmsAddress>
     <CoeDS402Channels>2</CoeDS402Channels>
-    <LinkedAxis Chn="0">TINC^NC-Task 1 SAF^Axes^Vertical Z1</LinkedAxis>
-    <LinkedAxis Chn="1">TINC^NC-Task 1 SAF^Axes^Vertical Z2</LinkedAxis>
+    <LinkedAxis Chn="0">TINC^NC-Task 1 SAF^Axes^Vertical Y1</LinkedAxis>
+    <LinkedAxis Chn="1">TINC^NC-Task 1 SAF^Axes^Vertical Y2</LinkedAxis>
   </EtherCAT>
 </TreeItem>

@@ -584,7 +584,7 @@
                 </CoE>
               </Calc>
             </Feedback>
-            <Feedback DataSource="1" HasWeight="true">
+            <Feedback DataSource="1">
               <DatabaseType>
                 <OrderCode>Reni#RA32Bxx104-5V-BiSS_C</OrderCode>
                 <IsRotary>true</IsRotary>
@@ -889,14 +889,14 @@
           <Block Id="0">
             <Motor IsManualInput="false" IsManualMFiInput="false" DataSource="2">
               <DatabaseType>
-                <SchemaVersion />
+                <SchemaVersion></SchemaVersion>
                 <DataVersion>1.25</DataVersion>
                 <OrderCode>AM8043-1EH1-0000</OrderCode>
-                <GroupType />
+                <GroupType></GroupType>
                 <ElectricMotorType>AM8043-xEx1</ElectricMotorType>
                 <MotorfeedbackType>EDM35-2KF0A0S03</MotorfeedbackType>
                 <MotorbrakeType>AM8043-1EH1-0000-brake</MotorbrakeType>
-                <AssemblyType />
+                <AssemblyType></AssemblyType>
                 <VendorName>Beckhoff</VendorName>
                 <IsAc>true</IsAc>
                 <ConstructType>0</ConstructType>
@@ -1318,8 +1318,8 @@
                 <OrderCode>EDM35-2KF0A0S03</OrderCode>
                 <IsRotary>true</IsRotary>
                 <AbsolutePosInterface>7</AbsolutePosInterface>
-                <GroupType />
-                <ElectricFeedbackType />
+                <GroupType></GroupType>
+                <ElectricFeedbackType></ElectricFeedbackType>
               </DatabaseType>
               <DatabaseParameters>
                 <Parameter>
@@ -1406,32 +1406,32 @@
                   <Data type="int8" unitSiNumerator="second">3</Data>
                 </Parameter>
                 <Parameter>
-                  <Comment LcId="1033" />
+                  <Comment LcId="1033"></Comment>
                   <Name>PowerManagement_DelayTimeAfterPowerUp</Name>
                   <Data type="real64" unitSiNumerator="second">0.7</Data>
                 </Parameter>
                 <Parameter>
-                  <Comment LcId="1033" />
+                  <Comment LcId="1033"></Comment>
                   <Name>RelativePositonData_LengthPerSignalPeriod</Name>
                   <Data type="real64" unitPrefix="-9" unitSiNumerator="metre">20000</Data>
                 </Parameter>
                 <Parameter>
-                  <Comment LcId="1033" />
+                  <Comment LcId="1033"></Comment>
                   <Name>AbsolutePositionData_ResolutionSinglePos</Name>
                   <Data type="int16">32</Data>
                 </Parameter>
                 <Parameter>
-                  <Comment LcId="1033" />
+                  <Comment LcId="1033"></Comment>
                   <Name>AbsolutePositionData_NumberOfClockCyclesForSinglePos</Name>
                   <Data type="int16">32</Data>
                 </Parameter>
                 <Parameter>
-                  <Comment LcId="1033" />
+                  <Comment LcId="1033"></Comment>
                   <Name>AbsolutePositionData_LinearResolution_Numerator</Name>
                   <Data type="real64" unitPrefix="-9" unitSiNumerator="metre">1</Data>
                 </Parameter>
                 <Parameter>
-                  <Comment LcId="1033" />
+                  <Comment LcId="1033"></Comment>
                   <Name>AbsolutePositionData_LinearResolution_Denominator</Name>
                   <Data type="real64">1</Data>
                 </Parameter>
@@ -1441,22 +1441,22 @@
                   <Data type="real64">1</Data>
                 </Parameter>
                 <Parameter>
-                  <Comment LcId="1033" />
+                  <Comment LcId="1033"></Comment>
                   <Name>AbsolutePositionData_SensorMode_CrcPolynomial</Name>
                   <Data type="real64">67</Data>
                 </Parameter>
                 <Parameter>
-                  <Comment LcId="1033" />
+                  <Comment LcId="1033"></Comment>
                   <Name>AbsolutePositionData_SensorMode_InvertedCrc</Name>
                   <Data type="real64">1</Data>
                 </Parameter>
                 <Parameter>
-                  <Comment LcId="1033" />
+                  <Comment LcId="1033"></Comment>
                   <Name>AbsolutePositionData_SensorMode_MaxClockSpeed</Name>
                   <Data type="real64" unitSiNumerator="hertz">10000000</Data>
                 </Parameter>
                 <Parameter>
-                  <Comment LcId="1033" />
+                  <Comment LcId="1033"></Comment>
                   <Name>AbsolutePositionData_MaxPositionCalculationTime</Name>
                   <Data type="real64" unitPrefix="-6" unitSiNumerator="second">20</Data>
                 </Parameter>
@@ -4598,7 +4598,7 @@
               <Ccs>1</Ccs>
               <Index>26720</Index>
               <SubIndex>0</SubIndex>
-              <Data>08</Data>
+              <Data>0f</Data>
             </InitCmd>
             <InitCmd>
               <Transition>PS</Transition>
@@ -4653,15 +4653,6 @@
               <Index>26738</Index>
               <SubIndex>0</SubIndex>
               <Data>9e1b</Data>
-            </InitCmd>
-            <InitCmd>
-              <Transition>PS</Transition>
-              <Comment><![CDATA[Ch B AxisMain parameters position offset / Offset position actual value source]]></Comment>
-              <Timeout>0</Timeout>
-              <Ccs>1</Ccs>
-              <Index>13319</Index>
-              <SubIndex>2</SubIndex>
-              <Data>0200</Data>
             </InitCmd>
             <InitCmd>
               <Transition>PS</Transition>
@@ -4778,7 +4769,70 @@
               <Ccs>1</Ccs>
               <Index>13320</Index>
               <SubIndex>1</SubIndex>
-              <Data>00</Data>
+              <Data>01</Data>
+            </InitCmd>
+            <InitCmd>
+              <Transition>PS</Transition>
+              <Comment><![CDATA[Ch B AxisMain parameters position offset / Offset position actual value source]]></Comment>
+              <Timeout>0</Timeout>
+              <Ccs>1</Ccs>
+              <Index>13319</Index>
+              <SubIndex>2</SubIndex>
+              <Data>0200</Data>
+            </InitCmd>
+            <InitCmd>
+              <Transition>PS</Transition>
+              <Comment><![CDATA[Ch B PosCtrl parameters mappable / Position control proportional gain]]></Comment>
+              <Timeout>0</Timeout>
+              <Ccs>1</Ccs>
+              <Index>13504</Index>
+              <SubIndex>1</SubIndex>
+              <Data>0000803f</Data>
+            </InitCmd>
+            <InitCmd>
+              <Transition>PS</Transition>
+              <Comment><![CDATA[Ch B PosCtrl parameters / Velocity demand value filter time constant]]></Comment>
+              <Timeout>0</Timeout>
+              <Ccs>1</Ccs>
+              <Index>13507</Index>
+              <SubIndex>1</SubIndex>
+              <Data>00000000</Data>
+            </InitCmd>
+            <InitCmd>
+              <Transition>PS</Transition>
+              <Comment><![CDATA[Ch B Interpolator parameters feed forward / Acceleration feed forward gain]]></Comment>
+              <Timeout>0</Timeout>
+              <Ccs>1</Ccs>
+              <Index>13410</Index>
+              <SubIndex>3</SubIndex>
+              <Data>00000000</Data>
+            </InitCmd>
+            <InitCmd>
+              <Transition>PS</Transition>
+              <Comment><![CDATA[Ch B Interpolator parameters feed forward / Acceleration feed forward filter time constant]]></Comment>
+              <Timeout>0</Timeout>
+              <Ccs>1</Ccs>
+              <Index>13410</Index>
+              <SubIndex>4</SubIndex>
+              <Data>00000000</Data>
+            </InitCmd>
+            <InitCmd>
+              <Transition>PS</Transition>
+              <Comment><![CDATA[Ch B Interpolator parameters feed forward / Velocity feed forward gain]]></Comment>
+              <Timeout>0</Timeout>
+              <Ccs>1</Ccs>
+              <Index>13410</Index>
+              <SubIndex>1</SubIndex>
+              <Data>0000803f</Data>
+            </InitCmd>
+            <InitCmd>
+              <Transition>PS</Transition>
+              <Comment><![CDATA[Ch B Interpolator parameters feed forward / Velocity feed forward filter time constant]]></Comment>
+              <Timeout>0</Timeout>
+              <Ccs>1</Ccs>
+              <Index>13410</Index>
+              <SubIndex>2</SubIndex>
+              <Data>00000000</Data>
             </InitCmd>
             <InitCmd>
               <Transition>PS</Transition>

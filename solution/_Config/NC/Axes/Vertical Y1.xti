@@ -1531,7 +1531,7 @@ External Setpoint Generation:
 			</Vars>
 		</Drive>
 		<Controller Name="Ctrl" CtrType="1">
-			<CtrPara PriorControlFactor="1">
+			<CtrPara PriorControlFactor="0.8">
 				<Observer BandWidth="20"/>
 			</CtrPara>
 		</Controller>

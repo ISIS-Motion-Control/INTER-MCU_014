@@ -8,6 +8,10 @@ VAR
     
     decoupleVerticalMotion : BOOL := FALSE;
     
+    safetyFTrig : F_TRIG;
+    safetyResetTON : TON;
+    safetyResetLatch : BOOL :=FALSE;
+    
     
     CombinedVerticalSetupComplete : BOOL := FALSE;
     AllowedVerticalLag : LREAL := 0.2;  //How much offset is allowed between two vertical axes when synced
@@ -46,6 +50,19 @@ END_IF
 
 IF GVL_INTER.DISABLE_ALL_AXES THEN
     DisableAxes();
+END_IF
+
+//SAFETY RESET LOGIC (RESET AXES ON ESTOP RESET)
+safetyFTrig(CLK:= GVL_Safety.SafetyReset);
+IF safetyFTrig.Q THEN
+    safetyResetLatch := TRUE;
+END_IF
+
+safetyResetTON(IN:= safetyResetLatch, PT:=T#1S);
+
+IF safetyResetTON.Q THEN
+    safetyResetLatch:= FALSE;
+    GVL_INTER.RESET_ALL := TRUE;
 END_IF
 
 IF GVL_INTER.RESET_ALL THEN
@@ -173,14 +190,7 @@ IF GVL_INTER.RUN_COUPLED_VERTICAL THEN
     
 END_IF
 
-verticalZ1SpgEnable(Axis:=astAxes[AXIS_VERTICAL_TRANSLATION_Y1].Axis);
-verticalZ1SpgEnable.Execute:= FALSE;
-verticalZ1SpgDisable(Axis:=astAxes[AXIS_VERTICAL_TRANSLATION_Y1].Axis);
-verticalZ1SpgDisable.Execute:= FALSE;
-verticalZ2SpgEnable(Axis:=astAxes[AXIS_VERTICAL_TRANSLATION_Y2].Axis);
-verticalZ2SpgEnable.Execute:= FALSE;
-verticalZ2SpgDisable(Axis:=astAxes[AXIS_VERTICAL_TRANSLATION_Y2].Axis);
-verticalZ2SpgDisable.Execute:= FALSE;
+
 
 combinedVerticalSetPos(Axis:= astAxes[AXIS_COMBINED_VERTICAL].Axis);
 combinedVerticalSetPos.Execute:= FALSE;
@@ -194,6 +204,14 @@ ELSE
 END_IF
 
 actZSetpoints();
+verticalZ1SpgEnable(Axis:=astAxes[AXIS_VERTICAL_TRANSLATION_Y1].Axis);
+verticalZ1SpgEnable.Execute:= FALSE;
+verticalZ1SpgDisable(Axis:=astAxes[AXIS_VERTICAL_TRANSLATION_Y1].Axis);
+verticalZ1SpgDisable.Execute:= FALSE;
+verticalZ2SpgEnable(Axis:=astAxes[AXIS_VERTICAL_TRANSLATION_Y2].Axis);
+verticalZ2SpgEnable.Execute:= FALSE;
+verticalZ2SpgDisable(Axis:=astAxes[AXIS_VERTICAL_TRANSLATION_Y2].Axis);
+verticalZ2SpgDisable.Execute:= FALSE;
 
 IF CombinedVerticalSetupComplete AND GVL_INTER.RUN_KINEMATICS THEN
     //
@@ -203,13 +221,19 @@ END_IF
     </Implementation>
     <Action Name="actZSetpoints" Id="{facf07a9-589c-4d38-a5b7-e5a598ba95ba}">
       <Implementation>
-        <ST><![CDATA[
+        <ST><![CDATA[astAxes[AXIS_COMBINED_VERTICAL].Axis.ReadStatus();
+astAxes[AXIS_VERTICAL_TRANSLATION_Y1].Axis.ReadStatus();
+astAxes[AXIS_VERTICAL_TRANSLATION_Y2].Axis.ReadStatus();
+
 //Z1 position check
-IF astAxes[AXIS_COMBINED_VERTICAL].Axis.NcToPlc.SetPos < astAxes[AXIS_VERTICAL_TRANSLATION_Y1].stStatus.fActPosition AND NOT astAxes[AXIS_VERTICAL_TRANSLATION_Y1].stInputs.bLimitBwd THEN
+IF ((astAxes[AXIS_COMBINED_VERTICAL].Axis.NcToPlc.SetPos < astAxes[AXIS_VERTICAL_TRANSLATION_Y1].Axis.NcToPlc.ActPos)OR (astAxes[AXIS_COMBINED_VERTICAL].Axis.NcToPlc.SetVelo<0)) 
+    
+    AND NOT astAxes[AXIS_VERTICAL_TRANSLATION_Y1].stInputs.bLimitBwd THEN
+    //ADSLOGSTR(msgCtrlMask:= ADSLOG_MSGTYPE_HINT,msgFmtStr:='HIT',strArg:='');
     fZ1SetPos := astAxes[AXIS_VERTICAL_TRANSLATION_Y1].Axis.NcToPlc.ActPos; // DON'T MOVE
     fZ1SetVelo :=0;
     fZ1SetDir := 0;
-ELSIF astAxes[AXIS_COMBINED_VERTICAL].Axis.NcToPlc.SetPos > astAxes[AXIS_VERTICAL_TRANSLATION_Y1].stStatus.fActPosition AND NOT astAxes[AXIS_VERTICAL_TRANSLATION_Y1].stInputs.bLimitFwd THEN
+ELSIF astAxes[AXIS_COMBINED_VERTICAL].Axis.NcToPlc.SetPos > astAxes[AXIS_VERTICAL_TRANSLATION_Y1].Axis.NcToPlc.ActPos AND NOT astAxes[AXIS_VERTICAL_TRANSLATION_Y1].stInputs.bLimitFwd THEN
     fZ1SetPos := astAxes[AXIS_VERTICAL_TRANSLATION_Y1].Axis.NcToPlc.ActPos; // DON'T MOVE
     fZ1SetVelo :=0;
     fZ1SetDir := 0;
@@ -220,11 +244,11 @@ ELSE
 END_IF
 
 //Z2 position check
-IF astAxes[AXIS_COMBINED_VERTICAL].Axis.NcToPlc.SetPos < astAxes[AXIS_VERTICAL_TRANSLATION_Y2].stStatus.fActPosition AND NOT astAxes[AXIS_VERTICAL_TRANSLATION_Y2].stInputs.bLimitBwd THEN
+IF astAxes[AXIS_COMBINED_VERTICAL].Axis.NcToPlc.SetPos < astAxes[AXIS_VERTICAL_TRANSLATION_Y2].Axis.NcToPlc.ActPos AND NOT astAxes[AXIS_VERTICAL_TRANSLATION_Y2].stInputs.bLimitBwd THEN
     fZ2SetPos := astAxes[AXIS_VERTICAL_TRANSLATION_Y2].Axis.NcToPlc.ActPos; // DON'T MOVE
     fZ2SetVelo :=0;
     fZ2SetDir := 0;
-ELSIF astAxes[AXIS_COMBINED_VERTICAL].Axis.NcToPlc.SetPos > astAxes[AXIS_VERTICAL_TRANSLATION_Y2].stStatus.fActPosition AND NOT astAxes[AXIS_VERTICAL_TRANSLATION_Y2].stInputs.bLimitFwd THEN
+ELSIF astAxes[AXIS_COMBINED_VERTICAL].Axis.NcToPlc.SetPos > astAxes[AXIS_VERTICAL_TRANSLATION_Y2].Axis.NcToPlc.ActPos AND NOT astAxes[AXIS_VERTICAL_TRANSLATION_Y2].stInputs.bLimitFwd THEN
     fZ2SetPos := astAxes[AXIS_VERTICAL_TRANSLATION_Y2].Axis.NcToPlc.ActPos; // DON'T MOVE
     fZ2SetVelo :=0;
     fZ2SetDir := 0;
