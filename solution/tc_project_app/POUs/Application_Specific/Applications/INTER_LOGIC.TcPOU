@@ -225,6 +225,13 @@ END_IF
 astAxes[AXIS_VERTICAL_TRANSLATION_Y1].Axis.ReadStatus();
 astAxes[AXIS_VERTICAL_TRANSLATION_Y2].Axis.ReadStatus();
 
+
+//If still getting issues after setting up position and velocity control loops correctly
+//expose feedback 1 velocity using PDO assignment at drive and then do comparator against this value
+//before sending setpoint generator positions
+
+
+
 //Z1 position check
 IF ((astAxes[AXIS_COMBINED_VERTICAL].Axis.NcToPlc.SetPos < astAxes[AXIS_VERTICAL_TRANSLATION_Y1].Axis.NcToPlc.ActPos)OR (astAxes[AXIS_COMBINED_VERTICAL].Axis.NcToPlc.SetVelo<0)) 
     
