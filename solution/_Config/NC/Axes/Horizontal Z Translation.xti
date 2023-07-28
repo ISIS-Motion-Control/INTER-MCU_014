@@ -1411,6 +1411,8 @@ External Setpoint Generation:
 		<AxisPara>
 			<Dynamic Acceleration="34.773" Deceleration="34.773" Jerk="104.319"/>
 			<Velo RefSearch="0.23182" RefSync="0.23182" SlowManual="1.1591" FastManual="6.9546" Fast="23.182" Maximum="23.182"/>
+			<PositionAreaControl Enable="false"/>
+			<TargetPosControl Range="0.005" Time="0.04"/>
 			<OtherSettings AllowMotionCmdToSlave="true"/>
 		</AxisPara>
 		<Encoder Name="Enc" EncType="19">
@@ -1529,7 +1531,7 @@ External Setpoint Generation:
 		</Drive>
 		<Controller Name="Ctrl" CtrType="1">
 			<CtrPara PriorControlFactor="1">
-				<PID PosKp="0"/>
+				<PID PosKp="2"/>
 				<Observer BandWidth="20"/>
 			</CtrPara>
 		</Controller>

@@ -1409,12 +1409,14 @@ External Setpoint Generation:
 	<Axis Id="8" CreateSymbols="true" AxisType="1" AxisFolder="Raw AX Drives" GroupId="4">
 		<Name>__FILENAME__</Name>
 		<AxisPara>
-			<Dynamic Acceleration="55.5435" Deceleration="200" Jerk="400"/>
+			<Dynamic Acceleration="55.5435" Deceleration="55.5435" Jerk="166"/>
 			<Velo RefSearch="0.37029" RefSync="0.37029" SlowManual="0.5" FastManual="11.1087" Fast="37.029" Maximum="37.029"/>
+			<PositionAreaControl Enable="false"/>
+			<TargetPosControl Range="0.01"/>
 			<OtherSettings AllowMotionCmdToSlave="true"/>
 		</AxisPara>
 		<Encoder Name="Enc" EncType="19">
-			<EncPara ScaleFactorNumerator="0.001" ScaleFactorDenominator="1000" Offset="-6.2002" MaxCount="#xffffffff" ReferenceSystem="1">
+			<EncPara ScaleFactorNumerator="0.001" ScaleFactorDenominator="1000" Offset="-6.2002" MaxCount="#xffffffff" ReferenceSystem="1" EncPositionSource="1">
 				<Inc RefSoftSyncMask="#x000f423f"/>
 			</EncPara>
 			<Vars VarGrpType="1">
@@ -1474,7 +1476,7 @@ External Setpoint Generation:
 			</Vars>
 		</Encoder>
 		<Drive Name="Drive" DrvType="16">
-			<DrvPara MaxCount="#xffffffff" DriveControlDWord="#x00020100">
+			<DrvPara MaxCount="#xffffffff" DriveControlDWord="#x00020000">
 				<Analog VeloReferenz="40.7319" VeloScale="71.5255737304688" TorqueSetpointScale="10" ScaleFactorActTorque="0.1"/>
 				<TimeComp TaskDelayCycles="1"/>
 			</DrvPara>
@@ -1530,7 +1532,8 @@ External Setpoint Generation:
 			</Vars>
 		</Drive>
 		<Controller Name="Ctrl" CtrType="1">
-			<CtrPara PriorControlFactor="0.8">
+			<CtrPara PriorControlFactor="1">
+				<PID PosKp="2"/>
 				<Observer BandWidth="20"/>
 			</CtrPara>
 		</Controller>
@@ -1563,9 +1566,9 @@ External Setpoint Generation:
 				<Link VarA="Drive^Outputs^Out^nCtrl2" VarB="Ch B^Ch B AxisMain Outputs^Ch B Controlword" Size="8" OffsB="8"/>
 				<Link VarA="Drive^Outputs^Out^nDataOut1" VarB="Ch B^Ch B Interpolator Outputs^Ch B Target position"/>
 				<Link VarA="Drive^Outputs^Out^nDataOut2" VarB="Ch B^Ch B Interpolator Outputs^Ch B Target velocity"/>
-				<Link VarA="Enc^Inputs^In^nDataIn1" VarB="Ch B^Ch B AxisMain Inputs^Ch B Position actual value"/>
+				<Link VarA="Enc^Inputs^In^nDataIn1" VarB="Ch B^Ch B AxisMain Inputs^1st additional position actual value"/>
 				<Link VarA="Enc^Inputs^In^nDcInputTime" VarB="InfoData^DcInputShift"/>
-				<Link VarA="Enc^Inputs^In^nState2" VarB="Ch B^Ch B AxisMain Inputs^Position actual value invalid" Size="1" OffsA="5"/>
+				<Link VarA="Enc^Inputs^In^nState2" VarB="Ch B^Ch B AxisMain Inputs^1st Additional position actual value invalid" Size="1" OffsA="5"/>
 				<Link VarA="Enc^Inputs^In^nState4" VarB="WcState^InputToggle0" Size="1" OffsA="1"/>
 				<Link VarA="Enc^Inputs^In^nState4" VarB="WcState^WcState0" Size="1"/>
 			</OwnerB>

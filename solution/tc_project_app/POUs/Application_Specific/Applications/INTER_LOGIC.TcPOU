@@ -41,6 +41,12 @@ VAR
     fZ1SetDir : DINT;
     fZ2SetDir : DINT;
     combinedVerticalDirection : DINT;
+    
+    
+//STUPID DEMO CODE
+    Y1rTrig : R_TRIG;
+    cycleCounter : LREAL:=0; 
+    scalingActive : BOOL := FALSE;   
 END_VAR
 ]]></Declaration>
     <Implementation>
@@ -96,7 +102,7 @@ IF GVL_INTER.RUN_COUPLED_VERTICAL THEN
     //Enable linking
     IF astAxes[AXIS_VERTICAL_TRANSLATION_Y2].stStatus.bEnabled AND astAxes[AXIS_VERTICAL_TRANSLATION_Y1].stStatus.bEnabled THEN
         //Only enable virtual axis if both RAW axes are homed/calibrated
-        IF VerticalAxesCalibrated AND  VerticalAxesSpgEnabled THEN
+        IF VerticalAxesCalibrated AND  VerticalAxesSpgEnabled AND NOT (astAxes[AXIS_VERTICAL_TRANSLATION_Y1].stStatus.bError OR astAxes[AXIS_VERTICAL_TRANSLATION_Y2].stStatus.bError)THEN
             astAxes[AXIS_COMBINED_VERTICAL].stControl.bEnable := TRUE;
         ELSE 
             astAxes[AXIS_COMBINED_VERTICAL].stControl.bEnable := FALSE;
@@ -108,12 +114,20 @@ IF GVL_INTER.RUN_COUPLED_VERTICAL THEN
     //Bwd limit linking
     astAxes[AXIS_COMBINED_VERTICAL].stInputs.bLimitBwd := (astAxes[AXIS_VERTICAL_TRANSLATION_Y2].stInputs.bLimitBwd AND astAxes[AXIS_VERTICAL_TRANSLATION_Y1].stInputs.bLimitBwd);
     
+    //OVERRIDE LIMITS
+    IF NOT decoupleVerticalMotion THEN
+        astAxes[AXIS_VERTICAL_TRANSLATION_Y2].stInputs.bLimitFwd := TRUE;
+        astAxes[AXIS_VERTICAL_TRANSLATION_Y2].stInputs.bLimitBwd := TRUE;
+        astAxes[AXIS_VERTICAL_TRANSLATION_Y1].stInputs.bLimitFwd := TRUE;
+        astAxes[AXIS_VERTICAL_TRANSLATION_Y1].stInputs.bLimitBwd := TRUE;
+	END_IF
+    
     fVerticalSimulatedDeviation := astAxes[AXIS_COMBINED_VERTICAL].stStatus.fActPosition - astAxes[AXIS_VERTICAL_TRANSLATION_Y1].stStatus.fActPosition;
     
     confirmSpgTimeout(PT:=T#1S);
     /////////////////////////////////////////////////////////////////////
     
-    IF astAxes[AXIS_VERTICAL_TRANSLATION_Y1].stStatus.bError AND astAxes[AXIS_VERTICAL_TRANSLATION_Y2].stStatus.bError THEN
+    IF astAxes[AXIS_VERTICAL_TRANSLATION_Y1].stStatus.bError OR astAxes[AXIS_VERTICAL_TRANSLATION_Y2].stStatus.bError THEN
         eStateVertical:= eState_Vertical.init;
 	END_IF
     
@@ -230,10 +244,22 @@ astAxes[AXIS_VERTICAL_TRANSLATION_Y2].Axis.ReadStatus();
 //expose feedback 1 velocity using PDO assignment at drive and then do comparator against this value
 //before sending setpoint generator positions
 
+Y1rTrig(CLK:= astAxes[AXIS_VERTICAL_TRANSLATION_Y1].stInputs.bLimitBwd);
 
+IF(Y1rTrig.Q) THEN
+    scalingActive := TRUE;
+END_IF
+IF scalingActive THEN
+    cycleCounter:= cycleCounter+1;
+END_IF
+IF cycleCounter>500 THEN
+    scalingActive := FALSE;
+    cycleCounter:=0;
+END_IF
+//astAxes[AXIS_VERTICAL_TRANSLATION_Y1].stInputs.bLimitBwd:= TRUE;
 
 //Z1 position check
-IF ((astAxes[AXIS_COMBINED_VERTICAL].Axis.NcToPlc.SetPos < astAxes[AXIS_VERTICAL_TRANSLATION_Y1].Axis.NcToPlc.ActPos)OR (astAxes[AXIS_COMBINED_VERTICAL].Axis.NcToPlc.SetVelo<0)) 
+IF ((astAxes[AXIS_COMBINED_VERTICAL].Axis.NcToPlc.SetPos < astAxes[AXIS_VERTICAL_TRANSLATION_Y1].Axis.NcToPlc.ActPos+0.01)OR (astAxes[AXIS_COMBINED_VERTICAL].Axis.NcToPlc.SetVelo<0)) 
     
     AND NOT astAxes[AXIS_VERTICAL_TRANSLATION_Y1].stInputs.bLimitBwd THEN
     //ADSLOGSTR(msgCtrlMask:= ADSLOG_MSGTYPE_HINT,msgFmtStr:='HIT',strArg:='');
@@ -245,9 +271,18 @@ ELSIF astAxes[AXIS_COMBINED_VERTICAL].Axis.NcToPlc.SetPos > astAxes[AXIS_VERTICA
     fZ1SetVelo :=0;
     fZ1SetDir := 0;
 ELSE
-    fZ1SetPos := astAxes[AXIS_COMBINED_VERTICAL].Axis.NcToPlc.SetPos; // DON'T MOVE
-    fZ1SetVelo :=astAxes[AXIS_COMBINED_VERTICAL].Axis.NcToPlc.SetVelo;
-    fZ1SetDir := combinedVerticalDirection;
+    IF scalingActive THEN
+        fZ1SetPos := astAxes[AXIS_COMBINED_VERTICAL].Axis.NcToPlc.SetPos; // DON'T MOVE
+        fZ1SetVelo :=astAxes[AXIS_COMBINED_VERTICAL].Axis.NcToPlc.SetVelo * (0.002*cycleCounter);
+        fZ1SetDir := combinedVerticalDirection;
+    ELSE
+        fZ1SetPos := astAxes[AXIS_COMBINED_VERTICAL].Axis.NcToPlc.SetPos; // DON'T MOVE
+        fZ1SetVelo :=astAxes[AXIS_COMBINED_VERTICAL].Axis.NcToPlc.SetVelo;
+        fZ1SetDir := combinedVerticalDirection;
+	END_IF
+    //fZ1SetPos := astAxes[AXIS_COMBINED_VERTICAL].Axis.NcToPlc.SetPos; // DON'T MOVE
+    //fZ1SetVelo :=astAxes[AXIS_COMBINED_VERTICAL].Axis.NcToPlc.SetVelo;
+    //fZ1SetDir := combinedVerticalDirection;
 END_IF
 
 //Z2 position check
