@@ -4,7 +4,7 @@
     <Declaration><![CDATA[PROGRAM Dtank_Pivot_To_Window
 VAR
     setPos : MC_SetPosition;
-    nominalPosition : LREAL := 1673;
+    nominalPosition : LREAL := 1648.66;
 END_VAR
 ]]></Declaration>
     <Implementation>

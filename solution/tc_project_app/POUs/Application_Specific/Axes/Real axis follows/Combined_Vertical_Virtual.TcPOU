@@ -5,7 +5,7 @@
 VAR
     fEncoderPosition : LREAL;
     EncoderPosition AT %Q* : DINT; //Encoder value for NC
-    fScaler : LREAL := 1000000;
+    fScaler : LREAL := 100000;
 END_VAR
 ]]></Declaration>
     <Implementation>

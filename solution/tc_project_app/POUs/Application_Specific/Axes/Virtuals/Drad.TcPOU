@@ -9,7 +9,7 @@ VAR
     fEncoderPosition_MeasurementAngle : LREAL;
     EncoderPosition_MeasurementAngle AT %Q* : DINT;
     
-    fScaler : LREAL := 1000000;
+    fScaler : LREAL := 100000;
     
     
     yPosition : LREAL;
