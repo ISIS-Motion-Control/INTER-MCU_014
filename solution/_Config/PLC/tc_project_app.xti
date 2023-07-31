@@ -965,7 +965,7 @@ External Setpoint Generation:
 		</DataType>
 	</DataTypes>
 	<Project GUID="{FB261665-FD20-4BF2-97F8-2854C82B752D}" Name="tc_project_app" PrjFilePath="..\..\tc_project_app\tc_project_app.plcproj" TmcFilePath="..\..\tc_project_app\tc_project_app.tmc" ReloadTmc="true" AmsPort="852" FileArchiveSettings="#x000e" SymbolicMapping="true">
-		<Instance Id="#x08502040" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="tc_project_app\tc_project_app.tmc" TmcHash="{4DB2D15F-02A7-94B3-FE11-7528DE91467B}">
+		<Instance Id="#x08502040" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="tc_project_app\tc_project_app.tmc" TmcHash="{B94F61D8-B3B9-06BB-8669-B77EA3C47BB9}">
 			<Name>tc_project_app Instance</Name>
 			<CLSID ClassFactory="TcPlc30">{08500001-0000-0000-F000-000000000064}</CLSID>
 			<Vars VarGrpType="1">
@@ -1217,6 +1217,573 @@ External Setpoint Generation:
 					<Name>GVL.astAxes[9].Axis.NcToPlc</Name>
 					<Type GUID="{10036166-C9D3-404B-BDD3-323034AAA7F4}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
 				</Var>
+				<Var>
+					<Name>GVL.astAxes[10].stStatus.nEncoderRawCounter</Name>
+					<Comment><![CDATA[Raw encoder counter value]]></Comment>
+					<Type>UDINT</Type>
+				</Var>
+				<Var>
+					<Name>GVL.astAxes[10].stStatus.nStepperDriveCounter</Name>
+					<Comment><![CDATA[Raw internal counter from stepper drive]]></Comment>
+					<Type>UDINT</Type>
+				</Var>
+				<Var>
+					<Name>GVL.astAxes[10].stInputs.bLimitFwd</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL.astAxes[10].stInputs.bLimitBwd</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL.astAxes[10].stInputs.bHomeSensor</Name>
+					<Comment><![CDATA[Reference siganl for homing]]></Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL.astAxes[10].Axis.NcToPlc</Name>
+					<Type GUID="{10036166-C9D3-404B-BDD3-323034AAA7F4}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
+				</Var>
+				<Var>
+					<Name>GVL.astAxes[11].stStatus.nEncoderRawCounter</Name>
+					<Comment><![CDATA[Raw encoder counter value]]></Comment>
+					<Type>UDINT</Type>
+				</Var>
+				<Var>
+					<Name>GVL.astAxes[11].stStatus.nStepperDriveCounter</Name>
+					<Comment><![CDATA[Raw internal counter from stepper drive]]></Comment>
+					<Type>UDINT</Type>
+				</Var>
+				<Var>
+					<Name>GVL.astAxes[11].stInputs.bLimitFwd</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL.astAxes[11].stInputs.bLimitBwd</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL.astAxes[11].stInputs.bHomeSensor</Name>
+					<Comment><![CDATA[Reference siganl for homing]]></Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL.astAxes[11].Axis.NcToPlc</Name>
+					<Type GUID="{10036166-C9D3-404B-BDD3-323034AAA7F4}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
+				</Var>
+				<Var>
+					<Name>GVL.astAxes[12].stStatus.nEncoderRawCounter</Name>
+					<Comment><![CDATA[Raw encoder counter value]]></Comment>
+					<Type>UDINT</Type>
+				</Var>
+				<Var>
+					<Name>GVL.astAxes[12].stStatus.nStepperDriveCounter</Name>
+					<Comment><![CDATA[Raw internal counter from stepper drive]]></Comment>
+					<Type>UDINT</Type>
+				</Var>
+				<Var>
+					<Name>GVL.astAxes[12].stInputs.bLimitFwd</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL.astAxes[12].stInputs.bLimitBwd</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL.astAxes[12].stInputs.bHomeSensor</Name>
+					<Comment><![CDATA[Reference siganl for homing]]></Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL.astAxes[12].Axis.NcToPlc</Name>
+					<Type GUID="{10036166-C9D3-404B-BDD3-323034AAA7F4}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
+				</Var>
+				<Var>
+					<Name>GVL.astAxes[13].stStatus.nEncoderRawCounter</Name>
+					<Comment><![CDATA[Raw encoder counter value]]></Comment>
+					<Type>UDINT</Type>
+				</Var>
+				<Var>
+					<Name>GVL.astAxes[13].stStatus.nStepperDriveCounter</Name>
+					<Comment><![CDATA[Raw internal counter from stepper drive]]></Comment>
+					<Type>UDINT</Type>
+				</Var>
+				<Var>
+					<Name>GVL.astAxes[13].stInputs.bLimitFwd</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL.astAxes[13].stInputs.bLimitBwd</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL.astAxes[13].stInputs.bHomeSensor</Name>
+					<Comment><![CDATA[Reference siganl for homing]]></Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL.astAxes[13].Axis.NcToPlc</Name>
+					<Type GUID="{10036166-C9D3-404B-BDD3-323034AAA7F4}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
+				</Var>
+				<Var>
+					<Name>GVL.astAxes[14].stStatus.nEncoderRawCounter</Name>
+					<Comment><![CDATA[Raw encoder counter value]]></Comment>
+					<Type>UDINT</Type>
+				</Var>
+				<Var>
+					<Name>GVL.astAxes[14].stStatus.nStepperDriveCounter</Name>
+					<Comment><![CDATA[Raw internal counter from stepper drive]]></Comment>
+					<Type>UDINT</Type>
+				</Var>
+				<Var>
+					<Name>GVL.astAxes[14].stInputs.bLimitFwd</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL.astAxes[14].stInputs.bLimitBwd</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL.astAxes[14].stInputs.bHomeSensor</Name>
+					<Comment><![CDATA[Reference siganl for homing]]></Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL.astAxes[14].Axis.NcToPlc</Name>
+					<Type GUID="{10036166-C9D3-404B-BDD3-323034AAA7F4}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
+				</Var>
+				<Var>
+					<Name>GVL.astAxes[15].stStatus.nEncoderRawCounter</Name>
+					<Comment><![CDATA[Raw encoder counter value]]></Comment>
+					<Type>UDINT</Type>
+				</Var>
+				<Var>
+					<Name>GVL.astAxes[15].stStatus.nStepperDriveCounter</Name>
+					<Comment><![CDATA[Raw internal counter from stepper drive]]></Comment>
+					<Type>UDINT</Type>
+				</Var>
+				<Var>
+					<Name>GVL.astAxes[15].stInputs.bLimitFwd</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL.astAxes[15].stInputs.bLimitBwd</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL.astAxes[15].stInputs.bHomeSensor</Name>
+					<Comment><![CDATA[Reference siganl for homing]]></Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL.astAxes[15].Axis.NcToPlc</Name>
+					<Type GUID="{10036166-C9D3-404B-BDD3-323034AAA7F4}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
+				</Var>
+				<Var>
+					<Name>GVL.astAxes[16].stStatus.nEncoderRawCounter</Name>
+					<Comment><![CDATA[Raw encoder counter value]]></Comment>
+					<Type>UDINT</Type>
+				</Var>
+				<Var>
+					<Name>GVL.astAxes[16].stStatus.nStepperDriveCounter</Name>
+					<Comment><![CDATA[Raw internal counter from stepper drive]]></Comment>
+					<Type>UDINT</Type>
+				</Var>
+				<Var>
+					<Name>GVL.astAxes[16].stInputs.bLimitFwd</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL.astAxes[16].stInputs.bLimitBwd</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL.astAxes[16].stInputs.bHomeSensor</Name>
+					<Comment><![CDATA[Reference siganl for homing]]></Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL.astAxes[16].Axis.NcToPlc</Name>
+					<Type GUID="{10036166-C9D3-404B-BDD3-323034AAA7F4}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
+				</Var>
+				<Var>
+					<Name>GVL.astAxes[17].stStatus.nEncoderRawCounter</Name>
+					<Comment><![CDATA[Raw encoder counter value]]></Comment>
+					<Type>UDINT</Type>
+				</Var>
+				<Var>
+					<Name>GVL.astAxes[17].stStatus.nStepperDriveCounter</Name>
+					<Comment><![CDATA[Raw internal counter from stepper drive]]></Comment>
+					<Type>UDINT</Type>
+				</Var>
+				<Var>
+					<Name>GVL.astAxes[17].stInputs.bLimitFwd</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL.astAxes[17].stInputs.bLimitBwd</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL.astAxes[17].stInputs.bHomeSensor</Name>
+					<Comment><![CDATA[Reference siganl for homing]]></Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL.astAxes[17].Axis.NcToPlc</Name>
+					<Type GUID="{10036166-C9D3-404B-BDD3-323034AAA7F4}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
+				</Var>
+				<Var>
+					<Name>GVL.astAxes[18].stStatus.nEncoderRawCounter</Name>
+					<Comment><![CDATA[Raw encoder counter value]]></Comment>
+					<Type>UDINT</Type>
+				</Var>
+				<Var>
+					<Name>GVL.astAxes[18].stStatus.nStepperDriveCounter</Name>
+					<Comment><![CDATA[Raw internal counter from stepper drive]]></Comment>
+					<Type>UDINT</Type>
+				</Var>
+				<Var>
+					<Name>GVL.astAxes[18].stInputs.bLimitFwd</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL.astAxes[18].stInputs.bLimitBwd</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL.astAxes[18].stInputs.bHomeSensor</Name>
+					<Comment><![CDATA[Reference siganl for homing]]></Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL.astAxes[18].Axis.NcToPlc</Name>
+					<Type GUID="{10036166-C9D3-404B-BDD3-323034AAA7F4}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
+				</Var>
+				<Var>
+					<Name>GVL.astAxes[19].stStatus.nEncoderRawCounter</Name>
+					<Comment><![CDATA[Raw encoder counter value]]></Comment>
+					<Type>UDINT</Type>
+				</Var>
+				<Var>
+					<Name>GVL.astAxes[19].stStatus.nStepperDriveCounter</Name>
+					<Comment><![CDATA[Raw internal counter from stepper drive]]></Comment>
+					<Type>UDINT</Type>
+				</Var>
+				<Var>
+					<Name>GVL.astAxes[19].stInputs.bLimitFwd</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL.astAxes[19].stInputs.bLimitBwd</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL.astAxes[19].stInputs.bHomeSensor</Name>
+					<Comment><![CDATA[Reference siganl for homing]]></Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL.astAxes[19].Axis.NcToPlc</Name>
+					<Type GUID="{10036166-C9D3-404B-BDD3-323034AAA7F4}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
+				</Var>
+				<Var>
+					<Name>GVL.astAxes[20].stStatus.nEncoderRawCounter</Name>
+					<Comment><![CDATA[Raw encoder counter value]]></Comment>
+					<Type>UDINT</Type>
+				</Var>
+				<Var>
+					<Name>GVL.astAxes[20].stStatus.nStepperDriveCounter</Name>
+					<Comment><![CDATA[Raw internal counter from stepper drive]]></Comment>
+					<Type>UDINT</Type>
+				</Var>
+				<Var>
+					<Name>GVL.astAxes[20].stInputs.bLimitFwd</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL.astAxes[20].stInputs.bLimitBwd</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL.astAxes[20].stInputs.bHomeSensor</Name>
+					<Comment><![CDATA[Reference siganl for homing]]></Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL.astAxes[20].Axis.NcToPlc</Name>
+					<Type GUID="{10036166-C9D3-404B-BDD3-323034AAA7F4}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
+				</Var>
+				<Var>
+					<Name>GVL.astAxes[21].stStatus.nEncoderRawCounter</Name>
+					<Comment><![CDATA[Raw encoder counter value]]></Comment>
+					<Type>UDINT</Type>
+				</Var>
+				<Var>
+					<Name>GVL.astAxes[21].stStatus.nStepperDriveCounter</Name>
+					<Comment><![CDATA[Raw internal counter from stepper drive]]></Comment>
+					<Type>UDINT</Type>
+				</Var>
+				<Var>
+					<Name>GVL.astAxes[21].stInputs.bLimitFwd</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL.astAxes[21].stInputs.bLimitBwd</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL.astAxes[21].stInputs.bHomeSensor</Name>
+					<Comment><![CDATA[Reference siganl for homing]]></Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL.astAxes[21].Axis.NcToPlc</Name>
+					<Type GUID="{10036166-C9D3-404B-BDD3-323034AAA7F4}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
+				</Var>
+				<Var>
+					<Name>GVL.astAxes[22].stStatus.nEncoderRawCounter</Name>
+					<Comment><![CDATA[Raw encoder counter value]]></Comment>
+					<Type>UDINT</Type>
+				</Var>
+				<Var>
+					<Name>GVL.astAxes[22].stStatus.nStepperDriveCounter</Name>
+					<Comment><![CDATA[Raw internal counter from stepper drive]]></Comment>
+					<Type>UDINT</Type>
+				</Var>
+				<Var>
+					<Name>GVL.astAxes[22].stInputs.bLimitFwd</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL.astAxes[22].stInputs.bLimitBwd</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL.astAxes[22].stInputs.bHomeSensor</Name>
+					<Comment><![CDATA[Reference siganl for homing]]></Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL.astAxes[22].Axis.NcToPlc</Name>
+					<Type GUID="{10036166-C9D3-404B-BDD3-323034AAA7F4}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
+				</Var>
+				<Var>
+					<Name>GVL.astAxes[23].stStatus.nEncoderRawCounter</Name>
+					<Comment><![CDATA[Raw encoder counter value]]></Comment>
+					<Type>UDINT</Type>
+				</Var>
+				<Var>
+					<Name>GVL.astAxes[23].stStatus.nStepperDriveCounter</Name>
+					<Comment><![CDATA[Raw internal counter from stepper drive]]></Comment>
+					<Type>UDINT</Type>
+				</Var>
+				<Var>
+					<Name>GVL.astAxes[23].stInputs.bLimitFwd</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL.astAxes[23].stInputs.bLimitBwd</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL.astAxes[23].stInputs.bHomeSensor</Name>
+					<Comment><![CDATA[Reference siganl for homing]]></Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL.astAxes[23].Axis.NcToPlc</Name>
+					<Type GUID="{10036166-C9D3-404B-BDD3-323034AAA7F4}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
+				</Var>
+				<Var>
+					<Name>GVL.astAxes[24].stStatus.nEncoderRawCounter</Name>
+					<Comment><![CDATA[Raw encoder counter value]]></Comment>
+					<Type>UDINT</Type>
+				</Var>
+				<Var>
+					<Name>GVL.astAxes[24].stStatus.nStepperDriveCounter</Name>
+					<Comment><![CDATA[Raw internal counter from stepper drive]]></Comment>
+					<Type>UDINT</Type>
+				</Var>
+				<Var>
+					<Name>GVL.astAxes[24].stInputs.bLimitFwd</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL.astAxes[24].stInputs.bLimitBwd</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL.astAxes[24].stInputs.bHomeSensor</Name>
+					<Comment><![CDATA[Reference siganl for homing]]></Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL.astAxes[24].Axis.NcToPlc</Name>
+					<Type GUID="{10036166-C9D3-404B-BDD3-323034AAA7F4}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
+				</Var>
+				<Var>
+					<Name>GVL.astAxes[25].stStatus.nEncoderRawCounter</Name>
+					<Comment><![CDATA[Raw encoder counter value]]></Comment>
+					<Type>UDINT</Type>
+				</Var>
+				<Var>
+					<Name>GVL.astAxes[25].stStatus.nStepperDriveCounter</Name>
+					<Comment><![CDATA[Raw internal counter from stepper drive]]></Comment>
+					<Type>UDINT</Type>
+				</Var>
+				<Var>
+					<Name>GVL.astAxes[25].stInputs.bLimitFwd</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL.astAxes[25].stInputs.bLimitBwd</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL.astAxes[25].stInputs.bHomeSensor</Name>
+					<Comment><![CDATA[Reference siganl for homing]]></Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL.astAxes[25].Axis.NcToPlc</Name>
+					<Type GUID="{10036166-C9D3-404B-BDD3-323034AAA7F4}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
+				</Var>
+				<Var>
+					<Name>GVL.astAxes[26].stStatus.nEncoderRawCounter</Name>
+					<Comment><![CDATA[Raw encoder counter value]]></Comment>
+					<Type>UDINT</Type>
+				</Var>
+				<Var>
+					<Name>GVL.astAxes[26].stStatus.nStepperDriveCounter</Name>
+					<Comment><![CDATA[Raw internal counter from stepper drive]]></Comment>
+					<Type>UDINT</Type>
+				</Var>
+				<Var>
+					<Name>GVL.astAxes[26].stInputs.bLimitFwd</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL.astAxes[26].stInputs.bLimitBwd</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL.astAxes[26].stInputs.bHomeSensor</Name>
+					<Comment><![CDATA[Reference siganl for homing]]></Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL.astAxes[26].Axis.NcToPlc</Name>
+					<Type GUID="{10036166-C9D3-404B-BDD3-323034AAA7F4}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
+				</Var>
+				<Var>
+					<Name>GVL.astAxes[27].stStatus.nEncoderRawCounter</Name>
+					<Comment><![CDATA[Raw encoder counter value]]></Comment>
+					<Type>UDINT</Type>
+				</Var>
+				<Var>
+					<Name>GVL.astAxes[27].stStatus.nStepperDriveCounter</Name>
+					<Comment><![CDATA[Raw internal counter from stepper drive]]></Comment>
+					<Type>UDINT</Type>
+				</Var>
+				<Var>
+					<Name>GVL.astAxes[27].stInputs.bLimitFwd</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL.astAxes[27].stInputs.bLimitBwd</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL.astAxes[27].stInputs.bHomeSensor</Name>
+					<Comment><![CDATA[Reference siganl for homing]]></Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL.astAxes[27].Axis.NcToPlc</Name>
+					<Type GUID="{10036166-C9D3-404B-BDD3-323034AAA7F4}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
+				</Var>
+				<Var>
+					<Name>GVL.astAxes[28].stStatus.nEncoderRawCounter</Name>
+					<Comment><![CDATA[Raw encoder counter value]]></Comment>
+					<Type>UDINT</Type>
+				</Var>
+				<Var>
+					<Name>GVL.astAxes[28].stStatus.nStepperDriveCounter</Name>
+					<Comment><![CDATA[Raw internal counter from stepper drive]]></Comment>
+					<Type>UDINT</Type>
+				</Var>
+				<Var>
+					<Name>GVL.astAxes[28].stInputs.bLimitFwd</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL.astAxes[28].stInputs.bLimitBwd</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL.astAxes[28].stInputs.bHomeSensor</Name>
+					<Comment><![CDATA[Reference siganl for homing]]></Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL.astAxes[28].Axis.NcToPlc</Name>
+					<Type GUID="{10036166-C9D3-404B-BDD3-323034AAA7F4}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
+				</Var>
+				<Var>
+					<Name>GVL.astAxes[29].stStatus.nEncoderRawCounter</Name>
+					<Comment><![CDATA[Raw encoder counter value]]></Comment>
+					<Type>UDINT</Type>
+				</Var>
+				<Var>
+					<Name>GVL.astAxes[29].stStatus.nStepperDriveCounter</Name>
+					<Comment><![CDATA[Raw internal counter from stepper drive]]></Comment>
+					<Type>UDINT</Type>
+				</Var>
+				<Var>
+					<Name>GVL.astAxes[29].stInputs.bLimitFwd</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL.astAxes[29].stInputs.bLimitBwd</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL.astAxes[29].stInputs.bHomeSensor</Name>
+					<Comment><![CDATA[Reference siganl for homing]]></Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL.astAxes[29].Axis.NcToPlc</Name>
+					<Type GUID="{10036166-C9D3-404B-BDD3-323034AAA7F4}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
+				</Var>
+				<Var>
+					<Name>GVL.astAxes[30].stStatus.nEncoderRawCounter</Name>
+					<Comment><![CDATA[Raw encoder counter value]]></Comment>
+					<Type>UDINT</Type>
+				</Var>
+				<Var>
+					<Name>GVL.astAxes[30].stStatus.nStepperDriveCounter</Name>
+					<Comment><![CDATA[Raw internal counter from stepper drive]]></Comment>
+					<Type>UDINT</Type>
+				</Var>
+				<Var>
+					<Name>GVL.astAxes[30].stInputs.bLimitFwd</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL.astAxes[30].stInputs.bLimitBwd</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL.astAxes[30].stInputs.bHomeSensor</Name>
+					<Comment><![CDATA[Reference siganl for homing]]></Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL.astAxes[30].Axis.NcToPlc</Name>
+					<Type GUID="{10036166-C9D3-404B-BDD3-323034AAA7F4}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
+				</Var>
 			</Vars>
 			<Vars VarGrpType="2" AreaNo="1">
 				<Name>PlcTask Outputs</Name>
@@ -1266,6 +1833,63 @@ bPowerSwitchesAxis1 AT %Q*: BOOL:= TRUE;]]></Comment>
 					<Type>BOOL</Type>
 				</Var>
 				<Var>
+					<Name>Horizontal_Translation.bFwdLimitPower</Name>
+					<Comment><![CDATA[Outputs: Power for Limit switches, Home Sensors, etc.]]></Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>Horizontal_Translation.bBwdLimitPower</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>Drad_External.EncoderPosition</Name>
+					<Comment><![CDATA[Encoder value for NC]]></Comment>
+					<Type>DINT</Type>
+				</Var>
+				<Var>
+					<Name>Drad_Internal.EncoderPosition</Name>
+					<Comment><![CDATA[Encoder value for NC]]></Comment>
+					<Type>DINT</Type>
+				</Var>
+				<Var>
+					<Name>Dtank_Internal_Offset_Angle.EncoderPosition</Name>
+					<Comment><![CDATA[Encoder value for NC]]></Comment>
+					<Type>DINT</Type>
+				</Var>
+				<Var>
+					<Name>Tau.EncoderPosition_tau</Name>
+					<Comment><![CDATA[Encoder value for NC]]></Comment>
+					<Type>DINT</Type>
+				</Var>
+				<Var>
+					<Name>Tau.EncoderPosition_delta</Name>
+					<Comment><![CDATA[Encoder value for NC]]></Comment>
+					<Type>DINT</Type>
+				</Var>
+				<Var>
+					<Name>Drad.EncoderPosition_DetectorArcRadius</Name>
+					<Type>DINT</Type>
+				</Var>
+				<Var>
+					<Name>Drad.EncoderPosition_MeasurementAngle</Name>
+					<Type>DINT</Type>
+				</Var>
+				<Var>
+					<Name>Rotation_Virtual.EncoderPosition</Name>
+					<Comment><![CDATA[Encoder value for NC]]></Comment>
+					<Type>DINT</Type>
+				</Var>
+				<Var>
+					<Name>Combined_Vertical_Virtual.EncoderPosition</Name>
+					<Comment><![CDATA[Encoder value for NC]]></Comment>
+					<Type>DINT</Type>
+				</Var>
+				<Var>
+					<Name>Horizontal_Virtual.EncoderPosition</Name>
+					<Comment><![CDATA[Encoder value for NC]]></Comment>
+					<Type>DINT</Type>
+				</Var>
+				<Var>
 					<Name>GVL.astAxes[1].Axis.PlcToNc</Name>
 					<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
 				</Var>
@@ -1302,13 +1926,88 @@ bPowerSwitchesAxis1 AT %Q*: BOOL:= TRUE;]]></Comment>
 					<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
 				</Var>
 				<Var>
-					<Name>Horizontal_Translation.bFwdLimitPower</Name>
-					<Comment><![CDATA[Outputs: Power for Limit switches, Home Sensors, etc.]]></Comment>
-					<Type>BOOL</Type>
+					<Name>GVL.astAxes[10].Axis.PlcToNc</Name>
+					<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
 				</Var>
 				<Var>
-					<Name>Horizontal_Translation.bBwdLimitPower</Name>
-					<Type>BOOL</Type>
+					<Name>GVL.astAxes[11].Axis.PlcToNc</Name>
+					<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
+				</Var>
+				<Var>
+					<Name>GVL.astAxes[12].Axis.PlcToNc</Name>
+					<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
+				</Var>
+				<Var>
+					<Name>GVL.astAxes[13].Axis.PlcToNc</Name>
+					<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
+				</Var>
+				<Var>
+					<Name>GVL.astAxes[14].Axis.PlcToNc</Name>
+					<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
+				</Var>
+				<Var>
+					<Name>GVL.astAxes[15].Axis.PlcToNc</Name>
+					<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
+				</Var>
+				<Var>
+					<Name>GVL.astAxes[16].Axis.PlcToNc</Name>
+					<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
+				</Var>
+				<Var>
+					<Name>GVL.astAxes[17].Axis.PlcToNc</Name>
+					<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
+				</Var>
+				<Var>
+					<Name>GVL.astAxes[18].Axis.PlcToNc</Name>
+					<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
+				</Var>
+				<Var>
+					<Name>GVL.astAxes[19].Axis.PlcToNc</Name>
+					<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
+				</Var>
+				<Var>
+					<Name>GVL.astAxes[20].Axis.PlcToNc</Name>
+					<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
+				</Var>
+				<Var>
+					<Name>GVL.astAxes[21].Axis.PlcToNc</Name>
+					<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
+				</Var>
+				<Var>
+					<Name>GVL.astAxes[22].Axis.PlcToNc</Name>
+					<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
+				</Var>
+				<Var>
+					<Name>GVL.astAxes[23].Axis.PlcToNc</Name>
+					<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
+				</Var>
+				<Var>
+					<Name>GVL.astAxes[24].Axis.PlcToNc</Name>
+					<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
+				</Var>
+				<Var>
+					<Name>GVL.astAxes[25].Axis.PlcToNc</Name>
+					<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
+				</Var>
+				<Var>
+					<Name>GVL.astAxes[26].Axis.PlcToNc</Name>
+					<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
+				</Var>
+				<Var>
+					<Name>GVL.astAxes[27].Axis.PlcToNc</Name>
+					<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
+				</Var>
+				<Var>
+					<Name>GVL.astAxes[28].Axis.PlcToNc</Name>
+					<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
+				</Var>
+				<Var>
+					<Name>GVL.astAxes[29].Axis.PlcToNc</Name>
+					<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
+				</Var>
+				<Var>
+					<Name>GVL.astAxes[30].Axis.PlcToNc</Name>
+					<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
 				</Var>
 			</Vars>
 			<Contexts>
@@ -1364,13 +2063,79 @@ bPowerSwitchesAxis1 AT %Q*: BOOL:= TRUE;]]></Comment>
 				<Link VarA="PlcTask Inputs^GVL.astAxes[9].Axis.NcToPlc" VarB="Outputs^ToPlc"/>
 				<Link VarA="PlcTask Outputs^GVL.astAxes[9].Axis.PlcToNc" VarB="Inputs^FromPlc"/>
 			</OwnerB>
+			<OwnerB Name="TINC^NC-Task 1 SAF^Axes^Combined Vertical Virtual">
+				<Link VarA="PlcTask Inputs^GVL.astAxes[27].Axis.NcToPlc" VarB="Outputs^ToPlc"/>
+				<Link VarA="PlcTask Outputs^Combined_Vertical_Virtual.EncoderPosition" VarB="Enc^Inputs^In^nDataIn1"/>
+				<Link VarA="PlcTask Outputs^GVL.astAxes[27].Axis.PlcToNc" VarB="Inputs^FromPlc"/>
+			</OwnerB>
+			<OwnerB Name="TINC^NC-Task 1 SAF^Axes^Delta">
+				<Link VarA="PlcTask Inputs^GVL.astAxes[17].Axis.NcToPlc" VarB="Outputs^ToPlc"/>
+				<Link VarA="PlcTask Outputs^GVL.astAxes[17].Axis.PlcToNc" VarB="Inputs^FromPlc"/>
+				<Link VarA="PlcTask Outputs^Tau.EncoderPosition_delta" VarB="Enc^Inputs^In^nDataIn1"/>
+			</OwnerB>
+			<OwnerB Name="TINC^NC-Task 1 SAF^Axes^Detector Offset Angled">
+				<Link VarA="PlcTask Inputs^GVL.astAxes[12].Axis.NcToPlc" VarB="Outputs^ToPlc"/>
+				<Link VarA="PlcTask Outputs^GVL.astAxes[12].Axis.PlcToNc" VarB="Inputs^FromPlc"/>
+			</OwnerB>
+			<OwnerB Name="TINC^NC-Task 1 SAF^Axes^Detector Offset Parallel">
+				<Link VarA="PlcTask Inputs^GVL.astAxes[13].Axis.NcToPlc" VarB="Outputs^ToPlc"/>
+				<Link VarA="PlcTask Outputs^GVL.astAxes[13].Axis.PlcToNc" VarB="Inputs^FromPlc"/>
+			</OwnerB>
+			<OwnerB Name="TINC^NC-Task 1 SAF^Axes^Detector Radius">
+				<Link VarA="PlcTask Inputs^GVL.astAxes[19].Axis.NcToPlc" VarB="Outputs^ToPlc"/>
+				<Link VarA="PlcTask Outputs^Drad.EncoderPosition_DetectorArcRadius" VarB="Enc^Inputs^In^nDataIn1"/>
+				<Link VarA="PlcTask Outputs^GVL.astAxes[19].Axis.PlcToNc" VarB="Inputs^FromPlc"/>
+			</OwnerB>
+			<OwnerB Name="TINC^NC-Task 1 SAF^Axes^Detector Radius External">
+				<Link VarA="PlcTask Inputs^GVL.astAxes[10].Axis.NcToPlc" VarB="Outputs^ToPlc"/>
+				<Link VarA="PlcTask Outputs^Drad_External.EncoderPosition" VarB="Enc^Inputs^In^nDataIn1"/>
+				<Link VarA="PlcTask Outputs^GVL.astAxes[10].Axis.PlcToNc" VarB="Inputs^FromPlc"/>
+			</OwnerB>
+			<OwnerB Name="TINC^NC-Task 1 SAF^Axes^Detector Radius Internal">
+				<Link VarA="PlcTask Inputs^GVL.astAxes[11].Axis.NcToPlc" VarB="Outputs^ToPlc"/>
+				<Link VarA="PlcTask Outputs^Drad_Internal.EncoderPosition" VarB="Enc^Inputs^In^nDataIn1"/>
+				<Link VarA="PlcTask Outputs^GVL.astAxes[11].Axis.PlcToNc" VarB="Inputs^FromPlc"/>
+			</OwnerB>
+			<OwnerB Name="TINC^NC-Task 1 SAF^Axes^Detector Tank Internal Offset Angle">
+				<Link VarA="PlcTask Inputs^GVL.astAxes[14].Axis.NcToPlc" VarB="Outputs^ToPlc"/>
+				<Link VarA="PlcTask Outputs^Dtank_Internal_Offset_Angle.EncoderPosition" VarB="Enc^Inputs^In^nDataIn1"/>
+				<Link VarA="PlcTask Outputs^GVL.astAxes[14].Axis.PlcToNc" VarB="Inputs^FromPlc"/>
+			</OwnerB>
+			<OwnerB Name="TINC^NC-Task 1 SAF^Axes^Detector Tank Length">
+				<Link VarA="PlcTask Inputs^GVL.astAxes[15].Axis.NcToPlc" VarB="Outputs^ToPlc"/>
+				<Link VarA="PlcTask Outputs^GVL.astAxes[15].Axis.PlcToNc" VarB="Inputs^FromPlc"/>
+			</OwnerB>
+			<OwnerB Name="TINC^NC-Task 1 SAF^Axes^Detector Tank Pivot To Window">
+				<Link VarA="PlcTask Inputs^GVL.astAxes[16].Axis.NcToPlc" VarB="Outputs^ToPlc"/>
+				<Link VarA="PlcTask Outputs^GVL.astAxes[16].Axis.PlcToNc" VarB="Inputs^FromPlc"/>
+			</OwnerB>
+			<OwnerB Name="TINC^NC-Task 1 SAF^Axes^Horizontal Virtual">
+				<Link VarA="PlcTask Inputs^GVL.astAxes[30].Axis.NcToPlc" VarB="Outputs^ToPlc"/>
+				<Link VarA="PlcTask Outputs^GVL.astAxes[30].Axis.PlcToNc" VarB="Inputs^FromPlc"/>
+				<Link VarA="PlcTask Outputs^Horizontal_Virtual.EncoderPosition" VarB="Enc^Inputs^In^nDataIn1"/>
+			</OwnerB>
 			<OwnerB Name="TINC^NC-Task 1 SAF^Axes^Horizontal Z Translation">
 				<Link VarA="PlcTask Inputs^GVL.astAxes[6].Axis.NcToPlc" VarB="Outputs^ToPlc"/>
 				<Link VarA="PlcTask Outputs^GVL.astAxes[6].Axis.PlcToNc" VarB="Inputs^FromPlc"/>
 			</OwnerB>
+			<OwnerB Name="TINC^NC-Task 1 SAF^Axes^Measurement Angle">
+				<Link VarA="PlcTask Inputs^GVL.astAxes[20].Axis.NcToPlc" VarB="Outputs^ToPlc"/>
+				<Link VarA="PlcTask Outputs^Drad.EncoderPosition_MeasurementAngle" VarB="Enc^Inputs^In^nDataIn1"/>
+				<Link VarA="PlcTask Outputs^GVL.astAxes[20].Axis.PlcToNc" VarB="Inputs^FromPlc"/>
+			</OwnerB>
 			<OwnerB Name="TINC^NC-Task 1 SAF^Axes^Rotation">
 				<Link VarA="PlcTask Inputs^GVL.astAxes[5].Axis.NcToPlc" VarB="Outputs^ToPlc"/>
 				<Link VarA="PlcTask Outputs^GVL.astAxes[5].Axis.PlcToNc" VarB="Inputs^FromPlc"/>
+			</OwnerB>
+			<OwnerB Name="TINC^NC-Task 1 SAF^Axes^Rotation Virtual">
+				<Link VarA="PlcTask Inputs^GVL.astAxes[23].Axis.NcToPlc" VarB="Outputs^ToPlc"/>
+				<Link VarA="PlcTask Outputs^GVL.astAxes[23].Axis.PlcToNc" VarB="Inputs^FromPlc"/>
+				<Link VarA="PlcTask Outputs^Rotation_Virtual.EncoderPosition" VarB="Enc^Inputs^In^nDataIn1"/>
+			</OwnerB>
+			<OwnerB Name="TINC^NC-Task 1 SAF^Axes^Tau">
+				<Link VarA="PlcTask Inputs^GVL.astAxes[18].Axis.NcToPlc" VarB="Outputs^ToPlc"/>
+				<Link VarA="PlcTask Outputs^GVL.astAxes[18].Axis.PlcToNc" VarB="Inputs^FromPlc"/>
+				<Link VarA="PlcTask Outputs^Tau.EncoderPosition_tau" VarB="Enc^Inputs^In^nDataIn1"/>
 			</OwnerB>
 			<OwnerB Name="TINC^NC-Task 1 SAF^Axes^Vertical Y1">
 				<Link VarA="PlcTask Inputs^GVL.astAxes[7].Axis.NcToPlc" VarB="Outputs^ToPlc"/>

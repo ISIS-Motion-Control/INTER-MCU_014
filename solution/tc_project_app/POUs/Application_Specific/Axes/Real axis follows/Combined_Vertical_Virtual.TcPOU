@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
+  <POU Name="Combined_Vertical_Virtual" Id="{4062ce1f-60d5-447f-9fe1-5330d78f8226}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM Combined_Vertical_Virtual
+VAR
+    fEncoderPosition : LREAL;
+    EncoderPosition AT %Q* : DINT; //Encoder value for NC
+    fScaler : LREAL := 1000000;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[GVL.astAxes[AXIS_COMBINED_VERTICAL_VIRTUAL].stInputs.bLimitBwd := TRUE;
+GVL.astAxes[AXIS_COMBINED_VERTICAL_VIRTUAL].stInputs.bLimitFwd := TRUE;
+GVL.astAxes[AXIS_COMBINED_VERTICAL_VIRTUAL].stControl.bEnable := TRUE;
+
+
+
+
+//calculate setpoint generator inputs
+fEncoderPosition := 
+    astAxes[AXIS_DRAD_EXTERNAL].Axis.NcToPlc.ActPos * SIN(DEG_TO_RAD(astAxes[AXIS_MEASUREMENT_ANGLE].Axis.NcToPlc.SetPos)) +
+    astAxes[AXIS_DTANK_PIVOT_TO_WINDOW].Axis.NcToPlc.SetPos * SIN(DEG_TO_RAD(astAxes[AXIS_MEASUREMENT_ANGLE].Axis.NcToPlc.SetPos + astAxes[AXIS_DTANK_INTERNAL_OFFSET_ANGLE].Axis.NcToPlc.ActPos)) +
+    astAxes[AXIS_DOFF_PARALLEL].Axis.NcToPlc.SetPos * COS(DEG_TO_RAD(astAxes[AXIS_MEASUREMENT_ANGLE].Axis.NcToPlc.SetPos + astAxes[AXIS_DTANK_INTERNAL_OFFSET_ANGLE].Axis.NcToPlc.ActPos)); 
+    
+EncoderPosition:= LREAL_TO_DINT(fEncoderPosition * fScaler);    
+]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

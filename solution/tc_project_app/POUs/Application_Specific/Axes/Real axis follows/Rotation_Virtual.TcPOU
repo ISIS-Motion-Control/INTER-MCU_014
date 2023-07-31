@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
+  <POU Name="Rotation_Virtual" Id="{e54025a3-7067-4661-aae8-259b9114cc6a}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM Rotation_Virtual
+VAR
+    fEncoderPosition : LREAL;
+    EncoderPosition AT %Q* : DINT; //Encoder value for NC
+    fScaler : LREAL := 1000000;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[GVL.astAxes[AXIS_ROTATION_VIRTUAL].stInputs.bLimitBwd := TRUE;
+GVL.astAxes[AXIS_ROTATION_VIRTUAL].stInputs.bLimitFwd := TRUE;
+GVL.astAxes[AXIS_ROTATION_VIRTUAL].stControl.bEnable := TRUE;
+
+
+
+
+//calculate setpoint generator inputs
+fEncoderPosition := 
+    astAxes[AXIS_MEASUREMENT_ANGLE].Axis.NcToPlc.SetPos +
+    astAxes[AXIS_DTANK_INTERNAL_OFFSET_ANGLE].Axis.NcToPlc.ActPos;
+   
+EncoderPosition:= LREAL_TO_DINT(fEncoderPosition * fScaler);
+
+//astAxes[].stStatus.fActPosition]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

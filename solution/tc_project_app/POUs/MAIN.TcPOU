@@ -125,7 +125,30 @@ Rotation();
 
 Combined_Vertical();
 
+
+Drad_External();
+Drad_Internal();
+Doff_Angled();
+Doff_Parallel();
+Dtank_Internal_Offset_Angle();
+Dtank_Length();
+Dtank_Pivot_To_Window();
+Delta();
+Tau();
+Drad();
+Measurement_Angle();
+
+
+Rotation_Virtual();
+Combined_Vertical_Virtual();
+Horizontal_Virtual();
+
+
+
+
 INTER_LOGIC();
+
+
 
 ]]></ST>
       </Implementation>

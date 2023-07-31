@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
+  <DUT Name="eState_INTER" Id="{5c829116-f8b2-4b9d-94cf-bbbb41200982}">
+    <Declaration><![CDATA[{attribute 'qualified_only'}
+{attribute 'strict'}
+TYPE eState_INTER :
+(
+	init,
+    goToNeutral,
+    CheckNeutral,
+    enableSPG,
+    checkEnableSPG,
+    disableSPG,
+    checkDisableSPG,
+    operation,
+    error
+);
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

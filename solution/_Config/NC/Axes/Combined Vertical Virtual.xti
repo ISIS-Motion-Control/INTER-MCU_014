@@ -1411,7 +1411,10 @@ External Setpoint Generation:
 		<AxisPara>
 			<OtherSettings AllowMotionCmdToSlave="true"/>
 		</AxisPara>
-		<Encoder Name="Enc" EncType="1">
+		<Encoder Name="Enc" EncType="16">
+			<EncPara ScaleFactorNumerator="1e-06" MaxCount="#xffffffff" ReferenceSystem="1">
+				<ParameterChanged>35</ParameterChanged>
+			</EncPara>
 			<Vars VarGrpType="1">
 				<Name>Inputs</Name>
 				<Var>
@@ -1471,6 +1474,7 @@ External Setpoint Generation:
 		<Drive Name="Drive" DrvType="5">
 			<DrvPara>
 				<Analog TorqueSetpointScale="10" ScaleFactorActTorque="0.1"/>
+				<TimeComp TaskDelayCycles="1"/>
 			</DrvPara>
 			<Vars VarGrpType="1">
 				<Name>Inputs</Name>

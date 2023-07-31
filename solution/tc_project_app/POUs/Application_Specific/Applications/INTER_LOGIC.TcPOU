@@ -47,6 +47,28 @@ VAR
     Y1rTrig : R_TRIG;
     cycleCounter : LREAL:=0; 
     scalingActive : BOOL := FALSE;   
+    
+    
+    //////////////////////////////////////////////////
+    fbSPG_Y_Enable : MC_ExtSetPointGenEnable;
+    fbSPG_Y_Disable : MC_ExtSetPointGenDisable;
+    fbSPG_Z_Enable : MC_ExtSetPointGenEnable;
+    fbSPG_Z_Disable : MC_ExtSetPointGenDisable;
+    fbSPG_Rot_Enable : MC_ExtSetPointGenEnable;
+    fbSPG_Rot_Disable : MC_ExtSetPointGenDisable;
+    enableSPGs : BOOL;
+    disableSPGs : BOOL;
+    
+    yDir : DINT;
+    zDir : DINT;
+    rotDir :DINT;
+    
+    /////////////////////////
+    eStateInter : eState_INTER := eState_INTER.init;
+    checkFirstCycle : BOOL;
+    posDevZ : LREAL;
+    posDevY : LREAL;
+    posDevRot : LREAL;
 END_VAR
 ]]></Declaration>
     <Implementation>
@@ -97,6 +119,7 @@ Exiting this coupling for maintenance (tweaking of position)
 And what happens when something falls over
 
 *)
+CombinedVerticalSetupComplete := FALSE;
 IF GVL_INTER.RUN_COUPLED_VERTICAL THEN
     ////////////// RUN ALL THE TIME ///////////////////////////////////////        
     //Enable linking
@@ -131,7 +154,191 @@ IF GVL_INTER.RUN_COUPLED_VERTICAL THEN
         eStateVertical:= eState_Vertical.init;
 	END_IF
     
-    CASE eStateVertical OF
+    actSyncVertStateMachine();
+        
+END_IF
+
+combinedVerticalSetPos(Axis:= astAxes[AXIS_COMBINED_VERTICAL].Axis);
+combinedVerticalSetPos.Execute:= FALSE;
+
+IF(astAxes[AXIS_COMBINED_VERTICAL].Axis.NcToPlc.ActVelo>0) THEN
+    combinedVerticalDirection := 1;
+ELSIF (astAxes[AXIS_COMBINED_VERTICAL].Axis.NcToPlc.ActVelo<0) THEN
+    combinedVerticalDirection := -1;
+ELSE 
+    combinedVerticalDirection := 0;
+END_IF
+
+actZSetpoints();
+verticalZ1SpgEnable(Axis:=astAxes[AXIS_VERTICAL_TRANSLATION_Y1].Axis);
+verticalZ1SpgEnable.Execute:= FALSE;
+verticalZ1SpgDisable(Axis:=astAxes[AXIS_VERTICAL_TRANSLATION_Y1].Axis);
+verticalZ1SpgDisable.Execute:= FALSE;
+verticalZ2SpgEnable(Axis:=astAxes[AXIS_VERTICAL_TRANSLATION_Y2].Axis);
+verticalZ2SpgEnable.Execute:= FALSE;
+verticalZ2SpgDisable(Axis:=astAxes[AXIS_VERTICAL_TRANSLATION_Y2].Axis);
+verticalZ2SpgDisable.Execute:= FALSE;
+
+
+
+
+
+/////////////////////////////////ACTUAL LOGIC/////////////////////////////////////////
+actCheckPositionDeviation();
+
+//DISABLE AXES (overridden if operational)
+astAxes[AXIS_MEASUREMENT_ANGLE].stControl.bEnable := FALSE;
+
+IF CombinedVerticalSetupComplete AND GVL_INTER.RUN_KINEMATICS THEN
+    
+    CASE eStateInter OF
+        eState_INTER.init:
+            IF ABS(posDevZ)<0.1 AND ABS(posDevY)<0.1 AND ABS(posDevRot)<0.05 THEN
+                eStateInter:= eState_INTER.enableSPG;
+            ELSE
+                eStateInter:= eState_INTER.goToNeutral;
+			END_IF
+            
+            
+        eState_INTER.goToNeutral:
+            //Send axes to default positions
+            //Send real axes to where they would be if SPG'd
+            //TO DO = SETUP DEFAULT VELOCITY SO DON'T NEED TO BE CALLED HERE
+            astAxes[AXIS_HORIZONTAL_TRANSLATION].stControl.eCommand:= E_MotionFunctions.eMoveAbsolute;
+            astAxes[AXIS_HORIZONTAL_TRANSLATION].stControl.fPosition:= astAxes[AXIS_HORIZONTAL_VIRTUAL].stStatus.fActPosition + astAxes[AXIS_HORIZONTAL_SAMPLE].stStatus.fActPosition + astAxes[AXIS_HORIZONTAL_CALIBRATION].stStatus.fActPosition;
+            astAxes[AXIS_HORIZONTAL_TRANSLATION].stControl.fVelocity :=20;
+            astAxes[AXIS_HORIZONTAL_TRANSLATION].stControl.bExecute:= TRUE;
+            
+            astAxes[AXIS_COMBINED_VERTICAL].stControl.eCommand:= E_MotionFunctions.eMoveAbsolute;
+            astAxes[AXIS_COMBINED_VERTICAL].stControl.fPosition:= astAxes[AXIS_COMBINED_VERTICAL_VIRTUAL].stStatus.fActPosition + astAxes[AXIS_COMBINED_VERTICAL_SAMPLE].stStatus.fActPosition + astAxes[AXIS_COMBINED_VERTICAL_CALIBRATION].stStatus.fActPosition;
+            astAxes[AXIS_COMBINED_VERTICAL].stControl.fVelocity :=20;
+            astAxes[AXIS_COMBINED_VERTICAL].stControl.bExecute:= TRUE;
+            
+            astAxes[AXIS_ROTATION].stControl.eCommand:= E_MotionFunctions.eMoveAbsolute;
+            astAxes[AXIS_ROTATION].stControl.fPosition:= astAxes[AXIS_ROTATION_VIRTUAL].stStatus.fActPosition + astAxes[AXIS_ROTATION_SAMPLE].stStatus.fActPosition + astAxes[AXIS_ROTATION_CALIBRATION].stStatus.fActPosition;
+            astAxes[AXIS_ROTATION].stControl.fVelocity :=1;
+            astAxes[AXIS_ROTATION].stControl.bExecute:= TRUE;
+            eStateInter:= eState_INTER.CheckNeutral;
+            
+        eState_INTER.CheckNeutral:
+            IF checkFirstCycle THEN
+                //Move check and position check
+                IF astAxes[AXIS_HORIZONTAL_TRANSLATION].Axis.Status.NotMoving AND astAxes[AXIS_COMBINED_VERTICAL].Axis.Status.NotMoving AND astAxes[AXIS_ROTATION].Axis.Status.NotMoving THEN
+                    IF ABS(posDevZ)<0.1 AND ABS(posDevY)<0.1 AND ABS(posDevRot)<0.05 THEN
+                        //WE ARE IN CORRECT POSITION
+                        checkFirstCycle := FALSE;
+                        eStateInter:= eState_INTER.enableSPG;
+					END_IF                    
+				END_IF
+                
+            ELSE
+                checkFirstCycle:= TRUE;
+			END_IF
+            
+        eState_INTER.enableSPG:
+            fbSPG_Y_Enable.Execute:= TRUE;
+            fbSPG_Z_Enable.Execute:= TRUE;
+            fbSPG_Rot_Enable.Execute:= TRUE;
+            eStateInter:= eState_INTER.checkEnableSPG;
+           
+        eState_INTER.checkEnableSPG:
+            IF astAxes[AXIS_HORIZONTAL_TRANSLATION].Axis.Status.ExtSetPointGenEnabled AND astAxes[AXIS_COMBINED_VERTICAL].Axis.Status.ExtSetPointGenEnabled AND astAxes[AXIS_ROTATION].Axis.Status.ExtSetPointGenEnabled THEN
+                eStateInter :=eState_INTER.operation;
+			END_IF
+        
+        eState_INTER.operation:
+            //IN HERE WE WILL CHECK SPGs STAY ENABLED AND ENABLE THE VIRTUAL AXES - to be completed
+            IF NOT NcAxisError THEN
+                IF astAxes[AXIS_HORIZONTAL_TRANSLATION].Axis.Status.ExtSetPointGenEnabled AND astAxes[AXIS_COMBINED_VERTICAL].Axis.Status.ExtSetPointGenEnabled AND astAxes[AXIS_ROTATION].Axis.Status.ExtSetPointGenEnabled THEN
+                    astAxes[AXIS_MEASUREMENT_ANGLE].stControl.bEnable := TRUE;
+			    END_IF
+            END_IF
+            
+	END_CASE
+    
+    
+    //TO BE DELETED - test code
+    IF enableSPGs THEN
+        fbSPG_Y_Enable.Execute:= TRUE;
+        fbSPG_Z_Enable.Execute:= TRUE;
+        fbSPG_Rot_Enable.Execute:= TRUE;
+        enableSPGs := FALSE;
+	END_IF
+    
+    IF disableSPGs THEN
+        fbSPG_Y_Disable.Execute:= TRUE;
+        fbSPG_Z_Disable.Execute:= TRUE;
+        fbSPG_Rot_Disable.Execute:= TRUE;
+        disableSPGs := FALSE;
+	END_IF
+    
+END_IF
+
+//SPG DIRECTION CHECK LOGIC
+IF astAxes[AXIS_HORIZONTAL_VIRTUAL].Axis.NcToPlc.ActVelo>0 THEN
+    zDir := 1;
+ELSIF astAxes[AXIS_HORIZONTAL_VIRTUAL].Axis.NcToPlc.ActVelo<0 THEN
+    zDir := -1;
+ELSE
+    zDir := 0;
+END_IF
+
+IF astAxes[AXIS_COMBINED_VERTICAL_VIRTUAL].Axis.NcToPlc.ActVelo>0 THEN
+    yDir := 1;
+ELSIF astAxes[AXIS_COMBINED_VERTICAL_VIRTUAL].Axis.NcToPlc.ActVelo<0 THEN
+    yDir := -1;
+ELSE
+    yDir := 0;
+END_IF
+IF astAxes[AXIS_ROTATION_VIRTUAL].Axis.NcToPlc.ActVelo>0 THEN
+    rotDir := 1;
+ELSIF astAxes[AXIS_ROTATION_VIRTUAL].Axis.NcToPlc.ActVelo<0 THEN
+    rotDir := -1;
+ELSE
+    rotDir := 0;
+END_IF
+//////
+
+//SPG CALLS
+MC_ExtSetPointGenFeed(Axis:= astAxes[AXIS_HORIZONTAL_TRANSLATION].Axis, 
+        Position:= astAxes[AXIS_HORIZONTAL_VIRTUAL].Axis.NcToPlc.ActPos,
+        Velocity:=astAxes[AXIS_HORIZONTAL_VIRTUAL].Axis.NcToPlc.ActVelo,
+        Direction:= zDir, Acceleration:= 0);
+        
+MC_ExtSetPointGenFeed(Axis:= astAxes[AXIS_COMBINED_VERTICAL].Axis, 
+        Position:= astAxes[AXIS_COMBINED_VERTICAL_VIRTUAL].Axis.NcToPlc.ActPos,
+        Velocity:=astAxes[AXIS_COMBINED_VERTICAL_VIRTUAL].Axis.NcToPlc.ActVelo,
+        Direction:= yDir, Acceleration:= 0);
+
+MC_ExtSetPointGenFeed(Axis:= astAxes[AXIS_ROTATION].Axis, 
+        Position:= astAxes[AXIS_ROTATION_VIRTUAL].Axis.NcToPlc.ActPos,
+        Velocity:=astAxes[AXIS_ROTATION_VIRTUAL].Axis.NcToPlc.ActVelo,
+        Direction:= rotDir, Acceleration:= 0);
+
+fbSPG_Y_Enable(Axis:= astAxes[AXIS_COMBINED_VERTICAL].Axis);
+fbSPG_Y_Disable(Axis:= astAxes[AXIS_COMBINED_VERTICAL].Axis);
+fbSPG_Z_Enable(Axis:=astAxes[AXIS_HORIZONTAL_TRANSLATION].Axis);
+fbSPG_Z_Disable(Axis:=astAxes[AXIS_HORIZONTAL_TRANSLATION].Axis);
+fbSPG_Rot_Enable(Axis:=astAxes[AXIS_ROTATION].Axis);
+fbSPG_Rot_Disable(Axis:=astAxes[AXIS_ROTATION].Axis);
+
+fbSPG_Y_Enable.Execute:= FALSE;
+fbSPG_Y_Disable.Execute:= FALSE;
+fbSPG_Z_Enable.Execute:= FALSE;
+fbSPG_Z_Disable.Execute:= FALSE;
+fbSPG_Rot_Enable.Execute:= FALSE;
+fbSPG_Rot_Disable.Execute:= FALSE;]]></ST>
+    </Implementation>
+    <Action Name="actCheckPositionDeviation" Id="{48a3beaa-86d1-4929-b3bc-c17d3fe46a74}">
+      <Implementation>
+        <ST><![CDATA[posDevZ:=    astAxes[AXIS_HORIZONTAL_TRANSLATION].stStatus.fActPosition - (astAxes[AXIS_HORIZONTAL_VIRTUAL].stStatus.fActPosition + astAxes[AXIS_HORIZONTAL_SAMPLE].stStatus.fActPosition + astAxes[AXIS_HORIZONTAL_CALIBRATION].stStatus.fActPosition);
+posDevY:=    astAxes[AXIS_COMBINED_VERTICAL].stStatus.fActPosition - (astAxes[AXIS_COMBINED_VERTICAL_VIRTUAL].stStatus.fActPosition + astAxes[AXIS_COMBINED_VERTICAL_SAMPLE].stStatus.fActPosition + astAxes[AXIS_COMBINED_VERTICAL_CALIBRATION].stStatus.fActPosition);
+posDevRot:=    astAxes[AXIS_ROTATION].stStatus.fActPosition - (astAxes[AXIS_ROTATION_VIRTUAL].stStatus.fActPosition + astAxes[AXIS_ROTATION_SAMPLE].stStatus.fActPosition + astAxes[AXIS_ROTATION_CALIBRATION].stStatus.fActPosition);]]></ST>
+      </Implementation>
+    </Action>
+    <Action Name="actSyncVertStateMachine" Id="{86ee614e-4a39-40bc-bbfb-49053b8e3adf}">
+      <Implementation>
+        <ST><![CDATA[CASE eStateVertical OF
         eState_Vertical.init:
             IF NOT astAxes[AXIS_VERTICAL_TRANSLATION_Y1].stStatus.bError AND NOT astAxes[AXIS_VERTICAL_TRANSLATION_Y2].stStatus.bError THEN
                 IF NOT decoupleVerticalMotion THEN
@@ -179,6 +386,7 @@ IF GVL_INTER.RUN_COUPLED_VERTICAL THEN
         
         eState_Vertical.operation:
             //DO NOTHING
+            CombinedVerticalSetupComplete := TRUE;
             IF NOT VerticalAxesSpgEnabled THEN
                 eStateVertical:= eState_Vertical.init;
 			END_IF
@@ -198,41 +406,9 @@ IF GVL_INTER.RUN_COUPLED_VERTICAL THEN
                 eStateVertical := eState_Vertical.disableSpg;
 			END_IF
             
-	END_CASE
-    
-
-    
-END_IF
-
-
-
-combinedVerticalSetPos(Axis:= astAxes[AXIS_COMBINED_VERTICAL].Axis);
-combinedVerticalSetPos.Execute:= FALSE;
-
-IF(astAxes[AXIS_COMBINED_VERTICAL].Axis.NcToPlc.ActVelo>0) THEN
-    combinedVerticalDirection := 1;
-ELSIF (astAxes[AXIS_COMBINED_VERTICAL].Axis.NcToPlc.ActVelo<0) THEN
-    combinedVerticalDirection := -1;
-ELSE 
-    combinedVerticalDirection := 0;
-END_IF
-
-actZSetpoints();
-verticalZ1SpgEnable(Axis:=astAxes[AXIS_VERTICAL_TRANSLATION_Y1].Axis);
-verticalZ1SpgEnable.Execute:= FALSE;
-verticalZ1SpgDisable(Axis:=astAxes[AXIS_VERTICAL_TRANSLATION_Y1].Axis);
-verticalZ1SpgDisable.Execute:= FALSE;
-verticalZ2SpgEnable(Axis:=astAxes[AXIS_VERTICAL_TRANSLATION_Y2].Axis);
-verticalZ2SpgEnable.Execute:= FALSE;
-verticalZ2SpgDisable(Axis:=astAxes[AXIS_VERTICAL_TRANSLATION_Y2].Axis);
-verticalZ2SpgDisable.Execute:= FALSE;
-
-IF CombinedVerticalSetupComplete AND GVL_INTER.RUN_KINEMATICS THEN
-    //
-END_IF
-
-]]></ST>
-    </Implementation>
+	END_CASE]]></ST>
+      </Implementation>
+    </Action>
     <Action Name="actZSetpoints" Id="{facf07a9-589c-4d38-a5b7-e5a598ba95ba}">
       <Implementation>
         <ST><![CDATA[astAxes[AXIS_COMBINED_VERTICAL].Axis.ReadStatus();

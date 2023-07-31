@@ -40,6 +40,9 @@
     <Compile Include="POUs\Application_Specific\Applications\Application_Template.TcPOU">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="POUs\Application_Specific\Applications\eState_INTER.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="POUs\Application_Specific\Applications\eState_Vertical.TcDUT">
       <SubType>Code</SubType>
     </Compile>
@@ -59,6 +62,15 @@
     <Compile Include="POUs\Application_Specific\Axes\Horizontal_Translation.TcPOU">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="POUs\Application_Specific\Axes\Real axis follows\Combined_Vertical_Virtual.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\Application_Specific\Axes\Real axis follows\Horizontal_Virtual.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\Application_Specific\Axes\Real axis follows\Rotation_Virtual.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="POUs\Application_Specific\Axes\Vertical_Translation_Y2.TcPOU">
       <SubType>Code</SubType>
     </Compile>
@@ -69,6 +81,39 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="POUs\Application_Specific\Axes\Pneumatics_Template.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\Application_Specific\Axes\Virtuals\Delta.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\Application_Specific\Axes\Virtuals\Doff_Angled.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\Application_Specific\Axes\Virtuals\Doff_Parallel.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\Application_Specific\Axes\Virtuals\Drad.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\Application_Specific\Axes\Virtuals\Drad_External.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\Application_Specific\Axes\Virtuals\Drad_Internal.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\Application_Specific\Axes\Virtuals\Dtank_Internal_Offset_Angle.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\Application_Specific\Axes\Virtuals\Dtank_Length.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\Application_Specific\Axes\Virtuals\Dtank_Pivot_To_Window.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\Application_Specific\Axes\Virtuals\Measurement_Angle.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\Application_Specific\Axes\Virtuals\Tau.TcPOU">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="POUs\MAIN.TcPOU">
@@ -212,6 +257,8 @@
     <Folder Include="POUs\Application_Specific" />
     <Folder Include="POUs\Application_Specific\Applications" />
     <Folder Include="POUs\Application_Specific\Axes" />
+    <Folder Include="POUs\Application_Specific\Axes\Real axis follows" />
+    <Folder Include="POUs\Application_Specific\Axes\Virtuals" />
     <Folder Include="tc_mca_std_lib\DUTs\Axis_Structures" />
     <Folder Include="tc_mca_std_lib\DUTs\Pneumatics" />
     <Folder Include="POUs\Application_Specific\Applications" />

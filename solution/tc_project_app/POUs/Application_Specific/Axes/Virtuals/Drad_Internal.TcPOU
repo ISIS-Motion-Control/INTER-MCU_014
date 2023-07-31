@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
+  <POU Name="Drad_Internal" Id="{9290ef43-cd17-453e-a826-bd93eb9f5add}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM Drad_Internal
+VAR
+    fEncoderPosition : LREAL;
+    EncoderPosition AT %Q* : DINT; //Encoder value for NC
+    fScaler : LREAL := 1000000;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[GVL.astAxes[AXIS_DRAD_INTERNAL].stInputs.bLimitBwd := TRUE;
+GVL.astAxes[AXIS_DRAD_INTERNAL].stInputs.bLimitFwd := TRUE;
+GVL.astAxes[AXIS_DRAD_INTERNAL].stControl.bEnable := TRUE;
+
+//E = SQRT(C^2 + F^2)
+
+
+//calculate setpoint generator inputs
+fEncoderPosition := SQRT(EXPT(astAxes[AXIS_DTANK_LENGTH].stStatus.fActPosition,2) + EXPT(astAxes[AXIS_DOFF_ANGLED].stStatus.fActPosition,2));
+   
+EncoderPosition:= LREAL_TO_DINT(fEncoderPosition * fScaler);]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>
