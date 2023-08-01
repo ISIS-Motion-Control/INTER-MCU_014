@@ -6,6 +6,8 @@
 TYPE eState_INTER :
 (
 	init,
+    setPositions,
+    checkSetPositions,
     goToNeutral,
     CheckNeutral,
     enableSPG,
@@ -13,6 +15,9 @@ TYPE eState_INTER :
     disableSPG,
     checkDisableSPG,
     operation,
+    startRecovery,
+    recoveryDefaultPosition,
+    waitForRecovery,
     error
 );
 END_TYPE

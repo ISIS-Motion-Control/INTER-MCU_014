@@ -1409,6 +1409,7 @@ External Setpoint Generation:
 	<Axis Id="19" CreateSymbols="true" AxisType="1" AxisFolder="Control Inputs">
 		<Name>__FILENAME__</Name>
 		<AxisPara>
+			<Velo SlowManual="5" FastManual="10"/>
 			<OtherSettings AllowMotionCmdToSlave="true"/>
 		</AxisPara>
 		<Encoder Name="Enc" EncType="1">

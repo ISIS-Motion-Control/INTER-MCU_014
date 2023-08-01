@@ -3,8 +3,7 @@
   <POU Name="Dtank_Pivot_To_Window" Id="{80308c5a-8765-4ec4-96d3-88987add8d1c}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM Dtank_Pivot_To_Window
 VAR
-    setPos : MC_SetPosition;
-    nominalPosition : LREAL := 1648.66;
+
 END_VAR
 ]]></Declaration>
     <Implementation>
@@ -16,14 +15,8 @@ GVL.astAxes[AXIS_DTANK_PIVOT_TO_WINDOW].stControl.bEnable := TRUE;
 
 IF _TaskInfo[fbGetCurTaskIndex.index].FirstCycle THEN
     //Initial default values:
-    setPos.Execute:= TRUE;
 END_IF
 
-
-setPos.Position := nominalPosition;
-
-setPos(Axis:= astAxes[AXIS_DTANK_PIVOT_TO_WINDOW].Axis);
-setPos.Execute:= FALSE;
 ]]></ST>
     </Implementation>
   </POU>

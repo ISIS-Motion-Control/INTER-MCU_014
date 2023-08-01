@@ -3,6 +3,8 @@
   <POU Name="INTER_LOGIC" Id="{da89d596-93f4-468f-9a43-1a72f2055b25}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM INTER_LOGIC
 VAR
+    driveStartupDelay : TON;
+
     NcAxisError : BOOL;
     LogicError : BOOL;
     
@@ -11,6 +13,8 @@ VAR
     safetyFTrig : F_TRIG;
     safetyResetTON : TON;
     safetyResetLatch : BOOL :=FALSE;
+    safetyResetDone: BOOL;
+    driveResetDone : BOOL;
     
     
     CombinedVerticalSetupComplete : BOOL := FALSE;
@@ -69,6 +73,41 @@ VAR
     posDevZ : LREAL;
     posDevY : LREAL;
     posDevRot : LREAL;
+    bRealDevValid : BOOL;
+    bDefaultDevValid : BOOL;
+    bRecoveryDevValid : BOOL;
+    /////////////////////////
+    
+    setPos_Drad : MC_SetPosition;
+    setPos_Dtank_Length : MC_SetPosition;
+    setPos_Dtank_Pivot_To_Window : MC_SetPosition;
+    dradDev : LREAL;
+    dTankLengthDev : LREAL;
+    dTankPivotWindowDev : LREAL;
+    measurementAngleDev : LREAL;
+    dOffAngledDev : LREAL;
+    dOffParallelDev : LREAL;
+    
+    
+    bAllSPGsEnabled : BOOL;
+    bSomeSPGsEnabled : BOOL;
+    bRecoveryMode : BOOL;
+    bRecoveryInProgress : BOOL;
+    bKinematicsOperational : BOOL;
+    bVirtualsMoving : BOOL;
+    writeDefault : FB_WritePersistentData;
+    startupDelayTON : TON;
+      
+END_VAR
+
+VAR CONSTANT
+    DEVIATION_THRESHOLD : LREAL := 0.05;
+END_VAR
+
+VAR PERSISTENT
+    Drad_default : LREAL := 3000;
+    Dtank_Length_default : LREAL := 2289.15;
+    Dtank_Pivot_To_Window_default : LREAL := 1648.66;
 END_VAR
 ]]></Declaration>
     <Implementation>
@@ -84,13 +123,26 @@ END_IF
 safetyFTrig(CLK:= GVL_Safety.SafetyReset);
 IF safetyFTrig.Q THEN
     safetyResetLatch := TRUE;
+    safetyResetDone:= FALSE;
+    driveResetDone:= FALSE;
 END_IF
 
 safetyResetTON(IN:= safetyResetLatch, PT:=T#1S);
+driveStartupDelay(IN:=safetyResetLatch,  PT:=T#2S);
 
 IF safetyResetTON.Q THEN
-    safetyResetLatch:= FALSE;
+    //safetyResetLatch:= FALSE;
+    safetyResetDone := TRUE;
     GVL_INTER.RESET_ALL := TRUE;
+END_IF
+
+IF driveStartupDelay.Q THEN
+    //safetyResetLatch:= FALSE;
+    driveResetDone := TRUE;
+END_IF
+
+IF driveResetDone AND safetyResetDone THEN
+    safetyResetLatch:= FALSE;
 END_IF
 
 IF GVL_INTER.RESET_ALL THEN
@@ -119,8 +171,11 @@ Exiting this coupling for maintenance (tweaking of position)
 And what happens when something falls over
 
 *)
+
+
+
 CombinedVerticalSetupComplete := FALSE;
-IF GVL_INTER.RUN_COUPLED_VERTICAL THEN
+IF GVL_INTER.RUN_COUPLED_VERTICAL AND driveResetDone THEN
     ////////////// RUN ALL THE TIME ///////////////////////////////////////        
     //Enable linking
     IF astAxes[AXIS_VERTICAL_TRANSLATION_Y2].stStatus.bEnabled AND astAxes[AXIS_VERTICAL_TRANSLATION_Y1].stStatus.bEnabled THEN
@@ -181,50 +236,101 @@ verticalZ2SpgDisable.Execute:= FALSE;
 
 
 
-
+writeDefault(NETID:='', PORT:=852);
+writeDefault.START:= FALSE;
 
 /////////////////////////////////ACTUAL LOGIC/////////////////////////////////////////
 actCheckPositionDeviation();
-
+actCheckRealSpgStatus();
+startupDelayTON(PT:=T#200MS);
 //DISABLE AXES (overridden if operational)
 astAxes[AXIS_MEASUREMENT_ANGLE].stControl.bEnable := FALSE;
 
-IF CombinedVerticalSetupComplete AND GVL_INTER.RUN_KINEMATICS THEN
+//NEED IF STATEMENT HERE TO DO IF KINEMATICS NOT RUNNING, NO SPGS ENABLED
+
+//NEED TO ADD A LOAD OF TIMEOUTS TO STATES
+
+IF bRecoveryMode AND GVL_INTER.RUN_KINEMATICS AND NOT bRecoveryInProgress THEN
+    eStateInter:= eState_INTER.startRecovery;
+END_IF
+
+IF bSomeSPGsEnabled AND NOT GVL_INTER.RUN_KINEMATICS THEN
+    eStateInter:= eState_INTER.disableSPG;
+END_IF
+
+
+
+IF CombinedVerticalSetupComplete THEN
     
     CASE eStateInter OF
         eState_INTER.init:
-            IF ABS(posDevZ)<0.1 AND ABS(posDevY)<0.1 AND ABS(posDevRot)<0.05 THEN
-                eStateInter:= eState_INTER.enableSPG;
-            ELSE
-                eStateInter:= eState_INTER.goToNeutral;
+        //maybe some other stuff - make sure SPGs are not running (do a "gear" out)
+            IF GVL_INTER.RUN_KINEMATICS THEN
+                IF bSomeSPGsEnabled THEN
+                    eStateInter:=eState_INTER.disableSPG;
+                ELSE
+                    eStateInter:= eState_INTER.setPositions;
+			    END_IF
 			END_IF
             
-            
+                        
+        eState_INTER.setPositions:
+            setPos_Drad.Position := Drad_default;
+            setPos_Dtank_Length.Position := Dtank_Length_default;
+            setPos_Dtank_Pivot_To_Window.Position := Dtank_Pivot_To_Window_default;
+            setPos_Drad.Execute:= TRUE;
+            setPos_Dtank_Length.Execute:= TRUE;
+            setPos_Dtank_Pivot_To_Window.Execute:= TRUE;
+            writeDefault.START:=TRUE;
+            eStateInter := eState_INTER.checkSetPositions;
+        
+        eState_INTER.checkSetPositions:
+            IF checkFirstCycle THEN
+                IF bDefaultDevValid THEN
+                    IF bRealDevValid THEN
+                        eStateInter:= eState_INTER.enableSPG;
+                        checkFirstCycle:=FALSE;
+                    ELSE
+                        eStateInter:= eState_INTER.goToNeutral;
+                        checkFirstCycle:=FALSE;
+			        END_IF
+			    END_IF
+            ELSE
+                checkFirstCycle:= TRUE;
+			END_IF
+            //HANDLE IF WE GET STUCK IN THIS STATE
+                                    
         eState_INTER.goToNeutral:
             //Send axes to default positions
             //Send real axes to where they would be if SPG'd
             //TO DO = SETUP DEFAULT VELOCITY SO DON'T NEED TO BE CALLED HERE
-            astAxes[AXIS_HORIZONTAL_TRANSLATION].stControl.eCommand:= E_MotionFunctions.eMoveAbsolute;
-            astAxes[AXIS_HORIZONTAL_TRANSLATION].stControl.fPosition:= astAxes[AXIS_HORIZONTAL_VIRTUAL].stStatus.fActPosition + astAxes[AXIS_HORIZONTAL_SAMPLE].stStatus.fActPosition + astAxes[AXIS_HORIZONTAL_CALIBRATION].stStatus.fActPosition;
-            astAxes[AXIS_HORIZONTAL_TRANSLATION].stControl.fVelocity :=20;
-            astAxes[AXIS_HORIZONTAL_TRANSLATION].stControl.bExecute:= TRUE;
+            startupDelayTON.IN:= TRUE;
+            IF startupDelayTON.Q THEN
+                startupDelayTON.IN:= FALSE;
+                //REPLACE THESE WITH MOVE ABSOLUTE METHOD
+                astAxes[AXIS_HORIZONTAL_TRANSLATION].stControl.eCommand:= E_MotionFunctions.eMoveAbsolute;
+                astAxes[AXIS_HORIZONTAL_TRANSLATION].stControl.fPosition:= astAxes[AXIS_HORIZONTAL_VIRTUAL].Axis.NcToPlc.ActPos + astAxes[AXIS_HORIZONTAL_SAMPLE].Axis.NcToPlc.ActPos + astAxes[AXIS_HORIZONTAL_CALIBRATION].Axis.NcToPlc.ActPos;
+                astAxes[AXIS_HORIZONTAL_TRANSLATION].stControl.fVelocity :=20;
+                astAxes[AXIS_HORIZONTAL_TRANSLATION].stControl.bExecute:= TRUE;
             
-            astAxes[AXIS_COMBINED_VERTICAL].stControl.eCommand:= E_MotionFunctions.eMoveAbsolute;
-            astAxes[AXIS_COMBINED_VERTICAL].stControl.fPosition:= astAxes[AXIS_COMBINED_VERTICAL_VIRTUAL].stStatus.fActPosition + astAxes[AXIS_COMBINED_VERTICAL_SAMPLE].stStatus.fActPosition + astAxes[AXIS_COMBINED_VERTICAL_CALIBRATION].stStatus.fActPosition;
-            astAxes[AXIS_COMBINED_VERTICAL].stControl.fVelocity :=20;
-            astAxes[AXIS_COMBINED_VERTICAL].stControl.bExecute:= TRUE;
+                astAxes[AXIS_COMBINED_VERTICAL].stControl.eCommand:= E_MotionFunctions.eMoveAbsolute;
+                astAxes[AXIS_COMBINED_VERTICAL].stControl.fPosition:= astAxes[AXIS_COMBINED_VERTICAL_VIRTUAL].stStatus.fActPosition + astAxes[AXIS_COMBINED_VERTICAL_SAMPLE].stStatus.fActPosition + astAxes[AXIS_COMBINED_VERTICAL_CALIBRATION].stStatus.fActPosition;
+                astAxes[AXIS_COMBINED_VERTICAL].stControl.fVelocity :=20;
+                astAxes[AXIS_COMBINED_VERTICAL].stControl.bExecute:= TRUE;
             
-            astAxes[AXIS_ROTATION].stControl.eCommand:= E_MotionFunctions.eMoveAbsolute;
-            astAxes[AXIS_ROTATION].stControl.fPosition:= astAxes[AXIS_ROTATION_VIRTUAL].stStatus.fActPosition + astAxes[AXIS_ROTATION_SAMPLE].stStatus.fActPosition + astAxes[AXIS_ROTATION_CALIBRATION].stStatus.fActPosition;
-            astAxes[AXIS_ROTATION].stControl.fVelocity :=1;
-            astAxes[AXIS_ROTATION].stControl.bExecute:= TRUE;
-            eStateInter:= eState_INTER.CheckNeutral;
+                astAxes[AXIS_ROTATION].stControl.eCommand:= E_MotionFunctions.eMoveAbsolute;
+                astAxes[AXIS_ROTATION].stControl.fPosition:= astAxes[AXIS_ROTATION_VIRTUAL].stStatus.fActPosition + astAxes[AXIS_ROTATION_SAMPLE].stStatus.fActPosition + astAxes[AXIS_ROTATION_CALIBRATION].stStatus.fActPosition;
+                astAxes[AXIS_ROTATION].stControl.fVelocity :=1;
+                astAxes[AXIS_ROTATION].stControl.bExecute:= TRUE;
+                eStateInter:= eState_INTER.CheckNeutral;
+			END_IF
+            
             
         eState_INTER.CheckNeutral:
             IF checkFirstCycle THEN
                 //Move check and position check
                 IF astAxes[AXIS_HORIZONTAL_TRANSLATION].Axis.Status.NotMoving AND astAxes[AXIS_COMBINED_VERTICAL].Axis.Status.NotMoving AND astAxes[AXIS_ROTATION].Axis.Status.NotMoving THEN
-                    IF ABS(posDevZ)<0.1 AND ABS(posDevY)<0.1 AND ABS(posDevRot)<0.05 THEN
+                    IF bRealDevValid THEN
                         //WE ARE IN CORRECT POSITION
                         checkFirstCycle := FALSE;
                         eStateInter:= eState_INTER.enableSPG;
@@ -247,32 +353,78 @@ IF CombinedVerticalSetupComplete AND GVL_INTER.RUN_KINEMATICS THEN
 			END_IF
         
         eState_INTER.operation:
+            bKinematicsOperational:= TRUE;
             //IN HERE WE WILL CHECK SPGs STAY ENABLED AND ENABLE THE VIRTUAL AXES - to be completed
+            IF NOT bAllSPGsEnabled THEN
+                eStateInter:= eState_INTER.error;
+			END_IF
             IF NOT NcAxisError THEN
-                IF astAxes[AXIS_HORIZONTAL_TRANSLATION].Axis.Status.ExtSetPointGenEnabled AND astAxes[AXIS_COMBINED_VERTICAL].Axis.Status.ExtSetPointGenEnabled AND astAxes[AXIS_ROTATION].Axis.Status.ExtSetPointGenEnabled THEN
-                    astAxes[AXIS_MEASUREMENT_ANGLE].stControl.bEnable := TRUE;
-			    END_IF
+                astAxes[AXIS_MEASUREMENT_ANGLE].stControl.bEnable := TRUE;
             END_IF
+            
+        eState_INTER.disableSPG:
+            fbSPG_Y_Disable.Execute:= TRUE;
+            fbSPG_Z_Disable.Execute:= TRUE;
+            fbSPG_Rot_Disable.Execute:= TRUE;
+            eStateInter:= eState_INTER.checkDisableSPG;
+            
+        eState_INTER.checkDisableSPG:
+            IF NOT bSomeSPGsEnabled THEN
+                IF bRecoveryInProgress THEN
+                    eStateInter:= eState_INTER.recoveryDefaultPosition;
+                ELSE
+                    eStateInter:= eState_INTER.init;
+				END_IF
+                
+			END_IF
+            
+        eState_INTER.startRecovery:
+            bRecoveryInProgress := TRUE;
+            eStateInter:= eState_INTER.disableSPG;
+        
+        eState_INTER.recoveryDefaultPosition:
+            IF NcAxisError THEN
+                GVL_INTER.RESET_ALL := TRUE;
+            ELSE
+                AbsoluteMove(axisID:= AXIS_MEASUREMENT_ANGLE, fPosition:=0);
+                AbsoluteMove(axisID:=AXIS_DOFF_ANGLED, fPosition:=0);
+                AbsoluteMove(axisID:=AXIS_DOFF_PARALLEL, fPosition:=0);
+                AbsoluteMove(axisID:=AXIS_DRAD, fPosition:= Drad_default);
+                AbsoluteMove(axisID:=AXIS_DTANK_LENGTH, fPosition:= Dtank_Length_default);
+                AbsoluteMove(axisID:=AXIS_DTANK_PIVOT_TO_WINDOW, fPosition:= Dtank_Pivot_To_Window_default);
+                eStateInter:= eState_INTER.waitForRecovery;
+			END_IF
+            
+          
+        eState_INTER.waitForRecovery:
+            IF bRecoveryDevValid AND NOT bVirtualsMoving THEN
+                bRecoveryMode:= FALSE;
+                bRecoveryInProgress:= FALSE;
+                eStateInter:= eState_INTER.init;
+			END_IF
+            
+        eState_INTER.error:
+            IF NOT NcAxisError THEN
+                eStateInter:= eState_INTER.init;
+			END_IF
             
 	END_CASE
     
-    
-    //TO BE DELETED - test code
-    IF enableSPGs THEN
-        fbSPG_Y_Enable.Execute:= TRUE;
-        fbSPG_Z_Enable.Execute:= TRUE;
-        fbSPG_Rot_Enable.Execute:= TRUE;
-        enableSPGs := FALSE;
+    //Override the enable on virtual axes (to do: add all the axes)
+    IF bRecoveryInProgress THEN
+        astAxes[AXIS_MEASUREMENT_ANGLE].stControl.bEnable := TRUE;
 	END_IF
     
-    IF disableSPGs THEN
-        fbSPG_Y_Disable.Execute:= TRUE;
-        fbSPG_Z_Disable.Execute:= TRUE;
-        fbSPG_Rot_Disable.Execute:= TRUE;
-        disableSPGs := FALSE;
-	END_IF
     
 END_IF
+
+setPos_Drad(Axis:= astAxes[AXIS_DRAD].Axis);
+setPos_Dtank_Length(Axis:=astAxes[AXIS_DTANK_LENGTH].Axis);
+setPos_Dtank_Pivot_To_Window(Axis:=astAxes[AXIS_DTANK_PIVOT_TO_WINDOW].Axis);
+setPos_Drad.Execute:= FALSE;
+setPos_Dtank_Length.Execute:= FALSE;
+setPos_Dtank_Pivot_To_Window.Execute:= FALSE;
+
 
 //SPG DIRECTION CHECK LOGIC
 IF astAxes[AXIS_HORIZONTAL_VIRTUAL].Axis.NcToPlc.ActVelo>0 THEN
@@ -329,11 +481,53 @@ fbSPG_Z_Disable.Execute:= FALSE;
 fbSPG_Rot_Enable.Execute:= FALSE;
 fbSPG_Rot_Disable.Execute:= FALSE;]]></ST>
     </Implementation>
+    <Method Name="AbsoluteMove" Id="{6081ed68-b6ed-437f-92c9-8a8848dd8e14}">
+      <Declaration><![CDATA[METHOD AbsoluteMove : BOOL
+VAR_INPUT
+    axisID : UINT;
+    fPosition : LREAL;
+    
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[astAxes[axisID].stControl.eCommand:= E_MotionFunctions.eMoveAbsolute;
+astAxes[axisID].stControl.fPosition:= fPosition;
+astAxes[axisID].stControl.bExecute:= TRUE;]]></ST>
+      </Implementation>
+    </Method>
     <Action Name="actCheckPositionDeviation" Id="{48a3beaa-86d1-4929-b3bc-c17d3fe46a74}">
       <Implementation>
         <ST><![CDATA[posDevZ:=    astAxes[AXIS_HORIZONTAL_TRANSLATION].stStatus.fActPosition - (astAxes[AXIS_HORIZONTAL_VIRTUAL].stStatus.fActPosition + astAxes[AXIS_HORIZONTAL_SAMPLE].stStatus.fActPosition + astAxes[AXIS_HORIZONTAL_CALIBRATION].stStatus.fActPosition);
 posDevY:=    astAxes[AXIS_COMBINED_VERTICAL].stStatus.fActPosition - (astAxes[AXIS_COMBINED_VERTICAL_VIRTUAL].stStatus.fActPosition + astAxes[AXIS_COMBINED_VERTICAL_SAMPLE].stStatus.fActPosition + astAxes[AXIS_COMBINED_VERTICAL_CALIBRATION].stStatus.fActPosition);
-posDevRot:=    astAxes[AXIS_ROTATION].stStatus.fActPosition - (astAxes[AXIS_ROTATION_VIRTUAL].stStatus.fActPosition + astAxes[AXIS_ROTATION_SAMPLE].stStatus.fActPosition + astAxes[AXIS_ROTATION_CALIBRATION].stStatus.fActPosition);]]></ST>
+posDevRot:=    astAxes[AXIS_ROTATION].stStatus.fActPosition - (astAxes[AXIS_ROTATION_VIRTUAL].stStatus.fActPosition + astAxes[AXIS_ROTATION_SAMPLE].stStatus.fActPosition + astAxes[AXIS_ROTATION_CALIBRATION].stStatus.fActPosition);
+
+bRealDevValid := ABS(posDevZ)<DEVIATION_THRESHOLD AND ABS(posDevY)<DEVIATION_THRESHOLD AND ABS(posDevRot)<DEVIATION_THRESHOLD;
+
+//Virtual calibration deviations
+dradDev := astAxes[AXIS_DRAD].stStatus.fActPosition - Drad_default;
+dTankLengthDev := astAxes[AXIS_DTANK_LENGTH].stStatus.fActPosition - Dtank_Length_default;
+dTankPivotWindowDev := astAxes[AXIS_DTANK_PIVOT_TO_WINDOW].stStatus.fActPosition - Dtank_Pivot_To_Window_default;
+
+bDefaultDevValid:= ABS(dradDev)<DEVIATION_THRESHOLD AND ABS(dTankLengthDev)<DEVIATION_THRESHOLD AND ABS(dTankPivotWindowDev)<DEVIATION_THRESHOLD;
+
+measurementAngleDev := astAxes[AXIS_MEASUREMENT_ANGLE].stStatus.fActPosition;
+dOffAngledDev := astAxes[AXIS_DOFF_ANGLED].stStatus.fActPosition;
+dOffParallelDev := astAxes[AXIS_DOFF_PARALLEL].stStatus.fActPosition;
+
+bRecoveryDevValid:= bDefaultDevValid AND ABS(measurementAngleDev)<DEVIATION_THRESHOLD AND ABS(dOffAngledDev)<DEVIATION_THRESHOLD AND ABS(dOffParallelDev)<DEVIATION_THRESHOLD;
+
+bVirtualsMoving:= astAxes[AXIS_DRAD].Axis.Status.Moving OR 
+    astAxes[AXIS_DTANK_LENGTH].Axis.Status.Moving OR
+    astAxes[AXIS_DTANK_PIVOT_TO_WINDOW].Axis.Status.Moving OR
+    astAxes[AXIS_MEASUREMENT_ANGLE].Axis.Status.Moving OR
+    astAxes[AXIS_DOFF_ANGLED].Axis.Status.Moving OR
+    astAxes[AXIS_DOFF_PARALLEL].Axis.Status.Moving;]]></ST>
+      </Implementation>
+    </Action>
+    <Action Name="actCheckRealSpgStatus" Id="{aa3cfb1c-6529-4170-bdb7-491608be6428}">
+      <Implementation>
+        <ST><![CDATA[bAllSPGsEnabled:= astAxes[AXIS_HORIZONTAL_TRANSLATION].Axis.Status.ExtSetPointGenEnabled AND astAxes[AXIS_COMBINED_VERTICAL].Axis.Status.ExtSetPointGenEnabled AND astAxes[AXIS_ROTATION].Axis.Status.ExtSetPointGenEnabled;
+bSomeSPGsEnabled:= astAxes[AXIS_HORIZONTAL_TRANSLATION].Axis.Status.ExtSetPointGenEnabled OR astAxes[AXIS_COMBINED_VERTICAL].Axis.Status.ExtSetPointGenEnabled OR astAxes[AXIS_ROTATION].Axis.Status.ExtSetPointGenEnabled;]]></ST>
       </Implementation>
     </Action>
     <Action Name="actSyncVertStateMachine" Id="{86ee614e-4a39-40bc-bbfb-49053b8e3adf}">

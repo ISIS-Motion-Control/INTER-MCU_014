@@ -3,8 +3,7 @@
   <POU Name="Dtank_Length" Id="{89d9baec-ea80-4314-a7ab-842a813f72f1}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM Dtank_Length
 VAR
-    setPos : MC_SetPosition;
-    nominalPosition : LREAL := 2289.15;
+
 END_VAR
 ]]></Declaration>
     <Implementation>
@@ -17,14 +16,10 @@ GVL.astAxes[AXIS_DTANK_LENGTH].stControl.bEnable := TRUE;
 
 IF _TaskInfo[fbGetCurTaskIndex.index].FirstCycle THEN
     //Initial default values:
-    setPos.Execute:= TRUE;
+
 END_IF
 
 
-setPos.Position := nominalPosition;
-
-setPos(Axis:= astAxes[AXIS_DTANK_LENGTH].Axis);
-setPos.Execute:= FALSE;
 ]]></ST>
     </Implementation>
   </POU>
