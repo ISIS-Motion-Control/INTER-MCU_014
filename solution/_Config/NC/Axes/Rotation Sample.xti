@@ -1409,9 +1409,13 @@ External Setpoint Generation:
 	<Axis Id="24" CreateSymbols="true" AxisType="1" AxisFolder="Sample Offsets">
 		<Name>__FILENAME__</Name>
 		<AxisPara>
-			<OtherSettings AllowMotionCmdToSlave="true"/>
+			<General UnitName="°"/>
+			<Dynamic Acceleration="240" Deceleration="240" Jerk="600"/>
+			<Velo RefSearch="0.55543" RefSync="0.55543" SlowManual="1" FastManual="2" Fast="55.543" Maximum="55.543"/>
+			<OtherSettings AllowMotionCmdToSlave="true" DataPersistence="true"/>
 		</AxisPara>
 		<Encoder Name="Enc" EncType="1">
+			<EncPara ScaleFactorNumerator="360" ScaleFactorDenominator="251658240" Offset="10.2575826644897" ToleranceWndModuloStart="10"/>
 			<Vars VarGrpType="1">
 				<Name>Inputs</Name>
 				<Var>
@@ -1470,7 +1474,8 @@ External Setpoint Generation:
 		</Encoder>
 		<Drive Name="Drive" DrvType="5">
 			<DrvPara>
-				<Analog TorqueSetpointScale="10" ScaleFactorActTorque="0.1"/>
+				<Analog VeloReferenz="61.0973" TorqueSetpointScale="10" ScaleFactorActTorque="0.1"/>
+				<TimeComp TaskDelayCycles="1"/>
 			</DrvPara>
 			<Vars VarGrpType="1">
 				<Name>Inputs</Name>
@@ -1541,6 +1546,7 @@ External Setpoint Generation:
 		</Drive>
 		<Controller Name="Ctrl" CtrType="1">
 			<CtrPara PriorControlFactor="1">
+				<PID PosKp="2"/>
 				<Observer BandWidth="20"/>
 			</CtrPara>
 		</Controller>

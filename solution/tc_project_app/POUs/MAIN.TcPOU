@@ -137,6 +137,12 @@ Delta();
 Tau();
 Drad();
 Measurement_Angle();
+Rotation_Calibration();
+Rotation_Sample();
+Horizontal_Calibration();
+Horizontal_Sample();
+Combined_Vertical_Calibration();
+Combined_Vertical_Sample();
 
 
 Rotation_Virtual();

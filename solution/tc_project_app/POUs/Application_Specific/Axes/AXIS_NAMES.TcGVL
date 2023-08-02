@@ -8,10 +8,10 @@
     AXIS_2_xxx : UINT :=2;
     AXIS_3_xxx : UINT :=3;
     AXIS_4_XXX : UINT :=4;
-    AXIS_ROTATION : INT:= 5; //rotation about X axis
-    AXIS_HORIZONTAL_TRANSLATION : INT :=6; //Z translation along beam
-    AXIS_VERTICAL_TRANSLATION_Y1 : INT :=7;
-    AXIS_VERTICAL_TRANSLATION_Y2 : INT :=8;
+    AXIS_ROTATION : UINT:= 5; //rotation about X axis
+    AXIS_HORIZONTAL_TRANSLATION : UINT :=6; //Z translation along beam
+    AXIS_VERTICAL_TRANSLATION_Y1 : UINT :=7;
+    AXIS_VERTICAL_TRANSLATION_Y2 : UINT :=8;
     
     //COMBINED MOTION AXES
     AXIS_COMBINED_VERTICAL : UINT :=9;

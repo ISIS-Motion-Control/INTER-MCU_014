@@ -1409,9 +1409,14 @@ External Setpoint Generation:
 	<Axis Id="29" CreateSymbols="true" AxisType="1" AxisFolder="Sample Offsets">
 		<Name>__FILENAME__</Name>
 		<AxisPara>
+			<Dynamic Acceleration="34.773" Deceleration="34.773" Jerk="104.319"/>
+			<Velo RefSearch="0.23182" RefSync="0.23182" SlowManual="1.1591" FastManual="6.9546" Fast="23.182" Maximum="23.182"/>
+			<PositionAreaControl Enable="false"/>
+			<TargetPosControl Range="0.005" Time="0.04"/>
 			<OtherSettings AllowMotionCmdToSlave="true"/>
 		</AxisPara>
 		<Encoder Name="Enc" EncType="1">
+			<EncPara ScaleFactorNumerator="5" ScaleFactorDenominator="10485760" Offset="2359.51" ModuloFactor="100000000" Inverse="true" EncPositionSource="1"/>
 			<Vars VarGrpType="1">
 				<Name>Inputs</Name>
 				<Var>
@@ -1469,8 +1474,9 @@ External Setpoint Generation:
 			</Vars>
 		</Encoder>
 		<Drive Name="Drive" DrvType="5">
-			<DrvPara>
-				<Analog TorqueSetpointScale="10" ScaleFactorActTorque="0.1"/>
+			<DrvPara Inverse="true">
+				<Analog VeloReferenz="25.5002" TorqueSetpointScale="10" ScaleFactorActTorque="0.1"/>
+				<TimeComp TaskDelayCycles="1"/>
 			</DrvPara>
 			<Vars VarGrpType="1">
 				<Name>Inputs</Name>
@@ -1541,6 +1547,7 @@ External Setpoint Generation:
 		</Drive>
 		<Controller Name="Ctrl" CtrType="1">
 			<CtrPara PriorControlFactor="1">
+				<PID PosKp="2"/>
 				<Observer BandWidth="20"/>
 			</CtrPara>
 		</Controller>

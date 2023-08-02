@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Refactors>
+  <Renames>
+    <RenamedType>
+      <Type guid="4b26f9f2-7656-4752-bd30-6a3f24f477be">CHECKREALMOVING</Type>
+      <From>CheckRealMoving</From>
+      <To>CheckRealNotMoving</To>
+    </RenamedType>
+    <RenamedSymbol>
+      <Type guid="63432ee2-bd23-46cb-909b-5d2ebfcf2a46">GVL_INTER</Type>
+      <From>KINEMATIC_SPG_ENABLED</From>
+      <To>KINEMATIC_SPG_ALL_ENABLED</To>
+    </RenamedSymbol>
+  </Renames>
+</Refactors>

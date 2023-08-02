@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
+  <POU Name="Rotation_Calibration" Id="{46b145d1-b4dc-423a-b56c-0512bd49c0f5}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM Rotation_Calibration
+VAR
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[astAxes[AXIS_ROTATION_CALIBRATION].stControl.bEnable := TRUE;
+astAxes[AXIS_ROTATION_CALIBRATION].stInputs.bLimitBwd := astAxes[AXIS_ROTATION].stInputs.bLimitBwd;
+astAxes[AXIS_ROTATION_CALIBRATION].stInputs.bLimitFwd := astAxes[AXIS_ROTATION].stInputs.bLimitFwd;]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

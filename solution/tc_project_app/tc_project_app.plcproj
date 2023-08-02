@@ -71,6 +71,24 @@
     <Compile Include="POUs\Application_Specific\Axes\Real axis follows\Rotation_Virtual.TcPOU">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="POUs\Application_Specific\Axes\Sample and Calibration\Rotation_Calibration.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\Application_Specific\Axes\Sample and Calibration\Horizontal_Calibration.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\Application_Specific\Axes\Sample and Calibration\Combined_Vertical_Calibration.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\Application_Specific\Axes\Sample and Calibration\Rotation_Sample.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\Application_Specific\Axes\Sample and Calibration\Horizontal_Sample.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\Application_Specific\Axes\Sample and Calibration\Combined_Vertical_Sample.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="POUs\Application_Specific\Axes\Vertical_Translation_Y2.TcPOU">
       <SubType>Code</SubType>
     </Compile>
@@ -257,6 +275,7 @@
     <Folder Include="POUs\Application_Specific" />
     <Folder Include="POUs\Application_Specific\Applications" />
     <Folder Include="POUs\Application_Specific\Axes" />
+    <Folder Include="POUs\Application_Specific\Axes\Sample and Calibration" />
     <Folder Include="POUs\Application_Specific\Axes\Real axis follows" />
     <Folder Include="POUs\Application_Specific\Axes\Virtuals" />
     <Folder Include="tc_mca_std_lib\DUTs\Axis_Structures" />

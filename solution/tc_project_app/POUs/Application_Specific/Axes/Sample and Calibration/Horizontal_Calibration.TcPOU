@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
+  <POU Name="Horizontal_Calibration" Id="{c5945fad-dfbd-4165-83d8-68115d1e0a8c}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM Horizontal_Calibration
+VAR
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[astAxes[AXIS_HORIZONTAL_CALIBRATION].stControl.bEnable := TRUE;
+astAxes[AXIS_HORIZONTAL_CALIBRATION].stInputs.bLimitBwd := astAxes[AXIS_HORIZONTAL_TRANSLATION].stInputs.bLimitBwd;
+astAxes[AXIS_HORIZONTAL_CALIBRATION].stInputs.bLimitFwd := astAxes[AXIS_HORIZONTAL_TRANSLATION].stInputs.bLimitFwd;]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

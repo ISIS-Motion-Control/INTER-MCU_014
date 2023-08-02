@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
+  <POU Name="Rotation_Sample" Id="{db16538d-0000-497f-bb9f-c95fd0b6faff}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM Rotation_Sample
+VAR
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[astAxes[AXIS_ROTATION_SAMPLE].stControl.bEnable := TRUE;
+astAxes[AXIS_ROTATION_SAMPLE].stInputs.bLimitBwd := astAxes[AXIS_ROTATION].stInputs.bLimitBwd;
+astAxes[AXIS_ROTATION_SAMPLE].stInputs.bLimitFwd := astAxes[AXIS_ROTATION].stInputs.bLimitFwd;]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>
