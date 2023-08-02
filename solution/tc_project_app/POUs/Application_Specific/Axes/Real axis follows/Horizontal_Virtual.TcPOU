@@ -18,9 +18,9 @@ GVL.astAxes[AXIS_HORIZONTAL_VIRTUAL].stControl.bEnable := TRUE;
 
 //calculate setpoint generator inputs
 fEncoderPosition := 
-    astAxes[AXIS_DRAD_EXTERNAL].Axis.NcToPlc.ActPos * COS(DEG_TO_RAD(astAxes[AXIS_MEASUREMENT_ANGLE].Axis.NcToPlc.SetPos)) +
-    astAxes[AXIS_DTANK_PIVOT_TO_WINDOW].Axis.NcToPlc.SetPos * COS(DEG_TO_RAD(astAxes[AXIS_MEASUREMENT_ANGLE].Axis.NcToPlc.SetPos + astAxes[AXIS_DTANK_INTERNAL_OFFSET_ANGLE].Axis.NcToPlc.ActPos)) -
-    astAxes[AXIS_DOFF_PARALLEL].Axis.NcToPlc.SetPos * SIN(DEG_TO_RAD(astAxes[AXIS_MEASUREMENT_ANGLE].Axis.NcToPlc.SetPos + astAxes[AXIS_DTANK_INTERNAL_OFFSET_ANGLE].Axis.NcToPlc.ActPos)); 
+    astAxes[AXIS_DRAD_EXTERNAL].Axis.NcToPlc.ActPos * COS(DEG_TO_RAD(GVL_INTER.TARGET_MEASUREMENT_ANGLE)) +
+    astAxes[AXIS_DTANK_PIVOT_TO_WINDOW].Axis.NcToPlc.SetPos * COS(DEG_TO_RAD(GVL_INTER.TARGET_MEASUREMENT_ANGLE + astAxes[AXIS_DTANK_INTERNAL_OFFSET_ANGLE].Axis.NcToPlc.ActPos)) -
+    astAxes[AXIS_DOFF_PARALLEL].Axis.NcToPlc.SetPos * SIN(DEG_TO_RAD(GVL_INTER.TARGET_MEASUREMENT_ANGLE + astAxes[AXIS_DTANK_INTERNAL_OFFSET_ANGLE].Axis.NcToPlc.ActPos)); 
     
 EncoderPosition:= LREAL_TO_DINT(fEncoderPosition * fScaler);    ]]></ST>
     </Implementation>

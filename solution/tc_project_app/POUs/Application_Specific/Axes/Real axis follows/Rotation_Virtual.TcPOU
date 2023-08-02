@@ -18,7 +18,7 @@ GVL.astAxes[AXIS_ROTATION_VIRTUAL].stControl.bEnable := TRUE;
 
 //calculate setpoint generator inputs
 fEncoderPosition := 
-    astAxes[AXIS_MEASUREMENT_ANGLE].Axis.NcToPlc.SetPos +
+    GVL_INTER.TARGET_MEASUREMENT_ANGLE +
     astAxes[AXIS_DTANK_INTERNAL_OFFSET_ANGLE].Axis.NcToPlc.ActPos;
    
 EncoderPosition:= LREAL_TO_DINT(fEncoderPosition * fScaler);

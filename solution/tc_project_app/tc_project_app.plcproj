@@ -71,6 +71,9 @@
     <Compile Include="POUs\Application_Specific\Axes\Real axis follows\Rotation_Virtual.TcPOU">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="POUs\Application_Specific\Axes\Sample and Calibration\Measurement_Angle_Offset.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="POUs\Application_Specific\Axes\Sample and Calibration\Rotation_Calibration.TcPOU">
       <SubType>Code</SubType>
     </Compile>

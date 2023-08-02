@@ -83,6 +83,14 @@ VAR
     dOffAngledDev : LREAL;
     dOffParallelDev : LREAL;
     
+    horizontalCalDev : LREAL;
+    horizontalSampleDev : LREAL;
+    verticalCalDev : LREAL;
+    verticalSampleDev : LREAL;
+    rotationCalDev : LREAL;
+    rotationSampleDev : LREAL;
+    measureOffsetDev : LREAL;
+    
     bKinematicsOperational : BOOL;
     bVirtualsMoving : BOOL;
     writeDefault : FB_WritePersistentData;
@@ -233,7 +241,7 @@ actCheckRealSpgStatus();
 startupDelayTON(PT:=T#200MS);
 actKinematicSetpoints();
 GVL_INTER.REAL_AXES_NOT_MOVING:= CheckRealNotMoving();
-
+GVL_INTER.TARGET_MEASUREMENT_ANGLE:= astAxes[AXIS_MEASUREMENT_ANGLE].Axis.NcToPlc.SetPos + astAxes[AXIS_MEASUREMENT_ANGLE_OFFSET].Axis.NcToPlc.SetPos;
 //DISABLE AXES (overridden if operational)
 astAxes[AXIS_MEASUREMENT_ANGLE].stControl.bEnable := FALSE;
 
@@ -378,9 +386,18 @@ IF CombinedVerticalSetupComplete THEN
             IF GVL_INTER.NC_AXIS_ERROR THEN
                 GVL_INTER.RESET_ALL := TRUE;
             ELSE
-                AbsoluteMove(axisID:= AXIS_MEASUREMENT_ANGLE, fPosition:=0);
+                AbsoluteMove(axisID:=AXIS_MEASUREMENT_ANGLE, fPosition:=0);
+                AbsoluteMove(axisID:=AXIS_MEASUREMENT_ANGLE_OFFSET, fPosition:=0);
                 AbsoluteMove(axisID:=AXIS_DOFF_ANGLED, fPosition:=0);
                 AbsoluteMove(axisID:=AXIS_DOFF_PARALLEL, fPosition:=0);
+                
+                AbsoluteMove(axisID:=AXIS_HORIZONTAL_CALIBRATION, fPosition:=0);
+                AbsoluteMove(axisID:=AXIS_HORIZONTAL_SAMPLE, fPosition:=0);
+                AbsoluteMove(axisID:=AXIS_COMBINED_VERTICAL_CALIBRATION, fPosition:=0);
+                AbsoluteMove(axisID:=AXIS_COMBINED_VERTICAL_SAMPLE, fPosition:=0);
+                AbsoluteMove(axisID:=AXIS_ROTATION_CALIBRATION, fPosition:=0);
+                AbsoluteMove(axisID:=AXIS_ROTATION_SAMPLE, fPosition:=0);
+                
                 AbsoluteMove(axisID:=AXIS_DRAD, fPosition:= Drad_default);
                 AbsoluteMove(axisID:=AXIS_DTANK_LENGTH, fPosition:= Dtank_Length_default);
                 AbsoluteMove(axisID:=AXIS_DTANK_PIVOT_TO_WINDOW, fPosition:= Dtank_Pivot_To_Window_default);
@@ -405,6 +422,7 @@ IF CombinedVerticalSetupComplete THEN
     //Override the enable on virtual axes (to do: add all the axes)
     IF GVL_INTER.RECOVERY_IN_PROGRESS OR GVL_INTER.REINITIALISE_IN_PROGRESS THEN
         astAxes[AXIS_MEASUREMENT_ANGLE].stControl.bEnable := TRUE;
+        
 	END_IF
     
     
@@ -480,26 +498,55 @@ dTankPivotWindowDev := astAxes[AXIS_DTANK_PIVOT_TO_WINDOW].stStatus.fActPosition
 
 bDefaultDevValid:= ABS(dradDev)<DEVIATION_THRESHOLD AND ABS(dTankLengthDev)<DEVIATION_THRESHOLD AND ABS(dTankPivotWindowDev)<DEVIATION_THRESHOLD;
 
+
+
+//OTHER VIRTUAL AXES
 measurementAngleDev := astAxes[AXIS_MEASUREMENT_ANGLE].stStatus.fActPosition;
 dOffAngledDev := astAxes[AXIS_DOFF_ANGLED].stStatus.fActPosition;
 dOffParallelDev := astAxes[AXIS_DOFF_PARALLEL].stStatus.fActPosition;
 
-bRecoveryDevValid:= bDefaultDevValid AND ABS(measurementAngleDev)<DEVIATION_THRESHOLD AND ABS(dOffAngledDev)<DEVIATION_THRESHOLD AND ABS(dOffParallelDev)<DEVIATION_THRESHOLD;
+//CALIBRATION AND SAMPLE AXES - go to zero for recovery so just equal to position
+horizontalCalDev := astAxes[AXIS_HORIZONTAL_CALIBRATION].stStatus.fActPosition;
+horizontalSampleDev := astAxes[AXIS_HORIZONTAL_SAMPLE].stStatus.fActPosition;
+verticalCalDev := astAxes[AXIS_COMBINED_VERTICAL_CALIBRATION].stStatus.fActPosition;
+verticalSampleDev := astAxes[AXIS_COMBINED_VERTICAL_SAMPLE].stStatus.fActPosition;
+rotationCalDev := astAxes[AXIS_ROTATION_CALIBRATION].stStatus.fActPosition;
+rotationSampleDev := astAxes[AXIS_ROTATION_SAMPLE].stStatus.fActPosition;
+measureOffsetDev := astAxes[AXIS_MEASUREMENT_ANGLE_OFFSET].stStatus.fActPosition;
+
+
+bRecoveryDevValid:= bDefaultDevValid AND 
+    ABS(measurementAngleDev)<DEVIATION_THRESHOLD AND 
+    ABS(dOffAngledDev)<DEVIATION_THRESHOLD AND 
+    ABS(dOffParallelDev)<DEVIATION_THRESHOLD AND
+    ABS(horizontalCalDev)<DEVIATION_THRESHOLD AND
+    ABS(horizontalSampleDev)<DEVIATION_THRESHOLD AND
+    ABS(verticalCalDev)<DEVIATION_THRESHOLD AND
+    ABS(verticalSampleDev)<DEVIATION_THRESHOLD AND
+    ABS(rotationCalDev)<DEVIATION_THRESHOLD AND
+    ABS(rotationSampleDev)<DEVIATION_THRESHOLD AND
+    ABS(measureOffsetDev)<DEVIATION_THRESHOLD;
 
 bVirtualsMoving:= astAxes[AXIS_DRAD].Axis.Status.Moving OR 
     astAxes[AXIS_DTANK_LENGTH].Axis.Status.Moving OR
     astAxes[AXIS_DTANK_PIVOT_TO_WINDOW].Axis.Status.Moving OR
     astAxes[AXIS_MEASUREMENT_ANGLE].Axis.Status.Moving OR
     astAxes[AXIS_DOFF_ANGLED].Axis.Status.Moving OR
-    astAxes[AXIS_DOFF_PARALLEL].Axis.Status.Moving;]]></ST>
+    astAxes[AXIS_DOFF_PARALLEL].Axis.Status.Moving OR
+    
+    astAxes[AXIS_HORIZONTAL_CALIBRATION].Axis.Status.Moving OR
+    astAxes[AXIS_HORIZONTAL_SAMPLE].Axis.Status.Moving OR
+    astAxes[AXIS_COMBINED_VERTICAL_CALIBRATION].Axis.Status.Moving OR
+    astAxes[AXIS_COMBINED_VERTICAL_SAMPLE].Axis.Status.Moving OR
+    astAxes[AXIS_ROTATION_CALIBRATION].Axis.Status.Moving OR
+    astAxes[AXIS_ROTATION_SAMPLE].Axis.Status.Moving OR
+    astAxes[AXIS_MEASUREMENT_ANGLE_OFFSET].Axis.Status.Moving;]]></ST>
       </Implementation>
     </Action>
     <Action Name="actCheckRealSpgStatus" Id="{aa3cfb1c-6529-4170-bdb7-491608be6428}">
       <Implementation>
         <ST><![CDATA[GVL_INTER.KINEMATIC_SPG_ALL_ENABLED:= astAxes[AXIS_HORIZONTAL_TRANSLATION].Axis.Status.ExtSetPointGenEnabled AND astAxes[AXIS_COMBINED_VERTICAL].Axis.Status.ExtSetPointGenEnabled AND astAxes[AXIS_ROTATION].Axis.Status.ExtSetPointGenEnabled;
 GVL_INTER.KINEMATIC_SPG_ALL_DISABLED:= NOT (astAxes[AXIS_HORIZONTAL_TRANSLATION].Axis.Status.ExtSetPointGenEnabled) AND NOT (astAxes[AXIS_COMBINED_VERTICAL].Axis.Status.ExtSetPointGenEnabled) AND NOT (astAxes[AXIS_ROTATION].Axis.Status.ExtSetPointGenEnabled);
-
-bSomeSPGsEnabled:= astAxes[AXIS_HORIZONTAL_TRANSLATION].Axis.Status.ExtSetPointGenEnabled OR astAxes[AXIS_COMBINED_VERTICAL].Axis.Status.ExtSetPointGenEnabled OR astAxes[AXIS_ROTATION].Axis.Status.ExtSetPointGenEnabled;
 ]]></ST>
       </Implementation>
     </Action>
@@ -721,7 +768,7 @@ VAR_INPUT
 END_VAR
 ]]></Declaration>
       <Implementation>
-        <ST><![CDATA[CheckRealNotMoving:= astAxes[AXIS_HORIZONTAL_TRANSLATION].Axis.Status.NotMoving AND astAxes[AXIS_COMBINED_VERTICAL].Axis.Status.NotMoving AND astAxes[AXIS_ROTATION].Axis.Status.NotMoving]]></ST>
+        <ST><![CDATA[CheckRealNotMoving:= astAxes[AXIS_HORIZONTAL_TRANSLATION].Axis.Status.NotMoving AND astAxes[AXIS_COMBINED_VERTICAL].Axis.Status.NotMoving AND astAxes[AXIS_ROTATION].Axis.Status.NotMoving;]]></ST>
       </Implementation>
     </Method>
     <Method Name="CheckVerticalCalibration" Id="{e1036243-04e4-4263-b466-d17b80a88071}">
