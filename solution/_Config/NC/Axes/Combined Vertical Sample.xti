@@ -1416,7 +1416,7 @@ External Setpoint Generation:
 			<OtherSettings AllowMotionCmdToSlave="true"/>
 		</AxisPara>
 		<Encoder Name="Enc" EncType="1">
-			<EncPara ScaleFactorNumerator="0.001" ScaleFactorDenominator="1000" Offset="182.9435" Inverse="true" ReferenceSystem="1"/>
+			<EncPara ScaleFactorNumerator="0.001" ScaleFactorDenominator="1000" Inverse="true" ReferenceSystem="1"/>
 			<Vars VarGrpType="1">
 				<Name>Inputs</Name>
 				<Var>

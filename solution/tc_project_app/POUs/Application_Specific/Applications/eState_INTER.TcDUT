@@ -5,20 +5,20 @@
 {attribute 'strict'}
 TYPE eState_INTER :
 (
-	init,
-    setPositions,
-    checkSetPositions,
-    alignKinematics,
-    checkAlignKinematics,
-    enableSPG,
-    checkEnableSPG,
-    disableSPG,
-    checkDisableSPG,
-    operation,
-    startRecovery,
-    recoveryDefaultPosition,
-    waitForRecovery,
-    error
+	init :=0,
+    setPositions :=1,
+    checkSetPositions:=2,
+    alignKinematics:=3,
+    checkAlignKinematics:=4,
+    enableSPG:=5,
+    checkEnableSPG:=6,
+    disableSPG:=7,
+    checkDisableSPG:=8,
+    operation:=9,
+    startRecovery:=10,
+    recoveryDefaultPosition:=11,
+    waitForRecovery:=12,
+    error:=999
 );
 END_TYPE
 ]]></Declaration>
