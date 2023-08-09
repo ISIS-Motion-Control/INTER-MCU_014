@@ -58,10 +58,12 @@
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 27 (EK1100)^Term 28 (EL6910)">
 				<Link VarA="Term 27 (EK1100)^Term 29 (EL2904)^Module 1 (FSOES)^RxPDO^FSOE" VarB="ConnectionInputs^Message_4 TxPDO"/>
 				<Link VarA="Term 27 (EK1100)^Term 29 (EL2904)^Module 1 (FSOES)^TxPDO^FSOE" VarB="ConnectionOutputs^Message_4 RxPDO"/>
-				<Link VarA="Term 27 (EK1100)^Term 72 (EL1904)^Module 1 (FSOES)^RxPDO^FSOE" VarB="ConnectionInputs^Message_5 TxPDO"/>
-				<Link VarA="Term 27 (EK1100)^Term 72 (EL1904)^Module 1 (FSOES)^TxPDO^FSOE" VarB="ConnectionOutputs^Message_5 RxPDO"/>
-				<Link VarA="Term 70 (AX8640-0000-0103)^Drive 71 (AX8206-0210-0104)^Device (Safety)^FSoE Slave Connection 1 Master Message^FSOE" VarB="ConnectionInputs^Message_10 TxPDO"/>
-				<Link VarA="Term 70 (AX8640-0000-0103)^Drive 71 (AX8206-0210-0104)^Device (Safety)^FSoE Slave Connection 1 Slave Message^FSOE" VarB="ConnectionOutputs^Message_10 RxPDO"/>
+				<Link VarA="Term 27 (EK1100)^Term 72 (EL1904)^Module 1 (FSOES)^RxPDO^FSOE" VarB="ConnectionInputs^Message_22 TxPDO"/>
+				<Link VarA="Term 27 (EK1100)^Term 72 (EL1904)^Module 1 (FSOES)^TxPDO^FSOE" VarB="ConnectionOutputs^Message_22 RxPDO"/>
+				<Link VarA="Term 27 (EK1100)^Term 73 (EL1904)^Module 1 (FSOES)^RxPDO^FSOE" VarB="ConnectionInputs^Message_23 TxPDO"/>
+				<Link VarA="Term 27 (EK1100)^Term 73 (EL1904)^Module 1 (FSOES)^TxPDO^FSOE" VarB="ConnectionOutputs^Message_23 RxPDO"/>
+				<Link VarA="Term 70 (AX8640-0000-0103)^Drive 71 (AX8206-0210-0104)^Device (Safety)^FSoE Slave Connection 1 Master Message^Message_1" VarB="ConnectionInputs^Message_18 TxPDO"/>
+				<Link VarA="Term 70 (AX8640-0000-0103)^Drive 71 (AX8206-0210-0104)^Device (Safety)^FSoE Slave Connection 1 Slave Message^Message_1" VarB="ConnectionOutputs^Message_18 RxPDO"/>
 				<Link VarA="Term 70 (AX8640-0000-0103)^Drive 74 (AX8206-0210-0104)^Device (Safety)^FSoE Slave Connection 1 Master Message^FSOE" VarB="ConnectionInputs^Message_11 TxPDO"/>
 				<Link VarA="Term 70 (AX8640-0000-0103)^Drive 74 (AX8206-0210-0104)^Device (Safety)^FSoE Slave Connection 1 Slave Message^FSOE" VarB="ConnectionOutputs^Message_11 RxPDO"/>
 			</OwnerB>
@@ -70,16 +72,20 @@
 				<Link VarA="Term 27 (EK1100)^Term 28 (EL6910)^ConnectionOutputs^Message_4 RxPDO" VarB="Module 1 (FSOES)^TxPDO^FSOE"/>
 			</OwnerB>
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 27 (EK1100)^Term 72 (EL1904)">
-				<Link VarA="Term 27 (EK1100)^Term 28 (EL6910)^ConnectionInputs^Message_5 TxPDO" VarB="Module 1 (FSOES)^RxPDO^FSOE"/>
-				<Link VarA="Term 27 (EK1100)^Term 28 (EL6910)^ConnectionOutputs^Message_5 RxPDO" VarB="Module 1 (FSOES)^TxPDO^FSOE"/>
+				<Link VarA="Term 27 (EK1100)^Term 28 (EL6910)^ConnectionInputs^Message_22 TxPDO" VarB="Module 1 (FSOES)^RxPDO^FSOE"/>
+				<Link VarA="Term 27 (EK1100)^Term 28 (EL6910)^ConnectionOutputs^Message_22 RxPDO" VarB="Module 1 (FSOES)^TxPDO^FSOE"/>
+			</OwnerB>
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 27 (EK1100)^Term 73 (EL1904)">
+				<Link VarA="Term 27 (EK1100)^Term 28 (EL6910)^ConnectionInputs^Message_23 TxPDO" VarB="Module 1 (FSOES)^RxPDO^FSOE"/>
+				<Link VarA="Term 27 (EK1100)^Term 28 (EL6910)^ConnectionOutputs^Message_23 RxPDO" VarB="Module 1 (FSOES)^TxPDO^FSOE"/>
 			</OwnerB>
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 70 (AX8640-0000-0103)">
 				<Link VarA="Term 70 (AX8640-0000-0103)^Drive 71 (AX8206-0210-0104)^Device^DeviceMain Outputs^Power supply controlword" VarB="PSM Controlword for axis^Controlword for axis"/>
 				<Link VarA="Term 70 (AX8640-0000-0103)^Drive 74 (AX8206-0210-0104)^Device^DeviceMain Outputs^Power supply controlword" VarB="PSM Controlword for axis^Controlword for axis"/>
 			</OwnerB>
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 70 (AX8640-0000-0103)^Drive 71 (AX8206-0210-0104)">
-				<Link VarA="Term 27 (EK1100)^Term 28 (EL6910)^ConnectionInputs^Message_10 TxPDO" VarB="Device (Safety)^FSoE Slave Connection 1 Master Message^FSOE"/>
-				<Link VarA="Term 27 (EK1100)^Term 28 (EL6910)^ConnectionOutputs^Message_10 RxPDO" VarB="Device (Safety)^FSoE Slave Connection 1 Slave Message^FSOE"/>
+				<Link VarA="Term 27 (EK1100)^Term 28 (EL6910)^ConnectionInputs^Message_18 TxPDO" VarB="Device (Safety)^FSoE Slave Connection 1 Master Message^Message_1"/>
+				<Link VarA="Term 27 (EK1100)^Term 28 (EL6910)^ConnectionOutputs^Message_18 RxPDO" VarB="Device (Safety)^FSoE Slave Connection 1 Slave Message^Message_1"/>
 				<Link VarA="Term 70 (AX8640-0000-0103)^PSM Controlword for axis^Controlword for axis" VarB="Device^DeviceMain Outputs^Power supply controlword"/>
 			</OwnerB>
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 70 (AX8640-0000-0103)^Drive 74 (AX8206-0210-0104)">

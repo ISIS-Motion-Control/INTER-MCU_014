@@ -19,6 +19,12 @@
     <WriteProductVersion>true</WriteProductVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="DUTs\ST_AxisSpg.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DUTs\ST_DefaultVals.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="GlobalTextList.TcGTLO">
       <SubType>Code</SubType>
     </Compile>

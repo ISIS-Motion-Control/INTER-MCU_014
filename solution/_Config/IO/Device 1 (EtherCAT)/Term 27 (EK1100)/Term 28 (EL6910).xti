@@ -58,6 +58,46 @@
 			</SubItem>
 		</DataType>
 		<DataType>
+			<Name GUID="{0994ABA9-6F32-EEB9-4362-7774F7A1F4F4}" AutoDeleteType="true">FSOE_11</Name>
+			<BitSize>88</BitSize>
+			<SubItem>
+				<Name>FSoE CMD</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000002}">USINT</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>0</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSoE Data 0</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000033}">BITARR16</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>8</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSoE CRC_0</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000005}">UINT</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>24</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSoE Data 1</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000033}">BITARR16</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>40</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSoE CRC_1</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000005}">UINT</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>56</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>FSoE ConnID</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000005}">UINT</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>72</BitOffs>
+			</SubItem>
+		</DataType>
+		<DataType>
 			<Name GUID="{18071995-0000-0000-0000-002000000005}" IecBaseType="true" BitType="true" AutoDeleteType="true" HideSubItems="true">ARRAY [0..4] OF BIT</Name>
 			<BitSize>5</BitSize>
 			<BaseType GUID="{18071995-0000-0000-0000-000000000010}">BIT</BaseType>
@@ -85,8 +125,8 @@
 		<EtherCAT SlaveType="2" PdiType="#x0005" MboxDataLinkLayer="true" StateMBoxPolling="true" CycleMBoxPollingTime="0" CoeType="3" FoeType="1" VendorId="#x00000002" ProductCode="#x1afe3052" RevisionNo="#x00140000" InfoDataAddr="true" RepeatSupport="true" TimeoutStateChange1="5000" TimeoutMailbox2="10000" TComSupport="true" PortPhys="51" DebugMemory="8" SafetyLogicSupported="true" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="EL6910, TwinSAFE PLC" Desc="EL6910">
 			<SyncMan>001000012600010001000000000100010001001026010000</SyncMan>
 			<SyncMan>001100012200010002000000000100010001001122010000</SyncMan>
-			<SyncMan>00121d002400010003000000000000000200001224010000</SyncMan>
-			<SyncMan>001d1c002000010004000000000000000200001d20010000</SyncMan>
+			<SyncMan>001227002400010003000000000000000200001224010000</SyncMan>
+			<SyncMan>001d26002000010004000000000000000200001d20010000</SyncMan>
 			<SyncMan>002e00002400000003000000000000000000002e24000000</SyncMan>
 			<SyncMan>002f00002000000004000000000000000000002f20000000</SyncMan>
 			<Fmmu>0000000000000000001200020100000001000000060000000200000000000000</Fmmu>
@@ -100,28 +140,34 @@
 				<Entry Name="Message_4 TxPDO" Index="#x7000" Sub="#x01">
 					<Type GUID="{2438F91B-E188-4ED7-8594-54354F9ED6A4}" Namespace="Safety">FSOE_6</Type>
 				</Entry>
-				<Entry Name="Message_5 TxPDO" Index="#x7000" Sub="#x02">
+				<Entry Name="Message_11 TxPDO" Index="#x7000" Sub="#x02">
+					<Type GUID="{B05FDAB7-3241-ACD3-D16C-0FDAF8825BC9}">FSOE_7</Type>
+				</Entry>
+				<Entry Name="Message_18 TxPDO" Index="#x7000" Sub="#x03">
+					<Type GUID="{0994ABA9-6F32-EEB9-4362-7774F7A1F4F4}">FSOE_11</Type>
+				</Entry>
+				<Entry Name="Message_22 TxPDO" Index="#x7000" Sub="#x04">
 					<Type GUID="{2438F91B-E188-4ED7-8594-54354F9ED6A4}" Namespace="Safety">FSOE_6</Type>
 				</Entry>
-				<Entry Name="Message_10 TxPDO" Index="#x7000" Sub="#x03">
-					<Type GUID="{B05FDAB7-3241-ACD3-D16C-0FDAF8825BC9}">FSOE_7</Type>
-				</Entry>
-				<Entry Name="Message_11 TxPDO" Index="#x7000" Sub="#x04">
-					<Type GUID="{B05FDAB7-3241-ACD3-D16C-0FDAF8825BC9}">FSOE_7</Type>
+				<Entry Name="Message_23 TxPDO" Index="#x7000" Sub="#x05">
+					<Type GUID="{2438F91B-E188-4ED7-8594-54354F9ED6A4}" Namespace="Safety">FSOE_6</Type>
 				</Entry>
 			</Pdo>
 			<Pdo Name="ConnectionOutputs" Index="#x1600" InOut="1" Flags="#x2011" SyncMan="2">
 				<Entry Name="Message_4 RxPDO" Index="#x6000" Sub="#x01">
 					<Type GUID="{2438F91B-E188-4ED7-8594-54354F9ED6A4}" Namespace="Safety">FSOE_6</Type>
 				</Entry>
-				<Entry Name="Message_5 RxPDO" Index="#x6000" Sub="#x02">
+				<Entry Name="Message_11 RxPDO" Index="#x6000" Sub="#x02">
+					<Type GUID="{B05FDAB7-3241-ACD3-D16C-0FDAF8825BC9}">FSOE_7</Type>
+				</Entry>
+				<Entry Name="Message_18 RxPDO" Index="#x6000" Sub="#x03">
+					<Type GUID="{0994ABA9-6F32-EEB9-4362-7774F7A1F4F4}">FSOE_11</Type>
+				</Entry>
+				<Entry Name="Message_22 RxPDO" Index="#x6000" Sub="#x04">
 					<Type GUID="{2438F91B-E188-4ED7-8594-54354F9ED6A4}" Namespace="Safety">FSOE_6</Type>
 				</Entry>
-				<Entry Name="Message_10 RxPDO" Index="#x6000" Sub="#x03">
-					<Type GUID="{B05FDAB7-3241-ACD3-D16C-0FDAF8825BC9}">FSOE_7</Type>
-				</Entry>
-				<Entry Name="Message_11 RxPDO" Index="#x6000" Sub="#x04">
-					<Type GUID="{B05FDAB7-3241-ACD3-D16C-0FDAF8825BC9}">FSOE_7</Type>
+				<Entry Name="Message_23 RxPDO" Index="#x6000" Sub="#x05">
+					<Type GUID="{2438F91B-E188-4ED7-8594-54354F9ED6A4}" Namespace="Safety">FSOE_6</Type>
 				</Entry>
 			</Pdo>
 			<Pdo Name="StandardOutputs" Index="#x17f0" InOut="1" Flags="#x2011" SyncMan="2">

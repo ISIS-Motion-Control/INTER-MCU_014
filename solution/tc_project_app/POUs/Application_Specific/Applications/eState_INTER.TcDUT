@@ -18,6 +18,7 @@ TYPE eState_INTER :
     startRecovery:=10,
     recoveryDefaultPosition:=11,
     waitForRecovery:=12,
+    fixRotation:=13,
     error:=999
 );
 END_TYPE

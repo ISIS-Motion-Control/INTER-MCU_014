@@ -22,6 +22,8 @@ VAR
     
     calibrationValuesArray : ARRAY[1..ARRAYSIZE_VIRTUALCAL] OF LREAL;
     
+    
+    
     arraysSetup : BOOL := FALSE;
     driveStartupDelay : TON;
 
@@ -31,6 +33,8 @@ VAR
     safetyResetLatch : BOOL :=FALSE;
     safetyResetDone: BOOL;
     driveResetDone : BOOL;
+    bRotationValid : BOOL:= FALSE;
+    setPosRotation : MC_SetPosition;
     
     
     CombinedVerticalSetupComplete : BOOL := FALSE;
@@ -113,19 +117,51 @@ VAR CONSTANT
     ARRAYSIZE_REAL : INT := 3;
     ARRAYSIZE_VIRTUALCAL : INT :=3;
     ARRAYSIZE_VIRTUAL : INT:= 10;
+    ARRAYSIZE_ALLVIRTUALS : INT:=13;
 END_VAR
 
 VAR PERSISTENT
     Drad_default : LREAL := 3000;
     Dtank_Length_default : LREAL := 2289.15;
     Dtank_Pivot_To_Window_default : LREAL := 1648.66;
+    
+    aVirtualAxisDefaults : ARRAY [1..ARRAYSIZE_ALLVIRTUALS] OF ST_DefaultVals:=
+    [(axisID:=AXIS_DRAD, defaultPosition:=3000),
+     (axisID:=AXIS_DTANK_LENGTH, defaultPosition:=2289.15),
+    (axisID:=AXIS_DTANK_PIVOT_TO_WINDOW, defaultPosition:=1648.66),
+    (axisID:=AXIS_MEASUREMENT_ANGLE, defaultPosition:=0),
+    (axisID:=AXIS_DOFF_ANGLED, defaultPosition:=0),
+    (axisID:=AXIS_DOFF_PARALLEL, defaultPosition:=0),
+    (axisID:=AXIS_HORIZONTAL_CALIBRATION, defaultPosition:=0),
+    (axisID:=AXIS_HORIZONTAL_SAMPLE, defaultPosition:=0),
+    (axisID:=AXIS_COMBINED_VERTICAL_CALIBRATION, defaultPosition:=0),
+    (axisID:=AXIS_COMBINED_VERTICAL_SAMPLE, defaultPosition:=0),
+    (axisID:=AXIS_ROTATION_CALIBRATION, defaultPosition:=0),
+    (axisID:=AXIS_ROTATION_SAMPLE, defaultPosition:=0),
+    (axisID:=AXIS_MEASUREMENT_ANGLE_OFFSET, defaultPosition:=0)]
+
+(*
+
+    IDs_VirtualNoCalibrationAxes : ARRAY[1..ARRAYSIZE_VIRTUAL] OF UINT:=
+
+        AXIS_COMBINED_VERTICAL_SAMPLE,
+        AXIS_ROTATION_CALIBRATION,
+        AXIS_ROTATION_SAMPLE,
+        AXIS_MEASUREMENT_ANGLE_OFFSET];   *)
+
+;
 END_VAR
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[//SETUP ARRAYS
+      <ST><![CDATA[//SETUP ARRAYS - To be deleted
 calibrationValuesArray[1]:= Drad_default;
 calibrationValuesArray[2]:= Dtank_Length_default;
 calibrationValuesArray[3]:= Dtank_Pivot_To_Window_default;
+
+//aVirtualAxisDefaults[1].mcSetPosition(Axis:=astAxes[aVirtualAxisDefaults[1].axisID].Axis);
+//aVirtualAxisDefaults[1].mcSetPosition.Execute:= TRUE;
+//aVirtualAxisDefaults[1].mcSetPosition.Position:= aVirtualAxisDefaults[1].defaultPosition;
+
 
 IF GVL_INTER.ENABLE_ALL_AXES THEN
     EnableAxes();
@@ -266,7 +302,11 @@ GVL_INTER.TARGET_MEASUREMENT_ANGLE:= astAxes[AXIS_MEASUREMENT_ANGLE].Axis.NcToPl
 //DISABLE AXES (overridden if operational)
 //astAxes[AXIS_MEASUREMENT_ANGLE].stControl.bEnable := FALSE;
 
-
+//execute all virtual mcsetpositions
+FOR i:=1 TO ARRAYSIZE_ALLVIRTUALS DO
+    aVirtualAxisDefaults[i].mcSetPosition(Axis:= astAxes[aVirtualAxisDefaults[i].axisID].Axis);
+    aVirtualAxisDefaults[i].mcSetPosition.Execute:= FALSE;
+END_FOR
 
 
 //RECOVERY MODE
@@ -304,13 +344,32 @@ END_IF
 
 
 GVL_INTER.OPERATIONAL:= FALSE;  //OVERRIDE IF OPERATIONAL
-IF NOT CombinedVerticalSetupComplete AND GVL_INTER.RUN_KINEMATICS THEN
-    GVL_INTER.RUN_KINEMATICS:= FALSE;    
+IF NOT CombinedVerticalSetupComplete AND GVL_INTER.OPERATIONAL THEN
+    eStateInter:= eState_INTER.init;
 END_IF
+
+//Sometimes the rotation loads in 360degrees out of phase, we need to be able to detect and fix this.
+setPosRotation(Axis:= astAxes[AXIS_ROTATION].Axis);
+setPosRotation.Execute:= FALSE;
+IF ABS(astAxes[AXIS_ROTATION].Axis.NcToPlc.ActPos)>20 THEN
+    astAxes[AXIS_ROTATION].stControl.bEnable:= FALSE;
+    IF astAxes[AXIS_ROTATION].Axis.NcToPlc.ActPos>20 THEN
+        //we need to minus 360
+        setPosRotation.Position:= astAxes[AXIS_ROTATION].Axis.NcToPlc.ActPos-360;
+        setPosRotation.Execute:= TRUE;
+    ELSIF astAxes[AXIS_ROTATION].Axis.NcToPlc.ActPos<20 THEN
+        //we need to add 360
+        setPosRotation.Position:= astAxes[AXIS_ROTATION].Axis.NcToPlc.ActPos+360;
+        setPosRotation.Execute:= TRUE;
+    END_IF
+ELSE
+    bRotationValid:= TRUE;
+END_IF
+
     
     CASE eStateInter OF
         eState_INTER.init:       
-            IF GVL_INTER.RUN_KINEMATICS THEN
+            IF GVL_INTER.RUN_KINEMATICS AND CombinedVerticalSetupComplete AND bRotationValid THEN
                 IF NOT GVL_INTER.KINEMATIC_SPG_ALL_DISABLED THEN
                     eStateInter:=eState_INTER.disableSPG;
                 ELSE
@@ -328,6 +387,7 @@ END_IF
             setPos_Dtank_Pivot_To_Window.Execute:= TRUE;
             writeDefault.START:=TRUE;
             
+            //FOR LOOP HERE TO ITERATE THROUGH VIRTUAL ARRAY MC_SETPOSITIONS
             stateDelayTimer.IN:= TRUE;
             IF(stateDelayTimer.Q) THEN
                 eStateInter := eState_INTER.checkSetPositions;
@@ -476,6 +536,7 @@ END_IF
             IF GVL_INTER.NC_AXIS_ERROR THEN
                 GVL_INTER.RESET_ALL := TRUE;
             ELSE
+                //THIS ALL CHANGES TO MC_SETPOSITION
                 AbsoluteMove(axisID:=AXIS_MEASUREMENT_ANGLE, fPosition:=0);
                 AbsoluteMove(axisID:=AXIS_MEASUREMENT_ANGLE_OFFSET, fPosition:=0);
                 AbsoluteMove(axisID:=AXIS_DOFF_ANGLED, fPosition:=0);
@@ -523,7 +584,11 @@ END_IF
             
             
         eState_INTER.error:
-            IF NOT GVL_INTER.NC_AXIS_ERROR THEN
+            IF GVL_INTER.ACKNOWLEDGE_LOGIC_ERROR THEN
+                GVL_INTER.LOGIC_ERROR:= FALSE;
+                GVL_INTER.RESET_ALL:= TRUE;
+			END_IF
+            IF NOT GVL_INTER.NC_AXIS_ERROR  AND NOT GVL_INTER.LOGIC_ERROR THEN
                 eStateInter:= eState_INTER.init;
                 GVL_INTER.LOGIC_ERROR:= FALSE;  //MAKE ROBUST
 			END_IF
@@ -639,29 +704,48 @@ posDevRot:=    astAxes[AXIS_ROTATION].stStatus.fActPosition - GVL_INTER.SETPOS_R
 
 bRealDevValid := ABS(posDevHorizontal)<DEVIATION_THRESHOLD AND ABS(posDevVertical)<DEVIATION_THRESHOLD AND ABS(posDevRot)<DEVIATION_THRESHOLD;
 
-
-//New implementation
+(*
+//Check position deviations of "default" axes
 bDefaultDevValid:= TRUE; //we will AND it with the deviations in the loop
 FOR i := 1 TO ARRAYSIZE_VIRTUALCAL DO
     bDefaultDevValid:= bDefaultDevValid AND (ABS(astAxes[IDs_VirtualWithCalibrationAxes[i]].stStatus.fActPosition - calibrationValuesArray[i])<DEVIATION_THRESHOLD);
 END_FOR
 
 
-   
+//Check position deviations of remaining virtual axes
 bRecoveryDevValid:= bDefaultDevValid; //Use default dev as starting point before iterator
-FOR i := 1 TO ARRAYSIZE_VIRTUALCAL DO
-    bRecoveryDevValid:= bRecoveryDevValid AND (ABS(astAxes[IDs_VirtualNoCalibrationAxes[i]].stStatus.fActPosition)<DEVIATION_THRESHOLD);
-END_FOR    
-    
-    
-bVirtualsMoving:= FALSE;
-//Looking for any virtual axis moving IDs_VirtualNoCalibrationAxes
-FOR i := 1 TO ARRAYSIZE_VIRTUALCAL DO
-    bVirtualsMoving:= bVirtualsMoving OR astAxes[IDs_VirtualWithCalibrationAxes[i]].Axis.Status.Moving;
-END_FOR
 FOR i := 1 TO ARRAYSIZE_VIRTUAL DO
-    bVirtualsMoving:= bVirtualsMoving OR astAxes[IDs_VirtualNoCalibrationAxes[i]].Axis.Status.Moving;
+    bRecoveryDevValid:= bRecoveryDevValid AND (ABS(astAxes[IDs_VirtualNoCalibrationAxes[i]].stStatus.fActPosition)<DEVIATION_THRESHOLD);
 END_FOR
+*)
+
+////
+////
+////
+//THIS IS NEW LOGIC THAT OVERRIDES WHAT'S CURRENTLY HAPPENING, BE CAREFUL
+bRecoveryDevValid:= TRUE;
+FOR i:=1 TO ARRAYSIZE_ALLVIRTUALS DO
+    aVirtualAxisDefaults[i].deviation:= ABS(astAxes[aVirtualAxisDefaults[i].axisID].Axis.NcToPlc.ActPos - aVirtualAxisDefaults[i].defaultPosition);
+    bRecoveryDevValid:= bRecoveryDevValid AND (aVirtualAxisDefaults[i].deviation<DEVIATION_THRESHOLD);
+END_FOR
+
+bVirtualsMoving:= FALSE;
+FOR i := 1 TO ARRAYSIZE_ALLVIRTUALS DO
+    bVirtualsMoving:= bVirtualsMoving OR astAxes[aVirtualAxisDefaults[i].axisID].Axis.Status.Moving;
+END_FOR
+/////
+/////
+/////
+    
+    
+//bVirtualsMoving:= FALSE;
+//Looking for any virtual axis moving IDs_VirtualNoCalibrationAxes
+//FOR i := 1 TO ARRAYSIZE_VIRTUALCAL DO
+//    bVirtualsMoving:= bVirtualsMoving OR astAxes[IDs_VirtualWithCalibrationAxes[i]].Axis.Status.Moving;
+//END_FOR
+//FOR i := 1 TO ARRAYSIZE_VIRTUAL DO
+//    bVirtualsMoving:= bVirtualsMoving OR astAxes[IDs_VirtualNoCalibrationAxes[i]].Axis.Status.Moving;
+//END_FOR
 ]]></ST>
       </Implementation>
     </Action>

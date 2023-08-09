@@ -1,20 +1,20 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TargetSystemConfig Crc="3664220784" Version="1.5">
+<TargetSystemConfig Crc="228399509" Version="1.5">
   <TargetSystemType>HSafetyPLC</TargetSystemType>
-  <TargetSystemSubType>EL6910</TargetSystemSubType>
+  <TargetSystemSubType>AX891x</TargetSystemSubType>
   <IsExternalDevice>false</IsExternalDevice>
-  <TargetSystemObjectId>50462748</TargetSystemObjectId>
-  <TargetSystemObjectName>Term 28 (EL6910)</TargetSystemObjectName>
-  <SoftwareVersion>04 (V01.11)     </SoftwareVersion>
-  <SerialNumber>2494600</SerialNumber>
-  <ProjectCRC>8704</ProjectCRC>
+  <TargetSystemObjectId>50462791</TargetSystemObjectId>
+  <TargetSystemObjectName>Drive 71 (AX8206-0210-0104)</TargetSystemObjectName>
+  <SoftwareVersion>03 (V01.13)</SoftwareVersion>
+  <SerialNumber>3086003</SerialNumber>
+  <ProjectCRC>45753</ProjectCRC>
   <MapProjectCRC>false</MapProjectCRC>
   <MapSerialNumber>false</MapSerialNumber>
   <VersionNumber>1</VersionNumber>
-  <FSOEAddress>1</FSOEAddress>
-  <DipSwitch>1</DipSwitch>
+  <FSOEAddress>7</FSOEAddress>
+  <DipSwitch>7</DipSwitch>
   <AmsNetID>5.119.206.217.2.1</AmsNetID>
-  <AmsPort>1027</AmsPort>
+  <AmsPort>1034</AmsPort>
   <ConnectionInfoDataConfigOld>false</ConnectionInfoDataConfigOld>
   <TakeOverSafetyAliasDeviceNamesInProcessImage>false</TakeOverSafetyAliasDeviceNamesInProcessImage>
   <TakeOverStandardAliasDeviceNamesInProcessImage>false</TakeOverStandardAliasDeviceNamesInProcessImage>

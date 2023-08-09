@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
+  <DUT Name="ST_DefaultVals" Id="{42aba820-3650-485f-a02b-68453a2ae7be}">
+    <Declaration><![CDATA[TYPE ST_DefaultVals :
+STRUCT
+    axisID : UINT;
+    defaultPosition : LREAL;
+    mcSetPosition : MC_SetPosition;
+    deviation : LREAL;
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

@@ -1,0 +1,292 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<safetyApplicationLanguageDiagram Crc="567698295" dslVersion="1.4.0.0" Id="a32f61a1-6cca-4df7-903d-f7cefdea02c0" absoluteBounds="0, 0, 14.125, 8.5" diagramId="4e1005a2-8c93-4777-a408-09ccf85c684d" name="ChA_ChB_Connection_Output">
+  <safetyApplicationMoniker name="/" />
+  <nestedChildShapes>
+    <networkSwimLane Id="8fa48649-6e7b-4569-aad1-8bef4a8826a3" absoluteBounds="0, 0, 14.125, 4.125">
+      <networkMoniker name="//Connection_Output_ChA" />
+      <nestedChildShapes>
+        <fBDecoupleShape Id="996ca1a3-909e-4f17-af12-3fac439136ba" absoluteBounds="3, 0.625, 2.75, 3.25">
+          <fBDecoupleMoniker name="//Connection_Output_ChA/Connection_ChA_Output_Byte0" />
+          <relativeChildShapes>
+            <inPortShape Id="1bad2d13-d592-487a-9b0c-2d0d54e3190a" absoluteBounds="2.92, 1.6400000000000001, 0.15, 0.15">
+              <inPortMoniker name="//Connection_Output_ChA/Connection_ChA_Output_Byte0/DecIn1" />
+              <relativeChildShapes />
+            </inPortShape>
+            <inPortShape Id="4ce8db46-e5db-4260-b82e-c425ea92680a" absoluteBounds="2.92, 1.9100000000000001, 0.15, 0.15">
+              <inPortMoniker name="//Connection_Output_ChA/Connection_ChA_Output_Byte0/DecIn2" />
+              <relativeChildShapes />
+            </inPortShape>
+            <inPortShape Id="08aa6291-3287-40a0-830b-84c33f34ce7a" absoluteBounds="2.92, 2.18, 0.15, 0.15">
+              <inPortMoniker name="//Connection_Output_ChA/Connection_ChA_Output_Byte0/DecIn3" />
+              <relativeChildShapes />
+            </inPortShape>
+            <inPortShape Id="e5ad58d6-3137-44be-8baa-00572d23f7e3" absoluteBounds="2.92, 2.45, 0.15, 0.15">
+              <inPortMoniker name="//Connection_Output_ChA/Connection_ChA_Output_Byte0/DecIn4" />
+              <relativeChildShapes />
+            </inPortShape>
+            <inPortShape Id="bf50eba9-2bf5-4e3e-bbce-ebb21290b289" absoluteBounds="2.92, 2.72, 0.15, 0.15">
+              <inPortMoniker name="//Connection_Output_ChA/Connection_ChA_Output_Byte0/DecIn5" />
+              <relativeChildShapes />
+            </inPortShape>
+            <inPortShape Id="2699ab6f-d192-4db6-92d1-c058b05742df" absoluteBounds="2.92, 2.99, 0.15, 0.15">
+              <inPortMoniker name="//Connection_Output_ChA/Connection_ChA_Output_Byte0/DecIn6" />
+              <relativeChildShapes />
+            </inPortShape>
+            <inPortShape Id="0c284614-aa45-4a34-80e1-ed837ca8da79" absoluteBounds="2.92, 3.2600000000000002, 0.15, 0.15">
+              <inPortMoniker name="//Connection_Output_ChA/Connection_ChA_Output_Byte0/DecIn7" />
+              <relativeChildShapes />
+            </inPortShape>
+            <inPortShape Id="051c1ed1-dad3-498a-a080-6d5fa0a26c03" absoluteBounds="2.92, 3.5300000000000002, 0.15, 0.15">
+              <inPortMoniker name="//Connection_Output_ChA/Connection_ChA_Output_Byte0/DecIn8" />
+              <relativeChildShapes />
+            </inPortShape>
+            <outPortShape Id="a7dcb93b-25b0-4433-9f92-7a9eb4ec0284" absoluteBounds="5.65, 1.6400000000000001, 0.15, 0.15">
+              <outPortMoniker name="//Connection_Output_ChA/Connection_ChA_Output_Byte0/DecOut1" />
+              <relativeChildShapes />
+            </outPortShape>
+            <outPortShape Id="ab053d0b-f775-4151-8414-c6f2190dc104" absoluteBounds="5.65, 1.9100000000000001, 0.15, 0.15">
+              <outPortMoniker name="//Connection_Output_ChA/Connection_ChA_Output_Byte0/DecOut2" />
+              <relativeChildShapes />
+            </outPortShape>
+            <outPortShape Id="e1b3f8de-4a0f-4f0d-b805-3acef94570a6" absoluteBounds="5.65, 2.18, 0.15, 0.15">
+              <outPortMoniker name="//Connection_Output_ChA/Connection_ChA_Output_Byte0/DecOut3" />
+              <relativeChildShapes />
+            </outPortShape>
+            <outPortShape Id="1aa41255-6485-45f4-96e4-1526b1ac4bf3" absoluteBounds="5.65, 2.45, 0.15, 0.15">
+              <outPortMoniker name="//Connection_Output_ChA/Connection_ChA_Output_Byte0/DecOut4" />
+              <relativeChildShapes />
+            </outPortShape>
+            <outPortShape Id="f71d57a9-153b-4937-ab3e-16192324d810" absoluteBounds="5.65, 2.72, 0.15, 0.15">
+              <outPortMoniker name="//Connection_Output_ChA/Connection_ChA_Output_Byte0/DecOut5" />
+              <relativeChildShapes />
+            </outPortShape>
+            <outPortShape Id="c89d7fe1-b025-43fc-b424-c173b35a8bbd" absoluteBounds="5.65, 2.99, 0.15, 0.15">
+              <outPortMoniker name="//Connection_Output_ChA/Connection_ChA_Output_Byte0/DecOut6" />
+              <relativeChildShapes />
+            </outPortShape>
+            <outPortShape Id="56a9035c-1e5e-4510-8a39-10d04e0efa99" absoluteBounds="5.65, 3.2600000000000002, 0.15, 0.15">
+              <outPortMoniker name="//Connection_Output_ChA/Connection_ChA_Output_Byte0/DecOut7" />
+              <relativeChildShapes />
+            </outPortShape>
+            <outPortShape Id="853326d2-d00c-485a-9ea5-b7e378c8bb4b" absoluteBounds="5.65, 3.5300000000000002, 0.15, 0.15">
+              <outPortMoniker name="//Connection_Output_ChA/Connection_ChA_Output_Byte0/DecOut8" />
+              <relativeChildShapes />
+            </outPortShape>
+          </relativeChildShapes>
+        </fBDecoupleShape>
+        <fBDecoupleShape Id="d2008c95-40c0-4ab3-8781-de932edd88d8" absoluteBounds="10, 0.625, 2.75, 3.25">
+          <fBDecoupleMoniker name="//Connection_Output_ChA/Connection_ChA_Output_Byte1" />
+          <relativeChildShapes>
+            <inPortShape Id="8f6cb812-3729-4b2f-9151-c8d938a7a3b9" absoluteBounds="9.92, 1.6400000000000001, 0.15, 0.15">
+              <inPortMoniker name="//Connection_Output_ChA/Connection_ChA_Output_Byte1/DecIn1" />
+              <relativeChildShapes />
+            </inPortShape>
+            <inPortShape Id="b7f54a5c-7a1c-4720-8f7a-c1d7392355cb" absoluteBounds="9.92, 1.9100000000000001, 0.15, 0.15">
+              <inPortMoniker name="//Connection_Output_ChA/Connection_ChA_Output_Byte1/DecIn2" />
+              <relativeChildShapes />
+            </inPortShape>
+            <inPortShape Id="f8220db6-f4a1-49f7-9505-439677d9388e" absoluteBounds="9.92, 2.18, 0.15, 0.15">
+              <inPortMoniker name="//Connection_Output_ChA/Connection_ChA_Output_Byte1/DecIn3" />
+              <relativeChildShapes />
+            </inPortShape>
+            <inPortShape Id="270ac281-9faf-48b4-89a2-d83ae45531fe" absoluteBounds="9.92, 2.45, 0.15, 0.15">
+              <inPortMoniker name="//Connection_Output_ChA/Connection_ChA_Output_Byte1/DecIn4" />
+              <relativeChildShapes />
+            </inPortShape>
+            <inPortShape Id="99b73042-e927-4d7e-8118-4b5c1378f1df" absoluteBounds="9.92, 2.72, 0.15, 0.15">
+              <inPortMoniker name="//Connection_Output_ChA/Connection_ChA_Output_Byte1/DecIn5" />
+              <relativeChildShapes />
+            </inPortShape>
+            <inPortShape Id="2ec9510f-2293-4afa-8850-ff34f9a75fcd" absoluteBounds="9.92, 2.99, 0.15, 0.15">
+              <inPortMoniker name="//Connection_Output_ChA/Connection_ChA_Output_Byte1/DecIn6" />
+              <relativeChildShapes />
+            </inPortShape>
+            <inPortShape Id="15585ac0-5107-489a-93ac-6deebea62fcb" absoluteBounds="9.92, 3.2600000000000002, 0.15, 0.15">
+              <inPortMoniker name="//Connection_Output_ChA/Connection_ChA_Output_Byte1/DecIn7" />
+              <relativeChildShapes />
+            </inPortShape>
+            <inPortShape Id="29b63d95-d3f2-449a-b652-7fa5c3d586c0" absoluteBounds="9.92, 3.5300000000000002, 0.15, 0.15">
+              <inPortMoniker name="//Connection_Output_ChA/Connection_ChA_Output_Byte1/DecIn8" />
+              <relativeChildShapes />
+            </inPortShape>
+            <outPortShape Id="26f3aec6-6378-4286-80fe-7cf1c5f1872d" absoluteBounds="12.65, 1.6400000000000001, 0.15, 0.15">
+              <outPortMoniker name="//Connection_Output_ChA/Connection_ChA_Output_Byte1/DecOut1" />
+              <relativeChildShapes />
+            </outPortShape>
+            <outPortShape Id="7b48e46a-e493-48ac-b8cd-08a13d01fc69" absoluteBounds="12.65, 1.9100000000000001, 0.15, 0.15">
+              <outPortMoniker name="//Connection_Output_ChA/Connection_ChA_Output_Byte1/DecOut2" />
+              <relativeChildShapes />
+            </outPortShape>
+            <outPortShape Id="13d2eb78-1a85-4d89-bc0a-cb12a7ed5d9c" absoluteBounds="12.65, 2.18, 0.15, 0.15">
+              <outPortMoniker name="//Connection_Output_ChA/Connection_ChA_Output_Byte1/DecOut3" />
+              <relativeChildShapes />
+            </outPortShape>
+            <outPortShape Id="9d89062d-082f-415e-a4ae-fb932ee41006" absoluteBounds="12.65, 2.45, 0.15, 0.15">
+              <outPortMoniker name="//Connection_Output_ChA/Connection_ChA_Output_Byte1/DecOut4" />
+              <relativeChildShapes />
+            </outPortShape>
+            <outPortShape Id="3054cb4d-5d86-401f-96d6-29953498d5b0" absoluteBounds="12.65, 2.72, 0.15, 0.15">
+              <outPortMoniker name="//Connection_Output_ChA/Connection_ChA_Output_Byte1/DecOut5" />
+              <relativeChildShapes />
+            </outPortShape>
+            <outPortShape Id="6dceb7f3-8e80-411a-b98d-2e119257446d" absoluteBounds="12.65, 2.99, 0.15, 0.15">
+              <outPortMoniker name="//Connection_Output_ChA/Connection_ChA_Output_Byte1/DecOut6" />
+              <relativeChildShapes />
+            </outPortShape>
+            <outPortShape Id="4094805d-0250-4416-a2a2-89e50082920a" absoluteBounds="12.65, 3.2600000000000002, 0.15, 0.15">
+              <outPortMoniker name="//Connection_Output_ChA/Connection_ChA_Output_Byte1/DecOut7" />
+              <relativeChildShapes />
+            </outPortShape>
+            <outPortShape Id="d387ef9d-c42c-4212-83c6-8811f106059a" absoluteBounds="12.65, 3.5300000000000002, 0.15, 0.15">
+              <outPortMoniker name="//Connection_Output_ChA/Connection_ChA_Output_Byte1/DecOut8" />
+              <relativeChildShapes />
+            </outPortShape>
+          </relativeChildShapes>
+        </fBDecoupleShape>
+      </nestedChildShapes>
+    </networkSwimLane>
+    <networkSwimLane Id="969796c9-01b2-4fa0-957e-d80e20fb4839" absoluteBounds="0, 4.125, 14.125, 4.125">
+      <networkMoniker name="//Connection_Output_ChB" />
+      <nestedChildShapes>
+        <fBDecoupleShape Id="ede66ece-c886-4ace-bc60-dce71a26a796" absoluteBounds="3, 4.75, 2.75, 3.25">
+          <fBDecoupleMoniker name="//Connection_Output_ChB/Connection_ChB_Output_Byte0" />
+          <relativeChildShapes>
+            <inPortShape Id="19b4f14a-34bb-460a-8b4e-46650822c018" absoluteBounds="2.92, 5.7650000000000006, 0.15, 0.15">
+              <inPortMoniker name="//Connection_Output_ChB/Connection_ChB_Output_Byte0/DecIn1" />
+              <relativeChildShapes />
+            </inPortShape>
+            <inPortShape Id="5ee3e231-cb4e-4034-9cd0-579bcef257b5" absoluteBounds="2.92, 6.035, 0.15, 0.15">
+              <inPortMoniker name="//Connection_Output_ChB/Connection_ChB_Output_Byte0/DecIn2" />
+              <relativeChildShapes />
+            </inPortShape>
+            <inPortShape Id="53dcb730-b800-4264-9e60-0d043a49f658" absoluteBounds="2.92, 6.305, 0.15, 0.15">
+              <inPortMoniker name="//Connection_Output_ChB/Connection_ChB_Output_Byte0/DecIn3" />
+              <relativeChildShapes />
+            </inPortShape>
+            <inPortShape Id="40df5d4e-446f-41bd-a9f8-ff8f521ba00e" absoluteBounds="2.92, 6.575, 0.15, 0.15">
+              <inPortMoniker name="//Connection_Output_ChB/Connection_ChB_Output_Byte0/DecIn4" />
+              <relativeChildShapes />
+            </inPortShape>
+            <inPortShape Id="f87ab5e8-25e0-4595-8acd-b6265543d7e6" absoluteBounds="2.92, 6.8450000000000006, 0.15, 0.15">
+              <inPortMoniker name="//Connection_Output_ChB/Connection_ChB_Output_Byte0/DecIn5" />
+              <relativeChildShapes />
+            </inPortShape>
+            <inPortShape Id="5e2c4d15-1842-47ba-b217-0a1f323cfa0d" absoluteBounds="2.92, 7.115, 0.15, 0.15">
+              <inPortMoniker name="//Connection_Output_ChB/Connection_ChB_Output_Byte0/DecIn6" />
+              <relativeChildShapes />
+            </inPortShape>
+            <inPortShape Id="0bfb79ff-df96-49b3-ab8f-94bf342e7e11" absoluteBounds="2.92, 7.385, 0.15, 0.15">
+              <inPortMoniker name="//Connection_Output_ChB/Connection_ChB_Output_Byte0/DecIn7" />
+              <relativeChildShapes />
+            </inPortShape>
+            <inPortShape Id="22f2566e-4b08-42f0-bb62-5fec5108fd81" absoluteBounds="2.92, 7.655, 0.15, 0.15">
+              <inPortMoniker name="//Connection_Output_ChB/Connection_ChB_Output_Byte0/DecIn8" />
+              <relativeChildShapes />
+            </inPortShape>
+            <outPortShape Id="26f7b087-bf0e-48d1-961f-99978cd35217" absoluteBounds="5.65, 5.7650000000000006, 0.15, 0.15">
+              <outPortMoniker name="//Connection_Output_ChB/Connection_ChB_Output_Byte0/DecOut1" />
+              <relativeChildShapes />
+            </outPortShape>
+            <outPortShape Id="08a4cb22-1d36-4c57-b8ea-f75acf82e9a4" absoluteBounds="5.65, 6.035, 0.15, 0.15">
+              <outPortMoniker name="//Connection_Output_ChB/Connection_ChB_Output_Byte0/DecOut2" />
+              <relativeChildShapes />
+            </outPortShape>
+            <outPortShape Id="36bdcd2f-24ee-4676-a68f-823a1d8a6a09" absoluteBounds="5.65, 6.305, 0.15, 0.15">
+              <outPortMoniker name="//Connection_Output_ChB/Connection_ChB_Output_Byte0/DecOut3" />
+              <relativeChildShapes />
+            </outPortShape>
+            <outPortShape Id="3d382fca-75fc-4cfd-a666-7a2f243b85e8" absoluteBounds="5.65, 6.575, 0.15, 0.15">
+              <outPortMoniker name="//Connection_Output_ChB/Connection_ChB_Output_Byte0/DecOut4" />
+              <relativeChildShapes />
+            </outPortShape>
+            <outPortShape Id="47a29f0c-ee16-49ec-959b-7defb122fe12" absoluteBounds="5.65, 6.8450000000000006, 0.15, 0.15">
+              <outPortMoniker name="//Connection_Output_ChB/Connection_ChB_Output_Byte0/DecOut5" />
+              <relativeChildShapes />
+            </outPortShape>
+            <outPortShape Id="a73b3b35-b488-427c-932b-e943ebdc024d" absoluteBounds="5.65, 7.115, 0.15, 0.15">
+              <outPortMoniker name="//Connection_Output_ChB/Connection_ChB_Output_Byte0/DecOut6" />
+              <relativeChildShapes />
+            </outPortShape>
+            <outPortShape Id="f7a661f9-1e61-43bb-a1b7-bb81c728309e" absoluteBounds="5.65, 7.385, 0.15, 0.15">
+              <outPortMoniker name="//Connection_Output_ChB/Connection_ChB_Output_Byte0/DecOut7" />
+              <relativeChildShapes />
+            </outPortShape>
+            <outPortShape Id="8d843836-1cd1-45d2-a490-e354bddda8a0" absoluteBounds="5.65, 7.655, 0.15, 0.15">
+              <outPortMoniker name="//Connection_Output_ChB/Connection_ChB_Output_Byte0/DecOut8" />
+              <relativeChildShapes />
+            </outPortShape>
+          </relativeChildShapes>
+        </fBDecoupleShape>
+        <fBDecoupleShape Id="30432d46-0a68-41a6-8b70-f20407256ade" absoluteBounds="10, 4.75, 2.75, 3.25">
+          <fBDecoupleMoniker name="//Connection_Output_ChB/Connection_ChB_Output_Byte1" />
+          <relativeChildShapes>
+            <inPortShape Id="1f4e9cd0-1ee1-4373-8746-d950ec89f50b" absoluteBounds="9.92, 5.7650000000000006, 0.15, 0.15">
+              <inPortMoniker name="//Connection_Output_ChB/Connection_ChB_Output_Byte1/DecIn1" />
+              <relativeChildShapes />
+            </inPortShape>
+            <inPortShape Id="f694bd16-dcf3-41ce-a3fa-095487a48c8f" absoluteBounds="9.92, 6.035, 0.15, 0.15">
+              <inPortMoniker name="//Connection_Output_ChB/Connection_ChB_Output_Byte1/DecIn2" />
+              <relativeChildShapes />
+            </inPortShape>
+            <inPortShape Id="d9b2d17c-a0e4-4fb1-a0fd-d883321f8782" absoluteBounds="9.92, 6.305, 0.15, 0.15">
+              <inPortMoniker name="//Connection_Output_ChB/Connection_ChB_Output_Byte1/DecIn3" />
+              <relativeChildShapes />
+            </inPortShape>
+            <inPortShape Id="0825b0ca-ef2b-4b2b-acb7-505e7b96fd84" absoluteBounds="9.92, 6.575, 0.15, 0.15">
+              <inPortMoniker name="//Connection_Output_ChB/Connection_ChB_Output_Byte1/DecIn4" />
+              <relativeChildShapes />
+            </inPortShape>
+            <inPortShape Id="48465711-b109-416e-9180-059a7bf4f106" absoluteBounds="9.92, 6.8450000000000006, 0.15, 0.15">
+              <inPortMoniker name="//Connection_Output_ChB/Connection_ChB_Output_Byte1/DecIn5" />
+              <relativeChildShapes />
+            </inPortShape>
+            <inPortShape Id="72b1d8dd-6900-4839-b87a-8a3aa3ffaaa3" absoluteBounds="9.92, 7.115, 0.15, 0.15">
+              <inPortMoniker name="//Connection_Output_ChB/Connection_ChB_Output_Byte1/DecIn6" />
+              <relativeChildShapes />
+            </inPortShape>
+            <inPortShape Id="7f5d5515-4c3e-485a-807c-c5e7026663b7" absoluteBounds="9.92, 7.385, 0.15, 0.15">
+              <inPortMoniker name="//Connection_Output_ChB/Connection_ChB_Output_Byte1/DecIn7" />
+              <relativeChildShapes />
+            </inPortShape>
+            <inPortShape Id="a5ed4864-6b6b-4e3f-bd81-b2e9176648a2" absoluteBounds="9.92, 7.655, 0.15, 0.15">
+              <inPortMoniker name="//Connection_Output_ChB/Connection_ChB_Output_Byte1/DecIn8" />
+              <relativeChildShapes />
+            </inPortShape>
+            <outPortShape Id="946ad8e9-4e5d-40d6-8e71-cf8af0d905a8" absoluteBounds="12.65, 5.7650000000000006, 0.15, 0.15">
+              <outPortMoniker name="//Connection_Output_ChB/Connection_ChB_Output_Byte1/DecOut1" />
+              <relativeChildShapes />
+            </outPortShape>
+            <outPortShape Id="aae8eee7-06b7-41b6-a0f0-99fc95b563c4" absoluteBounds="12.65, 6.035, 0.15, 0.15">
+              <outPortMoniker name="//Connection_Output_ChB/Connection_ChB_Output_Byte1/DecOut2" />
+              <relativeChildShapes />
+            </outPortShape>
+            <outPortShape Id="60df800e-feb8-4406-a77f-b9a11bf50535" absoluteBounds="12.65, 6.305, 0.15, 0.15">
+              <outPortMoniker name="//Connection_Output_ChB/Connection_ChB_Output_Byte1/DecOut3" />
+              <relativeChildShapes />
+            </outPortShape>
+            <outPortShape Id="a7afba67-a174-46be-8309-ea6c8d513ac0" absoluteBounds="12.65, 6.575, 0.15, 0.15">
+              <outPortMoniker name="//Connection_Output_ChB/Connection_ChB_Output_Byte1/DecOut4" />
+              <relativeChildShapes />
+            </outPortShape>
+            <outPortShape Id="bb8f7167-0ae5-4da7-8b98-8780b84ec00e" absoluteBounds="12.65, 6.8450000000000006, 0.15, 0.15">
+              <outPortMoniker name="//Connection_Output_ChB/Connection_ChB_Output_Byte1/DecOut5" />
+              <relativeChildShapes />
+            </outPortShape>
+            <outPortShape Id="c97f8ec0-6306-4847-9a1d-49a5f67b25e3" absoluteBounds="12.65, 7.115, 0.15, 0.15">
+              <outPortMoniker name="//Connection_Output_ChB/Connection_ChB_Output_Byte1/DecOut6" />
+              <relativeChildShapes />
+            </outPortShape>
+            <outPortShape Id="c89a7de8-d4c7-45e0-acbd-eb4c4bf41960" absoluteBounds="12.65, 7.385, 0.15, 0.15">
+              <outPortMoniker name="//Connection_Output_ChB/Connection_ChB_Output_Byte1/DecOut7" />
+              <relativeChildShapes />
+            </outPortShape>
+            <outPortShape Id="f6d980d9-dd70-4b98-b234-6a45b084d627" absoluteBounds="12.65, 7.655, 0.15, 0.15">
+              <outPortMoniker name="//Connection_Output_ChB/Connection_ChB_Output_Byte1/DecOut8" />
+              <relativeChildShapes />
+            </outPortShape>
+          </relativeChildShapes>
+        </fBDecoupleShape>
+      </nestedChildShapes>
+    </networkSwimLane>
+  </nestedChildShapes>
+</safetyApplicationLanguageDiagram>

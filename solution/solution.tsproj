@@ -28,6 +28,7 @@
 		</Plc>
 		<Safety>
 			<Project File="SAFETY.xti"/>
+			<Project File="Drive71Safety.xti"/>
 		</Safety>
 		<Io>
 			<Device File="Device 1 (EtherCAT).xti" Id="1"/>

@@ -2,6 +2,33 @@
 <TcSmItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2012/07/TcSmProject" TcSmVersion="1.0" TcVersion="3.1.4024.32" ClassName="CFlbTermDef" SubType="9099">
 	<DataTypes>
 		<DataType>
+			<Name GUID="{18071995-0000-0000-0000-002000000006}" IecBaseType="true" BitType="true" AutoDeleteType="true" HideSubItems="true">ARRAY [0..5] OF BIT</Name>
+			<BitSize>6</BitSize>
+			<BaseType GUID="{18071995-0000-0000-0000-000000000010}">BIT</BaseType>
+			<ArrayInfo>
+				<LBound>0</LBound>
+				<Elements>6</Elements>
+			</ArrayInfo>
+		</DataType>
+		<DataType>
+			<Name GUID="{18071995-0000-0000-0000-002000000007}" IecBaseType="true" AutoDeleteType="true" HideSubItems="true">ARRAY [0..6] OF BIT</Name>
+			<BitSize>7</BitSize>
+			<BaseType GUID="{18071995-0000-0000-0000-000000000010}">BIT</BaseType>
+			<ArrayInfo>
+				<LBound>0</LBound>
+				<Elements>7</Elements>
+			</ArrayInfo>
+		</DataType>
+		<DataType>
+			<Name GUID="{18071995-0000-0000-0000-002000000005}" IecBaseType="true" BitType="true" AutoDeleteType="true" HideSubItems="true">ARRAY [0..4] OF BIT</Name>
+			<BitSize>5</BitSize>
+			<BaseType GUID="{18071995-0000-0000-0000-000000000010}">BIT</BaseType>
+			<ArrayInfo>
+				<LBound>0</LBound>
+				<Elements>5</Elements>
+			</ArrayInfo>
+		</DataType>
+		<DataType>
 			<Name GUID="{18071995-0000-0000-0000-002000000010}" IecBaseType="true" AutoDeleteType="true" HideSubItems="true">ARRAY [0..1] OF BYTE</Name>
 			<BitSize>16</BitSize>
 			<BaseType GUID="{18071995-0000-0000-0000-000000000001}">BYTE</BaseType>
@@ -17,15 +44,6 @@
 			<ArrayInfo>
 				<LBound>0</LBound>
 				<Elements>1</Elements>
-			</ArrayInfo>
-		</DataType>
-		<DataType>
-			<Name GUID="{18071995-0000-0000-0000-002000000005}" IecBaseType="true" BitType="true" AutoDeleteType="true" HideSubItems="true">ARRAY [0..4] OF BIT</Name>
-			<BitSize>5</BitSize>
-			<BaseType GUID="{18071995-0000-0000-0000-000000000010}">BIT</BaseType>
-			<ArrayInfo>
-				<LBound>0</LBound>
-				<Elements>5</Elements>
 			</ArrayInfo>
 		</DataType>
 	</DataTypes>
@@ -1688,8 +1706,8 @@
 			<SyncMan>002a22002000010004000000000000002e00002a20010000</SyncMan>
 			<SyncMan>003c00002400000005000000000000000000003c24000000</SyncMan>
 			<SyncMan>004e00002000000006000000000000000000004e20000000</SyncMan>
-			<SyncMan>00600a002400010003000000000000000a00006024010000</SyncMan>
-			<SyncMan>00720a002000010004000000000000000a00007220010000</SyncMan>
+			<SyncMan>00600e002400010003000000000000000a00006024010000</SyncMan>
+			<SyncMan>00720e002000010004000000000000000a00007220010000</SyncMan>
 			<Fmmu>0000000000000000001800020100000001000000060000000200000000000000</Fmmu>
 			<Fmmu>0000000000000000002a00010100000002000000060000000300000000000000</Fmmu>
 			<Fmmu>00000000000000000d0800010100000003000000000000000000000000000000</Fmmu>
@@ -1977,61 +1995,46 @@
 			<Pdo Name="DeviceMain Dynamic Outputs" Index="#x16e0" InOut="1" Flags="#x0280" SyncUnit="1"/>
 			<Pdo Name="FSoE Slave Connection 1 Slave Message" Index="#x1bc0" Flags="#x0080" SyncMan="7" SyncUnit="2">
 				<ExcludePdo>#x1bc1</ExcludePdo>
-				<Entry Name="FSOE__FSoE Slave Cmd" BitLen="8" Index="#xe600" Sub="#x01">
+				<Entry Name="Message_1__FSoE Cmd" BitLen="8" Index="#xe600" Sub="#x01">
 					<Type>USINT</Type>
 				</Entry>
-				<Entry Name="FSOE__Axis A STO" BitLen="1" Index="#xf601" Sub="#x01">
+				<Entry Name="Message_1__STO_active_ChA" BitLen="1" Index="#xf601" Sub="#x01">
 					<Type>BIT</Type>
 				</Entry>
-				<Entry Name="FSOE__Safe Input_1" BitLen="1" Index="#xf601" Sub="#x02">
+				<Entry BitLen="6">
+					<Type GUID="{18071995-0000-0000-0000-002000000006}">ARRAY [0..5] OF BIT</Type>
+				</Entry>
+				<Entry Name="Message_1__Error_AckReq_ChA" BitLen="1" Index="#xf601" Sub="#x02">
 					<Type>BIT</Type>
 				</Entry>
-				<Entry Name="FSOE__Safe Input_2" BitLen="1" Index="#xf601" Sub="#x03">
+				<Entry Name="Message_1__SLS_1_active_ChA" BitLen="1" Index="#xf601" Sub="#x03">
 					<Type>BIT</Type>
 				</Entry>
-				<Entry Name="FSOE__Safe Input_3" BitLen="1" Index="#xf601" Sub="#x04">
-					<Type>BIT</Type>
+				<Entry BitLen="7">
+					<Type GUID="{18071995-0000-0000-0000-002000000007}">ARRAY [0..6] OF BIT</Type>
 				</Entry>
-				<Entry Name="FSOE__Safe Input_4" BitLen="1" Index="#xf601" Sub="#x05">
-					<Type>BIT</Type>
-				</Entry>
-				<Entry Name="FSOE__Safe Input_5" BitLen="1" Index="#xf601" Sub="#x06">
-					<Type>BIT</Type>
-				</Entry>
-				<Entry Name="FSOE__Safe Input_6" BitLen="1" Index="#xf601" Sub="#x07">
-					<Type>BIT</Type>
-				</Entry>
-				<Entry Name="FSOE__Safe Input_7" BitLen="1" Index="#xf601" Sub="#x08">
-					<Type>BIT</Type>
-				</Entry>
-				<Entry Name="FSOE__Axis B STO" BitLen="1" Index="#xf601" Sub="#x09">
-					<Type>BIT</Type>
-				</Entry>
-				<Entry Name="FSOE__Safe Input_9" BitLen="1" Index="#xf601" Sub="#x0a">
-					<Type>BIT</Type>
-				</Entry>
-				<Entry Name="FSOE__Safe Input_10" BitLen="1" Index="#xf601" Sub="#x0b">
-					<Type>BIT</Type>
-				</Entry>
-				<Entry Name="FSOE__Safe Input_11" BitLen="1" Index="#xf601" Sub="#x0c">
-					<Type>BIT</Type>
-				</Entry>
-				<Entry Name="FSOE__Safe Input_12" BitLen="1" Index="#xf601" Sub="#x0d">
-					<Type>BIT</Type>
-				</Entry>
-				<Entry Name="FSOE__Safe Input_13" BitLen="1" Index="#xf601" Sub="#x0e">
-					<Type>BIT</Type>
-				</Entry>
-				<Entry Name="FSOE__Safe Input_14" BitLen="1" Index="#xf601" Sub="#x0f">
-					<Type>BIT</Type>
-				</Entry>
-				<Entry Name="FSOE__Safe Input_15" BitLen="1" Index="#xf601" Sub="#x10">
-					<Type>BIT</Type>
-				</Entry>
-				<Entry Name="FSOE__FSoE Slave CRC_0" BitLen="16" Index="#xe600" Sub="#x03">
+				<Entry Name="Message_1__FSoE CRC_0" BitLen="16" Index="#xe600" Sub="#x03">
 					<Type>UINT</Type>
 				</Entry>
-				<Entry Name="FSOE__FSoE Slave ConnID" BitLen="16" Index="#xe600" Sub="#x02">
+				<Entry Name="Message_1__STO_active_ChB" BitLen="1" Index="#xf601" Sub="#x04">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry BitLen="6">
+					<Type GUID="{18071995-0000-0000-0000-002000000006}">ARRAY [0..5] OF BIT</Type>
+				</Entry>
+				<Entry Name="Message_1__Error_AckReq_ChB" BitLen="1" Index="#xf601" Sub="#x05">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry Name="Message_1__SLS_1_active_ChB" BitLen="1" Index="#xf601" Sub="#x06">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry BitLen="7">
+					<Type GUID="{18071995-0000-0000-0000-002000000007}">ARRAY [0..6] OF BIT</Type>
+				</Entry>
+				<Entry Name="Message_1__FSoE CRC_1" BitLen="16" Index="#xe600" Sub="#x04">
+					<Type>UINT</Type>
+				</Entry>
+				<Entry Name="Message_1__FSoE ConnID" BitLen="16" Index="#xe600" Sub="#x02">
 					<Type>UINT</Type>
 				</Entry>
 			</Pdo>
@@ -2081,29 +2084,14 @@
 				<ExcludePdo>#x1bce</ExcludePdo>
 			</Pdo>
 			<Pdo Name="Standard Inputdata" Index="#x1bf0" Flags="#x0080" SyncMan="7" SyncUnit="2">
-				<Entry Name="FSOE__Std Input" BitLen="1" Index="#xf606" Sub="#x01">
+				<Entry Name="Standard Out Var 5" BitLen="1" Index="#xf606" Sub="#x01">
 					<Type>BIT</Type>
 				</Entry>
-				<Entry Name="FSOE__Std Input" BitLen="1" Index="#xf606" Sub="#x02">
+				<Entry Name="Standard Out Var 6" BitLen="1" Index="#xf606" Sub="#x02">
 					<Type>BIT</Type>
 				</Entry>
-				<Entry Name="FSOE__Std Input" BitLen="1" Index="#xf606" Sub="#x03">
-					<Type>BIT</Type>
-				</Entry>
-				<Entry Name="FSOE__Std Input" BitLen="1" Index="#xf606" Sub="#x04">
-					<Type>BIT</Type>
-				</Entry>
-				<Entry Name="FSOE__Std Input" BitLen="1" Index="#xf606" Sub="#x05">
-					<Type>BIT</Type>
-				</Entry>
-				<Entry Name="FSOE__Std Input" BitLen="1" Index="#xf606" Sub="#x06">
-					<Type>BIT</Type>
-				</Entry>
-				<Entry Name="FSOE__Std Input" BitLen="1" Index="#xf606" Sub="#x07">
-					<Type>BIT</Type>
-				</Entry>
-				<Entry Name="FSOE__Std Input" BitLen="1" Index="#xf606" Sub="#x08">
-					<Type>BIT</Type>
+				<Entry BitLen="6">
+					<Type GUID="{18071995-0000-0000-0000-002000000006}">ARRAY [0..5] OF BIT</Type>
 				</Entry>
 			</Pdo>
 			<Pdo Name="Function Block Info Data" Index="#x1bf1" Flags="#x0080" SyncUnit="2"/>
@@ -2120,61 +2108,52 @@
 			</Pdo>
 			<Pdo Name="FSoE Slave Connection 1 Master Message" Index="#x17c0" InOut="1" Flags="#x0080" SyncMan="6" SyncUnit="2">
 				<ExcludePdo>#x17c1</ExcludePdo>
-				<Entry Name="FSOE__FSoE Master Cmd" BitLen="8" Index="#xe700" Sub="#x01">
+				<Entry Name="Message_1__FSoE Cmd" BitLen="8" Index="#xe700" Sub="#x01">
 					<Type>USINT</Type>
 				</Entry>
-				<Entry Name="FSOE__Axis A STO" BitLen="1" Index="#xf701" Sub="#x01">
+				<Entry Name="Message_1__STO_ChA" BitLen="1" Index="#xf701" Sub="#x01">
 					<Type>BIT</Type>
 				</Entry>
-				<Entry Name="FSOE__Safe Output_1" BitLen="1" Index="#xf701" Sub="#x02">
+				<Entry Name="Message_1__SS1_ChA" BitLen="1" Index="#xf701" Sub="#x02">
 					<Type>BIT</Type>
 				</Entry>
-				<Entry Name="FSOE__Safe Output_2" BitLen="1" Index="#xf701" Sub="#x03">
+				<Entry BitLen="5">
+					<Type GUID="{18071995-0000-0000-0000-002000000005}">ARRAY [0..4] OF BIT</Type>
+				</Entry>
+				<Entry Name="Message_1__Error_Ack_ChA" BitLen="1" Index="#xf701" Sub="#x03">
 					<Type>BIT</Type>
 				</Entry>
-				<Entry Name="FSOE__Safe Output_3" BitLen="1" Index="#xf701" Sub="#x04">
+				<Entry Name="Message_1__SLS_1_ChA" BitLen="1" Index="#xf701" Sub="#x04">
 					<Type>BIT</Type>
 				</Entry>
-				<Entry Name="FSOE__Safe Output_4" BitLen="1" Index="#xf701" Sub="#x05">
-					<Type>BIT</Type>
+				<Entry BitLen="7">
+					<Type GUID="{18071995-0000-0000-0000-002000000007}">ARRAY [0..6] OF BIT</Type>
 				</Entry>
-				<Entry Name="FSOE__Safe Output_5" BitLen="1" Index="#xf701" Sub="#x06">
-					<Type>BIT</Type>
-				</Entry>
-				<Entry Name="FSOE__Safe Output_6" BitLen="1" Index="#xf701" Sub="#x07">
-					<Type>BIT</Type>
-				</Entry>
-				<Entry Name="FSOE__Safe Output_7" BitLen="1" Index="#xf701" Sub="#x08">
-					<Type>BIT</Type>
-				</Entry>
-				<Entry Name="FSOE__Axis B STO" BitLen="1" Index="#xf701" Sub="#x09">
-					<Type>BIT</Type>
-				</Entry>
-				<Entry Name="FSOE__Safe Output_9" BitLen="1" Index="#xf701" Sub="#x0a">
-					<Type>BIT</Type>
-				</Entry>
-				<Entry Name="FSOE__Safe Output_10" BitLen="1" Index="#xf701" Sub="#x0b">
-					<Type>BIT</Type>
-				</Entry>
-				<Entry Name="FSOE__Safe Output_11" BitLen="1" Index="#xf701" Sub="#x0c">
-					<Type>BIT</Type>
-				</Entry>
-				<Entry Name="FSOE__Safe Output_12" BitLen="1" Index="#xf701" Sub="#x0d">
-					<Type>BIT</Type>
-				</Entry>
-				<Entry Name="FSOE__Safe Output_13" BitLen="1" Index="#xf701" Sub="#x0e">
-					<Type>BIT</Type>
-				</Entry>
-				<Entry Name="FSOE__Safe Output_14" BitLen="1" Index="#xf701" Sub="#x0f">
-					<Type>BIT</Type>
-				</Entry>
-				<Entry Name="FSOE__Safe Output_15" BitLen="1" Index="#xf701" Sub="#x10">
-					<Type>BIT</Type>
-				</Entry>
-				<Entry Name="FSOE__FSoE Master CRC_0" BitLen="16" Index="#xe700" Sub="#x03">
+				<Entry Name="Message_1__FSoE CRC_0" BitLen="16" Index="#xe700" Sub="#x03">
 					<Type>UINT</Type>
 				</Entry>
-				<Entry Name="FSOE__FSoE Master ConnID" BitLen="16" Index="#xe700" Sub="#x02">
+				<Entry Name="Message_1__STO_ChB" BitLen="1" Index="#xf701" Sub="#x05">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry Name="Message_1__SS1_ChB" BitLen="1" Index="#xf701" Sub="#x06">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry BitLen="5">
+					<Type GUID="{18071995-0000-0000-0000-002000000005}">ARRAY [0..4] OF BIT</Type>
+				</Entry>
+				<Entry Name="Message_1__Error_Ack_ChB" BitLen="1" Index="#xf701" Sub="#x07">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry Name="Message_1__SLS_1_ChB" BitLen="1" Index="#xf701" Sub="#x08">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry BitLen="7">
+					<Type GUID="{18071995-0000-0000-0000-002000000007}">ARRAY [0..6] OF BIT</Type>
+				</Entry>
+				<Entry Name="Message_1__FSoE CRC_1" BitLen="16" Index="#xe700" Sub="#x04">
+					<Type>UINT</Type>
+				</Entry>
+				<Entry Name="Message_1__FSoE ConnID" BitLen="16" Index="#xe700" Sub="#x02">
 					<Type>UINT</Type>
 				</Entry>
 			</Pdo>
@@ -2224,29 +2203,14 @@
 				<ExcludePdo>#x17ce</ExcludePdo>
 			</Pdo>
 			<Pdo Name="Standard Outputdata" Index="#x17f0" InOut="1" Flags="#x0080" SyncMan="6" SyncUnit="2">
-				<Entry Name="FSOE__Std Output" BitLen="1" Index="#xf706" Sub="#x01">
+				<Entry Name="Standard In Var 2" BitLen="1" Index="#xf706" Sub="#x01">
 					<Type>BIT</Type>
 				</Entry>
-				<Entry Name="FSOE__Std Output" BitLen="1" Index="#xf706" Sub="#x02">
+				<Entry Name="Standard In Var 3" BitLen="1" Index="#xf706" Sub="#x02">
 					<Type>BIT</Type>
 				</Entry>
-				<Entry Name="FSOE__Std Output" BitLen="1" Index="#xf706" Sub="#x03">
-					<Type>BIT</Type>
-				</Entry>
-				<Entry Name="FSOE__Std Output" BitLen="1" Index="#xf706" Sub="#x04">
-					<Type>BIT</Type>
-				</Entry>
-				<Entry Name="FSOE__Std Output" BitLen="1" Index="#xf706" Sub="#x05">
-					<Type>BIT</Type>
-				</Entry>
-				<Entry Name="FSOE__Std Output" BitLen="1" Index="#xf706" Sub="#x06">
-					<Type>BIT</Type>
-				</Entry>
-				<Entry Name="FSOE__Std Output" BitLen="1" Index="#xf706" Sub="#x07">
-					<Type>BIT</Type>
-				</Entry>
-				<Entry Name="FSOE__Std Output" BitLen="1" Index="#xf706" Sub="#x08">
-					<Type>BIT</Type>
+				<Entry BitLen="6">
+					<Type GUID="{18071995-0000-0000-0000-002000000006}">ARRAY [0..5] OF BIT</Type>
 				</Entry>
 			</Pdo>
 			<Pdo Name="FSLOGIC Outputs" Index="#x17ff" InOut="1" Flags="#x0091" SyncMan="6" SyncUnit="2">

@@ -7,6 +7,12 @@ VAR_GLOBAL
     SafetyReset_ButtonOut AT %Q* : BOOL := TRUE;
     SafetyReset_ButtonIn AT %I* : BOOL;
     RUN_SAFETY AT %Q* : BOOL := TRUE;
+    RUN_SAFETY_SPEED AT %Q* : BOOL := TRUE;
+    ACK_SAFE_SPEED_1_ChA AT %Q* : BOOL;
+    ACK_SAFE_SPEED_1_ChB AT %Q* : BOOL;
+    ACK_SAFE_SPEED_2_ChA AT %Q* : BOOL;
+    ACK_SAFE_SPEED_2_ChB AT %Q* : BOOL;
+    
     SAFTEY_ACK AT %Q* : BOOL := TRUE;
 END_VAR]]></Declaration>
   </GVL>
