@@ -75,14 +75,20 @@ VAR
     
     
     //////////////////////////////////////////////////
-    fbSPG_Y_Enable : MC_ExtSetPointGenEnable;
-    fbSPG_Y_Disable : MC_ExtSetPointGenDisable;
-    fbSPG_Z_Enable : MC_ExtSetPointGenEnable;
-    fbSPG_Z_Disable : MC_ExtSetPointGenDisable;
-    fbSPG_Rot_Enable : MC_ExtSetPointGenEnable;
-    fbSPG_Rot_Disable : MC_ExtSetPointGenDisable;
+    //SETPOINT GENERATORS FOR KINEMATICS
+    axisSpg_Vertical : ST_AxisSpg:= (AXIS:= astAxes[AXIS_COMBINED_VERTICAL].Axis);
+    axisSpg_Horizontal : ST_AxisSpg:= (AXIS:= astAxes[AXIS_HORIZONTAL_TRANSLATION].Axis);
+    axisSpg_Rot : ST_AxisSpg:= (AXIS:= astAxes[AXIS_ROTATION].Axis);
     enableSPGs : BOOL;
     disableSPGs : BOOL;
+    
+    //fbSPG_Y_Enable : MC_ExtSetPointGenEnable;
+    //fbSPG_Y_Disable : MC_ExtSetPointGenDisable;
+    //fbSPG_Z_Enable : MC_ExtSetPointGenEnable;
+    //fbSPG_Z_Disable : MC_ExtSetPointGenDisable;
+    //fbSPG_Rot_Enable : MC_ExtSetPointGenEnable;
+    //fbSPG_Rot_Disable : MC_ExtSetPointGenDisable;
+    
         
     /////////////////////////
     eStateInter : eState_INTER := eState_INTER.init;
@@ -95,9 +101,9 @@ VAR
     bRecoveryDevValid : BOOL;
     /////////////////////////
     
-    setPos_Drad : MC_SetPosition;
-    setPos_Dtank_Length : MC_SetPosition;
-    setPos_Dtank_Pivot_To_Window : MC_SetPosition;
+    //setPos_Drad : MC_SetPosition;
+    //setPos_Dtank_Length : MC_SetPosition;
+    //setPos_Dtank_Pivot_To_Window : MC_SetPosition;
     
     bKinematicsOperational : BOOL;
     bVirtualsMoving : BOOL;
@@ -121,9 +127,9 @@ VAR CONSTANT
 END_VAR
 
 VAR PERSISTENT
-    Drad_default : LREAL := 3000;
-    Dtank_Length_default : LREAL := 2289.15;
-    Dtank_Pivot_To_Window_default : LREAL := 1648.66;
+    //Drad_default : LREAL := 3000;
+    //Dtank_Length_default : LREAL := 2289.15;
+    //Dtank_Pivot_To_Window_default : LREAL := 1648.66;
     
     aVirtualAxisDefaults : ARRAY [1..ARRAYSIZE_ALLVIRTUALS] OF ST_DefaultVals:=
     [(axisID:=AXIS_DRAD, defaultPosition:=3000),
@@ -289,6 +295,7 @@ $$/   $$/ $$$$$$/ $$/   $$/ $$$$$$$$/ $$/      $$/ $$/   $$/    $$/    $$$$$$/  
 
 actCheckPositionDeviation();
 actCheckRealSpgStatus();
+actUpdateDefaults();
 
 startupDelayTON(PT:=T#200MS);
 stateDelayTimer(PT:=T#200MS);
@@ -379,12 +386,17 @@ END_IF
             
                         
         eState_INTER.setPositions:
-            setPos_Drad.Position := Drad_default;
-            setPos_Dtank_Length.Position := Dtank_Length_default;
-            setPos_Dtank_Pivot_To_Window.Position := Dtank_Pivot_To_Window_default;
-            setPos_Drad.Execute:= TRUE;
-            setPos_Dtank_Length.Execute:= TRUE;
-            setPos_Dtank_Pivot_To_Window.Execute:= TRUE;
+            FOR i:=1 TO ARRAYSIZE_ALLVIRTUALS DO
+                aVirtualAxisDefaults[i].mcSetPosition.Position:= aVirtualAxisDefaults[i].defaultPosition ;
+                aVirtualAxisDefaults[i].mcSetPosition.Execute:= TRUE;
+            END_FOR
+            
+            //setPos_Drad.Position := Drad_default;
+            //setPos_Dtank_Length.Position := Dtank_Length_default;
+            //setPos_Dtank_Pivot_To_Window.Position := Dtank_Pivot_To_Window_default;
+            //setPos_Drad.Execute:= TRUE;
+            //setPos_Dtank_Length.Execute:= TRUE;
+            //setPos_Dtank_Pivot_To_Window.Execute:= TRUE;
             writeDefault.START:=TRUE;
             
             //FOR LOOP HERE TO ITERATE THROUGH VIRTUAL ARRAY MC_SETPOSITIONS
@@ -463,9 +475,12 @@ END_IF
                 
             
         eState_INTER.enableSPG:
-            fbSPG_Y_Enable.Execute:= TRUE;
-            fbSPG_Z_Enable.Execute:= TRUE;
-            fbSPG_Rot_Enable.Execute:= TRUE;
+            axisSpg_Vertical.spgEnable.Execute:= TRUE;
+            axisSpg_Horizontal.spgEnable.Execute:= TRUE;
+            axisSpg_Rot.spgEnable.Execute:= TRUE;
+            //fbSPG_Y_Enable.Execute:= TRUE;
+            //fbSPG_Z_Enable.Execute:= TRUE;
+            //fbSPG_Rot_Enable.Execute:= TRUE;
             stateDelayTimer.IN:= TRUE;
             IF stateDelayTimer.Q THEN
                 stateDelayTimer.IN:= FALSE;
@@ -500,9 +515,12 @@ END_IF
             END_IF
             
         eState_INTER.disableSPG:
-            fbSPG_Y_Disable.Execute:= TRUE;
-            fbSPG_Z_Disable.Execute:= TRUE;
-            fbSPG_Rot_Disable.Execute:= TRUE;
+            axisSpg_Vertical.spgDisable.Execute:= TRUE;
+            axisSpg_Horizontal.spgDisable.Execute:= TRUE;
+            axisSpg_Rot.spgDisable.Execute:= TRUE;
+            //fbSPG_Y_Disable.Execute:= TRUE;
+            //fbSPG_Z_Disable.Execute:= TRUE;
+            //fbSPG_Rot_Disable.Execute:= TRUE;
             stateDelayTimer.IN:= TRUE;
             IF stateDelayTimer.Q THEN
                 stateDelayTimer.IN:= FALSE;
@@ -536,7 +554,12 @@ END_IF
             IF GVL_INTER.NC_AXIS_ERROR THEN
                 GVL_INTER.RESET_ALL := TRUE;
             ELSE
-                //THIS ALL CHANGES TO MC_SETPOSITION
+                //THIS ALL CHANGES TO MC_SETPOSITION - ENABLES NEED TO BE OFF DURING THIS
+                FOR i:=1 TO ARRAYSIZE_ALLVIRTUALS DO
+                    aVirtualAxisDefaults[i].mcSetPosition.Position:= aVirtualAxisDefaults[i].defaultPosition;
+                    aVirtualAxisDefaults[i].mcSetPosition.Execute:= TRUE;
+                END_FOR
+                (*
                 AbsoluteMove(axisID:=AXIS_MEASUREMENT_ANGLE, fPosition:=0);
                 AbsoluteMove(axisID:=AXIS_MEASUREMENT_ANGLE_OFFSET, fPosition:=0);
                 AbsoluteMove(axisID:=AXIS_DOFF_ANGLED, fPosition:=0);
@@ -552,6 +575,7 @@ END_IF
                 AbsoluteMove(axisID:=AXIS_DRAD, fPosition:= Drad_default);
                 AbsoluteMove(axisID:=AXIS_DTANK_LENGTH, fPosition:= Dtank_Length_default);
                 AbsoluteMove(axisID:=AXIS_DTANK_PIVOT_TO_WINDOW, fPosition:= Dtank_Pivot_To_Window_default);
+                *)
                 
                 stateDelayTimer.IN:= TRUE;
                 IF stateDelayTimer.Q THEN
@@ -596,7 +620,8 @@ END_IF
 	END_CASE
     
     //Override the enable AND LIMITS on virtual axes (to do: add all the axes)
-    IF GVL_INTER.RECOVERY_IN_PROGRESS OR GVL_INTER.REINITIALISE_IN_PROGRESS OR GVL_INTER.OPERATIONAL THEN
+    //IF GVL_INTER.RECOVERY_IN_PROGRESS OR GVL_INTER.REINITIALISE_IN_PROGRESS OR GVL_INTER.OPERATIONAL THEN
+    IF GVL_INTER.REINITIALISE_IN_PROGRESS OR GVL_INTER.OPERATIONAL THEN   
         //astAxes[AXIS_MEASUREMENT_ANGLE].stControl.bEnable := TRUE;
         //TEST
         FOR i:=1 TO ARRAYSIZE_VIRTUALCAL DO
@@ -619,18 +644,27 @@ END_IF
        astAxes[AXIS_MEASUREMENT_ANGLE].stControl.bEnable := FALSE;
 	END_IF
 
+ 
+//Call set position functions on virtual axes
+FOR i:=1 TO ARRAYSIZE_ALLVIRTUALS DO
+    aVirtualAxisDefaults[i].mcSetPosition(Axis:=astAxes[aVirtualAxisDefaults[i].axisID].Axis);
+    aVirtualAxisDefaults[i].mcSetPosition.Execute:= FALSE;
+END_FOR   
+
+(*
 setPos_Drad(Axis:= astAxes[AXIS_DRAD].Axis);
 setPos_Dtank_Length(Axis:=astAxes[AXIS_DTANK_LENGTH].Axis);
 setPos_Dtank_Pivot_To_Window(Axis:=astAxes[AXIS_DTANK_PIVOT_TO_WINDOW].Axis);
 setPos_Drad.Execute:= FALSE;
 setPos_Dtank_Length.Execute:= FALSE;
 setPos_Dtank_Pivot_To_Window.Execute:= FALSE;
-
+*)
 
 
 //////
 
 //SPG CALLS
+(*
 MC_ExtSetPointGenFeed(Axis:= astAxes[AXIS_HORIZONTAL_TRANSLATION].Axis, 
         Position:= GVL_INTER.SETPOS_HORIZONTAL,
         Velocity:=GVL_INTER.SETVELO_HORIZONTAL,
@@ -645,7 +679,38 @@ MC_ExtSetPointGenFeed(Axis:= astAxes[AXIS_ROTATION].Axis,
         Position:= GVL_INTER.SETPOS_ROTATION,
         Velocity:=GVL_INTER.SETVELO_ROTATION,
         Direction:= GVL_INTER.SETDIR_ROTATION, Acceleration:= 0);
+*)
+MC_ExtSetPointGenFeed(Axis:= axisSpg_Vertical.AXIS, 
+        Position:= axisSpg_Vertical.position,
+        Velocity:= axisSpg_Vertical.velocity,
+        Direction:= axisSpg_Vertical.direction, Acceleration:= 0);
+MC_ExtSetPointGenFeed(Axis:= axisSpg_Horizontal.AXIS, 
+        Position:= axisSpg_Horizontal.position,
+        Velocity:= axisSpg_Horizontal.velocity,
+        Direction:= axisSpg_Horizontal.direction, Acceleration:= 0);
+MC_ExtSetPointGenFeed(Axis:= axisSpg_Rot.AXIS, 
+        Position:= axisSpg_Rot.position,
+        Velocity:= axisSpg_Rot.velocity,
+        Direction:= axisSpg_Rot.direction, Acceleration:= 0);
+        
+     
 
+//Kinematic SPG calls
+axisSpg_Vertical.spgEnable(Axis:=axisSpg_Vertical.AXIS);
+axisSpg_Vertical.spgDisable(Axis:=axisSpg_Vertical.AXIS);
+axisSpg_Horizontal.spgEnable(Axis:=axisSpg_Vertical.AXIS);
+axisSpg_Horizontal.spgDisable(Axis:=axisSpg_Vertical.AXIS);
+axisSpg_Rot.spgEnable(Axis:=axisSpg_Vertical.AXIS);
+axisSpg_Rot.spgDisable(Axis:=axisSpg_Vertical.AXIS);
+
+axisSpg_Vertical.spgEnable.Execute:= FALSE;
+axisSpg_Vertical.spgDisable.Execute:= FALSE;
+axisSpg_Horizontal.spgEnable.Execute:= FALSE;
+axisSpg_Horizontal.spgDisable.Execute:= FALSE;
+axisSpg_Rot.spgEnable.Execute:= FALSE;
+axisSpg_Rot.spgDisable.Execute:= FALSE;
+
+(*
 fbSPG_Y_Enable(Axis:= astAxes[AXIS_COMBINED_VERTICAL].Axis);
 fbSPG_Y_Disable(Axis:= astAxes[AXIS_COMBINED_VERTICAL].Axis);
 fbSPG_Z_Enable(Axis:=astAxes[AXIS_HORIZONTAL_TRANSLATION].Axis);
@@ -658,7 +723,7 @@ fbSPG_Y_Disable.Execute:= FALSE;
 fbSPG_Z_Enable.Execute:= FALSE;
 fbSPG_Z_Disable.Execute:= FALSE;
 fbSPG_Rot_Enable.Execute:= FALSE;
-fbSPG_Rot_Disable.Execute:= FALSE;
+fbSPG_Rot_Disable.Execute:= FALSE;*)
 
 GVL_INTER.LOGIC_STATE:= eStateInter;]]></ST>
     </Implementation>
@@ -729,6 +794,8 @@ FOR i:=1 TO ARRAYSIZE_ALLVIRTUALS DO
     bRecoveryDevValid:= bRecoveryDevValid AND (aVirtualAxisDefaults[i].deviation<DEVIATION_THRESHOLD);
 END_FOR
 
+bDefaultDevValid := bRecoveryDevValid;
+
 bVirtualsMoving:= FALSE;
 FOR i := 1 TO ARRAYSIZE_ALLVIRTUALS DO
     bVirtualsMoving:= bVirtualsMoving OR astAxes[aVirtualAxisDefaults[i].axisID].Axis.Status.Moving;
@@ -758,7 +825,7 @@ GVL_INTER.KINEMATIC_SPG_ALL_DISABLED:= NOT (astAxes[AXIS_HORIZONTAL_TRANSLATION]
     </Action>
     <Action Name="actKinematicSetpoints" Id="{f7732646-7f90-42f9-b38f-67cffb5e750d}">
       <Implementation>
-        <ST><![CDATA[GVL_INTER.SETPOS_HORIZONTAL:= astAxes[AXIS_HORIZONTAL_VIRTUAL].Axis.NcToPlc.ActPos + astAxes[AXIS_HORIZONTAL_CALIBRATION].Axis.NcToPlc.ActPos + astAxes[AXIS_HORIZONTAL_SAMPLE].Axis.NcToPlc.ActPos;
+        <ST><![CDATA[(*GVL_INTER.SETPOS_HORIZONTAL:= astAxes[AXIS_HORIZONTAL_VIRTUAL].Axis.NcToPlc.ActPos + astAxes[AXIS_HORIZONTAL_CALIBRATION].Axis.NcToPlc.ActPos + astAxes[AXIS_HORIZONTAL_SAMPLE].Axis.NcToPlc.ActPos;
 GVL_INTER.SETVELO_HORIZONTAL:=astAxes[AXIS_HORIZONTAL_VIRTUAL].Axis.NcToPlc.ActVelo + astAxes[AXIS_HORIZONTAL_CALIBRATION].Axis.NcToPlc.ActVelo + astAxes[AXIS_HORIZONTAL_SAMPLE].Axis.NcToPlc.ActVelo;
 GVL_INTER.SETPOS_COMBINED_VERTICAL:= astAxes[AXIS_COMBINED_VERTICAL_VIRTUAL].Axis.NcToPlc.ActPos + astAxes[AXIS_COMBINED_VERTICAL_CALIBRATION].Axis.NcToPlc.ActPos + astAxes[AXIS_COMBINED_VERTICAL_SAMPLE].Axis.NcToPlc.ActPos;
 GVL_INTER.SETVELO_COMBINED_VERTICAL:= astAxes[AXIS_COMBINED_VERTICAL_VIRTUAL].Axis.NcToPlc.ActVelo + astAxes[AXIS_COMBINED_VERTICAL_CALIBRATION].Axis.NcToPlc.ActVelo + astAxes[AXIS_COMBINED_VERTICAL_SAMPLE].Axis.NcToPlc.ActVelo;
@@ -790,7 +857,58 @@ ELSIF GVL_INTER.SETVELO_ROTATION<0 THEN
     GVL_INTER.SETDIR_ROTATION := -1;
 ELSE
     GVL_INTER.SETDIR_ROTATION := 0;
-END_IF]]></ST>
+END_IF
+*)
+
+//NEW LOGIC
+axisSpg_Vertical.position:= astAxes[AXIS_COMBINED_VERTICAL_VIRTUAL].Axis.NcToPlc.ActPos + astAxes[AXIS_COMBINED_VERTICAL_CALIBRATION].Axis.NcToPlc.ActPos + astAxes[AXIS_COMBINED_VERTICAL_SAMPLE].Axis.NcToPlc.ActPos;
+axisSpg_Horizontal.position:= astAxes[AXIS_HORIZONTAL_VIRTUAL].Axis.NcToPlc.ActPos + astAxes[AXIS_HORIZONTAL_CALIBRATION].Axis.NcToPlc.ActPos + astAxes[AXIS_HORIZONTAL_SAMPLE].Axis.NcToPlc.ActPos;
+axisSpg_Rot.position:= astAxes[AXIS_ROTATION_VIRTUAL].Axis.NcToPlc.ActPos + astAxes[AXIS_ROTATION_CALIBRATION].Axis.NcToPlc.ActPos + astAxes[AXIS_ROTATION_SAMPLE].Axis.NcToPlc.ActPos;
+
+axisSpg_Vertical.velocity:= astAxes[AXIS_COMBINED_VERTICAL_VIRTUAL].Axis.NcToPlc.ActVelo + astAxes[AXIS_COMBINED_VERTICAL_CALIBRATION].Axis.NcToPlc.ActVelo + astAxes[AXIS_COMBINED_VERTICAL_SAMPLE].Axis.NcToPlc.ActVelo;
+axisSpg_Horizontal.velocity:=astAxes[AXIS_HORIZONTAL_VIRTUAL].Axis.NcToPlc.ActVelo + astAxes[AXIS_HORIZONTAL_CALIBRATION].Axis.NcToPlc.ActVelo + astAxes[AXIS_HORIZONTAL_SAMPLE].Axis.NcToPlc.ActVelo;
+axisSpg_Rot.velocity:= astAxes[AXIS_ROTATION_VIRTUAL].Axis.NcToPlc.ActVelo + astAxes[AXIS_ROTATION_CALIBRATION].Axis.NcToPlc.ActVelo + astAxes[AXIS_ROTATION_SAMPLE].Axis.NcToPlc.ActVelo;
+
+//Horizontal direction
+IF axisSpg_Horizontal.velocity >0 THEN
+    axisSpg_Horizontal.direction := 1;
+ELSIF axisSpg_Horizontal.velocity<0 THEN
+    axisSpg_Horizontal.direction := -1;
+ELSE
+    axisSpg_Horizontal.direction := 0;
+END_IF
+
+//Vertical direction
+IF axisSpg_Vertical.velocity >0 THEN
+    axisSpg_Vertical.direction := 1;
+ELSIF axisSpg_Vertical.velocity<0 THEN
+    axisSpg_Vertical.direction := -1;
+ELSE
+    axisSpg_Vertical.direction := 0;
+END_IF
+
+//Rotation direction
+IF axisSpg_Rot.velocity >0 THEN
+    axisSpg_Rot.direction := 1;
+ELSIF axisSpg_Rot.velocity<0 THEN
+    axisSpg_Rot.direction := -1;
+ELSE
+    axisSpg_Rot.direction := 0;
+END_IF
+
+
+//Transfer values over to GVL_INTER
+GVL_INTER.SETPOS_HORIZONTAL:=axisSpg_Horizontal.position;
+GVL_INTER.SETVELO_HORIZONTAL:=axisSpg_Horizontal.velocity;
+GVL_INTER.SETDIR_HORIZONTAL:= axisSpg_Horizontal.direction;
+
+GVL_INTER.SETPOS_COMBINED_VERTICAL:= axisSpg_Vertical.position;
+GVL_INTER.SETVELO_COMBINED_VERTICAL:= axisSpg_Vertical.velocity;
+GVL_INTER.SETDIR_COMBINED_VERTICAL:= axisSpg_Vertical.direction;
+
+GVL_INTER.SETPOS_ROTATION:= axisSpg_Rot.position;
+GVL_INTER.SETVELO_ROTATION:= axisSpg_Rot.velocity;
+GVL_INTER.SETDIR_ROTATION:= axisSpg_Rot.direction;]]></ST>
       </Implementation>
     </Action>
     <Action Name="actSyncVertStateMachine" Id="{86ee614e-4a39-40bc-bbfb-49053b8e3adf}">
@@ -864,6 +982,18 @@ END_IF]]></ST>
 			END_IF
             
 	END_CASE]]></ST>
+      </Implementation>
+    </Action>
+    <Action Name="actUpdateDefaults" Id="{1a0869fd-e5bf-4b41-9c03-c2f50548d9c2}">
+      <Implementation>
+        <ST><![CDATA[IF GVL_INTER.UPDATE_DEFAULTS THEN
+    IF NOT bVirtualsMoving THEN
+        GVL_INTER.UPDATE_DEFAULTS:= FALSE;   
+        FOR i:=1 TO ARRAYSIZE_ALLVIRTUALS DO
+            aVirtualAxisDefaults[i].defaultPosition:= astAxes[aVirtualAxisDefaults[i].axisID].Axis.NcToPlc.ActPos;
+        END_FOR
+	END_IF
+END_IF]]></ST>
       </Implementation>
     </Action>
     <Action Name="actZSetpoints" Id="{facf07a9-589c-4d38-a5b7-e5a598ba95ba}">
