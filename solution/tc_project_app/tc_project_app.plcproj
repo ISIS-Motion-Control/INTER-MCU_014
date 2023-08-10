@@ -55,6 +55,9 @@
     <Compile Include="POUs\Application_Specific\Applications\INTER_LOGIC.TcPOU">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="POUs\Application_Specific\Applications\PLC_SAFETY_LOGIC.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="POUs\Application_Specific\Axes\AXIS_NAMES.TcGVL">
       <SubType>Code</SubType>
       <LinkAlways>true</LinkAlways>

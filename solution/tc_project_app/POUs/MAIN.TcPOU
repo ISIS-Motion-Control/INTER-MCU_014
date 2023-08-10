@@ -32,15 +32,7 @@ END_VAR
     <Implementation>
       <ST><![CDATA[POSITION_RECOVERY();
 PROG();
-AXES();
-
-GVL_Safety.SafetyReset := GVL_Safety.SafetyReset_ButtonIn;
-GVL_Safety.SAFTEY_ACK := GVL_Safety.SafetyReset_ButtonIn;
-GVL_Safety.ACK_SAFE_SPEED_1_ChA:= GVL_Safety.SAFTEY_ACK;
-GVL_Safety.ACK_SAFE_SPEED_1_ChB:= GVL_Safety.SAFTEY_ACK;
-GVL_Safety.ACK_SAFE_SPEED_2_ChA:= GVL_Safety.SAFTEY_ACK;
-GVL_Safety.ACK_SAFE_SPEED_2_ChB:= GVL_Safety.SAFTEY_ACK;
-]]></ST>
+AXES();]]></ST>
     </Implementation>
     <Folder Name="POSITION_RECOVERY" Id="{3561f6ef-e145-4ed3-9839-f17334bd2d97}" />
     <Action Name="AXES" Id="{7eb32732-9b53-4934-8cd9-20ba971dd8ff}">
@@ -121,6 +113,7 @@ GVL.fbGetCurTaskIndex();
 
 //Application program calls
 //Application_Template();
+PLC_SAFETY_LOGIC();
 
 Horizontal_Translation();
 Vertical_Translation_Y2();

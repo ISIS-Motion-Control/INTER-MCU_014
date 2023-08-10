@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<GlobalVariables Crc="2587242600" Id="d3f2d957-cfae-4377-a55d-39636de3aaac" FileFormatVersion="1.0">
+<GlobalVariables Crc="1873299148" Id="d3f2d957-cfae-4377-a55d-39636de3aaac" FileFormatVersion="1.0">
   <Variable Id="d9c8b5fe-e102-49a8-88ab-3415d1c2eb17">
     <Name>STO_CMD</Name>
     <SourceUsages>
@@ -29,9 +29,11 @@
   <Variable Id="c94fdfd5-a057-40aa-9087-ade331a93a94">
     <Name>Error_Ack_CMD</Name>
     <SourceUsages>
-      <FbPortUsage Id="9f442a3d-21d1-410d-8b54-91a4ab6ab0a3">
-        <ModelElementId>2edafdba-3d9f-44d1-b03a-9c76c80a75cc</ModelElementId>
-      </FbPortUsage>
+      <AliasDeviceIoUsage Id="b44d285e-2069-44fc-9115-c1960860bbc7">
+        <SdsId>7</SdsId>
+        <ChannelId>1</ChannelId>
+        <FunctionId>1131179973</FunctionId>
+      </AliasDeviceIoUsage>
     </SourceUsages>
     <TargetUsages>
       <FbPortUsage Id="e989391d-2eab-41b4-b97e-2cded816d4a3">

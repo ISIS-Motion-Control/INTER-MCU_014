@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<safetyApplication Crc="1593724849" xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.4.0.0" Id="1e6f7bc2-9ff8-4e70-8cbb-74fe8d7834a2" name="" mapState="false" mapDiag="false" groupOrderId="0" passificationAllowed="false" temporaryDeactivationAllowed="false" permamentDeactivationAllowed="false" xmlid="0" analogFBOutputReplacementValues="Zero" verifyAnalogFBInputsIfStart="false" userFbId="00000000-0000-0000-0000-000000000000" xmlns="http://schemas.microsoft.com/dsltools/SafetyApplicationLanguage">
+<safetyApplication Crc="3444785145" xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.4.0.0" Id="1e6f7bc2-9ff8-4e70-8cbb-74fe8d7834a2" name="" mapState="false" mapDiag="false" groupOrderId="0" passificationAllowed="false" temporaryDeactivationAllowed="false" permamentDeactivationAllowed="false" xmlid="0" analogFBOutputReplacementValues="Zero" verifyAnalogFBInputsIfStart="false" userFbId="00000000-0000-0000-0000-000000000000" xmlns="http://schemas.microsoft.com/dsltools/SafetyApplicationLanguage">
   <networks>
     <safetyApplicationHasNetworks Id="e8950787-bf0d-49f6-9453-2d7b385168f5">
       <Network Id="14daf151-cc26-4c77-a208-ed45f6bf39c2" name="Connection_Input_ChA" networkName="Connection_Input_ChA" intId="1" networkOrderId="0">
@@ -67,13 +67,7 @@
                   <outPort Id="0f2eff13-3127-445b-90c1-b5c367a9195a" name="DecOut7" portName="DecOut7" portNum="9" objectIndex="14" varId="23" filter="7" portDataType="1" replacementValue="0" />
                 </functionBlockHasOutPorts>
                 <functionBlockHasOutPorts Id="c7c018b0-bb6b-4b0d-a460-b2f5013a1604">
-                  <outPort Id="2edafdba-3d9f-44d1-b03a-9c76c80a75cc" name="DecOut8" portName="DecOut8" portNum="10" objectIndex="15" varId="24" filter="7" portDataType="1" replacementValue="0">
-                    <fbPortGlobalVariableReferences>
-                      <functionBlockPortHasFbPortGlobalVariableReferences Id="7ad863e0-2586-4407-a6df-1341254927e2">
-                        <fbPortGlobalVariableReference Id="80cd49bf-8a1c-49e6-9e32-e17cfd92416c" variableId="c94fdfd5-a057-40aa-9087-ade331a93a94" lastKnownPath="ChA.Error_Ack_CMD" />
-                      </functionBlockPortHasFbPortGlobalVariableReferences>
-                    </fbPortGlobalVariableReferences>
-                  </outPort>
+                  <outPort Id="2edafdba-3d9f-44d1-b03a-9c76c80a75cc" name="DecOut8" portName="DecOut8" portNum="10" objectIndex="15" varId="24" filter="7" portDataType="1" replacementValue="0" />
                 </functionBlockHasOutPorts>
               </outPorts>
             </fBDecouple>
@@ -209,13 +203,7 @@
                   <outPort Id="e6beacc7-6153-4900-9a0a-c4ea93253b9c" name="DecOut7" portName="DecOut7" portNum="9" objectIndex="14" varId="23" filter="7" portDataType="1" replacementValue="0" />
                 </functionBlockHasOutPorts>
                 <functionBlockHasOutPorts Id="0585d5b9-8c1a-4e52-9a75-bd82148e249c">
-                  <outPort Id="3a5595cf-43f9-405f-a946-d6b5ef2ea39a" name="DecOut8" portName="DecOut8" portNum="10" objectIndex="15" varId="24" filter="7" portDataType="1" replacementValue="0">
-                    <fbPortGlobalVariableReferences>
-                      <functionBlockPortHasFbPortGlobalVariableReferences Id="516bb2be-86f0-4a60-896e-f16aef3a77bc">
-                        <fbPortGlobalVariableReference Id="e77760f9-ec6e-43c3-a1b4-bc4385d7f6f1" variableId="24ae5f99-9b1b-4e37-a8ee-157a22504c3c" lastKnownPath="ChB.Error_Ack_CMD" />
-                      </functionBlockPortHasFbPortGlobalVariableReferences>
-                    </fbPortGlobalVariableReferences>
-                  </outPort>
+                  <outPort Id="3a5595cf-43f9-405f-a946-d6b5ef2ea39a" name="DecOut8" portName="DecOut8" portNum="10" objectIndex="15" varId="24" filter="7" portDataType="1" replacementValue="0" />
                 </functionBlockHasOutPorts>
               </outPorts>
             </fBDecouple>

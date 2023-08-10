@@ -8,12 +8,21 @@ VAR_GLOBAL
     SafetyReset_ButtonIn AT %I* : BOOL;
     RUN_SAFETY AT %Q* : BOOL := TRUE;
     RUN_SAFETY_SPEED AT %Q* : BOOL := TRUE;
+    ACK_DRIVE_71_SAFETY AT %Q* : BOOL;
+    ACK_DRIVE_74_SAFETY AT %Q* : BOOL;
     ACK_SAFE_SPEED_1_ChA AT %Q* : BOOL;
     ACK_SAFE_SPEED_1_ChB AT %Q* : BOOL;
     ACK_SAFE_SPEED_2_ChA AT %Q* : BOOL;
     ACK_SAFE_SPEED_2_ChB AT %Q* : BOOL;
     
-    SAFTEY_ACK AT %Q* : BOOL := TRUE;
+    ACK_REQ AT %I* : BOOL;
+    
+    ACK_REQ_1_ChA AT %I* : BOOL;
+    ACK_REQ_1_ChB AT %I* : BOOL;
+    ACK_REQ_2_ChA AT %I* : BOOL;
+    ACK_REQ_2_ChB AT %I* : BOOL;
+    
+    SAFETY_ACK AT %Q* : BOOL := FALSE;
 END_VAR]]></Declaration>
   </GVL>
 </TcPlcObject>

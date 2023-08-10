@@ -3,7 +3,7 @@
   <DUT Name="ST_AxisSpg" Id="{305aec02-ecf2-465e-96a1-4235bd4322b7}">
     <Declaration><![CDATA[TYPE ST_AxisSpg :
 STRUCT
-    AXIS : AXIS_REF;
+    axisID : UINT;
     spgEnable : MC_ExtSetPointGenEnable;
     spgDisable : MC_ExtSetPointGenDisable;
     position : LREAL;
