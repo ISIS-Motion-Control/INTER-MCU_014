@@ -60,7 +60,7 @@
 		<ImageData Id="1000">424dd6020000000000003600000028000000100000000e000000010018000000000000000000c40e0000c40e00000000000000000000c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffc3c3c3c3c3c3c3c3c3000000000000000000ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffc3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffc3c3c3c3c3c3c3c3c3000000000000000000ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffc3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffc3c3c3c3c3c3c3c3c3000000000000000000ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffc3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ff00f2ff00000000f2ff00f2ff00000000f2ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ff00f2ff00000000f2ff00f2ff00000000f2ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ff00f2ff00f2ff00f2ff00f2ff00000000f2ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ff00f2ff00f2ff00f2ff00f2ff00000000f2ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffc3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ff000000000000000000000000000000000000ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffc3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3c3ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ff</ImageData>
 	</ImageDatas>
 	<Box Id="71" BoxType="9099" BoxFlags="#x00000020">
-		<Name>__FILENAME__</Name>
+		<Name>Drive 71 (AX8206-0210-0104)</Name>
 		<ImageId>1000</ImageId>
 		<Xml>
 			<TcDMDrive>
@@ -2099,8 +2099,11 @@
 				<Entry Name="Standard Out Var 6" BitLen="1" Index="#xf606" Sub="#x02">
 					<Type>BIT</Type>
 				</Entry>
-				<Entry BitLen="6">
-					<Type GUID="{18071995-0000-0000-0000-002000000006}">ARRAY [0..5] OF BIT</Type>
+				<Entry Name="Standard Out Var 10" BitLen="1" Index="#xf606" Sub="#x03">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry BitLen="5">
+					<Type GUID="{18071995-0000-0000-0000-002000000005}">ARRAY [0..4] OF BIT</Type>
 				</Entry>
 			</Pdo>
 			<Pdo Name="Function Block Info Data" Index="#x1bf1" Flags="#x0080" SyncUnit="2"/>

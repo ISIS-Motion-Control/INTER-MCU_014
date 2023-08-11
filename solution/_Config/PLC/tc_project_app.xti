@@ -965,33 +965,31 @@ External Setpoint Generation:
 		</DataType>
 	</DataTypes>
 	<Project GUID="{FB261665-FD20-4BF2-97F8-2854C82B752D}" Name="tc_project_app" PrjFilePath="..\..\tc_project_app\tc_project_app.plcproj" TmcFilePath="..\..\tc_project_app\tc_project_app.tmc" ReloadTmc="true" AmsPort="852" FileArchiveSettings="#x000e" SymbolicMapping="true">
-		<Instance Id="#x08502040" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="tc_project_app\tc_project_app.tmc" TmcHash="{7305EB48-0A7F-BC9D-CE22-B987E13EB5A2}">
+		<Instance Id="#x08502040" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="tc_project_app\tc_project_app.tmc" TmcHash="{7C820F2D-CF63-7C08-1E99-3B5D6BE9295A}">
 			<Name>tc_project_app Instance</Name>
 			<CLSID ClassFactory="TcPlc30">{08500001-0000-0000-F000-000000000064}</CLSID>
 			<Vars VarGrpType="1">
 				<Name>PlcTask Inputs</Name>
 				<Var>
-					<Name>GVL_Safety.ACK_REQ</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Safety.ACK_REQ_1_ChA</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Safety.ACK_REQ_1_ChB</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Safety.ACK_REQ_2_ChA</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Safety.ACK_REQ_2_ChB</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
 					<Name>GVL_Safety.SafetyReset_ButtonIn</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Safety.RESET_REQUESTED</Name>
+					<Comment><![CDATA[ THIS IS THE ACTUAL ACK REQUEST SIGNAL]]></Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Safety.Drive71_ChA_InRun</Name>
+					<Comment><![CDATA[SAFETY_ACK_REQUESTED : BOOL;]]></Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Safety.Drive71_ChB_InRun</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Safety.EL6910_InRun</Name>
 					<Type>BOOL</Type>
 				</Var>
 				<Var>
@@ -1846,10 +1844,6 @@ bPowerSwitchesAxis1 AT %Q*: BOOL:= TRUE;]]></Comment>
 					<Type>BOOL</Type>
 				</Var>
 				<Var>
-					<Name>GVL_Safety.ACK_DRIVE_71_SAFETY</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
 					<Name>Drad_External.EncoderPosition</Name>
 					<Comment><![CDATA[Encoder value for NC]]></Comment>
 					<Type>DINT</Type>
@@ -1898,14 +1892,6 @@ bPowerSwitchesAxis1 AT %Q*: BOOL:= TRUE;]]></Comment>
 					<Type>DINT</Type>
 				</Var>
 				<Var>
-					<Name>GVL_Safety.ACK_DRIVE_74_SAFETY</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Safety.SAFETY_ACK</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
 					<Name>GVL_Safety.SafetyReset</Name>
 					<Type>BOOL</Type>
 				</Var>
@@ -1919,6 +1905,34 @@ bPowerSwitchesAxis1 AT %Q*: BOOL:= TRUE;]]></Comment>
 				</Var>
 				<Var>
 					<Name>GVL_Safety.RUN_SAFETY_SPEED</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Safety.ACK_DRIVE_71_SAFETY</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Safety.ACK_DRIVE_74_SAFETY</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Safety.ACK_SAFE_SPEED_1_ChA</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Safety.ACK_SAFE_SPEED_1_ChB</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Safety.ACK_SAFE_SPEED_2_ChA</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Safety.ACK_SAFE_SPEED_2_ChB</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Safety.SAFETY_ACK</Name>
 					<Type>BOOL</Type>
 				</Var>
 				<Var>
@@ -2041,22 +2055,6 @@ bPowerSwitchesAxis1 AT %Q*: BOOL:= TRUE;]]></Comment>
 					<Name>GVL.astAxes[30].Axis.PlcToNc</Name>
 					<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
 				</Var>
-				<Var>
-					<Name>GVL_Safety.ACK_SAFE_SPEED_1_ChA</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Safety.ACK_SAFE_SPEED_1_ChB</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Safety.ACK_SAFE_SPEED_2_ChA</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Safety.ACK_SAFE_SPEED_2_ChB</Name>
-					<Type>BOOL</Type>
-				</Var>
 			</Vars>
 			<UnrestoredVarLinks ImportTime="2023-08-07T13:53:39">
 				<OwnerA Name="OutputSrc" Prefix="TIPC^tc_project_app^tc_project_app Instance" Type="2">
@@ -2110,12 +2108,15 @@ bPowerSwitchesAxis1 AT %Q*: BOOL:= TRUE;]]></Comment>
 				<Link VarA="PlcTask Inputs^GVL.astAxes[8].stInputs.bLimitFwd" VarB="Channel 5^Vertical Z2 Fwd Limit In" Size="1"/>
 			</OwnerB>
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 27 (EK1100)^Term 28 (EL6910)">
-				<Link VarA="PlcTask Inputs^GVL_Safety.ACK_REQ" VarB="StandardInputs^Standard Out Var 24" Size="1"/>
+				<Link VarA="PlcTask Inputs^GVL_Safety.EL6910_InRun" VarB="StandardInputs^Standard Out Var 26" Size="1"/>
+				<Link VarA="PlcTask Inputs^GVL_Safety.RESET_REQUESTED" VarB="StandardInputs^Standard Out Var 24" Size="1"/>
 				<Link VarA="PlcTask Outputs^GVL_Safety.RUN_SAFETY" VarB="StandardOutputs^Standard In Var 7" Size="1"/>
 				<Link VarA="PlcTask Outputs^GVL_Safety.SAFETY_ACK" VarB="StandardOutputs^Standard In Var 1" Size="1"/>
 				<Link VarA="PlcTask Outputs^GVL_Safety.SafetyReset" VarB="StandardOutputs^Standard In Var 6" Size="1"/>
 			</OwnerB>
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 70 (AX8640-0000-0103)^Drive 71 (AX8206-0210-0104)">
+				<Link VarA="PlcTask Inputs^GVL_Safety.Drive71_ChA_InRun" VarB="Device (Safety)^Standard Inputdata^Standard Out Var 11" Size="1"/>
+				<Link VarA="PlcTask Inputs^GVL_Safety.Drive71_ChB_InRun" VarB="Device (Safety)^Standard Inputdata^Standard Out Var 12" Size="1"/>
 				<Link VarA="PlcTask Outputs^GVL_Safety.ACK_DRIVE_71_SAFETY" VarB="Device (Safety)^Standard Outputdata^Standard In Var 3" Size="1"/>
 				<Link VarA="PlcTask Outputs^GVL_Safety.ACK_SAFE_SPEED_1_ChA" VarB="Device (Safety)^Standard Outputdata^Standard In Var 7" Size="1"/>
 				<Link VarA="PlcTask Outputs^GVL_Safety.ACK_SAFE_SPEED_1_ChB" VarB="Device (Safety)^Standard Outputdata^Standard In Var 8" Size="1"/>

@@ -20,6 +20,7 @@ TYPE eState_INTER :
     waitForRecovery:=12,
     fixRotation:=13,
     error:=999,
+    safetyError:=666,
     none:=1000
 );
 END_TYPE

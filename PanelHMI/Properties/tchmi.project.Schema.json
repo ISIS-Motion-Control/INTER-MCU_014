@@ -1,0 +1,125 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "definitions": {
+    "UserControl1": {
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "UserContent\\TextAndIndicator.usercontrol.json",
+      "type": "object",
+      "id": "tchmi:project#/definitions/UserControl1"
+    },
+    "TextAndIndicator": {
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "UserContent\\TextAndIndicator.usercontrol.json",
+      "type": "object",
+      "id": "tchmi:project#/definitions/TextAndIndicator"
+    },
+    "AxisControlContent": {
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "UserContent\\AxisControlContent.usercontrol.json",
+      "id": "tchmi:project#/definitions/AxisControlContent",
+      "type": "object"
+    },
+    "dataTypeState": {
+      "generate_implicit_init_function": "",
+      "qualified_only": "",
+      "strict": "",
+      "type": "number",
+      "description": "dataTypeState",
+      "enum": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13",
+        "999",
+        "666",
+        "1000"
+      ],
+      "options": [
+        {
+          "value": 0,
+          "label": "init"
+        },
+        {
+          "value": 1,
+          "label": "setPositions"
+        },
+        {
+          "value": 2,
+          "label": "checkSetPositions"
+        },
+        {
+          "value": 3,
+          "label": "alignKinematics"
+        },
+        {
+          "value": 4,
+          "label": "checkAlignKinematics"
+        },
+        {
+          "value": 5,
+          "label": "enableSPG"
+        },
+        {
+          "value": 6,
+          "label": "checkEnableSPG"
+        },
+        {
+          "value": 7,
+          "label": "disableSPG"
+        },
+        {
+          "value": 8,
+          "label": "checkDisableSPG"
+        },
+        {
+          "value": 9,
+          "label": "operation"
+        },
+        {
+          "value": 10,
+          "label": "startRecovery"
+        },
+        {
+          "value": 11,
+          "label": "recoveryDefaultPosition"
+        },
+        {
+          "value": 12,
+          "label": "waitForRecovery"
+        },
+        {
+          "value": 13,
+          "label": "fixRotation"
+        },
+        {
+          "value": 999,
+          "label": "error"
+        },
+        {
+          "value": 666,
+          "label": "safetyError"
+        },
+        {
+          "value": 1000,
+          "label": "none"
+        }
+      ]
+    }
+  }
+}

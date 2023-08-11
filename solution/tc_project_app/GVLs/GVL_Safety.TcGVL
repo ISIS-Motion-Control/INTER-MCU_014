@@ -4,7 +4,7 @@
     <Declaration><![CDATA[{attribute 'qualified_only'}
 VAR_GLOBAL
     SafetyReset AT %Q* : BOOL;
-    SafetyReset_ButtonOut AT %Q* : BOOL := TRUE;
+    SafetyReset_ButtonOut AT %Q* : BOOL;
     SafetyReset_ButtonIn AT %I* : BOOL;
     RUN_SAFETY AT %Q* : BOOL := TRUE;
     RUN_SAFETY_SPEED AT %Q* : BOOL := TRUE;
@@ -15,12 +15,13 @@ VAR_GLOBAL
     ACK_SAFE_SPEED_2_ChA AT %Q* : BOOL;
     ACK_SAFE_SPEED_2_ChB AT %Q* : BOOL;
     
-    ACK_REQ AT %I* : BOOL;
+    RESET_REQUESTED AT %I* : BOOL;  // THIS IS THE ACTUAL ACK REQUEST SIGNAL
     
-    ACK_REQ_1_ChA AT %I* : BOOL;
-    ACK_REQ_1_ChB AT %I* : BOOL;
-    ACK_REQ_2_ChA AT %I* : BOOL;
-    ACK_REQ_2_ChB AT %I* : BOOL;
+    //SAFETY_ACK_REQUESTED : BOOL;
+    
+    Drive71_ChA_InRun AT %I* :BOOL;
+    Drive71_ChB_InRun AT %I* : BOOL;
+    EL6910_InRun AT %I* : BOOL;
     
     SAFETY_ACK AT %Q* : BOOL := FALSE;
 END_VAR]]></Declaration>

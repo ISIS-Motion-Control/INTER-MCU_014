@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<safetyApplication Crc="321040703" xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.4.0.0" Id="ee9ccf0f-39b5-4101-860b-0bf5f1d38b84" name="" mapState="false" mapDiag="false" groupOrderId="4" passificationAllowed="false" temporaryDeactivationAllowed="false" permamentDeactivationAllowed="false" xmlid="0" analogFBOutputReplacementValues="Zero" verifyAnalogFBInputsIfStart="false" userFbId="00000000-0000-0000-0000-000000000000" xmlns="http://schemas.microsoft.com/dsltools/SafetyApplicationLanguage">
+<safetyApplication Crc="1640548223" xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.4.0.0" Id="ee9ccf0f-39b5-4101-860b-0bf5f1d38b84" name="" mapState="false" mapDiag="false" groupOrderId="4" passificationAllowed="false" temporaryDeactivationAllowed="false" permamentDeactivationAllowed="false" xmlid="0" analogFBOutputReplacementValues="Zero" verifyAnalogFBInputsIfStart="false" userFbId="00000000-0000-0000-0000-000000000000" xmlns="http://schemas.microsoft.com/dsltools/SafetyApplicationLanguage">
   <networks>
     <safetyApplicationHasNetworks Id="d7378b60-ade3-41ed-bc39-d8066d8c2128">
       <Network Id="f6cce3a8-8971-46d9-b096-2df908f0b380" name="STO_SS1_1" networkName="STO_SS1_1" intId="1" networkOrderId="0">
@@ -85,7 +85,7 @@
                   <inPort Id="36486e1f-1bb6-4dfa-9746-a4ee31e7a9e6" name="MonIn1" portName="MonIn1" portNum="4" objectIndex="8" varId="4" filter="2" portDataType="1" channelInterface="Single-Channel Both Activated" deactivate1="Break Contact (NC)" deactivate2="Make Contact (NO)" maxDeviation="0" resetTime="0">
                     <fbPortGlobalVariableReferences>
                       <functionBlockPortHasFbPortGlobalVariableReferences Id="1537bbbd-7941-4432-934f-15ccf7377549">
-                        <fbPortGlobalVariableReference Id="699f7daf-ce9d-4bdb-b9f9-ad3eaee4cd3f" variableId="1b343274-1f7f-48c1-88fa-fbec3c8a7e77" lastKnownPath="ChB.SS1_CMD" />
+                        <fbPortGlobalVariableReference Id="699f7daf-ce9d-4bdb-b9f9-ad3eaee4cd3f" variableId="1b343274-1f7f-48c1-88fa-fbec3c8a7e77" lastKnownPath="ChB." />
                       </functionBlockPortHasFbPortGlobalVariableReferences>
                     </fbPortGlobalVariableReferences>
                   </inPort>
@@ -473,6 +473,38 @@
                 </variableUsagesHasUsages>
                 <variableUsagesHasUsages Id="aa3840c8-5fe5-4af5-8d02-01c7e397119a">
                   <aliasDeviceIoUsage Id="93ee1001-260a-47c5-be9d-ab7e18f73192" sdsId="4" channelId="12" functionId="-1022885631" />
+                </variableUsagesHasUsages>
+              </usages>
+            </variableUsages>
+          </variableHasTargetUsages>
+        </targetUsages>
+      </variable>
+    </safetyApplicationHasVariables>
+    <safetyApplicationHasVariables Id="c277f2af-93f4-42ce-ae6d-2599b423d9f1">
+      <variable Id="20e9edaa-9af3-44c8-b96d-dce3974540f7" name="GroupPort_InRun" isLocal="false">
+        <sourceUsages>
+          <variableHasSourceUsages Id="00c2b733-7018-4cde-bae6-99e67d0935f7">
+            <variableUsages Id="0a6fa59d-0de8-484b-917a-ce9400d83caa">
+              <usages>
+                <variableUsagesHasUsages Id="29e74381-0236-4f1c-ae98-7b0221c6a362">
+                  <groupPortUsage Id="dbada483-bed2-4116-a0fe-d04ed3f0edfb">
+                    <twinSAFEGroupAliasPort>
+                      <groupPortUsageReferencesTwinSAFEGroupAliasPort Id="12039e23-e16c-45e9-b1f7-ceac94c39987">
+                        <twinSAFEGroupAliasPortMoniker name="//InRun" />
+                      </groupPortUsageReferencesTwinSAFEGroupAliasPort>
+                    </twinSAFEGroupAliasPort>
+                  </groupPortUsage>
+                </variableUsagesHasUsages>
+              </usages>
+            </variableUsages>
+          </variableHasSourceUsages>
+        </sourceUsages>
+        <targetUsages>
+          <variableHasTargetUsages Id="49d63c2b-060a-46cb-b44c-72849477843e">
+            <variableUsages Id="15810286-3bda-40e1-be00-0b257907d86a">
+              <usages>
+                <variableUsagesHasUsages Id="55df4dd6-1522-4b28-b2c0-dbc90cacd717">
+                  <aliasDeviceIoUsage Id="3b6232b0-d1a6-4259-9092-fad7b6251967" sdsId="12" channelId="1" functionId="1131179972" />
                 </variableUsagesHasUsages>
               </usages>
             </variableUsages>
