@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
   <POU Name="Vertical_Translation_Y2" Id="{3b7b9996-05d4-43b8-8768-65e5883d1014}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM Vertical_Translation_Y2
 VAR
@@ -23,6 +23,8 @@ END_VAR
 END_IF*)
 
 astAxes[AXIS_VERTICAL_TRANSLATION_Y1].stControl.bEnable := TRUE;
+astAxes[AXIS_VERTICAL_TRANSLATION_Y1].stInputs.bLimitBwd := TRUE;
+astAxes[AXIS_VERTICAL_TRANSLATION_Y1].stInputs.bLimitFwd := TRUE;
 //Define ACTIONS() or write exclusive code for an specific axis.
 (*Eg. Stop when temperature reaches certain values, reduce speed if  a signal is activated, etc.
 Eg. GVL.astAxes[x].stControl.bInterlockFwd := NOT bInterlockFwdOK;*)
@@ -30,5 +32,12 @@ Eg. GVL.astAxes[x].stControl.bInterlockFwd := NOT bInterlockFwdOK;*)
 
 ]]></ST>
     </Implementation>
+    <LineIds Name="Vertical_Translation_Y2">
+      <LineId Id="3" Count="9" />
+      <LineId Id="29" Count="0" />
+      <LineId Id="28" Count="0" />
+      <LineId Id="13" Count="4" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
   </POU>
 </TcPlcObject>

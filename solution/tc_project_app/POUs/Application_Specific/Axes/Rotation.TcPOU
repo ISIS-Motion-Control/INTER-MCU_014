@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
   <POU Name="Rotation" Id="{83b74736-0e2a-4820-b07c-7378d567dc02}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM Rotation
 VAR
@@ -22,10 +22,19 @@ END_VAR
     GVL.astAxes[1].stConfig.eRestorePosition := E_RestorePosition.eRestoreWithoutHome;
 END_IF*)
 astAxes[AXIS_ROTATION].stControl.bEnable := bEnable;
+astAxes[AXIS_ROTATION].stInputs.bLimitBwd := TRUE;
+astAxes[AXIS_ROTATION].stInputs.bLimitFwd := TRUE;
 //Define ACTIONS() or write exclusive code for an specific axis.
 (*Eg. Stop when temperature reaches certain values, reduce speed if  a signal is activated, etc.
 Eg. GVL.astAxes[x].stControl.bInterlockFwd := NOT bInterlockFwdOK;*)
 ]]></ST>
     </Implementation>
+    <LineIds Name="Rotation">
+      <LineId Id="3" Count="8" />
+      <LineId Id="27" Count="0" />
+      <LineId Id="26" Count="0" />
+      <LineId Id="12" Count="2" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
   </POU>
 </TcPlcObject>

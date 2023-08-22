@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<TcSmItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2012/07/TcSmProject" TcSmVersion="1.0" TcVersion="3.1.4024.32" ClassName="CNcAxisDef" SubType="1">
+<TcSmItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2012/07/TcSmProject" TcSmVersion="1.0" TcVersion="3.1.4024.35" ClassName="CNcAxisDef" SubType="1">
 	<DataTypes>
 		<DataType>
 			<Name GUID="{18071995-0000-0000-0000-000000000035}" TcBaseType="true" HideType="true">UINTARR2</Name>
@@ -499,7 +499,7 @@ Drive Status 4 (manually linked):
 			</Format>
 		</DataType>
 		<DataType>
-			<Name GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC" TcBaseType="true">PLCTONC_AXIS_REF</Name>
+			<Name GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC" TcBaseType="true">PLCTONC_AXIS_REF_OLD</Name>
 			<BitSize>1024</BitSize>
 			<SubItem>
 				<Name>ControlDWord</Name>
@@ -1087,7 +1087,7 @@ Drive Status 4 (manually linked):
 			</ArrayInfo>
 		</DataType>
 		<DataType>
-			<Name GUID="{10036166-C9D3-404B-BDD3-323034AAA7F4}" Namespace="MC" TcBaseType="true">NCTOPLC_AXIS_REF</Name>
+			<Name GUID="{10036166-C9D3-404B-BDD3-323034AAA7F4}" Namespace="MC" TcBaseType="true">NCTOPLC_AXIS_REF_OLD6</Name>
 			<BitSize>2048</BitSize>
 			<SubItem>
 				<Name>StateDWord</Name>
@@ -1415,8 +1415,8 @@ External Setpoint Generation:
 			<TargetPosControl Range="0.01"/>
 			<OtherSettings AllowMotionCmdToSlave="true"/>
 		</AxisPara>
-		<Encoder Name="Enc" EncType="19">
-			<EncPara ScaleFactorNumerator="0.001" ScaleFactorDenominator="1000" Offset="-6.2002" MaxCount="#xffffffff" ReferenceSystem="1" EncPositionSource="1">
+		<Encoder Name="Enc" EncType="1">
+			<EncPara ScaleFactorNumerator="0.001" ScaleFactorDenominator="1000" Offset="-6.2002" ReferenceSystem="1" EncPositionSource="1">
 				<Inc RefSoftSyncMask="#x000f423f"/>
 			</EncPara>
 			<Vars VarGrpType="1">
@@ -1475,9 +1475,9 @@ External Setpoint Generation:
 				</Var>
 			</Vars>
 		</Encoder>
-		<Drive Name="Drive" DrvType="16">
-			<DrvPara MaxCount="#xffffffff" DriveControlDWord="#x00020000">
-				<Analog VeloReferenz="40.7319" VeloScale="71.5255737304688" TorqueSetpointScale="10" ScaleFactorActTorque="0.1"/>
+		<Drive Name="Drive" DrvType="5">
+			<DrvPara>
+				<Analog VeloReferenz="40.7319" TorqueSetpointScale="10" ScaleFactorActTorque="0.1"/>
 				<TimeComp TaskDelayCycles="1"/>
 			</DrvPara>
 			<Vars VarGrpType="1">
@@ -1516,6 +1516,22 @@ External Setpoint Generation:
 					<SubVar TypeFormatIndex="2">
 						<Name>nDataOut2</Name>
 					</SubVar>
+					<SubVar>
+						<Name>nCtrl2</Name>
+						<Comment><![CDATA[Digital Outputs Setpoint Generator:
+0x41 (0100 0001) = Minus (0x42 for inverse motor polarity)
+0x42 (0100 0010) = Plus (0x41 for inverse motor polarity)
+0x80 (1000 0000) = Stop
+]]></Comment>
+					</SubVar>
+					<SubVar>
+						<Name>nCtrl3</Name>
+						<Comment><![CDATA[Digital Outputs (Setpoint Generator + Position Controller):
+0x41 (0100 0001) = Minus (0x42 for inverse motor polarity)
+0x42 (0100 0010) = Plus (0x41 for inverse motor polarity)
+0x80 (1000 0000) = Stop
+]]></Comment>
+					</SubVar>
 					<SubVar TypeFormatIndex="2">
 						<Name>nDataOut3</Name>
 					</SubVar>
@@ -1541,37 +1557,15 @@ External Setpoint Generation:
 			<Name>Inputs</Name>
 			<Var>
 				<Name>FromPlc</Name>
-				<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
+				<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF_OLD</Type>
 			</Var>
 		</Vars>
 		<Vars VarGrpType="2" InsertType="1">
 			<Name>Outputs</Name>
 			<Var>
 				<Name>ToPlc</Name>
-				<Type GUID="{10036166-C9D3-404B-BDD3-323034AAA7F4}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
+				<Type GUID="{10036166-C9D3-404B-BDD3-323034AAA7F4}" Namespace="MC">NCTOPLC_AXIS_REF_OLD6</Type>
 			</Var>
 		</Vars>
 	</Axis>
-	<Mappings>
-		<OwnerA>
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 70 (AX8640-0000-0103)^Drive 74 (AX8206-0210-0104)">
-				<Link VarA="Drive^Inputs^In^nDataIn1" VarB="Ch B^Ch B PositionControl Inputs^Ch B Following error actual value"/>
-				<Link VarA="Drive^Inputs^In^nDataIn3[0]" VarB="Ch B^Ch B TorqueControl Inputs^Ch B Torque/force actual value"/>
-				<Link VarA="Drive^Inputs^In^nDcOutputTime" VarB="InfoData^DcOutputShift"/>
-				<Link VarA="Drive^Inputs^In^nState1" VarB="Ch B^Ch B AxisMain Inputs^Ch B Statusword" Size="8"/>
-				<Link VarA="Drive^Inputs^In^nState2" VarB="Ch B^Ch B AxisMain Inputs^Ch B Statusword" Size="8" OffsB="8"/>
-				<Link VarA="Drive^Inputs^In^nState4" VarB="WcState^InputToggle0" Size="1" OffsA="1"/>
-				<Link VarA="Drive^Inputs^In^nState4" VarB="WcState^WcState0" Size="1"/>
-				<Link VarA="Drive^Outputs^Out^nCtrl1" VarB="Ch B^Ch B AxisMain Outputs^Ch B Controlword" Size="8"/>
-				<Link VarA="Drive^Outputs^Out^nCtrl2" VarB="Ch B^Ch B AxisMain Outputs^Ch B Controlword" Size="8" OffsB="8"/>
-				<Link VarA="Drive^Outputs^Out^nDataOut1" VarB="Ch B^Ch B Interpolator Outputs^Ch B Target position"/>
-				<Link VarA="Drive^Outputs^Out^nDataOut2" VarB="Ch B^Ch B Interpolator Outputs^Ch B Target velocity"/>
-				<Link VarA="Enc^Inputs^In^nDataIn1" VarB="Ch B^Ch B AxisMain Inputs^1st additional position actual value"/>
-				<Link VarA="Enc^Inputs^In^nDcInputTime" VarB="InfoData^DcInputShift"/>
-				<Link VarA="Enc^Inputs^In^nState2" VarB="Ch B^Ch B AxisMain Inputs^1st Additional position actual value invalid" Size="1" OffsA="5"/>
-				<Link VarA="Enc^Inputs^In^nState4" VarB="WcState^InputToggle0" Size="1" OffsA="1"/>
-				<Link VarA="Enc^Inputs^In^nState4" VarB="WcState^WcState0" Size="1"/>
-			</OwnerB>
-		</OwnerA>
-	</Mappings>
 </TcSmItem>
