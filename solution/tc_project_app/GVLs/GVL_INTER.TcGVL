@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
   <GVL Name="GVL_INTER" Id="{63432ee2-bd23-46cb-909b-5d2ebfcf2a46}">
     <Declaration><![CDATA[{attribute 'qualified_only'}
 VAR_GLOBAL
@@ -34,6 +34,8 @@ VAR_GLOBAL
     LOGIC_ERROR : BOOL;
     LOGIC_STATE : eState_INTER;
     LOGIC_STATE_ERROR : eState_INTER := eState_INTER.none;
+	LOGIC_STATE_STR: STRING;
+	LOGIC_STATE_ERROR_STR: STRING;
     SAFETY_ACK_REQUESTED : BOOL;
     RESET_REQUESTED : BOOL;
     SPEED_LIMITING : BOOL;
