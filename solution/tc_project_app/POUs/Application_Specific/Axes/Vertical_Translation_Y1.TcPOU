@@ -21,7 +21,7 @@ END_VAR
     GVL.astAxes[1].stConfig.eRestorePosition := E_RestorePosition.eRestoreWithoutHome;
 END_IF*)
 
-astAxes[AXIS_VERTICAL_TRANSLATION_Y2].stControl.bEnable := TRUE;
+astAxes[AXIS_VERTICAL_TRANSLATION_Y1].stControl.bEnable := TRUE;
 //Define ACTIONS() or write exclusive code for an specific axis.
 (*Eg. Stop when temperature reaches certain values, reduce speed if  a signal is activated, etc.
 Eg. GVL.astAxes[x].stControl.bInterlockFwd := NOT bInterlockFwdOK;*)
