@@ -10,13 +10,15 @@ END_VAR
 GVL.astAxes[AXIS_DOFF_ANGLED].stInputs.bLimitFwd := TRUE;
 GVL.astAxes[AXIS_DOFF_ANGLED].stControl.bEnable := TRUE;
 
-astAxes[AXIS_DOFF_ANGLED].stDescription.sAxisName := 'DOFF_ANGLED';]]></ST>
+astAxes[AXIS_DOFF_ANGLED].stDescription.sAxisName := 'DOFF_ANGLED';
+]]></ST>
     </Implementation>
     <LineIds Name="Doff_Angled">
       <LineId Id="3" Count="1" />
       <LineId Id="2" Count="0" />
       <LineId Id="9" Count="0" />
       <LineId Id="8" Count="0" />
+      <LineId Id="10" Count="0" />
     </LineIds>
   </POU>
 </TcPlcObject>
