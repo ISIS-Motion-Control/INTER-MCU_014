@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
   <POU Name="Horizontal_Translation" Id="{da882cbd-e5f0-4d53-ba38-d4a40a10691f}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM Horizontal_Translation
 VAR
@@ -24,9 +24,16 @@ IF _TaskInfo[fbGetCurTaskIndex.index].FirstCycle THEN
 END_IF
 
 astAxes[AXIS_HORIZONTAL_TRANSLATION].stControl.bEnable := TRUE;
+astAxes[AXIS_HORIZONTAL_TRANSLATION].stDescription.sAxisName := 'HORIZ_TRANSL';
 //Define ACTIONS() or write exclusive code for an specific axis.
 (*Eg. Stop when temperature reaches certain values, reduce speed if  a signal is activated, etc.
 Eg. GVL.astAxes[x].stControl.bInterlockFwd := NOT bInterlockFwdOK;*)]]></ST>
     </Implementation>
+    <LineIds Name="Horizontal_Translation">
+      <LineId Id="3" Count="10" />
+      <LineId Id="26" Count="0" />
+      <LineId Id="14" Count="1" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
   </POU>
 </TcPlcObject>

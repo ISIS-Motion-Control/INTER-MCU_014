@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
   <POU Name="Measurement_Angle" Id="{f6b3ee24-c778-4988-80a4-3877a9d9ce34}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM Measurement_Angle
 VAR
@@ -10,7 +10,13 @@ END_VAR
       <ST><![CDATA[GVL.astAxes[AXIS_MEASUREMENT_ANGLE].stInputs.bLimitBwd := TRUE;
 GVL.astAxes[AXIS_MEASUREMENT_ANGLE].stInputs.bLimitFwd := TRUE;
 //GVL.astAxes[AXIS_MEASUREMENT_ANGLE].stControl.bEnable := TRUE;
+astAxes[AXIS_MEASUREMENT_ANGLE].stDescription.sAxisName := 'MEASUREMENT_ANGLE';
 ]]></ST>
     </Implementation>
+    <LineIds Name="Measurement_Angle">
+      <LineId Id="3" Count="2" />
+      <LineId Id="11" Count="0" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
   </POU>
 </TcPlcObject>

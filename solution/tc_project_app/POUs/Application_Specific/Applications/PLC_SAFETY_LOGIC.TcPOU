@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
   <POU Name="PLC_SAFETY_LOGIC" Id="{33cb3f8d-dfd1-442b-932e-74cbe3827726}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM PLC_SAFETY_LOGIC
 VAR
@@ -35,7 +35,8 @@ IF driveAckTON.Q THEN
     GVL_Safety.ACK_DRIVE_71_SAFETY := FALSE;
 END_IF
 
-GVL_INTER.SAFETY_ACK_REQUESTED:=NOT(GVL_Safety.EL6910_InRun AND GVL_Safety.Drive71_ChA_InRun AND GVL_Safety.Drive71_ChB_InRun);
+//GVL_INTER.SAFETY_ACK_REQUESTED:=NOT(GVL_Safety.EL6910_InRun AND GVL_Safety.Drive71_ChA_InRun AND GVL_Safety.Drive71_ChB_InRun);
+GVL_INTER.SAFETY_ACK_REQUESTED:=FALSE;
 GVL_Safety.SafetyReset_ButtonOut:= GVL_INTER.RESET_REQUESTED;
 
 
@@ -89,5 +90,11 @@ END_IF
 
 GVL_INTER.RESET_REQUESTED:= GVL_Safety.RESET_REQUESTED;]]></ST>
     </Implementation>
+    <LineIds Name="PLC_SAFETY_LOGIC">
+      <LineId Id="3" Count="16" />
+      <LineId Id="87" Count="0" />
+      <LineId Id="20" Count="50" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
   </POU>
 </TcPlcObject>

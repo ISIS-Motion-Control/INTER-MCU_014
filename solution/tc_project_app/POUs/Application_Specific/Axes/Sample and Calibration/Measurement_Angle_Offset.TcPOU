@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
   <POU Name="Measurement_Angle_Offset" Id="{87603760-826b-4313-a4cd-b2f0401911a5}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM Measurement_Angle_Offset
 VAR
@@ -8,7 +8,17 @@ END_VAR
     <Implementation>
       <ST><![CDATA[astAxes[AXIS_MEASUREMENT_ANGLE_OFFSET].stInputs.bLimitBwd := TRUE;
 astAxes[AXIS_MEASUREMENT_ANGLE_OFFSET].stInputs.bLimitFwd := TRUE;
-astAxes[AXIS_MEASUREMENT_ANGLE_OFFSET].stControl.bEnable:= TRUE;]]></ST>
+astAxes[AXIS_MEASUREMENT_ANGLE_OFFSET].stControl.bEnable:= TRUE;
+
+astAxes[AXIS_ROTATION_SAMPLE].stDescription.sAxisName := 'OFFSET_MEAS_ANGLE';
+]]></ST>
     </Implementation>
+    <LineIds Name="Measurement_Angle_Offset">
+      <LineId Id="3" Count="1" />
+      <LineId Id="2" Count="0" />
+      <LineId Id="9" Count="0" />
+      <LineId Id="11" Count="0" />
+      <LineId Id="8" Count="0" />
+    </LineIds>
   </POU>
 </TcPlcObject>

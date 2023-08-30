@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
   <POU Name="Drad_External" Id="{d9a877bc-3d1a-4d88-aa1a-28b6e1cdd406}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM Drad_External
 VAR
@@ -15,7 +15,16 @@ astAxes[AXIS_DRAD_EXTERNAL].stControl.bEnable := TRUE;
 
 //B = A-E
 fEncoderPosition := astAxes[AXIS_DRAD].stStatus.fActPosition - astAxes[AXIS_DRAD_INTERNAL].stStatus.fActPosition;
-EncoderPosition:= LREAL_TO_DINT(fEncoderPosition * fScaler);]]></ST>
+EncoderPosition:= LREAL_TO_DINT(fEncoderPosition * fScaler);
+
+astAxes[AXIS_DRAD_EXTERNAL].stDescription.sAxisName := 'DRAD_EXTERNAL';
+]]></ST>
     </Implementation>
+    <LineIds Name="Drad_External">
+      <LineId Id="3" Count="5" />
+      <LineId Id="2" Count="0" />
+      <LineId Id="17" Count="1" />
+      <LineId Id="15" Count="0" />
+    </LineIds>
   </POU>
 </TcPlcObject>

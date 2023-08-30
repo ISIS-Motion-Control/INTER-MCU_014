@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
   <POU Name="Drad" Id="{9e9b2a5e-8f4c-4158-9427-7e82bbe0b745}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM Drad
 VAR
@@ -48,7 +48,14 @@ IF _TaskInfo[fbGetCurTaskIndex.index].FirstCycle THEN
     //Initial default values:
 
 END_IF
+
+astAxes[AXIS_DRAD].stDescription.sAxisName := 'DRAD';
 ]]></ST>
     </Implementation>
+    <LineIds Name="Drad">
+      <LineId Id="3" Count="26" />
+      <LineId Id="50" Count="1" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
   </POU>
 </TcPlcObject>

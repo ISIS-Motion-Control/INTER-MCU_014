@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
   <POU Name="Dtank_Internal_Offset_Angle" Id="{0a9f1d4c-9996-4061-864c-e0bddc502c1f}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM Dtank_Internal_Offset_Angle
 VAR
@@ -27,7 +27,16 @@ END_IF
 
 
    
-EncoderPosition:= LREAL_TO_DINT(fEncoderPosition * fScaler);]]></ST>
+EncoderPosition:= LREAL_TO_DINT(fEncoderPosition * fScaler);
+
+astAxes[AXIS_DTANK_INTERNAL_OFFSET_ANGLE].stDescription.sAxisName := 'DRAD_INT_OFF';
+]]></ST>
     </Implementation>
+    <LineIds Name="Dtank_Internal_Offset_Angle">
+      <LineId Id="3" Count="17" />
+      <LineId Id="2" Count="0" />
+      <LineId Id="28" Count="1" />
+      <LineId Id="27" Count="0" />
+    </LineIds>
   </POU>
 </TcPlcObject>
