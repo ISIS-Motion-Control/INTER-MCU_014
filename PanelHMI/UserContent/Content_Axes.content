@@ -74,4 +74,6 @@
 ]
 </script>
 </div>
+<div id="AxisControlContent_3" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height="48" data-tchmi-height-unit="px" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-name="default" data-tchmi-target-user-control="UserContent/AxisControlContent - StAxis.usercontrol" data-tchmi-top="58" data-tchmi-top-unit="px" data-tchmi-width="600" data-tchmi-width-unit="px" data-tchmi-axisstruct="%s%PLC1.GVL.astAxes.19%/s%" data-tchmi-enabled="true">
+</div>
 </div>

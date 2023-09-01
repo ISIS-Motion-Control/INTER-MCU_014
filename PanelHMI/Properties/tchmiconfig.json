@@ -58,6 +58,9 @@
     },
     {
       "url": "UserContent/TextAndIndicator.usercontrol"
+    },
+    {
+      "url": "UserContent/AxisControlContent - StAxis.usercontrol"
     }
   ],
   "content": [

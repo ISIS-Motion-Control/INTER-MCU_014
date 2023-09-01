@@ -1,0 +1,60 @@
+{
+  "parameters": [
+    {
+      "name": "data-tchmi-name",
+      "displayName": "Name",
+      "allowSymbolExpressionsInObject": false,
+      "visible": true,
+      "type": "tchmi:general#/definitions/String",
+      "category": "",
+      "description": "",
+      "defaultValue": "default",
+      "defaultValueInternal": "default",
+      "requiredOnCompile": false,
+      "readOnly": false,
+      "bindable": true,
+      "heritable": true,
+      "propertyName": "Name",
+      "propertySetterName": "setName",
+      "propertyGetterName": "getName",
+      "refTo": ""
+    },
+    {
+      "name": "data-tchmi-axisstruct",
+      "displayName": "AxisStruct",
+      "allowSymbolExpressionsInObject": false,
+      "visible": true,
+      "type": "tchmi:project#/definitions/PLC1.ST_AxisStruct",
+      "category": "",
+      "description": "",
+      "requiredOnCompile": false,
+      "readOnly": false,
+      "bindable": true,
+      "heritable": true,
+      "propertyName": "AxisStruct",
+      "propertySetterName": "setAxisStruct",
+      "propertyGetterName": "getAxisStruct",
+      "refTo": ""
+    },
+    {
+      "name": "data-tchmi-move",
+      "displayName": "Move",
+      "allowSymbolExpressionsInObject": false,
+      "visible": false,
+      "type": "tchmi:general#/definitions/BOOL",
+      "category": "",
+      "description": "",
+      "requiredOnCompile": false,
+      "readOnly": false,
+      "bindable": true,
+      "heritable": true,
+      "propertyName": "Move",
+      "propertySetterName": "setMove",
+      "propertyGetterName": "getMove",
+      "refTo": ""
+    }
+  ],
+  "virtualRights": [],
+  "$schema": "./../../Packages/Beckhoff.TwinCAT.HMI.Framework.12.760.42/runtimes/native1.12-tchmi/Schema/UserControlConfig.Schema.json",
+  "description": ""
+}
