@@ -35,7 +35,7 @@
     "deleteExtensionDataBeforePublish": false,
     "alwaysPublishLocalServerConfiguration": true,
     "temporaryPublishWithoutServerConfiguration": false,
-    "abortOnErrors": true,
+    "abortOnErrors": false,
     "createPublishLog": false,
     "userName": "",
     "encryptedPassword": "",
