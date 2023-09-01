@@ -115,6 +115,9 @@
     <Content Include="packages.config">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="Server\ADS\ADS.Config.default.json">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="UserContent\AxisControlContent.usercontrol">
       <SubType>Content</SubType>
     </Content>
