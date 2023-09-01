@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
   <POU Name="Combined_Vertical_Sample" Id="{40e8365a-5831-41f5-9af5-015951ac1f91}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM Combined_Vertical_Sample
 VAR
@@ -8,7 +8,16 @@ END_VAR
     <Implementation>
       <ST><![CDATA[astAxes[AXIS_COMBINED_VERTICAL_SAMPLE].stControl.bEnable := TRUE;
 astAxes[AXIS_COMBINED_VERTICAL_SAMPLE].stInputs.bLimitBwd := astAxes[AXIS_COMBINED_VERTICAL].stInputs.bLimitBwd;
-astAxes[AXIS_COMBINED_VERTICAL_SAMPLE].stInputs.bLimitFwd := astAxes[AXIS_COMBINED_VERTICAL].stInputs.bLimitFwd;]]></ST>
+astAxes[AXIS_COMBINED_VERTICAL_SAMPLE].stInputs.bLimitFwd := astAxes[AXIS_COMBINED_VERTICAL].stInputs.bLimitFwd;
+
+astAxes[AXIS_COMBINED_VERTICAL_SAMPLE].stDescription.sAxisName := 'SAMPLE_Y';
+]]></ST>
     </Implementation>
+    <LineIds Name="Combined_Vertical_Sample">
+      <LineId Id="3" Count="1" />
+      <LineId Id="2" Count="0" />
+      <LineId Id="9" Count="1" />
+      <LineId Id="8" Count="0" />
+    </LineIds>
   </POU>
 </TcPlcObject>

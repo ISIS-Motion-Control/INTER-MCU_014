@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
   <POU Name="Tau" Id="{5260687c-e8fb-4c08-a5b5-4fb9c59b152b}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM Tau
 VAR
@@ -36,7 +36,16 @@ END_IF
 
 
 EncoderPosition_tau:= LREAL_TO_DINT(fEncoderPosition_tau * fScaler);
-EncoderPosition_delta:= LREAL_TO_DINT(fEncoderPosition_delta * fScaler);]]></ST>
+EncoderPosition_delta:= LREAL_TO_DINT(fEncoderPosition_delta * fScaler);
+
+astAxes[AXIS_TAU].stDescription.sAxisName := 'TAU';
+]]></ST>
     </Implementation>
+    <LineIds Name="Tau">
+      <LineId Id="3" Count="20" />
+      <LineId Id="2" Count="0" />
+      <LineId Id="37" Count="1" />
+      <LineId Id="36" Count="0" />
+    </LineIds>
   </POU>
 </TcPlcObject>
