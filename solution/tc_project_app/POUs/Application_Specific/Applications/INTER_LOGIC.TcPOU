@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
   <POU Name="INTER_LOGIC" Id="{da89d596-93f4-468f-9a43-1a72f2055b25}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM INTER_LOGIC
 VAR
@@ -583,6 +583,10 @@ IF GVL_INTER.VIRTUAL_AXES_NOT_MOVING AND GVL_INTER.SPEED_LIMITING THEN
         GVL_INTER.SPEED_LIMITING:= FALSE;
 	END_FOR
 END_IF
+
+GVL_INTER.LOGIC_STATE_STR := TO_STRING(GVL_INTER.LOGIC_STATE);
+GVL_INTER.LOGIC_STATE_ERROR_STR := TO_STRING(GVL_INTER.LOGIC_STATE_ERROR);
+
 
 MC_ExtSetPointGenFeed(Axis:= astAxes[AXIS_COMBINED_VERTICAL].Axis, 
         Position:= axisSpg_Vertical.position,
