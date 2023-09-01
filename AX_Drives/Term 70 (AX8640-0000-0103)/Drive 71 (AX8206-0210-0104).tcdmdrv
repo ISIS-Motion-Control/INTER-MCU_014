@@ -617,27 +617,27 @@
                   <Data type="int8" unitSiNumerator="second">3</Data>
                 </Parameter>
                 <Parameter>
-                  <Comment LcId="1033" />
+                  <Comment LcId="1033"></Comment>
                   <Name>PowerManagement_DelayTimeAfterPowerUp</Name>
                   <Data type="real64" unitSiNumerator="second">0.7</Data>
                 </Parameter>
                 <Parameter>
-                  <Comment LcId="1033" />
+                  <Comment LcId="1033"></Comment>
                   <Name>AbsolutePositionData_ResolutionSinglePos</Name>
                   <Data type="int16">32</Data>
                 </Parameter>
                 <Parameter>
-                  <Comment LcId="1033" />
+                  <Comment LcId="1033"></Comment>
                   <Name>AbsolutePositionData_ResolutionMultiPos</Name>
                   <Data type="int16">0</Data>
                 </Parameter>
                 <Parameter>
-                  <Comment LcId="1033" />
+                  <Comment LcId="1033"></Comment>
                   <Name>AbsolutePositionData_NumberOfClockCyclesForSinglePos</Name>
                   <Data type="int16">32</Data>
                 </Parameter>
                 <Parameter>
-                  <Comment LcId="1033" />
+                  <Comment LcId="1033"></Comment>
                   <Name>AbsolutePositionData_NumberOfClockCyclesForMultiPos</Name>
                   <Data type="int16">0</Data>
                 </Parameter>
@@ -647,22 +647,22 @@
                   <Data type="real64">1</Data>
                 </Parameter>
                 <Parameter>
-                  <Comment LcId="1033" />
+                  <Comment LcId="1033"></Comment>
                   <Name>AbsolutePositionData_SensorMode_CrcPolynomial</Name>
                   <Data type="real64">67</Data>
                 </Parameter>
                 <Parameter>
-                  <Comment LcId="1033" />
+                  <Comment LcId="1033"></Comment>
                   <Name>AbsolutePositionData_SensorMode_InvertedCrc</Name>
                   <Data type="real64">1</Data>
                 </Parameter>
                 <Parameter>
-                  <Comment LcId="1033" />
+                  <Comment LcId="1033"></Comment>
                   <Name>AbsolutePositionData_SensorMode_MaxClockSpeed</Name>
                   <Data type="real64" unitSiNumerator="hertz">10000000</Data>
                 </Parameter>
                 <Parameter>
-                  <Comment LcId="1033" />
+                  <Comment LcId="1033"></Comment>
                   <Name>AbsolutePositionData_MaxPositionCalculationTime</Name>
                   <Data type="real64" unitPrefix="-6" unitSiNumerator="second">20</Data>
                 </Parameter>
@@ -1685,16 +1685,16 @@
           <BitLength>176</BitLength>
         </Send>
         <Send>
-          <BitStart>13176</BitStart>
-          <BitLength>80</BitLength>
+          <BitStart>13256</BitStart>
+          <BitLength>112</BitLength>
         </Send>
         <Recv>
           <BitStart>976</BitStart>
           <BitLength>272</BitLength>
         </Recv>
         <Recv>
-          <BitStart>13176</BitStart>
-          <BitLength>80</BitLength>
+          <BitStart>13256</BitStart>
+          <BitLength>112</BitLength>
         </Recv>
         <Sm2>
           <Type>Outputs</Type>
@@ -1826,7 +1826,7 @@
               <Ccs>1</Ccs>
               <Index>7104</Index>
               <SubIndex>0</SubIndex>
-              <Data>1300080100e6010101f6010201f6010301f6010401f6010501f6010601f6010701f6010801f6010901f6010a01f6010b01f6010c01f6010d01f6010e01f6010f01f6011001f6100300e6100200e6</Data>
+              <Data>0e00080100e6010101f606000000010201f6010301f607000000100300e6010401f606000000010501f6010601f607000000100400e6100200e6</Data>
             </InitCmd>
             <InitCmd Fixed="true" CompleteAccess="true">
               <Transition>PS</Transition>
@@ -1970,7 +1970,7 @@
               <Ccs>1</Ccs>
               <Index>7152</Index>
               <SubIndex>0</SubIndex>
-              <Data>0800010106f6010206f6010306f6010406f6010506f6010606f6010706f6010806f6</Data>
+              <Data>0500010106f6010206f6010306f6010406f604000000</Data>
             </InitCmd>
             <InitCmd Fixed="true" CompleteAccess="true">
               <Transition>PS</Transition>
@@ -2015,7 +2015,7 @@
               <Ccs>1</Ccs>
               <Index>6080</Index>
               <SubIndex>0</SubIndex>
-              <Data>1300080100e7010101f7010201f7010301f7010401f7010501f7010601f7010701f7010801f7010901f7010a01f7010b01f7010c01f7010d01f7010e01f7010f01f7011001f7100300e7100200e7</Data>
+              <Data>1000080100e7010101f7010201f705000000010301f7010401f707000000100300e7010501f7010601f705000000010701f7010801f707000000100400e7100200e7</Data>
             </InitCmd>
             <InitCmd Fixed="true" CompleteAccess="true">
               <Transition>PS</Transition>
@@ -2159,7 +2159,7 @@
               <Ccs>1</Ccs>
               <Index>6128</Index>
               <SubIndex>0</SubIndex>
-              <Data>0800010106f7010206f7010306f7010406f7010506f7010606f7010706f7010806f7</Data>
+              <Data>0500010106f7010206f7010306f7010406f704000000</Data>
             </InitCmd>
             <InitCmd Fixed="true" CompleteAccess="true">
               <Transition>PS</Transition>
@@ -4691,15 +4691,6 @@
             </InitCmd>
             <InitCmd>
               <Transition>PS</Transition>
-              <Comment><![CDATA[Ch B AxisMain parameters position offset / Offset additional position actual value source]]></Comment>
-              <Timeout>0</Timeout>
-              <Ccs>1</Ccs>
-              <Index>13319</Index>
-              <SubIndex>4</SubIndex>
-              <Data>0200</Data>
-            </InitCmd>
-            <InitCmd>
-              <Transition>PS</Transition>
               <Comment><![CDATA[Ch A Modes of operation]]></Comment>
               <Timeout>0</Timeout>
               <Ccs>1</Ccs>
@@ -4768,7 +4759,7 @@
               <Ccs>1</Ccs>
               <Index>12608</Index>
               <SubIndex>5</SubIndex>
-              <Data>0000fa43</Data>
+              <Data>00000000</Data>
             </InitCmd>
             <InitCmd>
               <Transition>PS</Transition>
@@ -4967,6 +4958,33 @@
               <Index>12295</Index>
               <SubIndex>4</SubIndex>
               <Data>0200</Data>
+            </InitCmd>
+            <InitCmd>
+              <Transition>PS</Transition>
+              <Comment><![CDATA[Ch B AxisMain parameters position offset / Offset additional position actual value source]]></Comment>
+              <Timeout>0</Timeout>
+              <Ccs>1</Ccs>
+              <Index>13319</Index>
+              <SubIndex>4</SubIndex>
+              <Data>0200</Data>
+            </InitCmd>
+            <InitCmd>
+              <Transition>PS</Transition>
+              <Comment><![CDATA[Ch A AxisMain parameters / Motor brake usage]]></Comment>
+              <Timeout>0</Timeout>
+              <Ccs>1</Ccs>
+              <Index>12288</Index>
+              <SubIndex>2</SubIndex>
+              <Data>0100</Data>
+            </InitCmd>
+            <InitCmd>
+              <Transition>PS</Transition>
+              <Comment><![CDATA[Ch B AxisMain parameters / Motor brake usage]]></Comment>
+              <Timeout>0</Timeout>
+              <Ccs>1</Ccs>
+              <Index>13312</Index>
+              <SubIndex>2</SubIndex>
+              <Data>0100</Data>
             </InitCmd>
             <InitCmd>
               <Transition>PS</Transition>
@@ -5383,7 +5401,7 @@
           <Cmd>5</Cmd>
           <Adp>1034</Adp>
           <Ado>2096</Ado>
-          <Data>00600a0024000100</Data>
+          <Data>00600e0024000100</Data>
           <Cnt>1</Cnt>
           <Retries>3</Retries>
         </InitCmd>
@@ -5393,7 +5411,7 @@
           <Cmd>5</Cmd>
           <Adp>1034</Adp>
           <Ado>2104</Ado>
-          <Data>00720a0020000100</Data>
+          <Data>00720e0020000100</Data>
           <Cnt>1</Cnt>
           <Retries>3</Retries>
         </InitCmd>
@@ -5434,7 +5452,7 @@
           <Cmd>5</Cmd>
           <Adp>1034</Adp>
           <Ado>1616</Ado>
-          <Data>550000020a0000070060000201000000</Data>
+          <Data>5f0000020e0000070060000201000000</Data>
           <Cnt>1</Cnt>
           <Retries>3</Retries>
         </InitCmd>
@@ -5444,7 +5462,7 @@
           <Cmd>5</Cmd>
           <Adp>1034</Adp>
           <Ado>1632</Ado>
-          <Data>550000020a0000070072000101000000</Data>
+          <Data>5f0000020e0000070072000101000000</Data>
           <Cnt>1</Cnt>
           <Retries>3</Retries>
         </InitCmd>
@@ -5916,14 +5934,14 @@
               <Index>#xe600</Index>
               <SubIndex>1</SubIndex>
               <BitLen>8</BitLen>
-              <Name>FSOE__FSoE Slave Cmd</Name>
+              <Name>Message_1__FSoE Cmd</Name>
               <DataType>USINT</DataType>
               <AdsInfo>
                 <AmsAddress>
                   <AmsPort>11</AmsPort>
                 </AmsAddress>
                 <IndexGroup>50593856</IndexGroup>
-                <IndexOffset>-2147483537</IndexOffset>
+                <IndexOffset>-2147483527</IndexOffset>
                 <Length>1</Length>
               </AdsInfo>
             </Entry>
@@ -5931,29 +5949,33 @@
               <Index>#xf601</Index>
               <SubIndex>1</SubIndex>
               <BitLen>1</BitLen>
-              <Name>FSOE__Axis A STO</Name>
+              <Name>Message_1__STO_active_ChA</Name>
               <DataType>BIT</DataType>
               <AdsInfo>
                 <AmsAddress>
                   <AmsPort>11</AmsPort>
                 </AmsAddress>
                 <IndexGroup>50593856</IndexGroup>
-                <IndexOffset>-1073740928</IndexOffset>
+                <IndexOffset>-1073740848</IndexOffset>
                 <Length>1</Length>
               </AdsInfo>
+            </Entry>
+            <Entry>
+              <Index>#x0</Index>
+              <BitLen>6</BitLen>
             </Entry>
             <Entry>
               <Index>#xf601</Index>
               <SubIndex>2</SubIndex>
               <BitLen>1</BitLen>
-              <Name>FSOE__Safe Input_1</Name>
+              <Name>Message_1__Error_AckReq_ChA</Name>
               <DataType>BIT</DataType>
               <AdsInfo>
                 <AmsAddress>
                   <AmsPort>11</AmsPort>
                 </AmsAddress>
                 <IndexGroup>50593856</IndexGroup>
-                <IndexOffset>-1073740927</IndexOffset>
+                <IndexOffset>-1073740841</IndexOffset>
                 <Length>1</Length>
               </AdsInfo>
             </Entry>
@@ -5961,44 +5983,67 @@
               <Index>#xf601</Index>
               <SubIndex>3</SubIndex>
               <BitLen>1</BitLen>
-              <Name>FSOE__Safe Input_2</Name>
+              <Name>Message_1__SLS_1_active_ChA</Name>
               <DataType>BIT</DataType>
               <AdsInfo>
                 <AmsAddress>
                   <AmsPort>11</AmsPort>
                 </AmsAddress>
                 <IndexGroup>50593856</IndexGroup>
-                <IndexOffset>-1073740926</IndexOffset>
+                <IndexOffset>-1073740840</IndexOffset>
                 <Length>1</Length>
+              </AdsInfo>
+            </Entry>
+            <Entry>
+              <Index>#x0</Index>
+              <BitLen>7</BitLen>
+            </Entry>
+            <Entry>
+              <Index>#xe600</Index>
+              <SubIndex>3</SubIndex>
+              <BitLen>16</BitLen>
+              <Name>Message_1__FSoE CRC_0</Name>
+              <DataType>UINT</DataType>
+              <AdsInfo>
+                <AmsAddress>
+                  <AmsPort>11</AmsPort>
+                </AmsAddress>
+                <IndexGroup>50593856</IndexGroup>
+                <IndexOffset>-2147483524</IndexOffset>
+                <Length>2</Length>
               </AdsInfo>
             </Entry>
             <Entry>
               <Index>#xf601</Index>
               <SubIndex>4</SubIndex>
               <BitLen>1</BitLen>
-              <Name>FSOE__Safe Input_3</Name>
+              <Name>Message_1__STO_active_ChB</Name>
               <DataType>BIT</DataType>
               <AdsInfo>
                 <AmsAddress>
                   <AmsPort>11</AmsPort>
                 </AmsAddress>
                 <IndexGroup>50593856</IndexGroup>
-                <IndexOffset>-1073740925</IndexOffset>
+                <IndexOffset>-1073740816</IndexOffset>
                 <Length>1</Length>
               </AdsInfo>
+            </Entry>
+            <Entry>
+              <Index>#x0</Index>
+              <BitLen>6</BitLen>
             </Entry>
             <Entry>
               <Index>#xf601</Index>
               <SubIndex>5</SubIndex>
               <BitLen>1</BitLen>
-              <Name>FSOE__Safe Input_4</Name>
+              <Name>Message_1__Error_AckReq_ChB</Name>
               <DataType>BIT</DataType>
               <AdsInfo>
                 <AmsAddress>
                   <AmsPort>11</AmsPort>
                 </AmsAddress>
                 <IndexGroup>50593856</IndexGroup>
-                <IndexOffset>-1073740924</IndexOffset>
+                <IndexOffset>-1073740809</IndexOffset>
                 <Length>1</Length>
               </AdsInfo>
             </Entry>
@@ -6006,179 +6051,33 @@
               <Index>#xf601</Index>
               <SubIndex>6</SubIndex>
               <BitLen>1</BitLen>
-              <Name>FSOE__Safe Input_5</Name>
+              <Name>Message_1__SLS_1_active_ChB</Name>
               <DataType>BIT</DataType>
               <AdsInfo>
                 <AmsAddress>
                   <AmsPort>11</AmsPort>
                 </AmsAddress>
                 <IndexGroup>50593856</IndexGroup>
-                <IndexOffset>-1073740923</IndexOffset>
+                <IndexOffset>-1073740808</IndexOffset>
                 <Length>1</Length>
               </AdsInfo>
             </Entry>
             <Entry>
-              <Index>#xf601</Index>
-              <SubIndex>7</SubIndex>
-              <BitLen>1</BitLen>
-              <Name>FSOE__Safe Input_6</Name>
-              <DataType>BIT</DataType>
-              <AdsInfo>
-                <AmsAddress>
-                  <AmsPort>11</AmsPort>
-                </AmsAddress>
-                <IndexGroup>50593856</IndexGroup>
-                <IndexOffset>-1073740922</IndexOffset>
-                <Length>1</Length>
-              </AdsInfo>
-            </Entry>
-            <Entry>
-              <Index>#xf601</Index>
-              <SubIndex>8</SubIndex>
-              <BitLen>1</BitLen>
-              <Name>FSOE__Safe Input_7</Name>
-              <DataType>BIT</DataType>
-              <AdsInfo>
-                <AmsAddress>
-                  <AmsPort>11</AmsPort>
-                </AmsAddress>
-                <IndexGroup>50593856</IndexGroup>
-                <IndexOffset>-1073740921</IndexOffset>
-                <Length>1</Length>
-              </AdsInfo>
-            </Entry>
-            <Entry>
-              <Index>#xf601</Index>
-              <SubIndex>9</SubIndex>
-              <BitLen>1</BitLen>
-              <Name>FSOE__Axis B STO</Name>
-              <DataType>BIT</DataType>
-              <AdsInfo>
-                <AmsAddress>
-                  <AmsPort>11</AmsPort>
-                </AmsAddress>
-                <IndexGroup>50593856</IndexGroup>
-                <IndexOffset>-1073740920</IndexOffset>
-                <Length>1</Length>
-              </AdsInfo>
-            </Entry>
-            <Entry>
-              <Index>#xf601</Index>
-              <SubIndex>10</SubIndex>
-              <BitLen>1</BitLen>
-              <Name>FSOE__Safe Input_9</Name>
-              <DataType>BIT</DataType>
-              <AdsInfo>
-                <AmsAddress>
-                  <AmsPort>11</AmsPort>
-                </AmsAddress>
-                <IndexGroup>50593856</IndexGroup>
-                <IndexOffset>-1073740919</IndexOffset>
-                <Length>1</Length>
-              </AdsInfo>
-            </Entry>
-            <Entry>
-              <Index>#xf601</Index>
-              <SubIndex>11</SubIndex>
-              <BitLen>1</BitLen>
-              <Name>FSOE__Safe Input_10</Name>
-              <DataType>BIT</DataType>
-              <AdsInfo>
-                <AmsAddress>
-                  <AmsPort>11</AmsPort>
-                </AmsAddress>
-                <IndexGroup>50593856</IndexGroup>
-                <IndexOffset>-1073740918</IndexOffset>
-                <Length>1</Length>
-              </AdsInfo>
-            </Entry>
-            <Entry>
-              <Index>#xf601</Index>
-              <SubIndex>12</SubIndex>
-              <BitLen>1</BitLen>
-              <Name>FSOE__Safe Input_11</Name>
-              <DataType>BIT</DataType>
-              <AdsInfo>
-                <AmsAddress>
-                  <AmsPort>11</AmsPort>
-                </AmsAddress>
-                <IndexGroup>50593856</IndexGroup>
-                <IndexOffset>-1073740917</IndexOffset>
-                <Length>1</Length>
-              </AdsInfo>
-            </Entry>
-            <Entry>
-              <Index>#xf601</Index>
-              <SubIndex>13</SubIndex>
-              <BitLen>1</BitLen>
-              <Name>FSOE__Safe Input_12</Name>
-              <DataType>BIT</DataType>
-              <AdsInfo>
-                <AmsAddress>
-                  <AmsPort>11</AmsPort>
-                </AmsAddress>
-                <IndexGroup>50593856</IndexGroup>
-                <IndexOffset>-1073740916</IndexOffset>
-                <Length>1</Length>
-              </AdsInfo>
-            </Entry>
-            <Entry>
-              <Index>#xf601</Index>
-              <SubIndex>14</SubIndex>
-              <BitLen>1</BitLen>
-              <Name>FSOE__Safe Input_13</Name>
-              <DataType>BIT</DataType>
-              <AdsInfo>
-                <AmsAddress>
-                  <AmsPort>11</AmsPort>
-                </AmsAddress>
-                <IndexGroup>50593856</IndexGroup>
-                <IndexOffset>-1073740915</IndexOffset>
-                <Length>1</Length>
-              </AdsInfo>
-            </Entry>
-            <Entry>
-              <Index>#xf601</Index>
-              <SubIndex>15</SubIndex>
-              <BitLen>1</BitLen>
-              <Name>FSOE__Safe Input_14</Name>
-              <DataType>BIT</DataType>
-              <AdsInfo>
-                <AmsAddress>
-                  <AmsPort>11</AmsPort>
-                </AmsAddress>
-                <IndexGroup>50593856</IndexGroup>
-                <IndexOffset>-1073740914</IndexOffset>
-                <Length>1</Length>
-              </AdsInfo>
-            </Entry>
-            <Entry>
-              <Index>#xf601</Index>
-              <SubIndex>16</SubIndex>
-              <BitLen>1</BitLen>
-              <Name>FSOE__Safe Input_15</Name>
-              <DataType>BIT</DataType>
-              <AdsInfo>
-                <AmsAddress>
-                  <AmsPort>11</AmsPort>
-                </AmsAddress>
-                <IndexGroup>50593856</IndexGroup>
-                <IndexOffset>-1073740913</IndexOffset>
-                <Length>1</Length>
-              </AdsInfo>
+              <Index>#x0</Index>
+              <BitLen>7</BitLen>
             </Entry>
             <Entry>
               <Index>#xe600</Index>
-              <SubIndex>3</SubIndex>
+              <SubIndex>4</SubIndex>
               <BitLen>16</BitLen>
-              <Name>FSOE__FSoE Slave CRC_0</Name>
+              <Name>Message_1__FSoE CRC_1</Name>
               <DataType>UINT</DataType>
               <AdsInfo>
                 <AmsAddress>
                   <AmsPort>11</AmsPort>
                 </AmsAddress>
                 <IndexGroup>50593856</IndexGroup>
-                <IndexOffset>-2147483534</IndexOffset>
+                <IndexOffset>-2147483520</IndexOffset>
                 <Length>2</Length>
               </AdsInfo>
             </Entry>
@@ -6186,14 +6085,14 @@
               <Index>#xe600</Index>
               <SubIndex>2</SubIndex>
               <BitLen>16</BitLen>
-              <Name>FSOE__FSoE Slave ConnID</Name>
+              <Name>Message_1__FSoE ConnID</Name>
               <DataType>UINT</DataType>
               <AdsInfo>
                 <AmsAddress>
                   <AmsPort>11</AmsPort>
                 </AmsAddress>
                 <IndexGroup>50593856</IndexGroup>
-                <IndexOffset>-2147483532</IndexOffset>
+                <IndexOffset>-2147483518</IndexOffset>
                 <Length>2</Length>
               </AdsInfo>
             </Entry>
@@ -6280,14 +6179,14 @@
               <Index>#xf606</Index>
               <SubIndex>1</SubIndex>
               <BitLen>1</BitLen>
-              <Name>FSOE__Std Input</Name>
+              <Name>Standard Out Var 5</Name>
               <DataType>BIT</DataType>
               <AdsInfo>
                 <AmsAddress>
                   <AmsPort>11</AmsPort>
                 </AmsAddress>
                 <IndexGroup>50593856</IndexGroup>
-                <IndexOffset>-1073740880</IndexOffset>
+                <IndexOffset>-1073740768</IndexOffset>
                 <Length>1</Length>
               </AdsInfo>
             </Entry>
@@ -6295,14 +6194,14 @@
               <Index>#xf606</Index>
               <SubIndex>2</SubIndex>
               <BitLen>1</BitLen>
-              <Name>FSOE__Std Input</Name>
+              <Name>Standard Out Var 6</Name>
               <DataType>BIT</DataType>
               <AdsInfo>
                 <AmsAddress>
                   <AmsPort>11</AmsPort>
                 </AmsAddress>
                 <IndexGroup>50593856</IndexGroup>
-                <IndexOffset>-1073740879</IndexOffset>
+                <IndexOffset>-1073740767</IndexOffset>
                 <Length>1</Length>
               </AdsInfo>
             </Entry>
@@ -6310,14 +6209,14 @@
               <Index>#xf606</Index>
               <SubIndex>3</SubIndex>
               <BitLen>1</BitLen>
-              <Name>FSOE__Std Input</Name>
+              <Name>Standard Out Var 11</Name>
               <DataType>BIT</DataType>
               <AdsInfo>
                 <AmsAddress>
                   <AmsPort>11</AmsPort>
                 </AmsAddress>
                 <IndexGroup>50593856</IndexGroup>
-                <IndexOffset>-1073740878</IndexOffset>
+                <IndexOffset>-1073740766</IndexOffset>
                 <Length>1</Length>
               </AdsInfo>
             </Entry>
@@ -6325,76 +6224,20 @@
               <Index>#xf606</Index>
               <SubIndex>4</SubIndex>
               <BitLen>1</BitLen>
-              <Name>FSOE__Std Input</Name>
+              <Name>Standard Out Var 12</Name>
               <DataType>BIT</DataType>
               <AdsInfo>
                 <AmsAddress>
                   <AmsPort>11</AmsPort>
                 </AmsAddress>
                 <IndexGroup>50593856</IndexGroup>
-                <IndexOffset>-1073740877</IndexOffset>
+                <IndexOffset>-1073740765</IndexOffset>
                 <Length>1</Length>
               </AdsInfo>
             </Entry>
             <Entry>
-              <Index>#xf606</Index>
-              <SubIndex>5</SubIndex>
-              <BitLen>1</BitLen>
-              <Name>FSOE__Std Input</Name>
-              <DataType>BIT</DataType>
-              <AdsInfo>
-                <AmsAddress>
-                  <AmsPort>11</AmsPort>
-                </AmsAddress>
-                <IndexGroup>50593856</IndexGroup>
-                <IndexOffset>-1073740876</IndexOffset>
-                <Length>1</Length>
-              </AdsInfo>
-            </Entry>
-            <Entry>
-              <Index>#xf606</Index>
-              <SubIndex>6</SubIndex>
-              <BitLen>1</BitLen>
-              <Name>FSOE__Std Input</Name>
-              <DataType>BIT</DataType>
-              <AdsInfo>
-                <AmsAddress>
-                  <AmsPort>11</AmsPort>
-                </AmsAddress>
-                <IndexGroup>50593856</IndexGroup>
-                <IndexOffset>-1073740875</IndexOffset>
-                <Length>1</Length>
-              </AdsInfo>
-            </Entry>
-            <Entry>
-              <Index>#xf606</Index>
-              <SubIndex>7</SubIndex>
-              <BitLen>1</BitLen>
-              <Name>FSOE__Std Input</Name>
-              <DataType>BIT</DataType>
-              <AdsInfo>
-                <AmsAddress>
-                  <AmsPort>11</AmsPort>
-                </AmsAddress>
-                <IndexGroup>50593856</IndexGroup>
-                <IndexOffset>-1073740874</IndexOffset>
-                <Length>1</Length>
-              </AdsInfo>
-            </Entry>
-            <Entry>
-              <Index>#xf606</Index>
-              <SubIndex>8</SubIndex>
-              <BitLen>1</BitLen>
-              <Name>FSOE__Std Input</Name>
-              <DataType>BIT</DataType>
-              <AdsInfo>
-                <AmsAddress>
-                  <AmsPort>11</AmsPort>
-                </AmsAddress>
-                <IndexGroup>50593856</IndexGroup>
-                <IndexOffset>-1073740873</IndexOffset>
-                <Length>1</Length>
-              </AdsInfo>
+              <Index>#x0</Index>
+              <BitLen>4</BitLen>
             </Entry>
           </TxPdo>
           <TxPdo Su="2">
@@ -6427,7 +6270,7 @@
                   <AmsPort>11</AmsPort>
                 </AmsAddress>
                 <IndexGroup>50593856</IndexGroup>
-                <IndexOffset>-2147483529</IndexOffset>
+                <IndexOffset>-2147483515</IndexOffset>
                 <Length>1</Length>
               </AdsInfo>
             </Entry>
@@ -6442,7 +6285,7 @@
                   <AmsPort>11</AmsPort>
                 </AmsAddress>
                 <IndexGroup>50593856</IndexGroup>
-                <IndexOffset>-2147483528</IndexOffset>
+                <IndexOffset>-2147483514</IndexOffset>
                 <Length>1</Length>
               </AdsInfo>
             </Entry>
@@ -6455,14 +6298,14 @@
               <Index>#xe700</Index>
               <SubIndex>1</SubIndex>
               <BitLen>8</BitLen>
-              <Name>FSOE__FSoE Master Cmd</Name>
+              <Name>Message_1__FSoE Cmd</Name>
               <DataType>USINT</DataType>
               <AdsInfo>
                 <AmsAddress>
                   <AmsPort>11</AmsPort>
                 </AmsAddress>
                 <IndexGroup>50593856</IndexGroup>
-                <IndexOffset>-2130706321</IndexOffset>
+                <IndexOffset>-2130706311</IndexOffset>
                 <Length>1</Length>
               </AdsInfo>
             </Entry>
@@ -6470,14 +6313,14 @@
               <Index>#xf701</Index>
               <SubIndex>1</SubIndex>
               <BitLen>1</BitLen>
-              <Name>FSOE__Axis A STO</Name>
+              <Name>Message_1__STO_ChA</Name>
               <DataType>BIT</DataType>
               <AdsInfo>
                 <AmsAddress>
                   <AmsPort>11</AmsPort>
                 </AmsAddress>
                 <IndexGroup>50593856</IndexGroup>
-                <IndexOffset>-1056963712</IndexOffset>
+                <IndexOffset>-1056963632</IndexOffset>
                 <Length>1</Length>
               </AdsInfo>
             </Entry>
@@ -6485,29 +6328,33 @@
               <Index>#xf701</Index>
               <SubIndex>2</SubIndex>
               <BitLen>1</BitLen>
-              <Name>FSOE__Safe Output_1</Name>
+              <Name>Message_1__SS1_ChA</Name>
               <DataType>BIT</DataType>
               <AdsInfo>
                 <AmsAddress>
                   <AmsPort>11</AmsPort>
                 </AmsAddress>
                 <IndexGroup>50593856</IndexGroup>
-                <IndexOffset>-1056963711</IndexOffset>
+                <IndexOffset>-1056963631</IndexOffset>
                 <Length>1</Length>
               </AdsInfo>
+            </Entry>
+            <Entry>
+              <Index>#x0</Index>
+              <BitLen>5</BitLen>
             </Entry>
             <Entry>
               <Index>#xf701</Index>
               <SubIndex>3</SubIndex>
               <BitLen>1</BitLen>
-              <Name>FSOE__Safe Output_2</Name>
+              <Name>Message_1__Error_Ack_ChA</Name>
               <DataType>BIT</DataType>
               <AdsInfo>
                 <AmsAddress>
                   <AmsPort>11</AmsPort>
                 </AmsAddress>
                 <IndexGroup>50593856</IndexGroup>
-                <IndexOffset>-1056963710</IndexOffset>
+                <IndexOffset>-1056963625</IndexOffset>
                 <Length>1</Length>
               </AdsInfo>
             </Entry>
@@ -6515,29 +6362,48 @@
               <Index>#xf701</Index>
               <SubIndex>4</SubIndex>
               <BitLen>1</BitLen>
-              <Name>FSOE__Safe Output_3</Name>
+              <Name>Message_1__SLS_1_ChA</Name>
               <DataType>BIT</DataType>
               <AdsInfo>
                 <AmsAddress>
                   <AmsPort>11</AmsPort>
                 </AmsAddress>
                 <IndexGroup>50593856</IndexGroup>
-                <IndexOffset>-1056963709</IndexOffset>
+                <IndexOffset>-1056963624</IndexOffset>
                 <Length>1</Length>
+              </AdsInfo>
+            </Entry>
+            <Entry>
+              <Index>#x0</Index>
+              <BitLen>7</BitLen>
+            </Entry>
+            <Entry>
+              <Index>#xe700</Index>
+              <SubIndex>3</SubIndex>
+              <BitLen>16</BitLen>
+              <Name>Message_1__FSoE CRC_0</Name>
+              <DataType>UINT</DataType>
+              <AdsInfo>
+                <AmsAddress>
+                  <AmsPort>11</AmsPort>
+                </AmsAddress>
+                <IndexGroup>50593856</IndexGroup>
+                <IndexOffset>-2130706308</IndexOffset>
+                <Length>2</Length>
               </AdsInfo>
             </Entry>
             <Entry>
               <Index>#xf701</Index>
               <SubIndex>5</SubIndex>
               <BitLen>1</BitLen>
-              <Name>FSOE__Safe Output_4</Name>
+              <Name>Message_1__STO_ChB</Name>
               <DataType>BIT</DataType>
               <AdsInfo>
                 <AmsAddress>
                   <AmsPort>11</AmsPort>
                 </AmsAddress>
                 <IndexGroup>50593856</IndexGroup>
-                <IndexOffset>-1056963708</IndexOffset>
+                <IndexOffset>-1056963600</IndexOffset>
                 <Length>1</Length>
               </AdsInfo>
             </Entry>
@@ -6545,29 +6411,33 @@
               <Index>#xf701</Index>
               <SubIndex>6</SubIndex>
               <BitLen>1</BitLen>
-              <Name>FSOE__Safe Output_5</Name>
+              <Name>Message_1__SS1_ChB</Name>
               <DataType>BIT</DataType>
               <AdsInfo>
                 <AmsAddress>
                   <AmsPort>11</AmsPort>
                 </AmsAddress>
                 <IndexGroup>50593856</IndexGroup>
-                <IndexOffset>-1056963707</IndexOffset>
+                <IndexOffset>-1056963599</IndexOffset>
                 <Length>1</Length>
               </AdsInfo>
+            </Entry>
+            <Entry>
+              <Index>#x0</Index>
+              <BitLen>5</BitLen>
             </Entry>
             <Entry>
               <Index>#xf701</Index>
               <SubIndex>7</SubIndex>
               <BitLen>1</BitLen>
-              <Name>FSOE__Safe Output_6</Name>
+              <Name>Message_1__Error_Ack_ChB</Name>
               <DataType>BIT</DataType>
               <AdsInfo>
                 <AmsAddress>
                   <AmsPort>11</AmsPort>
                 </AmsAddress>
                 <IndexGroup>50593856</IndexGroup>
-                <IndexOffset>-1056963706</IndexOffset>
+                <IndexOffset>-1056963593</IndexOffset>
                 <Length>1</Length>
               </AdsInfo>
             </Entry>
@@ -6575,149 +6445,33 @@
               <Index>#xf701</Index>
               <SubIndex>8</SubIndex>
               <BitLen>1</BitLen>
-              <Name>FSOE__Safe Output_7</Name>
+              <Name>Message_1__SLS_1_ChB</Name>
               <DataType>BIT</DataType>
               <AdsInfo>
                 <AmsAddress>
                   <AmsPort>11</AmsPort>
                 </AmsAddress>
                 <IndexGroup>50593856</IndexGroup>
-                <IndexOffset>-1056963705</IndexOffset>
+                <IndexOffset>-1056963592</IndexOffset>
                 <Length>1</Length>
               </AdsInfo>
             </Entry>
             <Entry>
-              <Index>#xf701</Index>
-              <SubIndex>9</SubIndex>
-              <BitLen>1</BitLen>
-              <Name>FSOE__Axis B STO</Name>
-              <DataType>BIT</DataType>
-              <AdsInfo>
-                <AmsAddress>
-                  <AmsPort>11</AmsPort>
-                </AmsAddress>
-                <IndexGroup>50593856</IndexGroup>
-                <IndexOffset>-1056963704</IndexOffset>
-                <Length>1</Length>
-              </AdsInfo>
-            </Entry>
-            <Entry>
-              <Index>#xf701</Index>
-              <SubIndex>10</SubIndex>
-              <BitLen>1</BitLen>
-              <Name>FSOE__Safe Output_9</Name>
-              <DataType>BIT</DataType>
-              <AdsInfo>
-                <AmsAddress>
-                  <AmsPort>11</AmsPort>
-                </AmsAddress>
-                <IndexGroup>50593856</IndexGroup>
-                <IndexOffset>-1056963703</IndexOffset>
-                <Length>1</Length>
-              </AdsInfo>
-            </Entry>
-            <Entry>
-              <Index>#xf701</Index>
-              <SubIndex>11</SubIndex>
-              <BitLen>1</BitLen>
-              <Name>FSOE__Safe Output_10</Name>
-              <DataType>BIT</DataType>
-              <AdsInfo>
-                <AmsAddress>
-                  <AmsPort>11</AmsPort>
-                </AmsAddress>
-                <IndexGroup>50593856</IndexGroup>
-                <IndexOffset>-1056963702</IndexOffset>
-                <Length>1</Length>
-              </AdsInfo>
-            </Entry>
-            <Entry>
-              <Index>#xf701</Index>
-              <SubIndex>12</SubIndex>
-              <BitLen>1</BitLen>
-              <Name>FSOE__Safe Output_11</Name>
-              <DataType>BIT</DataType>
-              <AdsInfo>
-                <AmsAddress>
-                  <AmsPort>11</AmsPort>
-                </AmsAddress>
-                <IndexGroup>50593856</IndexGroup>
-                <IndexOffset>-1056963701</IndexOffset>
-                <Length>1</Length>
-              </AdsInfo>
-            </Entry>
-            <Entry>
-              <Index>#xf701</Index>
-              <SubIndex>13</SubIndex>
-              <BitLen>1</BitLen>
-              <Name>FSOE__Safe Output_12</Name>
-              <DataType>BIT</DataType>
-              <AdsInfo>
-                <AmsAddress>
-                  <AmsPort>11</AmsPort>
-                </AmsAddress>
-                <IndexGroup>50593856</IndexGroup>
-                <IndexOffset>-1056963700</IndexOffset>
-                <Length>1</Length>
-              </AdsInfo>
-            </Entry>
-            <Entry>
-              <Index>#xf701</Index>
-              <SubIndex>14</SubIndex>
-              <BitLen>1</BitLen>
-              <Name>FSOE__Safe Output_13</Name>
-              <DataType>BIT</DataType>
-              <AdsInfo>
-                <AmsAddress>
-                  <AmsPort>11</AmsPort>
-                </AmsAddress>
-                <IndexGroup>50593856</IndexGroup>
-                <IndexOffset>-1056963699</IndexOffset>
-                <Length>1</Length>
-              </AdsInfo>
-            </Entry>
-            <Entry>
-              <Index>#xf701</Index>
-              <SubIndex>15</SubIndex>
-              <BitLen>1</BitLen>
-              <Name>FSOE__Safe Output_14</Name>
-              <DataType>BIT</DataType>
-              <AdsInfo>
-                <AmsAddress>
-                  <AmsPort>11</AmsPort>
-                </AmsAddress>
-                <IndexGroup>50593856</IndexGroup>
-                <IndexOffset>-1056963698</IndexOffset>
-                <Length>1</Length>
-              </AdsInfo>
-            </Entry>
-            <Entry>
-              <Index>#xf701</Index>
-              <SubIndex>16</SubIndex>
-              <BitLen>1</BitLen>
-              <Name>FSOE__Safe Output_15</Name>
-              <DataType>BIT</DataType>
-              <AdsInfo>
-                <AmsAddress>
-                  <AmsPort>11</AmsPort>
-                </AmsAddress>
-                <IndexGroup>50593856</IndexGroup>
-                <IndexOffset>-1056963697</IndexOffset>
-                <Length>1</Length>
-              </AdsInfo>
+              <Index>#x0</Index>
+              <BitLen>7</BitLen>
             </Entry>
             <Entry>
               <Index>#xe700</Index>
-              <SubIndex>3</SubIndex>
+              <SubIndex>4</SubIndex>
               <BitLen>16</BitLen>
-              <Name>FSOE__FSoE Master CRC_0</Name>
+              <Name>Message_1__FSoE CRC_1</Name>
               <DataType>UINT</DataType>
               <AdsInfo>
                 <AmsAddress>
                   <AmsPort>11</AmsPort>
                 </AmsAddress>
                 <IndexGroup>50593856</IndexGroup>
-                <IndexOffset>-2130706318</IndexOffset>
+                <IndexOffset>-2130706304</IndexOffset>
                 <Length>2</Length>
               </AdsInfo>
             </Entry>
@@ -6725,14 +6479,14 @@
               <Index>#xe700</Index>
               <SubIndex>2</SubIndex>
               <BitLen>16</BitLen>
-              <Name>FSOE__FSoE Master ConnID</Name>
+              <Name>Message_1__FSoE ConnID</Name>
               <DataType>UINT</DataType>
               <AdsInfo>
                 <AmsAddress>
                   <AmsPort>11</AmsPort>
                 </AmsAddress>
                 <IndexGroup>50593856</IndexGroup>
-                <IndexOffset>-2130706316</IndexOffset>
+                <IndexOffset>-2130706302</IndexOffset>
                 <Length>2</Length>
               </AdsInfo>
             </Entry>
@@ -6819,14 +6573,14 @@
               <Index>#xf706</Index>
               <SubIndex>1</SubIndex>
               <BitLen>1</BitLen>
-              <Name>FSOE__Std Output</Name>
+              <Name>Standard In Var 2</Name>
               <DataType>BIT</DataType>
               <AdsInfo>
                 <AmsAddress>
                   <AmsPort>11</AmsPort>
                 </AmsAddress>
                 <IndexGroup>50593856</IndexGroup>
-                <IndexOffset>-1056963664</IndexOffset>
+                <IndexOffset>-1056963552</IndexOffset>
                 <Length>1</Length>
               </AdsInfo>
             </Entry>
@@ -6834,14 +6588,14 @@
               <Index>#xf706</Index>
               <SubIndex>2</SubIndex>
               <BitLen>1</BitLen>
-              <Name>FSOE__Std Output</Name>
+              <Name>Standard In Var 3</Name>
               <DataType>BIT</DataType>
               <AdsInfo>
                 <AmsAddress>
                   <AmsPort>11</AmsPort>
                 </AmsAddress>
                 <IndexGroup>50593856</IndexGroup>
-                <IndexOffset>-1056963663</IndexOffset>
+                <IndexOffset>-1056963551</IndexOffset>
                 <Length>1</Length>
               </AdsInfo>
             </Entry>
@@ -6849,14 +6603,14 @@
               <Index>#xf706</Index>
               <SubIndex>3</SubIndex>
               <BitLen>1</BitLen>
-              <Name>FSOE__Std Output</Name>
+              <Name>Standard In Var 7</Name>
               <DataType>BIT</DataType>
               <AdsInfo>
                 <AmsAddress>
                   <AmsPort>11</AmsPort>
                 </AmsAddress>
                 <IndexGroup>50593856</IndexGroup>
-                <IndexOffset>-1056963662</IndexOffset>
+                <IndexOffset>-1056963550</IndexOffset>
                 <Length>1</Length>
               </AdsInfo>
             </Entry>
@@ -6864,76 +6618,20 @@
               <Index>#xf706</Index>
               <SubIndex>4</SubIndex>
               <BitLen>1</BitLen>
-              <Name>FSOE__Std Output</Name>
+              <Name>Standard In Var 8</Name>
               <DataType>BIT</DataType>
               <AdsInfo>
                 <AmsAddress>
                   <AmsPort>11</AmsPort>
                 </AmsAddress>
                 <IndexGroup>50593856</IndexGroup>
-                <IndexOffset>-1056963661</IndexOffset>
+                <IndexOffset>-1056963549</IndexOffset>
                 <Length>1</Length>
               </AdsInfo>
             </Entry>
             <Entry>
-              <Index>#xf706</Index>
-              <SubIndex>5</SubIndex>
-              <BitLen>1</BitLen>
-              <Name>FSOE__Std Output</Name>
-              <DataType>BIT</DataType>
-              <AdsInfo>
-                <AmsAddress>
-                  <AmsPort>11</AmsPort>
-                </AmsAddress>
-                <IndexGroup>50593856</IndexGroup>
-                <IndexOffset>-1056963660</IndexOffset>
-                <Length>1</Length>
-              </AdsInfo>
-            </Entry>
-            <Entry>
-              <Index>#xf706</Index>
-              <SubIndex>6</SubIndex>
-              <BitLen>1</BitLen>
-              <Name>FSOE__Std Output</Name>
-              <DataType>BIT</DataType>
-              <AdsInfo>
-                <AmsAddress>
-                  <AmsPort>11</AmsPort>
-                </AmsAddress>
-                <IndexGroup>50593856</IndexGroup>
-                <IndexOffset>-1056963659</IndexOffset>
-                <Length>1</Length>
-              </AdsInfo>
-            </Entry>
-            <Entry>
-              <Index>#xf706</Index>
-              <SubIndex>7</SubIndex>
-              <BitLen>1</BitLen>
-              <Name>FSOE__Std Output</Name>
-              <DataType>BIT</DataType>
-              <AdsInfo>
-                <AmsAddress>
-                  <AmsPort>11</AmsPort>
-                </AmsAddress>
-                <IndexGroup>50593856</IndexGroup>
-                <IndexOffset>-1056963658</IndexOffset>
-                <Length>1</Length>
-              </AdsInfo>
-            </Entry>
-            <Entry>
-              <Index>#xf706</Index>
-              <SubIndex>8</SubIndex>
-              <BitLen>1</BitLen>
-              <Name>FSOE__Std Output</Name>
-              <DataType>BIT</DataType>
-              <AdsInfo>
-                <AmsAddress>
-                  <AmsPort>11</AmsPort>
-                </AmsAddress>
-                <IndexGroup>50593856</IndexGroup>
-                <IndexOffset>-1056963657</IndexOffset>
-                <Length>1</Length>
-              </AdsInfo>
+              <Index>#x0</Index>
+              <BitLen>4</BitLen>
             </Entry>
           </RxPdo>
           <RxPdo Fixed="true" Mandatory="true" Sm="6" Su="2">

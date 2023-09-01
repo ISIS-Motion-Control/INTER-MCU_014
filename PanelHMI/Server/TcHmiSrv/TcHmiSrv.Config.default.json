@@ -2818,6 +2818,26 @@
             },
             "USEMAPPING": true
         },
+        "PLC1.GVL_INTER.LOGIC_STATE_ERROR_STR": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::GVL_INTER::LOGIC_STATE_ERROR_STR",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/STRING%2880%29"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.GVL_INTER.LOGIC_STATE_STR": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::GVL_INTER::LOGIC_STATE_STR",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/STRING%2880%29"
+            },
+            "USEMAPPING": true
+        },
         "PLC1.GVL_INTER.NC_AXIS_ERROR": {
             "ACCESS": 3,
             "DOMAIN": "ADS",
@@ -3900,6 +3920,8 @@
                 "PLC1.GVL_INTER.LOGIC_ERROR": 3,
                 "PLC1.GVL_INTER.LOGIC_STATE": 3,
                 "PLC1.GVL_INTER.LOGIC_STATE_ERROR": 3,
+                "PLC1.GVL_INTER.LOGIC_STATE_ERROR_STR": 3,
+                "PLC1.GVL_INTER.LOGIC_STATE_STR": 3,
                 "PLC1.GVL_INTER.NC_AXIS_ERROR": 3,
                 "PLC1.GVL_INTER.OPERATIONAL": 3,
                 "PLC1.GVL_INTER.REAL_AXES_NOT_MOVING": 3,
