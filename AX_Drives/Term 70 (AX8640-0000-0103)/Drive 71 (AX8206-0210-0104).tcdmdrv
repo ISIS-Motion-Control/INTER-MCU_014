@@ -492,7 +492,7 @@
                     <Ccs>1</Ccs>
                     <Index>12608</Index>
                     <SubIndex>1</SubIndex>
-                    <Data>6832A93E</Data>
+                    <Data>64322C3F</Data>
                   </InitCmd>
                   <InitCmd>
                     <Transition>PS</Transition>
@@ -803,7 +803,7 @@
               </Parameter>
               <Parameter>
                 <PropertyName>LoadInertiaMassReflectedOnGearbox</PropertyName>
-                <Value>0</Value>
+                <Value>0.001</Value>
               </Parameter>
               <Parameter>
                 <PropertyName>MaxMoveDistance</PropertyName>
@@ -811,7 +811,7 @@
               </Parameter>
               <Parameter>
                 <PropertyName>LoadInertiaMass</PropertyName>
-                <Value>0.00142</Value>
+                <Value>0.0073</Value>
               </Parameter>
               <Parameter>
                 <PropertyName>MaxApplicationTorqueForce</PropertyName>
@@ -822,7 +822,31 @@
                 <Value>261.79939</Value>
               </Parameter>
             </Load>
-            <Controller />
+            <Controller>
+              <Filter Id="0">
+                <Name>ControllerFilter</Name>
+                <Parameter>
+                  <PropertyName>Filter_Type</PropertyName>
+                  <Value>1</Value>
+                </Parameter>
+                <Parameter>
+                  <PropertyName>Filter_LowPassFrequency</PropertyName>
+                  <Value>400</Value>
+                </Parameter>
+                <Parameter>
+                  <PropertyName>Filter_LowPassDamping</PropertyName>
+                  <Value>0</Value>
+                </Parameter>
+                <Parameter>
+                  <PropertyName>Filter_HighPassFrequency</PropertyName>
+                  <Value>0</Value>
+                </Parameter>
+                <Parameter>
+                  <PropertyName>Filter_HighPassDamping</PropertyName>
+                  <Value>0</Value>
+                </Parameter>
+              </Filter>
+            </Controller>
           </Block>
           <WatchLog ChnId="0" UpdateIntervalInMs="500">
             <WatchLogItem>
@@ -1690,7 +1714,7 @@
         </Send>
         <Recv>
           <BitStart>976</BitStart>
-          <BitLength>272</BitLength>
+          <BitLength>304</BitLength>
         </Recv>
         <Recv>
           <BitStart>13256</BitStart>
@@ -2168,7 +2192,7 @@
               <Ccs>1</Ccs>
               <Index>6688</Index>
               <SubIndex>0</SubIndex>
-              <Data>07000100000001023e6001033e600500000010004160200064602001e460</Data>
+              <Data>08000100000001023e6001033e600500000010004160200064602001e46020006c60</Data>
             </InitCmd>
             <InitCmd Fixed="true" CompleteAccess="true">
               <Transition>PS</Transition>
@@ -2302,6 +2326,24 @@
               <Timeout>0</Timeout>
               <Ccs>1</Ccs>
               <Index>5898</Index>
+              <SubIndex>0</SubIndex>
+              <Data>0000</Data>
+            </InitCmd>
+            <InitCmd Fixed="true" CompleteAccess="true">
+              <Transition>PS</Transition>
+              <Comment><![CDATA[download pdo 0x1A2B entries]]></Comment>
+              <Timeout>0</Timeout>
+              <Ccs>1</Ccs>
+              <Index>6699</Index>
+              <SubIndex>0</SubIndex>
+              <Data>0000</Data>
+            </InitCmd>
+            <InitCmd Fixed="true" CompleteAccess="true">
+              <Transition>PS</Transition>
+              <Comment><![CDATA[download pdo 0x1B0B entries]]></Comment>
+              <Timeout>0</Timeout>
+              <Ccs>1</Ccs>
+              <Index>6923</Index>
               <SubIndex>0</SubIndex>
               <Data>0000</Data>
             </InitCmd>
@@ -2690,7 +2732,7 @@
               <Ccs>1</Ccs>
               <Index>61488</Index>
               <SubIndex>0</SubIndex>
-              <Data>5f006400680000000000000000000000000000000000000000000000000000000000000000000000000071006800000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000e80368000000000000000000b80b6800000000000000000070176800000000000000000000000000102768000000000000000000000000000000000000000000000000000000000050466800000000000000000000000000f0556800d9596800df59680000000000000000000000000000000000000000000000000000000000e80368000000000000000000b80b6800000000000000000070176800000000000000000000000000102768000000000000000000000000000000000000000000000000000000000050466800000000000000000000000000f0556800d9596800e0596800000000000000000000000000000000000000000000000000</Data>
+              <Data>5f006400680000000000000000000000000000000000000000000000000000000000000000000000000071006800000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000e80368000000000000000000b80b680000000000000000007017680000000000000000000000000010276800f82a680000000000000000000000000000000000000000000000000050466800000000000000000000000000f0556800d9596800df59680000000000000000000000000000000000000000000000000000000000e80368000000000000000000b80b6800000000000000000070176800000000000000000000000000102768000000000000000000000000000000000000000000000000000000000050466800000000000000000000000000f0556800d9596800e0596800000000000000000000000000000000000000000000000000</Data>
             </InitCmd>
             <InitCmd>
               <Transition>PS</Transition>
@@ -3464,7 +3506,7 @@
               <Ccs>1</Ccs>
               <Index>12864</Index>
               <SubIndex>1</SubIndex>
-              <Data>00001643</Data>
+              <Data>0501aa42</Data>
             </InitCmd>
             <InitCmd>
               <Transition>PS</Transition>
@@ -3473,7 +3515,7 @@
               <Ccs>1</Ccs>
               <Index>12864</Index>
               <SubIndex>2</SubIndex>
-              <Data>8a0e7c39</Data>
+              <Data>f8321339</Data>
             </InitCmd>
             <InitCmd>
               <Transition>PS</Transition>
@@ -3482,7 +3524,7 @@
               <Ccs>1</Ccs>
               <Index>12608</Index>
               <SubIndex>1</SubIndex>
-              <Data>3d0ad73e</Data>
+              <Data>0000c040</Data>
             </InitCmd>
             <InitCmd>
               <Transition>PS</Transition>
@@ -3491,7 +3533,7 @@
               <Ccs>1</Ccs>
               <Index>12608</Index>
               <SubIndex>2</SubIndex>
-              <Data>a69b443b</Data>
+              <Data>0000803f</Data>
             </InitCmd>
             <InitCmd>
               <Transition>PS</Transition>
@@ -3545,7 +3587,7 @@
               <Ccs>1</Ccs>
               <Index>12301</Index>
               <SubIndex>3</SubIndex>
-              <Data>00</Data>
+              <Data>01</Data>
             </InitCmd>
             <InitCmd>
               <Transition>PS</Transition>
@@ -3554,7 +3596,7 @@
               <Ccs>1</Ccs>
               <Index>12608</Index>
               <SubIndex>7</SubIndex>
-              <Data>87c1ba3a</Data>
+              <Data>d734ef3b</Data>
             </InitCmd>
             <InitCmd>
               <Transition>PS</Transition>
@@ -3563,7 +3605,7 @@
               <Ccs>1</Ccs>
               <Index>12480</Index>
               <SubIndex>1</SubIndex>
-              <Data>0000803f</Data>
+              <Data>00008040</Data>
             </InitCmd>
             <InitCmd>
               <Transition>PS</Transition>
@@ -4714,7 +4756,7 @@
               <Ccs>1</Ccs>
               <Index>12386</Index>
               <SubIndex>3</SubIndex>
-              <Data>00000000</Data>
+              <Data>0000c03f</Data>
             </InitCmd>
             <InitCmd>
               <Transition>PS</Transition>
@@ -4732,7 +4774,7 @@
               <Ccs>1</Ccs>
               <Index>12386</Index>
               <SubIndex>1</SubIndex>
-              <Data>0000803f</Data>
+              <Data>cdcccc3e</Data>
             </InitCmd>
             <InitCmd>
               <Transition>PS</Transition>
@@ -4813,7 +4855,7 @@
               <Ccs>1</Ccs>
               <Index>12301</Index>
               <SubIndex>1</SubIndex>
-              <Data>00</Data>
+              <Data>01</Data>
             </InitCmd>
             <InitCmd>
               <Transition>PS</Transition>
@@ -4894,7 +4936,7 @@
               <Ccs>1</Ccs>
               <Index>12611</Index>
               <SubIndex>4</SubIndex>
-              <Data>0400</Data>
+              <Data>0500</Data>
             </InitCmd>
             <InitCmd>
               <Transition>PS</Transition>
@@ -4961,15 +5003,6 @@
             </InitCmd>
             <InitCmd>
               <Transition>PS</Transition>
-              <Comment><![CDATA[Ch B AxisMain parameters position offset / Offset additional position actual value source]]></Comment>
-              <Timeout>0</Timeout>
-              <Ccs>1</Ccs>
-              <Index>13319</Index>
-              <SubIndex>4</SubIndex>
-              <Data>0200</Data>
-            </InitCmd>
-            <InitCmd>
-              <Transition>PS</Transition>
               <Comment><![CDATA[Ch A AxisMain parameters / Motor brake usage]]></Comment>
               <Timeout>0</Timeout>
               <Ccs>1</Ccs>
@@ -4985,6 +5018,150 @@
               <Index>13312</Index>
               <SubIndex>2</SubIndex>
               <Data>0100</Data>
+            </InitCmd>
+            <InitCmd>
+              <Transition>PS</Transition>
+              <Comment><![CDATA[Ch B AxisMain parameters position offset / Offset additional position actual value source]]></Comment>
+              <Timeout>0</Timeout>
+              <Ccs>1</Ccs>
+              <Index>13319</Index>
+              <SubIndex>4</SubIndex>
+              <Data>0200</Data>
+            </InitCmd>
+            <InitCmd>
+              <Transition>PS</Transition>
+              <Comment><![CDATA[Ch A VeloCtrl observer / Correction factor torque to acceleration]]></Comment>
+              <Timeout>0</Timeout>
+              <Ccs>1</Ccs>
+              <Index>12611</Index>
+              <SubIndex>3</SubIndex>
+              <Data>0000803f</Data>
+            </InitCmd>
+            <InitCmd>
+              <Transition>PS</Transition>
+              <Comment><![CDATA[Ch A VeloCtrl observer / Bandwidth]]></Comment>
+              <Timeout>0</Timeout>
+              <Ccs>1</Ccs>
+              <Index>12611</Index>
+              <SubIndex>2</SubIndex>
+              <Data>0000fa43</Data>
+            </InitCmd>
+            <InitCmd>
+              <Transition>PS</Transition>
+              <Comment><![CDATA[Ch A VeloCtrl observer / Damping]]></Comment>
+              <Timeout>0</Timeout>
+              <Ccs>1</Ccs>
+              <Index>12611</Index>
+              <SubIndex>1</SubIndex>
+              <Data>f4fd343f</Data>
+            </InitCmd>
+            <InitCmd>
+              <Transition>PS</Transition>
+              <Comment><![CDATA[Ch A Max acceleration]]></Comment>
+              <Timeout>0</Timeout>
+              <Ccs>1</Ccs>
+              <Index>24773</Index>
+              <SubIndex>0</SubIndex>
+              <Data>d86aca88</Data>
+            </InitCmd>
+            <InitCmd>
+              <Transition>PS</Transition>
+              <Comment><![CDATA[Ch A Max deceleration]]></Comment>
+              <Timeout>0</Timeout>
+              <Ccs>1</Ccs>
+              <Index>24774</Index>
+              <SubIndex>0</SubIndex>
+              <Data>d86aca88</Data>
+            </InitCmd>
+            <InitCmd>
+              <Transition>PS</Transition>
+              <Comment><![CDATA[Ch A BiquadFilter1 BiquadFilter parameters / Filter type]]></Comment>
+              <Timeout>0</Timeout>
+              <Ccs>1</Ccs>
+              <Index>12643</Index>
+              <SubIndex>5</SubIndex>
+              <Data>0100</Data>
+            </InitCmd>
+            <InitCmd>
+              <Transition>PS</Transition>
+              <Comment><![CDATA[Ch A BiquadFilter1 BiquadFilter parameters / Low pass frequency]]></Comment>
+              <Timeout>0</Timeout>
+              <Ccs>1</Ccs>
+              <Index>12643</Index>
+              <SubIndex>1</SubIndex>
+              <Data>0000c843</Data>
+            </InitCmd>
+            <InitCmd>
+              <Transition>PS</Transition>
+              <Comment><![CDATA[Ch A BiquadFilter1 BiquadFilter parameters / Low pass damping]]></Comment>
+              <Timeout>0</Timeout>
+              <Ccs>1</Ccs>
+              <Index>12643</Index>
+              <SubIndex>2</SubIndex>
+              <Data>00000000</Data>
+            </InitCmd>
+            <InitCmd>
+              <Transition>PS</Transition>
+              <Comment><![CDATA[Ch A BiquadFilter1 BiquadFilter parameters / High pass frequency]]></Comment>
+              <Timeout>0</Timeout>
+              <Ccs>1</Ccs>
+              <Index>12643</Index>
+              <SubIndex>3</SubIndex>
+              <Data>00000000</Data>
+            </InitCmd>
+            <InitCmd>
+              <Transition>PS</Transition>
+              <Comment><![CDATA[Ch A BiquadFilter1 BiquadFilter parameters / High pass damping]]></Comment>
+              <Timeout>0</Timeout>
+              <Ccs>1</Ccs>
+              <Index>12643</Index>
+              <SubIndex>4</SubIndex>
+              <Data>00000000</Data>
+            </InitCmd>
+            <InitCmd>
+              <Transition>PS</Transition>
+              <Comment><![CDATA[Ch A BiquadFilter2 BiquadFilter parameters / Filter type]]></Comment>
+              <Timeout>0</Timeout>
+              <Ccs>1</Ccs>
+              <Index>12675</Index>
+              <SubIndex>5</SubIndex>
+              <Data>0200</Data>
+            </InitCmd>
+            <InitCmd>
+              <Transition>PS</Transition>
+              <Comment><![CDATA[Ch A BiquadFilter2 BiquadFilter parameters / High pass frequency]]></Comment>
+              <Timeout>0</Timeout>
+              <Ccs>1</Ccs>
+              <Index>12675</Index>
+              <SubIndex>3</SubIndex>
+              <Data>0000fa44</Data>
+            </InitCmd>
+            <InitCmd>
+              <Transition>PS</Transition>
+              <Comment><![CDATA[Ch A BiquadFilter2 BiquadFilter parameters / Low pass frequency]]></Comment>
+              <Timeout>0</Timeout>
+              <Ccs>1</Ccs>
+              <Index>12675</Index>
+              <SubIndex>1</SubIndex>
+              <Data>00007a44</Data>
+            </InitCmd>
+            <InitCmd>
+              <Transition>PS</Transition>
+              <Comment><![CDATA[Ch A BiquadFilter2 BiquadFilter parameters / Low pass damping]]></Comment>
+              <Timeout>0</Timeout>
+              <Ccs>1</Ccs>
+              <Index>12675</Index>
+              <SubIndex>2</SubIndex>
+              <Data>00000000</Data>
+            </InitCmd>
+            <InitCmd>
+              <Transition>PS</Transition>
+              <Comment><![CDATA[Ch A BiquadFilter2 BiquadFilter parameters / High pass damping]]></Comment>
+              <Timeout>0</Timeout>
+              <Ccs>1</Ccs>
+              <Index>12675</Index>
+              <SubIndex>4</SubIndex>
+              <Data>00000000</Data>
             </InitCmd>
             <InitCmd>
               <Transition>PS</Transition>
@@ -5391,7 +5568,7 @@
           <Cmd>5</Cmd>
           <Adp>1034</Adp>
           <Ado>2072</Ado>
-          <Data>002a220020000100</Data>
+          <Data>002a260020000100</Data>
           <Cnt>1</Cnt>
           <Retries>3</Retries>
         </InitCmd>
@@ -5431,7 +5608,7 @@
           <Cmd>5</Cmd>
           <Adp>1034</Adp>
           <Ado>1552</Ado>
-          <Data>2000000122000007002a000101000000</Data>
+          <Data>2000000126000007002a000101000000</Data>
           <Cnt>1</Cnt>
           <Retries>3</Retries>
         </InitCmd>
@@ -6921,6 +7098,21 @@
                 <Length>4</Length>
               </AdsInfo>
             </Entry>
+            <Entry>
+              <Index DependOnSlotGroup="true">#x606c</Index>
+              <SubIndex>0</SubIndex>
+              <BitLen>32</BitLen>
+              <Name>Ch A Velocity actual value</Name>
+              <DataType>DINT</DataType>
+              <AdsInfo>
+                <AmsAddress>
+                  <AmsPort>11</AmsPort>
+                </AmsAddress>
+                <IndexGroup>50593824</IndexGroup>
+                <IndexOffset>-2147483515</IndexOffset>
+                <Length>4</Length>
+              </AdsInfo>
+            </Entry>
           </TxPdo>
           <TxPdo Su="1">
             <Index DependOnSlot="true">#x1b00</Index>
@@ -7070,7 +7262,7 @@
                   <AmsPort>11</AmsPort>
                 </AmsAddress>
                 <IndexGroup>50593824</IndexGroup>
-                <IndexOffset>-2147483515</IndexOffset>
+                <IndexOffset>-2147483511</IndexOffset>
                 <Length>4</Length>
               </AdsInfo>
             </Entry>
@@ -7141,6 +7333,18 @@
       <Slot SlotGroup="1" MinInstances="0" MaxInstances="1" SlotPdoIncrement="1" SlotGroupPdoIncrement="0" SlotIndexIncrement="32" SlotGroupIndexIncrement="2048" MdpChannel="0" FallbackSet="0">
         <Name>BiquadFilter1</Name>
         <ModuleIdent>#x682af8</ModuleIdent>
+        <Module>
+          <Name>Ch A</Name>
+          <ModuleIdent>6826744</ModuleIdent>
+          <TxPdo>
+            <Index DependOnSlot="true">#x1a2b</Index>
+            <Name>Ch A [SL] BiquadFilter Inputs</Name>
+          </TxPdo>
+          <TxPdo Su="1">
+            <Index DependOnSlot="true">#x1b0b</Index>
+            <Name>Ch A [SL] BiquadFilter Dynamic Inputs</Name>
+          </TxPdo>
+        </Module>
       </Slot>
       <Slot SlotGroup="1" MinInstances="0" MaxInstances="1" SlotPdoIncrement="1" SlotGroupPdoIncrement="0" SlotIndexIncrement="32" SlotGroupIndexIncrement="2048" MdpChannel="0" FallbackSet="0">
         <Name>BiquadFilter2</Name>
@@ -7198,7 +7402,7 @@
                   <AmsPort>11</AmsPort>
                 </AmsAddress>
                 <IndexGroup>50593824</IndexGroup>
-                <IndexOffset>-2147483511</IndexOffset>
+                <IndexOffset>-2147483507</IndexOffset>
                 <Length>2</Length>
               </AdsInfo>
             </Entry>
@@ -7376,7 +7580,7 @@
                   <AmsPort>11</AmsPort>
                 </AmsAddress>
                 <IndexGroup>50593824</IndexGroup>
-                <IndexOffset>-1073740711</IndexOffset>
+                <IndexOffset>-1073740679</IndexOffset>
                 <Length>1</Length>
               </AdsInfo>
             </Entry>
@@ -7392,7 +7596,7 @@
                   <AmsPort>11</AmsPort>
                 </AmsAddress>
                 <IndexGroup>50593824</IndexGroup>
-                <IndexOffset>-1073740710</IndexOffset>
+                <IndexOffset>-1073740678</IndexOffset>
                 <Length>1</Length>
               </AdsInfo>
             </Entry>
@@ -7428,7 +7632,7 @@
                   <AmsPort>11</AmsPort>
                 </AmsAddress>
                 <IndexGroup>50593824</IndexGroup>
-                <IndexOffset>-2147483508</IndexOffset>
+                <IndexOffset>-2147483504</IndexOffset>
                 <Length>2</Length>
               </AdsInfo>
             </Entry>
@@ -7444,7 +7648,7 @@
                   <AmsPort>11</AmsPort>
                 </AmsAddress>
                 <IndexGroup>50593824</IndexGroup>
-                <IndexOffset>-2147483506</IndexOffset>
+                <IndexOffset>-2147483502</IndexOffset>
                 <Length>4</Length>
               </AdsInfo>
             </Entry>
@@ -7459,7 +7663,7 @@
                   <AmsPort>11</AmsPort>
                 </AmsAddress>
                 <IndexGroup>50593824</IndexGroup>
-                <IndexOffset>-2147483502</IndexOffset>
+                <IndexOffset>-2147483498</IndexOffset>
                 <Length>4</Length>
               </AdsInfo>
             </Entry>
@@ -7612,7 +7816,7 @@
                   <AmsPort>11</AmsPort>
                 </AmsAddress>
                 <IndexGroup>50593824</IndexGroup>
-                <IndexOffset>-2147483498</IndexOffset>
+                <IndexOffset>-2147483494</IndexOffset>
                 <Length>4</Length>
               </AdsInfo>
             </Entry>
@@ -7740,7 +7944,7 @@
                   <AmsPort>11</AmsPort>
                 </AmsAddress>
                 <IndexGroup>50593824</IndexGroup>
-                <IndexOffset>-2147483494</IndexOffset>
+                <IndexOffset>-2147483490</IndexOffset>
                 <Length>2</Length>
               </AdsInfo>
             </Entry>

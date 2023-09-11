@@ -1410,12 +1410,12 @@ External Setpoint Generation:
 		<Name>__FILENAME__</Name>
 		<AxisPara>
 			<General UnitName="°"/>
-			<Dynamic Acceleration="240" Deceleration="240" Jerk="600"/>
-			<Velo RefSearch="0.55543" RefSync="0.55543" SlowManual="0.25" FastManual="0.5" Fast="55.543" Maximum="55.543"/>
+			<Dynamic Acceleration="40" Deceleration="40" Jerk="200"/>
+			<Velo RefSearch="0.55543" RefSync="0.55543" SlowManual="0.3" FastManual="0.5" Fast="55.543" Maximum="55.543"/>
 			<OtherSettings AllowMotionCmdToSlave="true" DataPersistence="true"/>
 		</AxisPara>
 		<Encoder Name="Enc" EncType="19">
-			<EncPara ScaleFactorNumerator="360" ScaleFactorDenominator="251658240" Offset="10.2575826644897" ToleranceWndModuloStart="10" MaxCount="#xffffffff" ReferenceSystem="1"/>
+			<EncPara ScaleFactorNumerator="360" ScaleFactorDenominator="251658240" Offset="10.2575826644897" ToleranceWndModuloStart="10" MaxCount="#xffffffff" ReferenceSystem="1" EncPositionSource="1"/>
 			<Vars VarGrpType="1">
 				<Name>Inputs</Name>
 				<Var>
@@ -1563,6 +1563,7 @@ External Setpoint Generation:
 				<Link VarA="Drive^Outputs^Out^nDataOut1" VarB="Ch A^Ch A Interpolator Outputs^Ch A Target position"/>
 				<Link VarA="Drive^Outputs^Out^nDataOut2" VarB="Ch A^Ch A Interpolator Outputs^Ch A Target velocity"/>
 				<Link VarA="Enc^Inputs^In^nDataIn1" VarB="Ch A^Ch A AxisMain Inputs^1st additional position actual value"/>
+				<Link VarA="Enc^Inputs^In^nDataIn7" VarB="Ch A^Ch A AxisMain Inputs^Ch A Velocity actual value"/>
 				<Link VarA="Enc^Inputs^In^nDcInputTime" VarB="InfoData^DcInputShift"/>
 				<Link VarA="Enc^Inputs^In^nState2" VarB="Ch A^Ch A AxisMain Inputs^1st Additional position actual value invalid" Size="1" OffsA="5"/>
 				<Link VarA="Enc^Inputs^In^nState4" VarB="WcState^InputToggle0" Size="1" OffsA="1"/>

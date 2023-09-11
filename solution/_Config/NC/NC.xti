@@ -38,8 +38,8 @@
 		<Axis File="Detector Radius External.xti" Id="10"/>
 		<Axis File="Detector Radius Internal.xti" Id="11"/>
 		<Axis File="Combined Vertical.xti" Id="9"/>
-		<Axis File="Rotation Virtual.xti" Id="23"/>
 		<Axis File="Horizontal Virtual.xti" Id="30"/>
+		<Axis File="Rotation Virtual.xti" Id="23"/>
 		<Axis File="Combined Vertical Virtual.xti" Id="27"/>
 		<Axis File="Detector Tank Length.xti" Id="15"/>
 		<Axis File="Detector Tank Pivot To Window.xti" Id="16"/>

@@ -54,13 +54,13 @@
   ],
   "userControls": [
     {
+      "url": "UserContent/AxisControlContent - StAxis.usercontrol"
+    },
+    {
       "url": "UserContent/AxisControlContent.usercontrol"
     },
     {
       "url": "UserContent/TextAndIndicator.usercontrol"
-    },
-    {
-      "url": "UserContent/AxisControlContent - StAxis.usercontrol"
     }
   ],
   "content": [

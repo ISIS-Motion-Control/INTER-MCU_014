@@ -1,25 +1,6 @@
 {
   "parameters": [
     {
-      "name": "data-tchmi-name",
-      "displayName": "Name",
-      "allowSymbolExpressionsInObject": false,
-      "visible": true,
-      "type": "tchmi:general#/definitions/String",
-      "category": "",
-      "description": "",
-      "defaultValue": "default",
-      "defaultValueInternal": "default",
-      "requiredOnCompile": false,
-      "readOnly": false,
-      "bindable": true,
-      "heritable": true,
-      "propertyName": "Name",
-      "propertySetterName": "setName",
-      "propertyGetterName": "getName",
-      "refTo": ""
-    },
-    {
       "name": "data-tchmi-axisstruct",
       "displayName": "AxisStruct",
       "allowSymbolExpressionsInObject": false,

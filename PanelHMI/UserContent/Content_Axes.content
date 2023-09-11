@@ -1,79 +1,30 @@
-<div id="Content_Axes" data-tchmi-type="TcHmi.Controls.System.TcHmiContent" data-tchmi-top="0" data-tchmi-left="0" data-tchmi-width="800" data-tchmi-height="640">
-
-<div id="AxisControlContent_1" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height="48" data-tchmi-height-unit="px" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-name="Angle" data-tchmi-target-user-control="UserContent/AxisControlContent.usercontrol" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="600" data-tchmi-width-unit="px" data-tchmi-actpos="%s%TestPosition%/s%" data-tchmi-setpos="%s%PLC1.GVL.astAxes.19.stControl.fPosition%/s%" data-tchmi-moving="%s%PLC1.GVL.astAxes.19.Axis.Status.Moving%/s%" data-tchmi-enabled="%s%PLC1.GVL.astAxes.19.stStatus.bEnabled%/s%" data-tchmi-zindex="1">
-<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
-[
-  {
-    "event": "%ctrl%AxisControlContent_1::Move%/ctrl%",
-    "actions": [
-      {
-        "objectType": "Condition",
-        "active": true,
-        "parts": [
-          {
-            "if": [
-              {
-                "compare1": {
-                  "objectType": "Symbol",
-                  "valueType": "tchmi:general#/definitions/BOOL",
-                  "symbolExpression": "%ctrl%AxisControlContent_1::Move%/ctrl%"
-                },
-                "compare2": {
-                  "objectType": "StaticValue",
-                  "valueType": "tchmi:general#/definitions/BOOL",
-                  "value": true
-                },
-                "compareOperator": "==",
-                "logic": null
-              }
-            ],
-            "then": [
-              {
-                "objectType": "WriteToSymbol",
-                "active": true,
-                "symbolExpression": "%s%PLC1.GVL.astAxes.19.stControl.eCommand%/s%",
-                "value": {
-                  "objectType": "StaticValue",
-                  "valueType": "tchmi:server#/definitions/PLC1.E_MotionFunctions",
-                  "value": 0
-                },
-                "asyncWait": true
-              },
-              {
-                "objectType": "WriteToSymbol",
-                "active": true,
-                "symbolExpression": "%s%PLC1.GVL.astAxes.19.stControl.bExecute%/s%",
-                "value": {
-                  "objectType": "StaticValue",
-                  "valueType": "tchmi:general#/definitions/BOOL",
-                  "value": true
-                },
-                "asyncWait": true
-              },
-              {
-                "objectType": "WriteToSymbol",
-                "active": true,
-                "symbolExpression": "%ctrl%AxisControlContent_1::Move%/ctrl%",
-                "value": {
-                  "objectType": "StaticValue",
-                  "valueType": "tchmi:general#/definitions/BOOL",
-                  "value": false
-                },
-                "asyncWait": true
-              }
-            ]
-          },
-          {
-            "else": []
-          }
-        ],
-        "asyncWait": true
-      }
-    ]
-  }
-]
-</script>
+<div id="Content_Axes" data-tchmi-type="TcHmi.Controls.System.TcHmiContent" data-tchmi-top="0" data-tchmi-left="0" data-tchmi-width="1024" data-tchmi-height="720" data-tchmi-width-mode="Value" data-tchmi-height-mode="Value" data-tchmi-creator-viewport-width="1024" data-tchmi-creator-viewport-height="640">
+<div id="AxisControlContent_3" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height-unit="px" data-tchmi-left="5" data-tchmi-left-unit="px" data-tchmi-name="default" data-tchmi-target-user-control="UserContent/AxisControlContent - StAxis.usercontrol" data-tchmi-top="10" data-tchmi-top-unit="px" data-tchmi-width-unit="px" data-tchmi-axisstruct="%s%PLC1.GVL.astAxes.19%/s%" data-tchmi-enabled="true" data-tchmi-width-mode="Content" data-tchmi-height-mode="Content">
 </div>
-<div id="AxisControlContent_3" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height="48" data-tchmi-height-unit="px" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-name="default" data-tchmi-target-user-control="UserContent/AxisControlContent - StAxis.usercontrol" data-tchmi-top="58" data-tchmi-top-unit="px" data-tchmi-width="600" data-tchmi-width-unit="px" data-tchmi-axisstruct="%s%PLC1.GVL.astAxes.19%/s%" data-tchmi-enabled="true">
+<div id="AxisControlContent_4" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height-unit="px" data-tchmi-left="5" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserContent/AxisControlContent - StAxis.usercontrol" data-tchmi-top="58" data-tchmi-top-unit="px" data-tchmi-width-unit="px" data-tchmi-axisstruct="%s%PLC1.GVL.astAxes.4%/s%" data-tchmi-width-mode="Content" data-tchmi-height-mode="Content">
+</div>
+<div id="AxisControlContent_5" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height-unit="px" data-tchmi-left="5" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserContent/AxisControlContent - StAxis.usercontrol" data-tchmi-top="106" data-tchmi-top-unit="px" data-tchmi-width-unit="px" data-tchmi-axisstruct="%s%PLC1.GVL.astAxes.5%/s%" data-tchmi-width-mode="Content" data-tchmi-height-mode="Content">
+</div>
+<div id="AxisControlContent_6" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height-unit="px" data-tchmi-left="5" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserContent/AxisControlContent - StAxis.usercontrol" data-tchmi-top="154" data-tchmi-top-unit="px" data-tchmi-width-unit="px" data-tchmi-axisstruct="%s%PLC1.GVL.astAxes.8%/s%" data-tchmi-width-mode="Content" data-tchmi-height-mode="Content">
+</div>
+<div id="AxisControlContent_7" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height-unit="px" data-tchmi-left="5" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserContent/AxisControlContent - StAxis.usercontrol" data-tchmi-top="250" data-tchmi-top-unit="px" data-tchmi-width-unit="px" data-tchmi-width-mode="Content" data-tchmi-height-mode="Content" data-tchmi-axisstruct="%s%PLC1.GVL.astAxes.12%/s%">
+</div>
+<div id="AxisControlContent_8" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height-unit="px" data-tchmi-left="5" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserContent/AxisControlContent - StAxis.usercontrol" data-tchmi-top="202" data-tchmi-top-unit="px" data-tchmi-width-unit="px" data-tchmi-width-mode="Content" data-tchmi-height-mode="Content" data-tchmi-axisstruct="%s%PLC1.GVL.astAxes.11%/s%">
+</div>
+<div id="AxisControlContent_9" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height-unit="px" data-tchmi-left="5" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserContent/AxisControlContent - StAxis.usercontrol" data-tchmi-top="298" data-tchmi-top-unit="px" data-tchmi-width-unit="px" data-tchmi-width-mode="Content" data-tchmi-height-mode="Content" data-tchmi-axisstruct="%s%PLC1.GVL.astAxes.18%/s%">
+</div>
+<div id="AxisControlContent_10" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height-unit="px" data-tchmi-left="5" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserContent/AxisControlContent - StAxis.usercontrol" data-tchmi-top="346" data-tchmi-top-unit="px" data-tchmi-width-unit="px" data-tchmi-width-mode="Content" data-tchmi-height-mode="Content" data-tchmi-axisstruct="%s%PLC1.GVL.astAxes.20%/s%">
+</div>
+<div id="AxisControlContent_11" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height-unit="px" data-tchmi-left="5" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserContent/AxisControlContent - StAxis.usercontrol" data-tchmi-top="394" data-tchmi-top-unit="px" data-tchmi-width-unit="px" data-tchmi-width-mode="Content" data-tchmi-height-mode="Content" data-tchmi-axisstruct="%s%PLC1.GVL.astAxes.21%/s%">
+</div>
+<div id="AxisControlContent_12" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height-unit="px" data-tchmi-left="5" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserContent/AxisControlContent - StAxis.usercontrol" data-tchmi-top="442" data-tchmi-top-unit="px" data-tchmi-width-unit="px" data-tchmi-width-mode="Content" data-tchmi-height-mode="Content" data-tchmi-axisstruct="%s%PLC1.GVL.astAxes.23%/s%">
+</div>
+<div id="AxisControlContent_13" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height-unit="px" data-tchmi-left="5" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserContent/AxisControlContent - StAxis.usercontrol" data-tchmi-top="490" data-tchmi-top-unit="px" data-tchmi-width-unit="px" data-tchmi-width-mode="Content" data-tchmi-height-mode="Content" data-tchmi-axisstruct="%s%PLC1.GVL.astAxes.24%/s%">
+</div>
+<div id="AxisControlContent_14" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height-unit="px" data-tchmi-left="5" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserContent/AxisControlContent - StAxis.usercontrol" data-tchmi-top="538" data-tchmi-top-unit="px" data-tchmi-width-unit="px" data-tchmi-width-mode="Content" data-tchmi-height-mode="Content" data-tchmi-axisstruct="%s%PLC1.GVL.astAxes.25%/s%">
+</div>
+<div id="AxisControlContent_15" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height-unit="px" data-tchmi-left="5" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserContent/AxisControlContent - StAxis.usercontrol" data-tchmi-top="586" data-tchmi-top-unit="px" data-tchmi-width-unit="px" data-tchmi-width-mode="Content" data-tchmi-height-mode="Content" data-tchmi-axisstruct="%s%PLC1.GVL.astAxes.27%/s%">
+</div>
+<div id="AxisControlContent_16" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height-unit="px" data-tchmi-left="5" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserContent/AxisControlContent - StAxis.usercontrol" data-tchmi-top="634" data-tchmi-top-unit="px" data-tchmi-width-unit="px" data-tchmi-width-mode="Content" data-tchmi-height-mode="Content" data-tchmi-axisstruct="%s%PLC1.GVL.astAxes.28%/s%">
 </div>
 </div>

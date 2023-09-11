@@ -623,6 +623,61 @@
             ],
             "type": "integer"
         },
+        "PLC1.E_EncoderTypeClass": {
+            "attributes": {
+                "generate_implicit_init_function": ""
+            },
+            "enum": [
+                0,
+                1,
+                2
+            ],
+            "options": [
+                {
+                    "label": "eNoEncoder",
+                    "value": 0
+                },
+                {
+                    "label": "eIncrementalEncoder",
+                    "value": 1
+                },
+                {
+                    "label": "eAbsoluteEncoder",
+                    "value": 2
+                }
+            ],
+            "type": "integer"
+        },
+        "PLC1.E_HomeSwitchTypeClass": {
+            "attributes": {
+                "generate_implicit_init_function": ""
+            },
+            "enum": [
+                0,
+                1,
+                2,
+                3
+            ],
+            "options": [
+                {
+                    "label": "eNoSwitch",
+                    "value": 0
+                },
+                {
+                    "label": "eHomeSwitchPresent",
+                    "value": 1
+                },
+                {
+                    "label": "eUseBwdLimit",
+                    "value": 2
+                },
+                {
+                    "label": "eUseFwdLimit",
+                    "value": 3
+                }
+            ],
+            "type": "integer"
+        },
         "PLC1.E_HomingRoutines": {
             "attributes": {
                 "generate_implicit_init_function": "",
@@ -749,6 +804,46 @@
                 {
                     "label": "eReadParameter",
                     "value": 60
+                }
+            ],
+            "type": "integer"
+        },
+        "PLC1.E_MotorTypeClass": {
+            "attributes": {
+                "generate_implicit_init_function": ""
+            },
+            "enum": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5
+            ],
+            "options": [
+                {
+                    "label": "eVirtualMotor",
+                    "value": 0
+                },
+                {
+                    "label": "eStepperMotor",
+                    "value": 1
+                },
+                {
+                    "label": "eDcMotor",
+                    "value": 2
+                },
+                {
+                    "label": "eBldcMotor",
+                    "value": 3
+                },
+                {
+                    "label": "eAsyncMotor",
+                    "value": 4
+                },
+                {
+                    "label": "eSyncMotor",
+                    "value": 5
                 }
             ],
             "type": "integer"
@@ -2700,6 +2795,85 @@
             },
             "type": "object"
         },
+        "PLC1.ST_AxisDescription": {
+            "properties": {
+                "bIsPseudoAxis": {
+                    "allOf": [
+                        {
+                            "$ref": "tchmi:general#/definitions/BOOL"
+                        },
+                        {
+                            "comment": "Axis is a non-standard axis with application-specific handling",
+                            "propertyOrder": 4
+                        }
+                    ]
+                },
+                "eEncoderType": {
+                    "allOf": [
+                        {
+                            "$ref": "#/definitions/PLC1.E_EncoderTypeClass"
+                        },
+                        {
+                            "propertyOrder": 5
+                        }
+                    ]
+                },
+                "eHomeSwitchType": {
+                    "allOf": [
+                        {
+                            "$ref": "#/definitions/PLC1.E_HomeSwitchTypeClass"
+                        },
+                        {
+                            "propertyOrder": 6
+                        }
+                    ]
+                },
+                "eMotorType": {
+                    "allOf": [
+                        {
+                            "$ref": "#/definitions/PLC1.E_MotorTypeClass"
+                        },
+                        {
+                            "propertyOrder": 7
+                        }
+                    ]
+                },
+                "nPrefix": {
+                    "allOf": [
+                        {
+                            "$ref": "tchmi:general#/definitions/BYTE"
+                        },
+                        {
+                            "comment": "Exponent defining unit prefix, e.g. 3 for k(kilo)",
+                            "propertyOrder": 3
+                        }
+                    ]
+                },
+                "nUnit": {
+                    "allOf": [
+                        {
+                            "$ref": "tchmi:general#/definitions/BYTE"
+                        },
+                        {
+                            "comment": "Code for the axis base unit (like m or degree)",
+                            "propertyOrder": 2
+                        }
+                    ]
+                },
+                "sAxisName": {
+                    "allOf": [
+                        {
+                            "maxLength": 32,
+                            "propertyOrder": 1
+                        },
+                        {
+                            "$ref": "tchmi:general#/definitions/String"
+                        }
+                    ]
+                }
+            },
+            "type": "object"
+        },
         "PLC1.ST_AxisError": {
             "properties": {
                 "fbReadParameterErrorId": {
@@ -3204,7 +3378,7 @@
                         },
                         {
                             "comment": "The NC axis link to the hardware that is controlling",
-                            "propertyOrder": 6
+                            "propertyOrder": 7
                         }
                     ]
                 },
@@ -3225,6 +3399,16 @@
                         },
                         {
                             "propertyOrder": 1
+                        }
+                    ]
+                },
+                "stDescription": {
+                    "allOf": [
+                        {
+                            "$ref": "#/definitions/PLC1.ST_AxisDescription"
+                        },
+                        {
+                            "propertyOrder": 6
                         }
                     ]
                 },
@@ -7418,6 +7602,36 @@
             },
             "USEMAPPING": true
         },
+        "PLC1.GVL.astAxes.11": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::GVL::astAxes[11]",
+            "SCHEMA": {
+                "$ref": "tchmi:server#/definitions/PLC1.ST_AxisStruct"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.GVL.astAxes.12": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::GVL::astAxes[12]",
+            "SCHEMA": {
+                "$ref": "tchmi:server#/definitions/PLC1.ST_AxisStruct"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.GVL.astAxes.18": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::GVL::astAxes[18]",
+            "SCHEMA": {
+                "$ref": "tchmi:server#/definitions/PLC1.ST_AxisStruct"
+            },
+            "USEMAPPING": true
+        },
         "PLC1.GVL.astAxes.19": {
             "ACCESS": 3,
             "DOMAIN": "ADS",
@@ -7514,6 +7728,126 @@
                         "propertyOrder": 2
                     }
                 ]
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.GVL.astAxes.20": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::GVL::astAxes[20]",
+            "SCHEMA": {
+                "$ref": "tchmi:server#/definitions/PLC1.ST_AxisStruct"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.GVL.astAxes.21": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::GVL::astAxes[21]",
+            "SCHEMA": {
+                "$ref": "tchmi:server#/definitions/PLC1.ST_AxisStruct"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.GVL.astAxes.23": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::GVL::astAxes[23]",
+            "SCHEMA": {
+                "$ref": "tchmi:server#/definitions/PLC1.ST_AxisStruct"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.GVL.astAxes.24": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::GVL::astAxes[24]",
+            "SCHEMA": {
+                "$ref": "tchmi:server#/definitions/PLC1.ST_AxisStruct"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.GVL.astAxes.25": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::GVL::astAxes[25]",
+            "SCHEMA": {
+                "$ref": "tchmi:server#/definitions/PLC1.ST_AxisStruct"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.GVL.astAxes.27": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::GVL::astAxes[27]",
+            "SCHEMA": {
+                "$ref": "tchmi:server#/definitions/PLC1.ST_AxisStruct"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.GVL.astAxes.28": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::GVL::astAxes[28]",
+            "SCHEMA": {
+                "$ref": "tchmi:server#/definitions/PLC1.ST_AxisStruct"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.GVL.astAxes.4": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::GVL::astAxes[4]",
+            "SCHEMA": {
+                "$ref": "tchmi:server#/definitions/PLC1.ST_AxisStruct"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.GVL.astAxes.5": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::GVL::astAxes[5]",
+            "SCHEMA": {
+                "$ref": "tchmi:server#/definitions/PLC1.ST_AxisStruct"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.GVL.astAxes.6": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::GVL::astAxes[6]",
+            "SCHEMA": {
+                "$ref": "tchmi:server#/definitions/PLC1.ST_AxisStruct"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.GVL.astAxes.8": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::GVL::astAxes[8]",
+            "SCHEMA": {
+                "$ref": "tchmi:server#/definitions/PLC1.ST_AxisStruct"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.GVL.astAxes.9": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::GVL::astAxes[9]",
+            "SCHEMA": {
+                "$ref": "tchmi:server#/definitions/PLC1.ST_AxisStruct"
             },
             "USEMAPPING": true
         },
@@ -8664,12 +8998,27 @@
                 "LocalizeText": 3,
                 "Login": 3,
                 "Logout": 3,
+                "PLC1.GVL.astAxes.11": 3,
+                "PLC1.GVL.astAxes.12": 3,
+                "PLC1.GVL.astAxes.18": 3,
                 "PLC1.GVL.astAxes.19": 3,
                 "PLC1.GVL.astAxes.19.Axis.Status.Moving": 3,
                 "PLC1.GVL.astAxes.19.stControl.bExecute": 3,
                 "PLC1.GVL.astAxes.19.stControl.eCommand": 3,
                 "PLC1.GVL.astAxes.19.stControl.fPosition": 3,
                 "PLC1.GVL.astAxes.19.stStatus.bEnabled": 3,
+                "PLC1.GVL.astAxes.20": 3,
+                "PLC1.GVL.astAxes.21": 3,
+                "PLC1.GVL.astAxes.23": 3,
+                "PLC1.GVL.astAxes.24": 3,
+                "PLC1.GVL.astAxes.25": 3,
+                "PLC1.GVL.astAxes.27": 3,
+                "PLC1.GVL.astAxes.28": 3,
+                "PLC1.GVL.astAxes.4": 3,
+                "PLC1.GVL.astAxes.5": 3,
+                "PLC1.GVL.astAxes.6": 3,
+                "PLC1.GVL.astAxes.8": 3,
+                "PLC1.GVL.astAxes.9": 3,
                 "PLC1.GVL_INTER.ACKNOWLEDGE_LOGIC_ERROR": 3,
                 "PLC1.GVL_INTER.KINEMATIC_SPG_ALL_DISABLED": 3,
                 "PLC1.GVL_INTER.KINEMATIC_SPG_ALL_ENABLED": 3,

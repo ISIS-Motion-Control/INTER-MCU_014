@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
   <POU Name="INTER_LOGIC" Id="{da89d596-93f4-468f-9a43-1a72f2055b25}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM INTER_LOGIC
 VAR
@@ -571,6 +571,24 @@ END_FOR
 
 //Check speeds not too high
 IF NOT GVL_INTER.SPEED_LIMITING AND (ABS(axisSpg_Vertical.velocity)>VERTICAL_SPEED_LIMIT OR ABS(axisSpg_Horizontal.velocity)>HORIZONTAL_SPEED_LIMIT OR ABS(axisSpg_Rot.velocity)>ROTATION_SPEED_LIMIT) THEN
+    IF axisSpg_Vertical.velocity>0 THEN
+        axisSpg_Vertical.velocity:= VERTICAL_SPEED_LIMIT;
+    ELSE
+        axisSpg_Vertical.velocity:= -VERTICAL_SPEED_LIMIT;
+    END_IF    
+    
+    IF axisSpg_Horizontal.velocity>0 THEN
+        axisSpg_Horizontal.velocity:= HORIZONTAL_SPEED_LIMIT;
+    ELSE
+        axisSpg_Horizontal.velocity:= -HORIZONTAL_SPEED_LIMIT;
+    END_IF 
+    
+     IF axisSpg_Rot.velocity>0 THEN
+        axisSpg_Rot.velocity:= ROTATION_SPEED_LIMIT;
+    ELSE
+        axisSpg_Rot.velocity:= -ROTATION_SPEED_LIMIT;
+    END_IF 
+
     FOR i:=1 TO ARRAYSIZE_ALLVIRTUALS DO
         astAxes[aVirtualAxisDefaults[i].axisID].stConfig.fOverride := 20;
         GVL_INTER.SPEED_LIMITING:= TRUE;

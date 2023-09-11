@@ -121,6 +121,14 @@
         }
       ]
     },
+    "AxisControlContent_-_StAxis": {
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "UserContent\\AxisControlContent - StAxis.usercontrol.json",
+      "id": "tchmi:project#/definitions/AxisControlContent_-_StAxis",
+      "type": "object"
+    },
     "PLC1.AMSNETID": {
       "items": {
         "$ref": "tchmi:general#/definitions/BYTE"
@@ -714,6 +722,57 @@
         }
       ]
     },
+    "PLC1.E_EncoderTypeClass": {
+      "generate_implicit_init_function": "",
+      "type": "integer",
+      "enum": [
+        "0",
+        "1",
+        "2"
+      ],
+      "options": [
+        {
+          "value": 0,
+          "label": "eNoEncoder"
+        },
+        {
+          "value": 1,
+          "label": "eIncrementalEncoder"
+        },
+        {
+          "value": 2,
+          "label": "eAbsoluteEncoder"
+        }
+      ]
+    },
+    "PLC1.E_HomeSwitchTypeClass": {
+      "generate_implicit_init_function": "",
+      "type": "integer",
+      "enum": [
+        "0",
+        "1",
+        "2",
+        "3"
+      ],
+      "options": [
+        {
+          "value": 0,
+          "label": "eNoSwitch"
+        },
+        {
+          "value": 1,
+          "label": "eHomeSwitchPresent"
+        },
+        {
+          "value": 2,
+          "label": "eUseBwdLimit"
+        },
+        {
+          "value": 3,
+          "label": "eUseFwdLimit"
+        }
+      ]
+    },
     "PLC1.E_HomingRoutines": {
       "generate_implicit_init_function": "",
       "qualified_only": "",
@@ -837,6 +896,44 @@
         {
           "value": 60,
           "label": "eReadParameter"
+        }
+      ]
+    },
+    "PLC1.E_MotorTypeClass": {
+      "generate_implicit_init_function": "",
+      "type": "integer",
+      "enum": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "options": [
+        {
+          "value": 0,
+          "label": "eVirtualMotor"
+        },
+        {
+          "value": 1,
+          "label": "eStepperMotor"
+        },
+        {
+          "value": 2,
+          "label": "eDcMotor"
+        },
+        {
+          "value": 3,
+          "label": "eBldcMotor"
+        },
+        {
+          "value": 4,
+          "label": "eAsyncMotor"
+        },
+        {
+          "value": 5,
+          "label": "eSyncMotor"
         }
       ]
     },
@@ -2781,6 +2878,85 @@
       },
       "type": "object"
     },
+    "PLC1.ST_AxisDescription": {
+      "properties": {
+        "bIsPseudoAxis": {
+          "allOf": [
+            {
+              "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            {
+              "comment": "Axis is a non-standard axis with application-specific handling",
+              "propertyOrder": 4
+            }
+          ]
+        },
+        "eEncoderType": {
+          "allOf": [
+            {
+              "$ref": "tchmi:project#/definitions/PLC1.E_EncoderTypeClass"
+            },
+            {
+              "propertyOrder": 5
+            }
+          ]
+        },
+        "eHomeSwitchType": {
+          "allOf": [
+            {
+              "$ref": "tchmi:project#/definitions/PLC1.E_HomeSwitchTypeClass"
+            },
+            {
+              "propertyOrder": 6
+            }
+          ]
+        },
+        "eMotorType": {
+          "allOf": [
+            {
+              "$ref": "tchmi:project#/definitions/PLC1.E_MotorTypeClass"
+            },
+            {
+              "propertyOrder": 7
+            }
+          ]
+        },
+        "nPrefix": {
+          "allOf": [
+            {
+              "$ref": "tchmi:general#/definitions/BYTE"
+            },
+            {
+              "comment": "Exponent defining unit prefix, e.g. 3 for k(kilo)",
+              "propertyOrder": 3
+            }
+          ]
+        },
+        "nUnit": {
+          "allOf": [
+            {
+              "$ref": "tchmi:general#/definitions/BYTE"
+            },
+            {
+              "comment": "Code for the axis base unit (like m or degree)",
+              "propertyOrder": 2
+            }
+          ]
+        },
+        "sAxisName": {
+          "allOf": [
+            {
+              "maxLength": 32,
+              "propertyOrder": 1
+            },
+            {
+              "$ref": "tchmi:general#/definitions/String"
+            }
+          ]
+        }
+      },
+      "type": "object"
+    },
     "PLC1.ST_AxisError": {
       "properties": {
         "fbReadParameterErrorId": {
@@ -3275,7 +3451,7 @@
             },
             {
               "comment": "The NC axis link to the hardware that is controlling",
-              "propertyOrder": 6
+              "propertyOrder": 7
             }
           ]
         },
@@ -3296,6 +3472,16 @@
             },
             {
               "propertyOrder": 1
+            }
+          ]
+        },
+        "stDescription": {
+          "allOf": [
+            {
+              "$ref": "tchmi:project#/definitions/PLC1.ST_AxisDescription"
+            },
+            {
+              "propertyOrder": 6
             }
           ]
         },
@@ -4877,14 +5063,6 @@
       "type": "array",
       "minItems": 8,
       "maxItems": 8
-    },
-    "AxisControlContent_-_StAxis": {
-      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
-      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
-      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
-      "frameworkUserControlConfig": "UserContent\\AxisControlContent - StAxis.usercontrol.json",
-      "id": "tchmi:project#/definitions/AxisControlContent_-_StAxis",
-      "type": "object"
     }
   }
 }
