@@ -32,6 +32,7 @@
 		<Axis File="Horizontal Z Translation.xti" Id="6"/>
 		<Axis File="Vertical Y1.xti" Id="7"/>
 		<Axis File="Vertical Y2.xti" Id="8"/>
+		<Axis File="RotExtra.xti" Id="31"/>
 		<Axis File="Detector Tank Internal Offset Angle.xti" Id="14"/>
 		<Axis File="Delta.xti" Id="17"/>
 		<Axis File="Tau.xti" Id="18"/>

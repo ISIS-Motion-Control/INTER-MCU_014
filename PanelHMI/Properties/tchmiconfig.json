@@ -430,6 +430,10 @@
     {
       "name": "Beckhoff.TwinCAT.HMI.Functions",
       "basePath": "/Beckhoff.TwinCAT.HMI.Functions"
+    },
+    {
+      "name": "Microsoft.TypeScript.MS",
+      "basePath": "/Microsoft.TypeScript.MS"
     }
   ],
   "keyboardLayouts": [

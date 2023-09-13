@@ -1,5 +1,75 @@
 <?xml version="1.0"?>
 <TcSmItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2012/07/TcSmProject" TcSmVersion="1.0" TcVersion="3.1.4024.32" ClassName="CDevEtherCATDef" SubType="111">
+	<DataTypes>
+		<DataType>
+			<Name GUID="{18071995-0000-0000-0000-000000000035}" TcBaseType="true" HideType="true">UINTARR2</Name>
+			<BitSize>32</BitSize>
+			<BaseType GUID="{18071995-0000-0000-0000-000000000005}">UINT</BaseType>
+			<ArrayInfo>
+				<LBound>0</LBound>
+				<Elements>2</Elements>
+			</ArrayInfo>
+			<Format Name="ArrayView" Preview="[%u, %u]">
+				<Printf>[%u, %u]</Printf>
+				<Parameter>[0]</Parameter>
+				<Parameter>[1]</Parameter>
+			</Format>
+			<Format Name="MixedView" Preview="%x [%u, %u]">
+				<Printf>0x%08x [%u, %u]</Printf>
+				<Parameter>.</Parameter>
+				<Parameter>[0]</Parameter>
+				<Parameter>[1]</Parameter>
+			</Format>
+			<Format Name="32bitView" Preview="%x (%u)">
+				<Printf>0x%08x (%u)</Printf>
+				<Parameter>.</Parameter>
+				<Parameter>.</Parameter>
+			</Format>
+		</DataType>
+		<DataType>
+			<Name GUID="{D46F6451-58CF-4853-A5DB-DA36D1D59A28}" Namespace="IO" TcBaseType="true">ECAT_HEAD</Name>
+			<BitSize>80</BitSize>
+			<SubItem>
+				<Name>cmd</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000002}">USINT</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>0</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>idx</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000002}">USINT</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>8</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>addr</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000035}">UINTARR2</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>16</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>len</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000005}">UINT</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>48</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>irq</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000005}">UINT</Type>
+				<BitSize>16</BitSize>
+				<BitOffs>64</BitOffs>
+			</SubItem>
+		</DataType>
+		<DataType>
+			<Name GUID="{18071995-0000-0000-0000-001300000100}" IecBaseType="true" AutoDeleteType="true" HideSubItems="true">ARRAY [0..255] OF BYTE</Name>
+			<BitSize>2048</BitSize>
+			<BaseType GUID="{18071995-0000-0000-0000-000000000001}">BYTE</BaseType>
+			<ArrayInfo>
+				<LBound>0</LBound>
+				<Elements>256</Elements>
+			</ArrayInfo>
+		</DataType>
+	</DataTypes>
 	<Device Id="1" DevType="111" DevFlags="#x0003" AmsPort="28673" AmsNetId="5.119.206.217.2.1" RemoteName="Device 1 (EtherCAT)" InfoImageId="3">
 		<Name>__FILENAME__</Name>
 		<AddressInfo>
@@ -51,7 +121,52 @@
 		<Box File="Box 35 (EP6224-3022).xti" Id="35">
 			<EtherCAT PortABoxInfo="#x02000046"/>
 		</Box>
-		<EtherCAT DcSyncMode="4"/>
+		<EtherCAT DcSyncMode="4">
+			<EtherCATCmd Id="1" CmdType="1" CmdData="0c0100002009000100000000030000000f0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000">
+				<Name>Dyn Container</Name>
+				<ImageId>102</ImageId>
+				<Vars VarGrpType="1">
+					<Name>Inputs</Name>
+					<Var>
+						<Name>HEAD</Name>
+						<Type GUID="{D46F6451-58CF-4853-A5DB-DA36D1D59A28}" Namespace="IO">ECAT_HEAD</Type>
+						<BitOffs>1808</BitOffs>
+					</Var>
+					<Var>
+						<Name>DATA</Name>
+						<Type GUID="{18071995-0000-0000-0000-001300000100}">ARRAY [0..255] OF BYTE</Type>
+						<BitOffs>1888</BitOffs>
+					</Var>
+					<Var>
+						<Name>CNT</Name>
+						<Comment><![CDATA[Working counter
+After receiving]]></Comment>
+						<Type>UINT</Type>
+						<BitOffs>3936</BitOffs>
+					</Var>
+				</Vars>
+				<Vars VarGrpType="2">
+					<Name>Outputs</Name>
+					<Var>
+						<Name>HEAD</Name>
+						<Type GUID="{D46F6451-58CF-4853-A5DB-DA36D1D59A28}" Namespace="IO">ECAT_HEAD</Type>
+						<BitOffs>1808</BitOffs>
+					</Var>
+					<Var>
+						<Name>DATA</Name>
+						<Type GUID="{18071995-0000-0000-0000-001300000100}">ARRAY [0..255] OF BYTE</Type>
+						<BitOffs>1888</BitOffs>
+					</Var>
+					<Var>
+						<Name>CNT</Name>
+						<Comment><![CDATA[Working counter
+Before sending]]></Comment>
+						<Type>UINT</Type>
+						<BitOffs>3936</BitOffs>
+					</Var>
+				</Vars>
+			</EtherCATCmd>
+		</EtherCAT>
 	</Device>
 	<Mappings>
 		<OwnerA>

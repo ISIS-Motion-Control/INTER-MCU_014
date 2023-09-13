@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<safetyApplication Crc="4285798988" xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.4.0.0" Id="68ecb791-20f4-4f82-86d6-6e344550b4ca" name="" mapState="false" mapDiag="false" groupOrderId="1" passificationAllowed="false" temporaryDeactivationAllowed="false" permamentDeactivationAllowed="false" xmlid="0" analogFBOutputReplacementValues="Zero" verifyAnalogFBInputsIfStart="false" userFbId="00000000-0000-0000-0000-000000000000" xmlns="http://schemas.microsoft.com/dsltools/SafetyApplicationLanguage">
+<safetyApplication Crc="2517734743" xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.4.0.0" Id="68ecb791-20f4-4f82-86d6-6e344550b4ca" name="" mapState="false" mapDiag="false" groupOrderId="1" passificationAllowed="false" temporaryDeactivationAllowed="false" permamentDeactivationAllowed="false" xmlid="0" analogFBOutputReplacementValues="Zero" verifyAnalogFBInputsIfStart="false" userFbId="00000000-0000-0000-0000-000000000000" xmlns="http://schemas.microsoft.com/dsltools/SafetyApplicationLanguage">
   <networks>
     <safetyApplicationHasNetworks Id="bb029576-0019-457f-89b6-bd394f03692a">
       <Network Id="4dedc6fd-9077-4db8-9d0c-d936285bb59b" name="SLS_1_ChA" networkName="SLS_1_ChA" intId="1" networkOrderId="0">
@@ -45,10 +45,10 @@
               </outPorts>
               <parameterPorts>
                 <functionBlockHasParamPorts Id="a94e3a50-fb90-4e33-8614-80e192488533">
-                  <parameterPort Id="583afbee-53de-43eb-8eb2-930c5e90354f" name="Minimum Value" portName="Minimum Value" portNum="5" objectIndex="0" varId="0" filter="0" portDataType="0" timing="-2365333" userFbPortName="Minimum Value" useInUserFb="false" />
+                  <parameterPort Id="583afbee-53de-43eb-8eb2-930c5e90354f" name="Minimum Value" portName="Minimum Value" portNum="5" objectIndex="0" varId="0" filter="0" portDataType="0" timing="-236533300" userFbPortName="Minimum Value" useInUserFb="false" />
                 </functionBlockHasParamPorts>
                 <functionBlockHasParamPorts Id="ad5f96d4-bd14-4c8b-bbc2-a256911ac668">
-                  <parameterPort Id="d713fb86-1724-4677-85f2-d5777300e49d" name="Maximum Value" portName="Maximum Value" portNum="6" objectIndex="0" varId="0" filter="0" portDataType="0" timing="2365333" userFbPortName="Maximum Value" useInUserFb="false" />
+                  <parameterPort Id="d713fb86-1724-4677-85f2-d5777300e49d" name="Maximum Value" portName="Maximum Value" portNum="6" objectIndex="0" varId="0" filter="0" portDataType="0" timing="236533300" userFbPortName="Maximum Value" useInUserFb="false" />
                 </functionBlockHasParamPorts>
               </parameterPorts>
             </fBLimit>
