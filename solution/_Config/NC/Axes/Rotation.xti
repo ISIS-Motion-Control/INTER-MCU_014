@@ -1620,7 +1620,7 @@ External Setpoint Generation:
 		<Name>__FILENAME__</Name>
 		<AxisPara>
 			<General UnitName="°"/>
-			<Dynamic Acceleration="15" Deceleration="15" Jerk="300"/>
+			<Dynamic Acceleration="2" Deceleration="2" Jerk="300"/>
 			<Velo RefSearch="0.55548" RefSync="0.55548" SlowManual="0.3" FastManual="0.6" Fast="55.548" Maximum="55.548"/>
 			<OtherSettings AllowMotionCmdToSlave="true" DataPersistence="true"/>
 			<ParameterChanged>7</ParameterChanged>
