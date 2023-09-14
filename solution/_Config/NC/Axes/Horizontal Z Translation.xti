@@ -1416,7 +1416,9 @@ External Setpoint Generation:
 			<OtherSettings AllowMotionCmdToSlave="true"/>
 		</AxisPara>
 		<Encoder Name="Enc" EncType="19">
-			<EncPara ScaleFactorNumerator="5" ScaleFactorDenominator="10485760" Offset="2359.51" ModuloFactor="100000000" Inverse="true" MaxCount="#xffffffff" ReferenceSystem="1" EncPositionSource="1"/>
+			<EncPara ScaleFactorNumerator="0.001" ScaleFactorDenominator="1000" Offset="2359.51" Inverse="true" MaxCount="#xffffffff" ReferenceSystem="1">
+				<Inc RefSoftSyncMask="#x0007a11f"/>
+			</EncPara>
 			<Vars VarGrpType="1">
 				<Name>Inputs</Name>
 				<Var>
@@ -1531,7 +1533,7 @@ External Setpoint Generation:
 		</Drive>
 		<Controller Name="Ctrl" CtrType="1">
 			<CtrPara PriorControlFactor="1">
-				<PID PosKp="2"/>
+				<PosDiffControl Enable="false"/>
 				<Observer BandWidth="20"/>
 			</CtrPara>
 		</Controller>
