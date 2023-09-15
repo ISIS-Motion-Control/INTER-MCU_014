@@ -97,10 +97,10 @@
 				</Identification>
 			</Ccat>
 		</AddressInfo>
-		<Image Id="2" AddrType="9" ImageType="3">
+		<Image Id="2" ImageFlags="#x00000030" AddrType="9" ImageType="3">
 			<Name>Image</Name>
 		</Image>
-		<Image Id="4" AddrType="10" ImageType="3">
+		<Image Id="4" ImageFlags="#x00000030" AddrType="10" ImageType="3">
 			<Name>Image-2</Name>
 		</Image>
 		<Box File="Term 1 (EK1200).xti" Id="1">
@@ -130,19 +130,19 @@
 					<Var>
 						<Name>HEAD</Name>
 						<Type GUID="{D46F6451-58CF-4853-A5DB-DA36D1D59A28}" Namespace="IO">ECAT_HEAD</Type>
-						<BitOffs>1808</BitOffs>
+						<BitOffs>1776</BitOffs>
 					</Var>
 					<Var>
 						<Name>DATA</Name>
 						<Type GUID="{18071995-0000-0000-0000-001300000100}">ARRAY [0..255] OF BYTE</Type>
-						<BitOffs>1888</BitOffs>
+						<BitOffs>1856</BitOffs>
 					</Var>
 					<Var>
 						<Name>CNT</Name>
 						<Comment><![CDATA[Working counter
 After receiving]]></Comment>
 						<Type>UINT</Type>
-						<BitOffs>3936</BitOffs>
+						<BitOffs>3904</BitOffs>
 					</Var>
 				</Vars>
 				<Vars VarGrpType="2">
@@ -150,19 +150,19 @@ After receiving]]></Comment>
 					<Var>
 						<Name>HEAD</Name>
 						<Type GUID="{D46F6451-58CF-4853-A5DB-DA36D1D59A28}" Namespace="IO">ECAT_HEAD</Type>
-						<BitOffs>1808</BitOffs>
+						<BitOffs>1776</BitOffs>
 					</Var>
 					<Var>
 						<Name>DATA</Name>
 						<Type GUID="{18071995-0000-0000-0000-001300000100}">ARRAY [0..255] OF BYTE</Type>
-						<BitOffs>1888</BitOffs>
+						<BitOffs>1856</BitOffs>
 					</Var>
 					<Var>
 						<Name>CNT</Name>
 						<Comment><![CDATA[Working counter
 Before sending]]></Comment>
 						<Type>UINT</Type>
-						<BitOffs>3936</BitOffs>
+						<BitOffs>3904</BitOffs>
 					</Var>
 				</Vars>
 			</EtherCATCmd>

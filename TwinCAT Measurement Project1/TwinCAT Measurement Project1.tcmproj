@@ -10,6 +10,9 @@
     <Content Include="Bode Project1.tcbodeproj">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="Scope Project1.tcscopex">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="YT Scope Project.tcscopex">
       <SubType>Content</SubType>
     </Content>
