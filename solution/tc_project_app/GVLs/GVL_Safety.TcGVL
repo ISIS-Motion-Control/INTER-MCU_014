@@ -6,22 +6,33 @@ VAR_GLOBAL
     SafetyReset AT %Q* : BOOL;
     SafetyReset_ButtonOut AT %Q* : BOOL;
     SafetyReset_ButtonIn AT %I* : BOOL;
-    RUN_SAFETY AT %Q* : BOOL := TRUE;
-    RUN_SAFETY_SPEED AT %Q* : BOOL := TRUE;
-    ACK_DRIVE_71_SAFETY AT %Q* : BOOL;
-    ACK_DRIVE_74_SAFETY AT %Q* : BOOL;
-    ACK_SAFE_SPEED_1_ChA AT %Q* : BOOL;
-    ACK_SAFE_SPEED_1_ChB AT %Q* : BOOL;
-    ACK_SAFE_SPEED_2_ChA AT %Q* : BOOL;
-    ACK_SAFE_SPEED_2_ChB AT %Q* : BOOL;
+    //RUN_SAFETY AT %Q* : BOOL := TRUE;
+    //RUN_SAFETY_SPEED AT %Q* : BOOL := TRUE;
+    //ACK_DRIVE_71_SAFETY AT %Q* : BOOL;
+    //ACK_DRIVE_74_SAFETY AT %Q* : BOOL;
+    
+    Drive71_ErrorAck AT %Q* : BOOL;
+    Drive74_ErrorAck AT %Q* : BOOL;
+    Main_ErrorAck AT %Q* : BOOL;
+    
+    Drive71_RunSafety AT %Q* : BOOL := TRUE;
+    Drive74_RunSafety AT %Q* : BOOL := TRUE;
+    Main_RunSafety AT %Q* : BOOL := TRUE;
+    
+    Drive71_ChA_Reset AT %Q* : BOOL;
+    Drive71_ChB_Reset AT %Q* : BOOL;
+    Drive74_ChA_Reset AT %Q* : BOOL;
+    Drive74_ChB_Reset AT %Q* : BOOL;
     
     RESET_REQUESTED AT %I* : BOOL;  // THIS IS THE ACTUAL ACK REQUEST SIGNAL
     
     //SAFETY_ACK_REQUESTED : BOOL;
-    
-    Drive71_ChA_InRun AT %I* :BOOL;
-    Drive71_ChB_InRun AT %I* : BOOL;
-    EL6910_InRun AT %I* : BOOL;
+    Drive71_InRun AT %I* : BOOL;
+    Drive74_InRun AT %I* : BOOL;
+    EL69010_InRun AT %I* : BOOL;
+    //Drive71_ChA_InRun AT %I* :BOOL;
+    //Drive71_ChB_InRun AT %I* : BOOL;
+    //EL6910_InRun AT %I* : BOOL;
     
     SAFETY_ACK AT %Q* : BOOL := FALSE;
 END_VAR]]></Declaration>

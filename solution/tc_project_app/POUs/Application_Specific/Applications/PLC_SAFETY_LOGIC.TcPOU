@@ -19,7 +19,24 @@ VAR
 END_VAR
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[//ACknowledges for the safety block triggered one after other.
+      <ST><![CDATA[
+GVL_Safety.SafetyReset := GVL_Safety.SafetyReset_ButtonIn;// THIS IS WHAT RESETS THE ESTOP AT THE MOMENT
+GVL_Safety.Drive71_ChA_Reset := GVL_Safety.SafetyReset_ButtonIn;
+GVL_Safety.Drive71_ChB_Reset := GVL_Safety.SafetyReset_ButtonIn;
+GVL_Safety.Drive74_ChA_Reset := GVL_Safety.SafetyReset_ButtonIn;
+GVL_Safety.Drive74_ChB_Reset := GVL_Safety.SafetyReset_ButtonIn;
+
+GVL_Safety.Main_ErrorAck := GVL_Safety.SAFETY_ACK;
+GVL_Safety.Drive71_ErrorAck := GVL_Safety.SAFETY_ACK;
+GVL_Safety.Drive74_ErrorAck := GVL_Safety.SAFETY_ACK;
+
+GVL_Safety.SAFETY_ACK := FALSE;
+
+GVL_INTER.RESET_REQUESTED:= GVL_Safety.RESET_REQUESTED;
+GVL_Safety.SafetyReset_ButtonOut:= GVL_INTER.RESET_REQUESTED;
+GVL_INTER.SAFETY_ACK_REQUESTED:=NOT(GVL_Safety.EL69010_InRun AND GVL_Safety.Drive71_InRun AND GVL_Safety.Drive74_InRun);
+
+(*//ACknowledges for the safety block triggered one after other.
 ackTON(IN:= GVL_Safety.SAFETY_ACK, PT:= T#500MS);
 driveAckTON(PT:= T#500MS);
 IF ackTON.Q THEN
@@ -36,7 +53,7 @@ IF driveAckTON.Q THEN
 END_IF
 
 GVL_INTER.SAFETY_ACK_REQUESTED:=NOT(GVL_Safety.EL6910_InRun AND GVL_Safety.Drive71_ChA_InRun AND GVL_Safety.Drive71_ChB_InRun);
-GVL_Safety.SafetyReset_ButtonOut:= GVL_INTER.RESET_REQUESTED;
+
 
 
 
@@ -87,7 +104,9 @@ END_IF
 
 
 
-GVL_INTER.RESET_REQUESTED:= GVL_Safety.RESET_REQUESTED;]]></ST>
+
+
+*)]]></ST>
     </Implementation>
   </POU>
 </TcPlcObject>

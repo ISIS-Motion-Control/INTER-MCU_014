@@ -5,7 +5,7 @@
 VAR
     IDs_RealAxes : ARRAY[1..ARRAYSIZE_REAL] OF UINT:= 
         [AXIS_HORIZONTAL_TRANSLATION,AXIS_COMBINED_VERTICAL,AXIS_ROTATION];
-    
+    vertTon : TON;
   
     
     //arraysSetup : BOOL := FALSE;
@@ -38,6 +38,17 @@ VAR
     fVerticalSimulatedDeviation : LREAL;
     fVerticalSimulatedDeviationAllowed : LREAL := 0.1;
     confirmSpgTimeout : TON;
+    fY1_To_Simulated_Deviation : LREAL;
+    fY2_To_Simulated_Deviation : LREAL;
+    y1Compensating : BOOL;
+    y2Compensating : BOOL;
+    fY1_To_Simulated_Deviation_Latched : LREAL;
+    fY2_To_Simulated_Deviation_Latched : LREAL;
+    y1CompensatingCycle : LREAL;
+    y2CompensatingCycle : LREAL;
+    CYCLES_TO_COMPENSATE : LREAL := 500;
+    y1NotFinished : BOOL;
+    y2NotFinished : BOOL;
     
     tempZ1Power : MC_Power;
     tempZ2Power : MC_Power;
@@ -51,7 +62,7 @@ VAR
     combinedVerticalDirection : DINT;
     
 
-    
+    imHere: INT;
     
     
     
@@ -96,7 +107,7 @@ VAR CONSTANT
     ARRAYSIZE_ALLVIRTUALS : INT:=13;
     VERTICAL_SPEED_LIMIT :LREAL := 25;
     HORIZONTAL_SPEED_LIMIT:LREAL:= 20;
-    ROTATION_SPEED_LIMIT :LREAL:= 0.6;
+    ROTATION_SPEED_LIMIT :LREAL:= 0.8;
 END_VAR
 
 VAR PERSISTENT   
@@ -216,6 +227,7 @@ verticalZ2SpgDisable.Execute:= FALSE;
 
 writeDefault(NETID:='', PORT:=852);
 writeDefault.START:= FALSE;
+
 
 (*
  __    __  ______  __    __  ________  __       __   ______   ________  ______   ______    ______  
@@ -633,7 +645,11 @@ axisSpg_Horizontal.spgDisable.Execute:= FALSE;
 axisSpg_Rot.spgEnable.Execute:= FALSE;
 axisSpg_Rot.spgDisable.Execute:= FALSE;
 
-GVL_INTER.LOGIC_STATE:= eStateInter;]]></ST>
+GVL_INTER.LOGIC_STATE:= eStateInter;
+
+IF ABS( astAxes[AXIS_VERTICAL_TRANSLATION_Y1].stStatus.fActPosition-astAxes[AXIS_VERTICAL_TRANSLATION_Y2].stStatus.fActPosition)>3 THEN
+    astAxes[AXIS_COMBINED_VERTICAL].stControl.bEnable:= FALSE;
+END_IF]]></ST>
     </Implementation>
     <Method Name="AbsoluteMove" Id="{6081ed68-b6ed-437f-92c9-8a8848dd8e14}">
       <Declaration><![CDATA[METHOD AbsoluteMove : BOOL
@@ -843,7 +859,9 @@ GVL_INTER.SETDIR_ROTATION:= axisSpg_Rot.direction;]]></ST>
     </Action>
     <Action Name="actSyncVertStateMachine" Id="{86ee614e-4a39-40bc-bbfb-49053b8e3adf}">
       <Implementation>
-        <ST><![CDATA[CASE eStateVertical OF
+        <ST><![CDATA[CombinedVerticalSetupComplete := FALSE;
+vertTon(PT:=T#100MS);
+CASE eStateVertical OF
         eState_Vertical.init:
             IF NOT astAxes[AXIS_VERTICAL_TRANSLATION_Y1].stStatus.bError AND NOT astAxes[AXIS_VERTICAL_TRANSLATION_Y2].stStatus.bError THEN
                 IF NOT GVL_INTER.DECOUPLE_VERTICAL_AXES THEN
@@ -853,18 +871,25 @@ GVL_INTER.SETDIR_ROTATION:= axisSpg_Rot.direction;]]></ST>
             
         eState_Vertical.checkPosition:
             //Assume Z1 and Z2 calibrated to be at same position
-            IF ABS(fVerticalSimulatedDeviation)> fVerticalSimulatedDeviationAllowed THEN
+            //IF ABS(fVerticalSimulatedDeviation)> fVerticalSimulatedDeviationAllowed THEN
                 eStateVertical := eState_Vertical.setPosition; //should be setPosition state
-            ELSE
-                eStateVertical := eState_Vertical.enableSpg;
-			END_IF
+            //ELSE
+                //eStateVertical := eState_Vertical.enableSpg;
+			//END_IF
             
         eState_Vertical.setPosition:
             combinedVerticalSetPos.Position:= astAxes[AXIS_VERTICAL_TRANSLATION_Y1].stStatus.fActPosition;
             combinedVerticalSetPos.Execute:= TRUE;
-            eStateVertical := eState_Vertical.checkPosition;
+            //eStateVertical := eState_Vertical.checkPosition;
+            vertTon.In := TRUE;
+            IF vertTon.Q THEN
+                eStateVertical := eState_Vertical.enableSpg;
+                vertTon.IN:= FALSE;
+			END_IF
+            
             
         eState_Vertical.enableSpg:
+        
             IF astAxes[AXIS_COMBINED_VERTICAL].stInputs.bLimitBwd AND astAxes[AXIS_COMBINED_VERTICAL].stInputs.bLimitFwd THEN
                 verticalZ1SpgEnable.Execute := TRUE;
                 verticalZ2SpgEnable.Execute := TRUE;
@@ -895,9 +920,18 @@ GVL_INTER.SETDIR_ROTATION:= axisSpg_Rot.direction;]]></ST>
             IF NOT VerticalAxesSpgEnabled THEN
                 eStateVertical:= eState_Vertical.init;
 			END_IF
+            IF astAxes[AXIS_VERTICAL_TRANSLATION_Y1].stStatus.bError OR astAxes[AXIS_VERTICAL_TRANSLATION_Y2].stStatus.bError THEN
+                eStateVertical:= eState_Vertical.init;
+			END_IF
             IF GVL_INTER.DECOUPLE_VERTICAL_AXES THEN
                 eStateVertical := eState_Vertical.disableSpg;
 			END_IF
+            (*IF astAxes[AXIS_COMBINED_VERTICAL].Axis.Status.NotMoving THEN
+                IF ABS(astAxes[AXIS_COMBINED_VERTICAL].stStatus.fActPosition-astAxes[AXIS_VERTICAL_TRANSLATION_Y1].stStatus.fActPosition)>0.02 THEN
+                    combinedVerticalSetPos.Position:= astAxes[AXIS_VERTICAL_TRANSLATION_Y1].stStatus.fActPosition;
+                    combinedVerticalSetPos.Execute:= TRUE;
+				END_IF
+			END_IF*)
             
         eState_Vertical.disableSpg:
             verticalZ1SpgDisable.Execute:= TRUE;
@@ -932,39 +966,152 @@ END_IF]]></ST>
 astAxes[AXIS_VERTICAL_TRANSLATION_Y1].Axis.ReadStatus();
 astAxes[AXIS_VERTICAL_TRANSLATION_Y2].Axis.ReadStatus();
 
-//Z1 position check
-IF ((astAxes[AXIS_COMBINED_VERTICAL].Axis.NcToPlc.SetPos < astAxes[AXIS_VERTICAL_TRANSLATION_Y1].Axis.NcToPlc.ActPos+0.01)OR (astAxes[AXIS_COMBINED_VERTICAL].Axis.NcToPlc.SetVelo<0)) 
+fY1_To_Simulated_Deviation := astAxes[AXIS_COMBINED_VERTICAL].Axis.NcToPlc.SetPos - astAxes[AXIS_VERTICAL_TRANSLATION_Y1].Axis.NcToPlc.ActPos;
+fY2_To_Simulated_Deviation := astAxes[AXIS_COMBINED_VERTICAL].Axis.NcToPlc.SetPos - astAxes[AXIS_VERTICAL_TRANSLATION_Y2].Axis.NcToPlc.ActPos;
+/////////////////////
+
+
+//No move previously in progress
+IF ABS(fY2_To_Simulated_Deviation) > 0.01 AND astAxes[AXIS_COMBINED_VERTICAL].Axis.Status.NotMoving AND y2NotFinished=FALSE THEN
+    y2Compensating:= TRUE;
+    y2NotFinished:= TRUE;
+    y2CompensatingCycle:=0;
+    //Latch the deviation
+    fY2_To_Simulated_Deviation_Latched:= fY2_To_Simulated_Deviation;
+ELSIF astAxes[AXIS_COMBINED_VERTICAL].Axis.Status.Moving THEN
+    y2NotFinished:= TRUE;
+END_IF
+//We are compensating and moving forward
+IF y2Compensating THEN
     
-    AND NOT astAxes[AXIS_VERTICAL_TRANSLATION_Y1].stInputs.bLimitBwd THEN
-    //ADSLOGSTR(msgCtrlMask:= ADSLOG_MSGTYPE_HINT,msgFmtStr:='HIT',strArg:='');
-    fZ1SetPos := astAxes[AXIS_VERTICAL_TRANSLATION_Y1].Axis.NcToPlc.ActPos; // DON'T MOVE
-    fZ1SetVelo :=0;
-    fZ1SetDir := 0;
-ELSIF astAxes[AXIS_COMBINED_VERTICAL].Axis.NcToPlc.SetPos > astAxes[AXIS_VERTICAL_TRANSLATION_Y1].Axis.NcToPlc.ActPos AND NOT astAxes[AXIS_VERTICAL_TRANSLATION_Y1].stInputs.bLimitFwd THEN
-    fZ1SetPos := astAxes[AXIS_VERTICAL_TRANSLATION_Y1].Axis.NcToPlc.ActPos; // DON'T MOVE
-    fZ1SetVelo :=0;
-    fZ1SetDir := 0;
-ELSE  
-    fZ1SetPos := astAxes[AXIS_COMBINED_VERTICAL].Axis.NcToPlc.SetPos; // DON'T MOVE
-    fZ1SetVelo :=astAxes[AXIS_COMBINED_VERTICAL].Axis.NcToPlc.SetVelo;
-    fZ1SetDir := combinedVerticalDirection;
-END_IF
+    IF astAxes[AXIS_COMBINED_VERTICAL].Axis.NcToPlc.ActVelo >0  THEN
+        //Moving forward and REAL is LAGGING!!!
+        IF fY2_To_Simulated_Deviation_Latched>0 THEN
+            fZ2SetPos:= astAxes[AXIS_COMBINED_VERTICAL].Axis.NcToPlc.SetPos - fY2_To_Simulated_Deviation_Latched + ((fY2_To_Simulated_Deviation_Latched/CYCLES_TO_COMPENSATE)*y2CompensatingCycle);
+            y2CompensatingCycle:= y2CompensatingCycle+1;
+            fZ2SetVelo:=astAxes[AXIS_COMBINED_VERTICAL].Axis.NcToPlc.SetVelo;
+            imHere:=7;
+        //Moving forward and REAL is LEADING!!!
+        ELSIF fY2_To_Simulated_Deviation_Latched<0 THEN
+            fZ2SetPos:= astAxes[AXIS_COMBINED_VERTICAL].Axis.NcToPlc.SetPos - fY2_To_Simulated_Deviation_Latched + ((fY2_To_Simulated_Deviation_Latched/CYCLES_TO_COMPENSATE)*y2CompensatingCycle);
+            y2CompensatingCycle:= y2CompensatingCycle+1;
+            fZ2SetVelo:=astAxes[AXIS_COMBINED_VERTICAL].Axis.NcToPlc.SetVelo;
 
-//Z2 position check
-IF astAxes[AXIS_COMBINED_VERTICAL].Axis.NcToPlc.SetPos < astAxes[AXIS_VERTICAL_TRANSLATION_Y2].Axis.NcToPlc.ActPos AND NOT astAxes[AXIS_VERTICAL_TRANSLATION_Y2].stInputs.bLimitBwd THEN
-    fZ2SetPos := astAxes[AXIS_VERTICAL_TRANSLATION_Y2].Axis.NcToPlc.ActPos; // DON'T MOVE
-    fZ2SetVelo :=0;
-    fZ2SetDir := 0;
-ELSIF astAxes[AXIS_COMBINED_VERTICAL].Axis.NcToPlc.SetPos > astAxes[AXIS_VERTICAL_TRANSLATION_Y2].Axis.NcToPlc.ActPos AND NOT astAxes[AXIS_VERTICAL_TRANSLATION_Y2].stInputs.bLimitFwd THEN
-    fZ2SetPos := astAxes[AXIS_VERTICAL_TRANSLATION_Y2].Axis.NcToPlc.ActPos; // DON'T MOVE
-    fZ2SetVelo :=0;
-    fZ2SetDir := 0;
+		END_IF
+    ELSIF astAxes[AXIS_COMBINED_VERTICAL].Axis.NcToPlc.ActVelo <0 THEN
+        //Moving backward and REAL is LAGGING!!!
+        IF fY2_To_Simulated_Deviation_Latched<0 THEN
+            fZ2SetPos:= astAxes[AXIS_COMBINED_VERTICAL].Axis.NcToPlc.SetPos - fY2_To_Simulated_Deviation_Latched + ((fY2_To_Simulated_Deviation_Latched/CYCLES_TO_COMPENSATE)*y2CompensatingCycle);
+            y2CompensatingCycle:= y2CompensatingCycle+1;
+            fZ2SetVelo:=astAxes[AXIS_COMBINED_VERTICAL].Axis.NcToPlc.SetVelo;
+            imHere:=4;
+        //Moving backward and REAL is LEADING!!!
+        ELSIF fY2_To_Simulated_Deviation_Latched>0 THEN
+            fZ2SetPos:= astAxes[AXIS_COMBINED_VERTICAL].Axis.NcToPlc.SetPos - fY2_To_Simulated_Deviation_Latched + ((fY2_To_Simulated_Deviation_Latched/CYCLES_TO_COMPENSATE)*y2CompensatingCycle);
+            y2CompensatingCycle:= y2CompensatingCycle+1;
+            fZ2SetVelo:=astAxes[AXIS_COMBINED_VERTICAL].Axis.NcToPlc.SetVelo;
+
+		END_IF
+	END_IF
+    
 ELSE
-    fZ2SetPos := astAxes[AXIS_COMBINED_VERTICAL].Axis.NcToPlc.SetPos; // DON'T MOVE
-    fZ2SetVelo :=astAxes[AXIS_COMBINED_VERTICAL].Axis.NcToPlc.SetVelo;
-    fZ2SetDir := combinedVerticalDirection;
+   imHere:=1;
+  fZ2SetVelo:=astAxes[AXIS_COMBINED_VERTICAL].Axis.NcToPlc.SetVelo;
+  fZ2SetPos:= astAxes[AXIS_COMBINED_VERTICAL].Axis.NcToPlc.SetPos;
+END_IF
+IF y2CompensatingCycle>CYCLES_TO_COMPENSATE THEN
+    y2Compensating:= FALSE;
+    y2CompensatingCycle:=0;
+END_IF
+/////////////////////////////////////
+////////////////
+IF ABS(fY1_To_Simulated_Deviation) > 0.01 AND astAxes[AXIS_COMBINED_VERTICAL].Axis.Status.NotMoving AND y1NotFinished=FALSE THEN
+    y1Compensating:= TRUE;
+    y1NotFinished:= TRUE;
+    y1CompensatingCycle:=0;
+    //Latch the deviation
+    fY1_To_Simulated_Deviation_Latched:= fY1_To_Simulated_Deviation;
+ELSIF astAxes[AXIS_COMBINED_VERTICAL].Axis.Status.Moving THEN
+    y1NotFinished:= TRUE;
+END_IF
+//We are compensating and moving forward
+IF y1Compensating THEN
+    
+    IF astAxes[AXIS_COMBINED_VERTICAL].Axis.NcToPlc.ActVelo >0  THEN
+        //Moving forward and REAL is LAGGING!!!
+        IF fY1_To_Simulated_Deviation_Latched>0 THEN
+            fZ1SetPos:= astAxes[AXIS_COMBINED_VERTICAL].Axis.NcToPlc.SetPos - fY1_To_Simulated_Deviation_Latched + ((fY1_To_Simulated_Deviation_Latched/CYCLES_TO_COMPENSATE)*y1CompensatingCycle);
+            y1CompensatingCycle:= y1CompensatingCycle+1;
+            fZ1SetVelo:=astAxes[AXIS_COMBINED_VERTICAL].Axis.NcToPlc.SetVelo;
+            imHere:=7;
+        //Moving forward and REAL is LEADING!!!
+        ELSIF fY1_To_Simulated_Deviation_Latched<0 THEN
+            fZ1SetPos:= astAxes[AXIS_COMBINED_VERTICAL].Axis.NcToPlc.SetPos - fY1_To_Simulated_Deviation_Latched + ((fY1_To_Simulated_Deviation_Latched/CYCLES_TO_COMPENSATE)*y1CompensatingCycle);
+            y1CompensatingCycle:= y1CompensatingCycle+1;
+            fZ1SetVelo:=astAxes[AXIS_COMBINED_VERTICAL].Axis.NcToPlc.SetVelo;
+		END_IF
+    ELSIF astAxes[AXIS_COMBINED_VERTICAL].Axis.NcToPlc.ActVelo <0 THEN
+        //Moving backward and REAL is LAGGING!!!
+        IF fY1_To_Simulated_Deviation_Latched<0 THEN
+            fZ1SetPos:= astAxes[AXIS_COMBINED_VERTICAL].Axis.NcToPlc.SetPos - fY1_To_Simulated_Deviation_Latched + ((fY1_To_Simulated_Deviation_Latched/CYCLES_TO_COMPENSATE)*y1CompensatingCycle);
+            y1CompensatingCycle:= y1CompensatingCycle+1;
+            fZ1SetVelo:=astAxes[AXIS_COMBINED_VERTICAL].Axis.NcToPlc.SetVelo;
+            imHere:=4;
+        //Moving backward and REAL is LEADING!!!
+        ELSIF fY1_To_Simulated_Deviation_Latched>0 THEN
+            fZ1SetPos:= astAxes[AXIS_COMBINED_VERTICAL].Axis.NcToPlc.SetPos - fY1_To_Simulated_Deviation_Latched + ((fY1_To_Simulated_Deviation_Latched/CYCLES_TO_COMPENSATE)*y1CompensatingCycle);
+            y1CompensatingCycle:= y1CompensatingCycle+1;
+            fZ1SetVelo:=astAxes[AXIS_COMBINED_VERTICAL].Axis.NcToPlc.SetVelo;
+
+		END_IF
+	END_IF
+    
+ELSE
+   imHere:=1;
+  fZ1SetVelo:=astAxes[AXIS_COMBINED_VERTICAL].Axis.NcToPlc.SetVelo;
+  fZ1SetPos:= astAxes[AXIS_COMBINED_VERTICAL].Axis.NcToPlc.SetPos;
+
+END_IF
+IF y1CompensatingCycle>CYCLES_TO_COMPENSATE THEN
+    y1Compensating:= FALSE;
+    y1CompensatingCycle:=0;
 END_IF
 
+
+
+////////////
+////////////////////////
+IF astAxes[AXIS_COMBINED_VERTICAL].Axis.NcToPlc.ActVelo =0 THEN
+    y2NotFinished:= FALSE;
+    y2Compensating:= FALSE;
+    y2CompensatingCycle:=0;
+    y1NotFinished:= FALSE;
+    y1Compensating:= FALSE;
+    y1CompensatingCycle:=0;
+END_IF
+(*
+IF combinedVerticalDirection=0 THEN
+    y2NotFinished:= FALSE;
+    y1NotFinished:= FALSE;
+    y2Compensating:= FALSE;
+    y2CompensatingCycle:=0;
+    y1Compensating:= FALSE;
+    y1CompensatingCycle:=0;
+END_IF*)
+///////////////////////////////////
+//OVERRIDE
+//fZ1SetPos:= astAxes[AXIS_COMBINED_VERTICAL].Axis.NcToPlc.SetPos;
+//fZ1SetVelo :=astAxes[AXIS_COMBINED_VERTICAL].Axis.NcToPlc.SetVelo;
+
+
+
+//fZ1SetPos := astAxes[AXIS_COMBINED_VERTICAL].Axis.NcToPlc.SetPos; // DON'T MOVE
+//fZ1SetVelo :=astAxes[AXIS_COMBINED_VERTICAL].Axis.NcToPlc.SetVelo;
+fZ1SetDir := combinedVerticalDirection;
+
+//fZ2SetPos := astAxes[AXIS_COMBINED_VERTICAL].Axis.NcToPlc.SetPos; // DON'T MOVE
+fZ2SetDir := combinedVerticalDirection;
+    
 MC_ExtSetPointGenFeed(Axis:=astAxes[AXIS_VERTICAL_TRANSLATION_Y1].Axis, Position:= fZ1SetPos, Velocity:= fZ1SetVelo, Acceleration:= 0, Direction:= fZ1SetDir);
 MC_ExtSetPointGenFeed(Axis:=astAxes[AXIS_VERTICAL_TRANSLATION_Y2].Axis, Position:= fZ2SetPos, Velocity:= fZ2SetVelo, Acceleration:= 0, Direction:= fZ2SetDir);
 ]]></ST>

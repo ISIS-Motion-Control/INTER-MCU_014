@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TargetSystemConfig Crc="2348844538" Version="1.5">
+  <TargetSystemType>HSafetyPLC</TargetSystemType>
+  <TargetSystemSubType>AX891x</TargetSystemSubType>
+  <IsExternalDevice>false</IsExternalDevice>
+  <TargetSystemObjectId>50462794</TargetSystemObjectId>
+  <TargetSystemObjectName>Drive 74 (AX8206-0210-0104)</TargetSystemObjectName>
+  <SoftwareVersion>03 (V01.13)</SoftwareVersion>
+  <SerialNumber>3086010</SerialNumber>
+  <ProjectCRC>47905</ProjectCRC>
+  <MapProjectCRC>false</MapProjectCRC>
+  <MapSerialNumber>false</MapSerialNumber>
+  <VersionNumber>1</VersionNumber>
+  <FSOEAddress>11</FSOEAddress>
+  <DipSwitch>11</DipSwitch>
+  <AmsNetID>5.119.206.217.2.1</AmsNetID>
+  <AmsPort>1037</AmsPort>
+  <ConnectionInfoDataConfigOld>false</ConnectionInfoDataConfigOld>
+  <TakeOverSafetyAliasDeviceNamesInProcessImage>false</TakeOverSafetyAliasDeviceNamesInProcessImage>
+  <TakeOverStandardAliasDeviceNamesInProcessImage>false</TakeOverStandardAliasDeviceNamesInProcessImage>
+  <BackupRestore Needed="0" Activated="false" RestoreUserAdministration="false" />
+</TargetSystemConfig>

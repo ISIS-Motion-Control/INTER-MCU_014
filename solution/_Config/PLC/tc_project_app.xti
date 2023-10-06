@@ -965,31 +965,13 @@ External Setpoint Generation:
 		</DataType>
 	</DataTypes>
 	<Project GUID="{FB261665-FD20-4BF2-97F8-2854C82B752D}" Name="tc_project_app" PrjFilePath="..\..\tc_project_app\tc_project_app.plcproj" TmcFilePath="..\..\tc_project_app\tc_project_app.tmc" ReloadTmc="true" AmsPort="852" FileArchiveSettings="#x000e" SymbolicMapping="true">
-		<Instance Id="#x08502040" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="tc_project_app\tc_project_app.tmc" TmcHash="{FB26DBF8-876B-86DC-9376-0F979A1FDE83}">
+		<Instance Id="#x08502040" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="tc_project_app\tc_project_app.tmc" TmcHash="{70F39466-858F-8662-FADD-3B99A4202A22}">
 			<Name>tc_project_app Instance</Name>
 			<CLSID ClassFactory="TcPlc30">{08500001-0000-0000-F000-000000000064}</CLSID>
 			<Vars VarGrpType="1">
 				<Name>PlcTask Inputs</Name>
 				<Var>
 					<Name>GVL_Safety.SafetyReset_ButtonIn</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Safety.RESET_REQUESTED</Name>
-					<Comment><![CDATA[ THIS IS THE ACTUAL ACK REQUEST SIGNAL]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Safety.Drive71_ChA_InRun</Name>
-					<Comment><![CDATA[SAFETY_ACK_REQUESTED : BOOL;]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Safety.Drive71_ChB_InRun</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Safety.EL6910_InRun</Name>
 					<Type>BOOL</Type>
 				</Var>
 				<Var>
@@ -1802,6 +1784,24 @@ External Setpoint Generation:
 					<Name>GVL.astAxes[30].Axis.NcToPlc</Name>
 					<Type GUID="{10036166-C9D3-404B-BDD3-323034AAA7F4}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
 				</Var>
+				<Var>
+					<Name>GVL_Safety.RESET_REQUESTED</Name>
+					<Comment><![CDATA[ THIS IS THE ACTUAL ACK REQUEST SIGNAL]]></Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Safety.Drive71_InRun</Name>
+					<Comment><![CDATA[SAFETY_ACK_REQUESTED : BOOL;]]></Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Safety.Drive74_InRun</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Safety.EL69010_InRun</Name>
+					<Type>BOOL</Type>
+				</Var>
 			</Vars>
 			<Vars VarGrpType="2" AreaNo="1">
 				<Name>PlcTask Outputs</Name>
@@ -1900,39 +1900,54 @@ bPowerSwitchesAxis1 AT %Q*: BOOL:= TRUE;]]></Comment>
 					<Type>BOOL</Type>
 				</Var>
 				<Var>
-					<Name>GVL_Safety.RUN_SAFETY</Name>
+					<Name>GVL_Safety.Drive71_ErrorAck</Name>
+					<Comment><![CDATA[RUN_SAFETY AT %Q* : BOOL := TRUE;
+RUN_SAFETY_SPEED AT %Q* : BOOL := TRUE;
+ACK_DRIVE_71_SAFETY AT %Q* : BOOL;
+ACK_DRIVE_74_SAFETY AT %Q* : BOOL;]]></Comment>
 					<Type>BOOL</Type>
 				</Var>
 				<Var>
-					<Name>GVL_Safety.RUN_SAFETY_SPEED</Name>
+					<Name>GVL_Safety.Drive74_ErrorAck</Name>
 					<Type>BOOL</Type>
 				</Var>
 				<Var>
-					<Name>GVL_Safety.ACK_DRIVE_71_SAFETY</Name>
+					<Name>GVL_Safety.Main_ErrorAck</Name>
 					<Type>BOOL</Type>
 				</Var>
 				<Var>
-					<Name>GVL_Safety.ACK_DRIVE_74_SAFETY</Name>
+					<Name>GVL_Safety.Drive71_RunSafety</Name>
 					<Type>BOOL</Type>
 				</Var>
 				<Var>
-					<Name>GVL_Safety.ACK_SAFE_SPEED_1_ChA</Name>
+					<Name>GVL_Safety.Drive74_RunSafety</Name>
 					<Type>BOOL</Type>
 				</Var>
 				<Var>
-					<Name>GVL_Safety.ACK_SAFE_SPEED_1_ChB</Name>
+					<Name>GVL_Safety.Main_RunSafety</Name>
 					<Type>BOOL</Type>
 				</Var>
 				<Var>
-					<Name>GVL_Safety.ACK_SAFE_SPEED_2_ChA</Name>
+					<Name>GVL_Safety.Drive71_ChA_Reset</Name>
 					<Type>BOOL</Type>
 				</Var>
 				<Var>
-					<Name>GVL_Safety.ACK_SAFE_SPEED_2_ChB</Name>
+					<Name>GVL_Safety.Drive71_ChB_Reset</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Safety.Drive74_ChA_Reset</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Safety.Drive74_ChB_Reset</Name>
 					<Type>BOOL</Type>
 				</Var>
 				<Var>
 					<Name>GVL_Safety.SAFETY_ACK</Name>
+					<Comment><![CDATA[Drive71_ChA_InRun AT %I* :BOOL;
+Drive71_ChB_InRun AT %I* : BOOL;
+EL6910_InRun AT %I* : BOOL;]]></Comment>
 					<Type>BOOL</Type>
 				</Var>
 				<Var>
@@ -2107,20 +2122,26 @@ bPowerSwitchesAxis1 AT %Q*: BOOL:= TRUE;]]></Comment>
 				<Link VarA="PlcTask Inputs^GVL.astAxes[8].stInputs.bLimitBwd" VarB="Channel 6^Vertical Z2 Bwd Limit In" Size="1"/>
 				<Link VarA="PlcTask Inputs^GVL.astAxes[8].stInputs.bLimitFwd" VarB="Channel 5^Vertical Z2 Fwd Limit In" Size="1"/>
 			</OwnerB>
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 27 (EK1100)^Term 28 (EL6910)">
-				<Link VarA="PlcTask Inputs^GVL_Safety.EL6910_InRun" VarB="StandardInputs^Standard Out Var 26" Size="1"/>
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 27 (EK1100)^EL6910-(04)">
+				<Link VarA="PlcTask Inputs^GVL_Safety.EL69010_InRun" VarB="StandardInputs^Standard Out Var 23" Size="1"/>
 				<Link VarA="PlcTask Inputs^GVL_Safety.RESET_REQUESTED" VarB="StandardInputs^Standard Out Var 24" Size="1"/>
-				<Link VarA="PlcTask Outputs^GVL_Safety.RUN_SAFETY" VarB="StandardOutputs^Standard In Var 7" Size="1"/>
-				<Link VarA="PlcTask Outputs^GVL_Safety.SAFETY_ACK" VarB="StandardOutputs^Standard In Var 1" Size="1"/>
-				<Link VarA="PlcTask Outputs^GVL_Safety.SafetyReset" VarB="StandardOutputs^Standard In Var 6" Size="1"/>
+				<Link VarA="PlcTask Outputs^GVL_Safety.Main_ErrorAck" VarB="StandardOutputs^Standard In Var 1" Size="1"/>
+				<Link VarA="PlcTask Outputs^GVL_Safety.Main_RunSafety" VarB="StandardOutputs^Standard In Var 2" Size="1"/>
+				<Link VarA="PlcTask Outputs^GVL_Safety.SafetyReset" VarB="StandardOutputs^Standard In Var 20" Size="1"/>
 			</OwnerB>
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 70 (AX8640-0000-0103)^Drive 71 (AX8206-0210-0104)">
-				<Link VarA="PlcTask Inputs^GVL_Safety.Drive71_ChA_InRun" VarB="Device (Safety)^Standard Inputdata^Standard Out Var 11" Size="1"/>
-				<Link VarA="PlcTask Inputs^GVL_Safety.Drive71_ChB_InRun" VarB="Device (Safety)^Standard Inputdata^Standard Out Var 12" Size="1"/>
-				<Link VarA="PlcTask Outputs^GVL_Safety.ACK_DRIVE_71_SAFETY" VarB="Device (Safety)^Standard Outputdata^Standard In Var 3" Size="1"/>
-				<Link VarA="PlcTask Outputs^GVL_Safety.ACK_SAFE_SPEED_1_ChA" VarB="Device (Safety)^Standard Outputdata^Standard In Var 7" Size="1"/>
-				<Link VarA="PlcTask Outputs^GVL_Safety.ACK_SAFE_SPEED_1_ChB" VarB="Device (Safety)^Standard Outputdata^Standard In Var 8" Size="1"/>
-				<Link VarA="PlcTask Outputs^GVL_Safety.RUN_SAFETY_SPEED" VarB="Device (Safety)^Standard Outputdata^Standard In Var 2" Size="1"/>
+				<Link VarA="PlcTask Inputs^GVL_Safety.Drive71_InRun" VarB="Device (Safety)^Standard Inputdata^Standard Out Var 9" Size="1"/>
+				<Link VarA="PlcTask Outputs^GVL_Safety.Drive71_ChA_Reset" VarB="Device (Safety)^Standard Outputdata^Standard In Var 7" Size="1"/>
+				<Link VarA="PlcTask Outputs^GVL_Safety.Drive71_ChB_Reset" VarB="Device (Safety)^Standard Outputdata^Standard In Var 8" Size="1"/>
+				<Link VarA="PlcTask Outputs^GVL_Safety.Drive71_ErrorAck" VarB="Device (Safety)^Standard Outputdata^Standard In Var 3" Size="1"/>
+				<Link VarA="PlcTask Outputs^GVL_Safety.Drive71_RunSafety" VarB="Device (Safety)^Standard Outputdata^Standard In Var 2" Size="1"/>
+			</OwnerB>
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 70 (AX8640-0000-0103)^Drive 74 (AX8206-0210-0104)">
+				<Link VarA="PlcTask Inputs^GVL_Safety.Drive74_InRun" VarB="Device (Safety)^Standard Inputdata^Standard Out Var 9" Size="1"/>
+				<Link VarA="PlcTask Outputs^GVL_Safety.Drive74_ChA_Reset" VarB="Device (Safety)^Standard Outputdata^Standard In Var 7" Size="1"/>
+				<Link VarA="PlcTask Outputs^GVL_Safety.Drive74_ChB_Reset" VarB="Device (Safety)^Standard Outputdata^Standard In Var 8" Size="1"/>
+				<Link VarA="PlcTask Outputs^GVL_Safety.Drive74_ErrorAck" VarB="Device (Safety)^Standard Outputdata^Standard In Var 3" Size="1"/>
+				<Link VarA="PlcTask Outputs^GVL_Safety.Drive74_RunSafety" VarB="Device (Safety)^Standard Outputdata^Standard In Var 2" Size="1"/>
 			</OwnerB>
 			<OwnerB Name="TINC^NC-Task 1 SAF^Axes^Axis 1">
 				<Link VarA="PlcTask Inputs^GVL.astAxes[1].Axis.NcToPlc" VarB="Outputs^ToPlc"/>

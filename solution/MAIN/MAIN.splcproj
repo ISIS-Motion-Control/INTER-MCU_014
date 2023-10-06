@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Crc="2361369471" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{d3d79f32-0475-4b03-b2de-3f07aa3ee45f}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>TwinCAT3SafePlcProject</RootNamespace>
+    <AssemblyName>TwinCAT3SafePlcProject</AssemblyName>
+    <FileUpgradeFlags />
+    <UpgradeBackupLocation />
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <TargetSystem>EL6900</TargetSystem>
+    <ProgrammingLanguage>Graphical Editor</ProgrammingLanguage>
+    <Worker>Simon Cooper</Worker>
+    <IntProjName>MAIN</IntProjName>
+    <IsNewCreated>false</IsNewCreated>
+    <SPlcProjVersion>1.7.0.0</SPlcProjVersion>
+    <NextSdsId>25</NextSdsId>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>false</DebugSymbols>
+    <OutputPath>bin\Release\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="BlockhouseEstops\Alias Devices\Connection to Drive 71 %28AX8206-0210-0104%29.sds" />
+    <None Include="BlockhouseEstops\Alias Devices\Connection to Drive 74 %28AX8206-0210-0104%29.sds" />
+    <None Include="BlockhouseEstops\Alias Devices\EDM_Beckhoff_Error.sds" />
+    <None Include="BlockhouseEstops\Alias Devices\EDM_Galil_Error.sds" />
+    <None Include="BlockhouseEstops\Alias Devices\EL1904-%2806%29 - Module 1 %28FSOES%29.sds" />
+    <None Include="BlockhouseEstops\Alias Devices\EL1904-%2807%29 - Module 1 %28FSOES%29.sds" />
+    <None Include="BlockhouseEstops\Alias Devices\EL1904-%2808%29 - Module 1 %28FSOES%29.sds" />
+    <None Include="BlockhouseEstops\Alias Devices\EL1904-%2809%29 - Module 1 %28FSOES%29.sds" />
+    <None Include="BlockhouseEstops\Alias Devices\EL1904-%2810%29 - Module 1 %28FSOES%29.sds" />
+    <None Include="BlockhouseEstops\Alias Devices\EL1904-%2811%29 - Module 1 %28FSOES%29.sds" />
+    <None Include="BlockhouseEstops\Alias Devices\EL2904-%2806%29 - Module 1 %28FSOES%29.sds" />
+    <None Include="BlockhouseEstops\Alias Devices\EStop_Error.sds" />
+    <None Include="BlockhouseEstops\Alias Devices\Main_InRun.sds" />
+    <None Include="BlockhouseEstops\Alias Devices\SafetResetRequest.sds" />
+    <None Include="BlockhouseEstops\Alias Devices\SafetyReset.sds" />
+    <None Include="BlockhouseEstops\BlockhouseEstops.sal" />
+    <None Include="BlockhouseEstops\BlockhouseEstops.sal.diagram">
+      <DependentUpon>BlockhouseEstops\BlockhouseEstops.sal</DependentUpon>
+      <Visible>false</Visible>
+    </None>
+    <None Include="TargetSystemConfig.xml">
+      <Visible>false</Visible>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="GVLs" />
+    <Folder Include="BlockhouseEstops" />
+    <Folder Include="BlockhouseEstops\Alias Devices" />
+    <Folder Include="User FBs" />
+    <None Include="BlockhouseEstops\Alias Devices\ErrorAcknowledgement.sds" />
+    <None Include="BlockhouseEstops\Alias Devices\Run.sds" />
+  </ItemGroup>
+</Project>

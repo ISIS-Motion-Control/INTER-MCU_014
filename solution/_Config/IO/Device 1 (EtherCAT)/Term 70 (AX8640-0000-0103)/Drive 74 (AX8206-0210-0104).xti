@@ -2,6 +2,42 @@
 <TcSmItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2012/07/TcSmProject" TcSmVersion="1.0" TcVersion="3.1.4024.32" ClassName="CFlbTermDef" SubType="9099">
 	<DataTypes>
 		<DataType>
+			<Name GUID="{18071995-0000-0000-0000-002000000006}" IecBaseType="true" BitType="true" AutoDeleteType="true" HideSubItems="true">ARRAY [0..5] OF BIT</Name>
+			<BitSize>6</BitSize>
+			<BaseType GUID="{18071995-0000-0000-0000-000000000010}">BIT</BaseType>
+			<ArrayInfo>
+				<LBound>0</LBound>
+				<Elements>6</Elements>
+			</ArrayInfo>
+		</DataType>
+		<DataType>
+			<Name GUID="{18071995-0000-0000-0000-002000000007}" IecBaseType="true" AutoDeleteType="true" HideSubItems="true">ARRAY [0..6] OF BIT</Name>
+			<BitSize>7</BitSize>
+			<BaseType GUID="{18071995-0000-0000-0000-000000000010}">BIT</BaseType>
+			<ArrayInfo>
+				<LBound>0</LBound>
+				<Elements>7</Elements>
+			</ArrayInfo>
+		</DataType>
+		<DataType>
+			<Name GUID="{18071995-0000-0000-0000-002000000005}" IecBaseType="true" BitType="true" AutoDeleteType="true" HideSubItems="true">ARRAY [0..4] OF BIT</Name>
+			<BitSize>5</BitSize>
+			<BaseType GUID="{18071995-0000-0000-0000-000000000010}">BIT</BaseType>
+			<ArrayInfo>
+				<LBound>0</LBound>
+				<Elements>5</Elements>
+			</ArrayInfo>
+		</DataType>
+		<DataType>
+			<Name GUID="{18071995-0000-0000-0000-002000000004}" IecBaseType="true" AutoDeleteType="true" HideSubItems="true">ARRAY [0..3] OF BIT</Name>
+			<BitSize>4</BitSize>
+			<BaseType GUID="{18071995-0000-0000-0000-000000000010}">BIT</BaseType>
+			<ArrayInfo>
+				<LBound>0</LBound>
+				<Elements>4</Elements>
+			</ArrayInfo>
+		</DataType>
+		<DataType>
 			<Name GUID="{18071995-0000-0000-0000-002000000010}" IecBaseType="true" AutoDeleteType="true" HideSubItems="true">ARRAY [0..1] OF BYTE</Name>
 			<BitSize>16</BitSize>
 			<BaseType GUID="{18071995-0000-0000-0000-000000000001}">BYTE</BaseType>
@@ -17,15 +53,6 @@
 			<ArrayInfo>
 				<LBound>0</LBound>
 				<Elements>1</Elements>
-			</ArrayInfo>
-		</DataType>
-		<DataType>
-			<Name GUID="{18071995-0000-0000-0000-002000000005}" IecBaseType="true" BitType="true" AutoDeleteType="true" HideSubItems="true">ARRAY [0..4] OF BIT</Name>
-			<BitSize>5</BitSize>
-			<BaseType GUID="{18071995-0000-0000-0000-000000000010}">BIT</BaseType>
-			<ArrayInfo>
-				<LBound>0</LBound>
-				<Elements>5</Elements>
 			</ArrayInfo>
 		</DataType>
 	</DataTypes>
@@ -1415,156 +1442,6 @@
 									</CoE>
 								</Calc>
 							</Feedback>
-							<Feedback DataSource="1">
-								<DatabaseType>
-									<OrderCode>Reni#RL32Bxx1nm-5V-BiSS_C</OrderCode>
-									<IsRotary>false</IsRotary>
-									<AbsolutePosInterface>6</AbsolutePosInterface>
-									<GroupType>Reni#RL-BiSS_C</GroupType>
-									<ElectricFeedbackType>BiSS_C-RL32Bxx1nm-5V</ElectricFeedbackType>
-								</DatabaseType>
-								<DatabaseParameters>
-									<Parameter>
-										<Comment LcId="1033">cf: AbsolutePositionInterfaceType 0: No interface 1: BiSS B 2: EnDat2.1 3: EnDat2.2 4: Hiperface 5: BiSS C 6: BiSS C 7: Hiperface DSL 8: Resolver 9: MES 10: SSI binary 11: SSI gray 12: EnDat3.0 100: Electrical analog commutation channel: sin(x) and sin(x-120) 102: Mechanical analog commutation channel: cos and sin 103: Electrical analog commutation channel: cos and sin</Comment>
-										<Name>AbsolutePositionInterface</Name>
-										<Data type="int8">6</Data>
-									</Parameter>
-									<Parameter>
-										<Comment LcId="1033">cf: KindType 0: rotary 1: linear</Comment>
-										<Name>Kind</Name>
-										<Data type="int8">1</Data>
-									</Parameter>
-									<Parameter>
-										<Comment LcId="1033">cf. PowerSupplyType 0: No voltage 1: 11 V without sense 2: 5 V with sense 3: 5 V without sense 4: 3.5 V ~ 14 V</Comment>
-										<Name>PowerManagement_PowerSupply</Name>
-										<Data type="int8" unitSiNumerator="second">3</Data>
-									</Parameter>
-									<Parameter>
-										<Comment LcId="1033"/>
-										<Name>PowerManagement_DelayTimeAfterPowerUp</Name>
-										<Data type="real64" unitSiNumerator="second">0.7</Data>
-									</Parameter>
-									<Parameter>
-										<Comment LcId="1033"/>
-										<Name>RelativePositonData_LengthPerSignalPeriod</Name>
-										<Data type="real64" unitPrefix="-9" unitSiNumerator="metre">20000</Data>
-									</Parameter>
-									<Parameter>
-										<Comment LcId="1033"/>
-										<Name>AbsolutePositionData_ResolutionSinglePos</Name>
-										<Data type="int16">32</Data>
-									</Parameter>
-									<Parameter>
-										<Comment LcId="1033"/>
-										<Name>AbsolutePositionData_NumberOfClockCyclesForSinglePos</Name>
-										<Data type="int16">32</Data>
-									</Parameter>
-									<Parameter>
-										<Comment LcId="1033"/>
-										<Name>AbsolutePositionData_LinearResolution_Numerator</Name>
-										<Data type="real64" unitPrefix="-9" unitSiNumerator="metre">1</Data>
-									</Parameter>
-									<Parameter>
-										<Comment LcId="1033"/>
-										<Name>AbsolutePositionData_LinearResolution_Denominator</Name>
-										<Data type="real64">1</Data>
-									</Parameter>
-									<Parameter>
-										<Comment LcId="1033">cf: AbsolutePositionData_SensorMode_DataLayout 0: Msb first, left aligned, multiposition-singleposition-status-crc-mcd; 1: Msb first, right aligned, multiposition-singleposition-status-crc</Comment>
-										<Name>AbsolutePositionData_SensorMode_DataLayout</Name>
-										<Data type="real64">1</Data>
-									</Parameter>
-									<Parameter>
-										<Comment LcId="1033"/>
-										<Name>AbsolutePositionData_SensorMode_CrcPolynomial</Name>
-										<Data type="real64">67</Data>
-									</Parameter>
-									<Parameter>
-										<Comment LcId="1033"/>
-										<Name>AbsolutePositionData_SensorMode_InvertedCrc</Name>
-										<Data type="real64">1</Data>
-									</Parameter>
-									<Parameter>
-										<Comment LcId="1033"/>
-										<Name>AbsolutePositionData_SensorMode_MaxClockSpeed</Name>
-										<Data type="real64" unitSiNumerator="hertz">10000000</Data>
-									</Parameter>
-									<Parameter>
-										<Comment LcId="1033"/>
-										<Name>AbsolutePositionData_MaxPositionCalculationTime</Name>
-										<Data type="real64" unitPrefix="-6" unitSiNumerator="second">20</Data>
-									</Parameter>
-									<Parameter>
-										<Comment LcId="1033">maximal allowed continuous speed</Comment>
-										<Name>MaxContinousOperationSpeed</Name>
-										<Data type="real64" unitSiNumerator="metre" unitSiDenominator="second">65</Data>
-									</Parameter>
-									<Parameter>
-										<Comment LcId="1033">maximal  allowed temperature</Comment>
-										<Name>MaxTemperature</Name>
-										<Data type="real64" unitSiNumerator="degreeCelsius">0</Data>
-									</Parameter>
-								</DatabaseParameters>
-								<FeedbackUse>Feedback2</FeedbackUse>
-								<Calc>
-									<CoE>
-										<InitCmd>
-											<Transition>PS</Transition>
-											<Comment>Ch B VeloCtrl observer / Observer type</Comment>
-											<Timeout>0</Timeout>
-											<Ccs>1</Ccs>
-											<Index>13635</Index>
-											<SubIndex>4</SubIndex>
-											<Data>0400</Data>
-										</InitCmd>
-										<InitCmd>
-											<Transition>PS</Transition>
-											<Comment>Ch B Secondary Feedback BiSS-C: Encoder parameter (linear) / Power supply</Comment>
-											<Timeout>0</Timeout>
-											<Ccs>1</Ccs>
-											<Index>14095</Index>
-											<SubIndex>2</SubIndex>
-											<Data>00000000</Data>
-										</InitCmd>
-										<InitCmd>
-											<Transition>PS</Transition>
-											<Comment>Ch B Secondary Feedback BiSS-C: Encoder parameter (linear) / Data layout</Comment>
-											<Timeout>0</Timeout>
-											<Ccs>1</Ccs>
-											<Index>14095</Index>
-											<SubIndex>6</SubIndex>
-											<Data>00</Data>
-										</InitCmd>
-										<InitCmd>
-											<Transition>PS</Transition>
-											<Comment>Ch B Secondary Feedback BiSS-C: Encoder parameter (linear) / Fill bit count left</Comment>
-											<Timeout>0</Timeout>
-											<Ccs>1</Ccs>
-											<Index>14095</Index>
-											<SubIndex>7</SubIndex>
-											<Data>00</Data>
-										</InitCmd>
-										<InitCmd>
-											<Transition>PS</Transition>
-											<Comment>Ch B Secondary Feedback BiSS-C: Encoder parameter (linear) / Fill bit count right</Comment>
-											<Timeout>0</Timeout>
-											<Ccs>1</Ccs>
-											<Index>14095</Index>
-											<SubIndex>8</SubIndex>
-											<Data>00</Data>
-										</InitCmd>
-										<InitCmd>
-											<Transition>PS</Transition>
-											<Comment>Ch B AxisMain parameters encoder polarity / Secondary encoder actual values</Comment>
-											<Timeout>0</Timeout>
-											<Ccs>1</Ccs>
-											<Index>13320</Index>
-											<SubIndex>1</SubIndex>
-											<Data>00</Data>
-										</InitCmd>
-									</CoE>
-								</Calc>
-							</Feedback>
 							<Brake>
 								<DatabaseType>
 									<OrderCode>AM8053-1GH1-0000-brake</OrderCode>
@@ -1606,7 +1483,7 @@
 									</Parameter>
 								</DatabaseParameters>
 							</Brake>
-							<Load MoveStyle="Linear" IsOnlyLinearMoveAllowed="true">
+							<Load MoveStyle="Linear">
 								<IsMotorRotary>true</IsMotorRotary>
 								<Name>InverterChannelTypeBlockLoad</Name>
 								<Parameter>
@@ -1649,10 +1526,6 @@
 									<PropertyName>MaxApplicationSpeed</PropertyName>
 									<Value>895.35391</Value>
 								</Parameter>
-								<FeedConstantUnitValueDic>
-									<UnitValuePair Unit="mm" Value="0.001"/>
-									<UnitValuePair Unit="m" Value="1E-06"/>
-								</FeedConstantUnitValueDic>
 							</Load>
 							<Controller/>
 						</Block>
@@ -1682,15 +1555,15 @@
 				</Inverter>
 			</TcDMDrive>
 		</Xml>
-		<EtherCAT SlaveType="3" AdsServerAddress="0577ced9024b0b04" PdiType="#x0408" MboxDataLinkLayer="true" StateMBoxPolling="true" CfgModeSafeOp="true" CycleMBoxPollingTime="0" CoeType="47" FoeType="1" VendorId="#x00000002" ProductCode="#x200e6012" RevisionNo="#x006800d2" InfoDataAddr="true" InfoDataNetId="true" InfoDataSoeDS401="true" InfoDataDcTimes="true" TimeoutStateChange1="60000" TimeoutStateChange2="30000" TimeoutStateChange3="30000" TimeoutStateChange4="300" TimeoutMailbox2="2000" GenerateOwnNetId="true" InitializeOwnNetId="true" DownloadSlotCfg="true" CheckRevisionNoType="4" PortPhys="51" IdentificationAdo="308" SafetyLogicSupported="true" DownloadSlotCfgIP="true" MaxSlotCount="96" MaxSlotGroupCount="2" Type="AX8206-0210-0104 (2Ch. 6A servo axis, safe-motion, multi-FB)" Desc="AX8206-0210-0104">
+		<EtherCAT SlaveType="3" AdsServerAddress="0577ced9024b0d04" PdiType="#x0408" MboxDataLinkLayer="true" StateMBoxPolling="true" CfgModeSafeOp="true" CycleMBoxPollingTime="0" CoeType="47" FoeType="1" VendorId="#x00000002" ProductCode="#x200e6012" RevisionNo="#x006800d2" InfoDataAddr="true" InfoDataNetId="true" InfoDataSoeDS401="true" InfoDataDcTimes="true" TimeoutStateChange1="60000" TimeoutStateChange2="30000" TimeoutStateChange3="30000" TimeoutStateChange4="300" TimeoutMailbox2="2000" GenerateOwnNetId="true" InitializeOwnNetId="true" DownloadSlotCfg="true" CheckRevisionNoType="4" PortPhys="51" IdentificationAdo="308" SafetyLogicSupported="true" DownloadSlotCfgIP="true" MaxSlotCount="96" MaxSlotGroupCount="2" Type="AX8206-0210-0104 (2Ch. 6A servo axis, safe-motion, multi-FB)" Desc="AX8206-0210-0104">
 			<SyncMan>001000022600010001000000700000040002001026010000</SyncMan>
 			<SyncMan>001400022200010002000000700000040002001422010000</SyncMan>
 			<SyncMan>001816006400010003000000000000002400001864010000</SyncMan>
 			<SyncMan>002a22002000010004000000000000002e00002a20010000</SyncMan>
 			<SyncMan>003c00002400000005000000000000000000003c24000000</SyncMan>
 			<SyncMan>004e00002000000006000000000000000000004e20000000</SyncMan>
-			<SyncMan>00600a002400010003000000000000000a00006024010000</SyncMan>
-			<SyncMan>00720a002000010004000000000000000a00007220010000</SyncMan>
+			<SyncMan>00600e002400010003000000000000000a00006024010000</SyncMan>
+			<SyncMan>00720e002000010004000000000000000a00007220010000</SyncMan>
 			<Fmmu>0000000000000000001800020100000001000000060000000200000000000000</Fmmu>
 			<Fmmu>0000000000000000002a00010100000002000000060000000300000000000000</Fmmu>
 			<Fmmu>00000000000000000d0800010100000003000000000000000000000000000000</Fmmu>
@@ -1713,7 +1586,7 @@
 			<DcMode>446353796e633632353030000000000053796e63206379636c652074696d652036322e3530300000000000000000000024f400000000000000000000ffff00070000000000000000000000000000000000000000000000000000000000000000</DcMode>
 			<MBoxUserCmdData>020003000a00000029000000000000000000000000000000000000000000000020022c050200000030114465766963654d61696e20506172616d6574657273202f204d61696e73206d617820766f6c7461676500</MBoxUserCmdData>
 			<MBoxUserCmdData>020003000a0000002b000000000000000000000000000000000000000000000020022c010200000069014465766963654d61696e20506172616d6574657273202f204d696e204443206c696e6b20766f6c7461676500</MBoxUserCmdData>
-			<MBoxUserCmdData>020003000a00000042000000000000000000000000000000000000000000000020032c010200000009044465766963654d61696e20506f77657220737570706c7920436f6e6e656374696f6e202f20506f77657220737570706c79204574686572434154204164647265737300</MBoxUserCmdData>
+			<MBoxUserCmdData>020003000a00000042000000000000000000000000000000000000000000000020032c01020000000b044465766963654d61696e20506f77657220737570706c7920436f6e6e656374696f6e202f20506f77657220737570706c79204574686572434154204164647265737300</MBoxUserCmdData>
 			<MBoxUserCmdData>020003000a0000002b000000000000000000000000000000000000000000000020022c02020000006b034465766963654d61696e20506172616d6574657273202f204d6178204443206c696e6b20766f6c7461676500</MBoxUserCmdData>
 			<MBoxUserCmdData>02000300100000004c0000000000000000000000000000000000000000000000200d34050800000080841e000000000043682042204175746f74756e696e6720636f6d6d616e6420706172616d6574657273202f205065726d69737369626c65206d6f76656d656e7420706f73697469766520646972656374696f6e00</MBoxUserCmdData>
 			<MBoxUserCmdData>02000300100000004c0000000000000000000000000000000000000000000000200d34060800000080841e000000000043682042204175746f74756e696e6720636f6d6d616e6420706172616d6574657273202f205065726d69737369626c65206d6f76656d656e74206e6567617469766520646972656374696f6e00</MBoxUserCmdData>
@@ -1918,14 +1791,14 @@
 			<MBoxUserCmdData>020003000c0000001900000000000000000000000000000000000000000000002092600104000000e803000043682041204665656420636f6e7374616e74202f204665656400</MBoxUserCmdData>
 			<MBoxUserCmdData>020003000c00000031000000000000000000000000000000000000000000000020e9600104000000e803000043682041204164646974696f6e616c206665656420636f6e7374616e742066656564202f20537562496e6465782030303100</MBoxUserCmdData>
 			<MBoxUserCmdData>020003000c0000002b00000000000000000000000000000000000000000000002091600204000000e803000043682041204765617220726174696f202f2044726976696e67207368616674207265766f6c7574696f6e7300</MBoxUserCmdData>
-			<MBoxUserCmdData>020003000c0000001b0000000000000000000000000000000000000000000000206560000400000040420f004368204120466f6c6c6f77696e67206572726f722077696e646f7700</MBoxUserCmdData>
+			<MBoxUserCmdData>020003000c0000001b0000000000000000000000000000000000000000000000206560000400000080841e004368204120466f6c6c6f77696e67206572726f722077696e646f7700</MBoxUserCmdData>
 			<MBoxUserCmdData>020003000c0000003700000000000000000000000000000000000000000000002005300104000000031a00004368204120417869734d61696e207363616c696e6720696e646578202f205363616c696e6720696e64657820706f736974696f6e204e4300</MBoxUserCmdData>
 			<MBoxUserCmdData>020003000c0000004200000000000000000000000000000000000000000000002005300604000000036a00004368204120417869734d61696e207363616c696e6720696e646578202f205363616c696e6720696e64657820706f736974696f6e204e4320706572207365636f6e6400</MBoxUserCmdData>
-			<MBoxUserCmdData>020003000c0000003b000000000000000000000000000000000000000000000020e8680104000000e803000043682042204164646974696f6e616c206765617220726174696f206d6f746f72207265766f6c7574696f6e73202f20537562496e6465782030303100</MBoxUserCmdData>
+			<MBoxUserCmdData>020003000c0000003b000000000000000000000000000000000000000000000020e86801040000000100000043682042204164646974696f6e616c206765617220726174696f206d6f746f72207265766f6c7574696f6e73202f20537562496e6465782030303100</MBoxUserCmdData>
 			<MBoxUserCmdData>020003000c00000019000000000000000000000000000000000000000000000020926801040000000000100043682042204665656420636f6e7374616e74202f204665656400</MBoxUserCmdData>
 			<MBoxUserCmdData>020003000c00000031000000000000000000000000000000000000000000000020e96801040000000000100043682042204164646974696f6e616c206665656420636f6e7374616e742066656564202f20537562496e6465782030303100</MBoxUserCmdData>
 			<MBoxUserCmdData>020003000c0000002b000000000000000000000000000000000000000000000020916802040000000100000043682042204765617220726174696f202f2044726976696e67207368616674207265766f6c7574696f6e7300</MBoxUserCmdData>
-			<MBoxUserCmdData>020003000c0000001b00000000000000000000000000000000000000000000002065680004000000000010004368204220466f6c6c6f77696e67206572726f722077696e646f7700</MBoxUserCmdData>
+			<MBoxUserCmdData>020003000c0000001b00000000000000000000000000000000000000000000002065680004000000000020004368204220466f6c6c6f77696e67206572726f722077696e646f7700</MBoxUserCmdData>
 			<MBoxUserCmdData>020003000c0000003700000000000000000000000000000000000000000000002005340104000000141200004368204220417869734d61696e207363616c696e6720696e646578202f205363616c696e6720696e64657820706f736974696f6e204e4300</MBoxUserCmdData>
 			<MBoxUserCmdData>020003000c0000004200000000000000000000000000000000000000000000002005340604000000146200004368204220417869734d61696e207363616c696e6720696e646578202f205363616c696e6720696e64657820706f736974696f6e204e4320706572207365636f6e6400</MBoxUserCmdData>
 			<MBoxUserCmdData>020003000c00000029000000000000000000000000000000000000000000000020916001040000000100000043682041204765617220726174696f202f204d6f746f72207368616674207265766f6c7574696f6e7300</MBoxUserCmdData>
@@ -1945,22 +1818,10 @@
 			<MBoxUserCmdData>020003000c0000002d0000000000000000000000000000000000000000000000204231040400000050c30000436820412056656c6f4374726c20706172616d6574657273202f2056656c6f63697479207468726573686f6c6400</MBoxUserCmdData>
 			<MBoxUserCmdData>020003000a0000002c0000000000000000000000000000000000000000000000200030020200000001004368204120417869734d61696e20706172616d6574657273202f204d6f746f72206272616b6520757361676500</MBoxUserCmdData>
 			<MBoxUserCmdData>020003000a0000002c0000000000000000000000000000000000000000000000200034020200000001004368204220417869734d61696e20706172616d6574657273202f204d6f746f72206272616b6520757361676500</MBoxUserCmdData>
-			<MBoxUserCmdData>020003000900000017000000000000000000000000000000000000000000000020606800010000000f43682042204d6f646573206f66206f7065726174696f6e00</MBoxUserCmdData>
+			<MBoxUserCmdData>020003000900000017000000000000000000000000000000000000000000000020606800010000000843682042204d6f646573206f66206f7065726174696f6e00</MBoxUserCmdData>
 			<MBoxUserCmdData>020003000a0000004e0000000000000000000000000000000000000000000000200734020200000002004368204220417869734d61696e20706172616d657465727320706f736974696f6e206f6666736574202f204f666673657420706f736974696f6e2061637475616c2076616c756520736f7572636500</MBoxUserCmdData>
-			<MBoxUserCmdData>0200030010000000520000000000000000000000000000000000000000000000200f370308000000e80300000000000043682042205365636f6e6461727920466565646261636b20426953532d433a20456e636f64657220706172616d6574657220286c696e65617229202f204d6561737572696e672073746570206c656e67746800</MBoxUserCmdData>
-			<MBoxUserCmdData>020003000c0000005a0000000000000000000000000000000000000000000000200f3704040000000100000043682042205365636f6e6461727920466565646261636b20426953532d433a20456e636f64657220706172616d6574657220286c696e65617229202f204d6561737572696e672073746570206c656e6774682064697669736f7200</MBoxUserCmdData>
-			<MBoxUserCmdData>02000300090000004f0000000000000000000000000000000000000000000000200f3705010000002043682042205365636f6e6461727920466565646261636b20426953532d433a20456e636f64657220706172616d6574657220286c696e65617229202f20506f736974696f6e2062697420636f756e7400</MBoxUserCmdData>
-			<MBoxUserCmdData>020003000a000000580000000000000000000000000000000000000000000000200f370a02000000102743682042205365636f6e6461727920466565646261636b20426953532d433a20456e636f64657220706172616d6574657220286c696e65617229202f204d617820656e636f64657220636c6f636b206672657175656e637900</MBoxUserCmdData>
-			<MBoxUserCmdData>020003000a000000560000000000000000000000000000000000000000000000200f370b02000000bc0243682042205365636f6e6461727920466565646261636b20426953532d433a20456e636f64657220706172616d6574657220286c696e65617229202f2044656c61792074696d6520616674657220706f77657220757000</MBoxUserCmdData>
-			<MBoxUserCmdData>020003000a0000004d0000000000000000000000000000000000000000000000200f370c02000000c80043682042205365636f6e6461727920466565646261636b20426953532d433a20456e636f64657220706172616d6574657220286c696e65617229202f2043616c63756c6174696f6e2074696d6500</MBoxUserCmdData>
-			<MBoxUserCmdData>0200030009000000490000000000000000000000000000000000000000000000200f370d010000004343682042205365636f6e6461727920466565646261636b20426953532d433a20456e636f64657220706172616d6574657220286c696e65617229202f2043524320706f6c796e6f6d6500</MBoxUserCmdData>
-			<MBoxUserCmdData>02000300090000004e0000000000000000000000000000000000000000000000200f370e010000000143682042205365636f6e6461727920466565646261636b20426953532d433a20456e636f64657220706172616d6574657220286c696e65617229202f20435243206461746120696e76657274656400</MBoxUserCmdData>
-			<MBoxUserCmdData>020003000a00000026000000000000000000000000000000000000000000000020433504020000000400436820422056656c6f4374726c206f62736572766572202f204f62736572766572207479706500</MBoxUserCmdData>
-			<MBoxUserCmdData>020003000c000000490000000000000000000000000000000000000000000000200f3702040000000000000043682042205365636f6e6461727920466565646261636b20426953532d433a20456e636f64657220706172616d6574657220286c696e65617229202f20506f77657220737570706c7900</MBoxUserCmdData>
-			<MBoxUserCmdData>0200030009000000480000000000000000000000000000000000000000000000200f3706010000000043682042205365636f6e6461727920466565646261636b20426953532d433a20456e636f64657220706172616d6574657220286c696e65617229202f2044617461206c61796f757400</MBoxUserCmdData>
-			<MBoxUserCmdData>0200030009000000500000000000000000000000000000000000000000000000200f3707010000000043682042205365636f6e6461727920466565646261636b20426953532d433a20456e636f64657220706172616d6574657220286c696e65617229202f2046696c6c2062697420636f756e74206c65667400</MBoxUserCmdData>
-			<MBoxUserCmdData>0200030009000000510000000000000000000000000000000000000000000000200f3708010000000043682042205365636f6e6461727920466565646261636b20426953532d433a20456e636f64657220706172616d6574657220286c696e65617229202f2046696c6c2062697420636f756e7420726967687400</MBoxUserCmdData>
-			<MBoxUserCmdData>02000300090000004b00000000000000000000000000000000000000000000002008340101000000004368204220417869734d61696e20706172616d657465727320656e636f64657220706f6c6172697479202f205365636f6e6461727920656e636f6465722061637475616c2076616c75657300</MBoxUserCmdData>
+			<MBoxUserCmdData>020003000a0000001d00000000000000000000000000000000000000000000002066680002000000f4014368204220466f6c6c6f77696e67206572726f722074696d65206f757400</MBoxUserCmdData>
+			<MBoxUserCmdData>020003000a0000001d00000000000000000000000000000000000000000000002066600002000000f4014368204120466f6c6c6f77696e67206572726f722074696d65206f757400</MBoxUserCmdData>
 			<MBoxUserCmdData>020003000c0000000b0000000000000000000000000000000000000000000000201d2c0204000000dbbea29053746172747570206b657900</MBoxUserCmdData>
 			<Pdo Name="DeviceMain Inputs" Index="#x1a00" Flags="#x0280"/>
 			<Pdo Name="DeviceMain Dynamic Inputs" Index="#x1ae0" Flags="#x0280" SyncUnit="1"/>
@@ -1973,61 +1834,46 @@
 			<Pdo Name="DeviceMain Dynamic Outputs" Index="#x16e0" InOut="1" Flags="#x0280" SyncUnit="1"/>
 			<Pdo Name="FSoE Slave Connection 1 Slave Message" Index="#x1bc0" Flags="#x0080" SyncMan="7" SyncUnit="2">
 				<ExcludePdo>#x1bc1</ExcludePdo>
-				<Entry Name="FSOE__FSoE Slave Cmd" BitLen="8" Index="#xe600" Sub="#x01">
+				<Entry Name="Message_1__FSoE Cmd" BitLen="8" Index="#xe600" Sub="#x01">
 					<Type>USINT</Type>
 				</Entry>
-				<Entry Name="FSOE__Axis A STO" BitLen="1" Index="#xf601" Sub="#x01">
+				<Entry Name="Message_1__STO_active_ChA" BitLen="1" Index="#xf601" Sub="#x01">
 					<Type>BIT</Type>
 				</Entry>
-				<Entry Name="FSOE__Safe Input_1" BitLen="1" Index="#xf601" Sub="#x02">
+				<Entry BitLen="6">
+					<Type GUID="{18071995-0000-0000-0000-002000000006}">ARRAY [0..5] OF BIT</Type>
+				</Entry>
+				<Entry Name="Message_1__Error_AckReq_ChA" BitLen="1" Index="#xf601" Sub="#x02">
 					<Type>BIT</Type>
 				</Entry>
-				<Entry Name="FSOE__Safe Input_2" BitLen="1" Index="#xf601" Sub="#x03">
+				<Entry Name="Message_1__SLS_1_active_ChA" BitLen="1" Index="#xf601" Sub="#x03">
 					<Type>BIT</Type>
 				</Entry>
-				<Entry Name="FSOE__Safe Input_3" BitLen="1" Index="#xf601" Sub="#x04">
-					<Type>BIT</Type>
+				<Entry BitLen="7">
+					<Type GUID="{18071995-0000-0000-0000-002000000007}">ARRAY [0..6] OF BIT</Type>
 				</Entry>
-				<Entry Name="FSOE__Safe Input_4" BitLen="1" Index="#xf601" Sub="#x05">
-					<Type>BIT</Type>
-				</Entry>
-				<Entry Name="FSOE__Safe Input_5" BitLen="1" Index="#xf601" Sub="#x06">
-					<Type>BIT</Type>
-				</Entry>
-				<Entry Name="FSOE__Safe Input_6" BitLen="1" Index="#xf601" Sub="#x07">
-					<Type>BIT</Type>
-				</Entry>
-				<Entry Name="FSOE__Safe Input_7" BitLen="1" Index="#xf601" Sub="#x08">
-					<Type>BIT</Type>
-				</Entry>
-				<Entry Name="FSOE__Axis B STO" BitLen="1" Index="#xf601" Sub="#x09">
-					<Type>BIT</Type>
-				</Entry>
-				<Entry Name="FSOE__Safe Input_9" BitLen="1" Index="#xf601" Sub="#x0a">
-					<Type>BIT</Type>
-				</Entry>
-				<Entry Name="FSOE__Safe Input_10" BitLen="1" Index="#xf601" Sub="#x0b">
-					<Type>BIT</Type>
-				</Entry>
-				<Entry Name="FSOE__Safe Input_11" BitLen="1" Index="#xf601" Sub="#x0c">
-					<Type>BIT</Type>
-				</Entry>
-				<Entry Name="FSOE__Safe Input_12" BitLen="1" Index="#xf601" Sub="#x0d">
-					<Type>BIT</Type>
-				</Entry>
-				<Entry Name="FSOE__Safe Input_13" BitLen="1" Index="#xf601" Sub="#x0e">
-					<Type>BIT</Type>
-				</Entry>
-				<Entry Name="FSOE__Safe Input_14" BitLen="1" Index="#xf601" Sub="#x0f">
-					<Type>BIT</Type>
-				</Entry>
-				<Entry Name="FSOE__Safe Input_15" BitLen="1" Index="#xf601" Sub="#x10">
-					<Type>BIT</Type>
-				</Entry>
-				<Entry Name="FSOE__FSoE Slave CRC_0" BitLen="16" Index="#xe600" Sub="#x03">
+				<Entry Name="Message_1__FSoE CRC_0" BitLen="16" Index="#xe600" Sub="#x03">
 					<Type>UINT</Type>
 				</Entry>
-				<Entry Name="FSOE__FSoE Slave ConnID" BitLen="16" Index="#xe600" Sub="#x02">
+				<Entry Name="Message_1__STO_active_ChB" BitLen="1" Index="#xf601" Sub="#x04">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry BitLen="6">
+					<Type GUID="{18071995-0000-0000-0000-002000000006}">ARRAY [0..5] OF BIT</Type>
+				</Entry>
+				<Entry Name="Message_1__Error_AckReq_ChB" BitLen="1" Index="#xf601" Sub="#x05">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry Name="Message_1__SLS_1_active_ChB" BitLen="1" Index="#xf601" Sub="#x06">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry BitLen="7">
+					<Type GUID="{18071995-0000-0000-0000-002000000007}">ARRAY [0..6] OF BIT</Type>
+				</Entry>
+				<Entry Name="Message_1__FSoE CRC_1" BitLen="16" Index="#xe600" Sub="#x04">
+					<Type>UINT</Type>
+				</Entry>
+				<Entry Name="Message_1__FSoE ConnID" BitLen="16" Index="#xe600" Sub="#x02">
 					<Type>UINT</Type>
 				</Entry>
 			</Pdo>
@@ -2077,29 +1923,17 @@
 				<ExcludePdo>#x1bce</ExcludePdo>
 			</Pdo>
 			<Pdo Name="Standard Inputdata" Index="#x1bf0" Flags="#x0080" SyncMan="7" SyncUnit="2">
-				<Entry Name="FSOE__Std Input" BitLen="1" Index="#xf606" Sub="#x01">
+				<Entry Name="Standard Out Var 5" BitLen="1" Index="#xf606" Sub="#x01">
 					<Type>BIT</Type>
 				</Entry>
-				<Entry Name="FSOE__Std Input" BitLen="1" Index="#xf606" Sub="#x02">
+				<Entry Name="Standard Out Var 6" BitLen="1" Index="#xf606" Sub="#x02">
 					<Type>BIT</Type>
 				</Entry>
-				<Entry Name="FSOE__Std Input" BitLen="1" Index="#xf606" Sub="#x03">
+				<Entry Name="Standard Out Var 9" BitLen="1" Index="#xf606" Sub="#x03">
 					<Type>BIT</Type>
 				</Entry>
-				<Entry Name="FSOE__Std Input" BitLen="1" Index="#xf606" Sub="#x04">
-					<Type>BIT</Type>
-				</Entry>
-				<Entry Name="FSOE__Std Input" BitLen="1" Index="#xf606" Sub="#x05">
-					<Type>BIT</Type>
-				</Entry>
-				<Entry Name="FSOE__Std Input" BitLen="1" Index="#xf606" Sub="#x06">
-					<Type>BIT</Type>
-				</Entry>
-				<Entry Name="FSOE__Std Input" BitLen="1" Index="#xf606" Sub="#x07">
-					<Type>BIT</Type>
-				</Entry>
-				<Entry Name="FSOE__Std Input" BitLen="1" Index="#xf606" Sub="#x08">
-					<Type>BIT</Type>
+				<Entry BitLen="5">
+					<Type GUID="{18071995-0000-0000-0000-002000000005}">ARRAY [0..4] OF BIT</Type>
 				</Entry>
 			</Pdo>
 			<Pdo Name="Function Block Info Data" Index="#x1bf1" Flags="#x0080" SyncUnit="2"/>
@@ -2116,61 +1950,52 @@
 			</Pdo>
 			<Pdo Name="FSoE Slave Connection 1 Master Message" Index="#x17c0" InOut="1" Flags="#x0080" SyncMan="6" SyncUnit="2">
 				<ExcludePdo>#x17c1</ExcludePdo>
-				<Entry Name="FSOE__FSoE Master Cmd" BitLen="8" Index="#xe700" Sub="#x01">
+				<Entry Name="Message_1__FSoE Cmd" BitLen="8" Index="#xe700" Sub="#x01">
 					<Type>USINT</Type>
 				</Entry>
-				<Entry Name="FSOE__Axis A STO" BitLen="1" Index="#xf701" Sub="#x01">
+				<Entry Name="Message_1__STO_ChA" BitLen="1" Index="#xf701" Sub="#x01">
 					<Type>BIT</Type>
 				</Entry>
-				<Entry Name="FSOE__Safe Output_1" BitLen="1" Index="#xf701" Sub="#x02">
+				<Entry Name="Message_1__SS1_ChA" BitLen="1" Index="#xf701" Sub="#x02">
 					<Type>BIT</Type>
 				</Entry>
-				<Entry Name="FSOE__Safe Output_2" BitLen="1" Index="#xf701" Sub="#x03">
+				<Entry BitLen="5">
+					<Type GUID="{18071995-0000-0000-0000-002000000005}">ARRAY [0..4] OF BIT</Type>
+				</Entry>
+				<Entry Name="Message_1__Error_Ack_ChA" BitLen="1" Index="#xf701" Sub="#x03">
 					<Type>BIT</Type>
 				</Entry>
-				<Entry Name="FSOE__Safe Output_3" BitLen="1" Index="#xf701" Sub="#x04">
+				<Entry Name="Message_1__SLS_1_ChA" BitLen="1" Index="#xf701" Sub="#x04">
 					<Type>BIT</Type>
 				</Entry>
-				<Entry Name="FSOE__Safe Output_4" BitLen="1" Index="#xf701" Sub="#x05">
-					<Type>BIT</Type>
+				<Entry BitLen="7">
+					<Type GUID="{18071995-0000-0000-0000-002000000007}">ARRAY [0..6] OF BIT</Type>
 				</Entry>
-				<Entry Name="FSOE__Safe Output_5" BitLen="1" Index="#xf701" Sub="#x06">
-					<Type>BIT</Type>
-				</Entry>
-				<Entry Name="FSOE__Safe Output_6" BitLen="1" Index="#xf701" Sub="#x07">
-					<Type>BIT</Type>
-				</Entry>
-				<Entry Name="FSOE__Safe Output_7" BitLen="1" Index="#xf701" Sub="#x08">
-					<Type>BIT</Type>
-				</Entry>
-				<Entry Name="FSOE__Axis B STO" BitLen="1" Index="#xf701" Sub="#x09">
-					<Type>BIT</Type>
-				</Entry>
-				<Entry Name="FSOE__Safe Output_9" BitLen="1" Index="#xf701" Sub="#x0a">
-					<Type>BIT</Type>
-				</Entry>
-				<Entry Name="FSOE__Safe Output_10" BitLen="1" Index="#xf701" Sub="#x0b">
-					<Type>BIT</Type>
-				</Entry>
-				<Entry Name="FSOE__Safe Output_11" BitLen="1" Index="#xf701" Sub="#x0c">
-					<Type>BIT</Type>
-				</Entry>
-				<Entry Name="FSOE__Safe Output_12" BitLen="1" Index="#xf701" Sub="#x0d">
-					<Type>BIT</Type>
-				</Entry>
-				<Entry Name="FSOE__Safe Output_13" BitLen="1" Index="#xf701" Sub="#x0e">
-					<Type>BIT</Type>
-				</Entry>
-				<Entry Name="FSOE__Safe Output_14" BitLen="1" Index="#xf701" Sub="#x0f">
-					<Type>BIT</Type>
-				</Entry>
-				<Entry Name="FSOE__Safe Output_15" BitLen="1" Index="#xf701" Sub="#x10">
-					<Type>BIT</Type>
-				</Entry>
-				<Entry Name="FSOE__FSoE Master CRC_0" BitLen="16" Index="#xe700" Sub="#x03">
+				<Entry Name="Message_1__FSoE CRC_0" BitLen="16" Index="#xe700" Sub="#x03">
 					<Type>UINT</Type>
 				</Entry>
-				<Entry Name="FSOE__FSoE Master ConnID" BitLen="16" Index="#xe700" Sub="#x02">
+				<Entry Name="Message_1__STO_ChB" BitLen="1" Index="#xf701" Sub="#x05">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry Name="Message_1__SS1_ChB" BitLen="1" Index="#xf701" Sub="#x06">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry BitLen="5">
+					<Type GUID="{18071995-0000-0000-0000-002000000005}">ARRAY [0..4] OF BIT</Type>
+				</Entry>
+				<Entry Name="Message_1__Error_Ack_ChB" BitLen="1" Index="#xf701" Sub="#x07">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry Name="Message_1__SLS_1_ChB" BitLen="1" Index="#xf701" Sub="#x08">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry BitLen="7">
+					<Type GUID="{18071995-0000-0000-0000-002000000007}">ARRAY [0..6] OF BIT</Type>
+				</Entry>
+				<Entry Name="Message_1__FSoE CRC_1" BitLen="16" Index="#xe700" Sub="#x04">
+					<Type>UINT</Type>
+				</Entry>
+				<Entry Name="Message_1__FSoE ConnID" BitLen="16" Index="#xe700" Sub="#x02">
 					<Type>UINT</Type>
 				</Entry>
 			</Pdo>
@@ -2220,29 +2045,20 @@
 				<ExcludePdo>#x17ce</ExcludePdo>
 			</Pdo>
 			<Pdo Name="Standard Outputdata" Index="#x17f0" InOut="1" Flags="#x0080" SyncMan="6" SyncUnit="2">
-				<Entry Name="FSOE__Std Output" BitLen="1" Index="#xf706" Sub="#x01">
+				<Entry Name="Standard In Var 2" BitLen="1" Index="#xf706" Sub="#x01">
 					<Type>BIT</Type>
 				</Entry>
-				<Entry Name="FSOE__Std Output" BitLen="1" Index="#xf706" Sub="#x02">
+				<Entry Name="Standard In Var 3" BitLen="1" Index="#xf706" Sub="#x02">
 					<Type>BIT</Type>
 				</Entry>
-				<Entry Name="FSOE__Std Output" BitLen="1" Index="#xf706" Sub="#x03">
+				<Entry Name="Standard In Var 7" BitLen="1" Index="#xf706" Sub="#x03">
 					<Type>BIT</Type>
 				</Entry>
-				<Entry Name="FSOE__Std Output" BitLen="1" Index="#xf706" Sub="#x04">
+				<Entry Name="Standard In Var 8" BitLen="1" Index="#xf706" Sub="#x04">
 					<Type>BIT</Type>
 				</Entry>
-				<Entry Name="FSOE__Std Output" BitLen="1" Index="#xf706" Sub="#x05">
-					<Type>BIT</Type>
-				</Entry>
-				<Entry Name="FSOE__Std Output" BitLen="1" Index="#xf706" Sub="#x06">
-					<Type>BIT</Type>
-				</Entry>
-				<Entry Name="FSOE__Std Output" BitLen="1" Index="#xf706" Sub="#x07">
-					<Type>BIT</Type>
-				</Entry>
-				<Entry Name="FSOE__Std Output" BitLen="1" Index="#xf706" Sub="#x08">
-					<Type>BIT</Type>
+				<Entry BitLen="4">
+					<Type GUID="{18071995-0000-0000-0000-002000000004}">ARRAY [0..3] OF BIT</Type>
 				</Entry>
 			</Pdo>
 			<Pdo Name="FSLOGIC Outputs" Index="#x17ff" InOut="1" Flags="#x0091" SyncMan="6" SyncUnit="2">
@@ -2448,8 +2264,6 @@
 			<Pdo Name="Ch B SyncServoMotor Dynamic Inputs" Index="#x1b36" Flags="#x0280" SyncUnit="1"/>
 			<Pdo Name="Ch B [SL] OCT rotary (Hiperface DSL) Inputs" Index="#x1a57" Flags="#x0280"/>
 			<Pdo Name="Ch B [SL] OCT rotary (Hiperface DSL) Dynamic Inputs" Index="#x1b37" Flags="#x0280" SyncUnit="1"/>
-			<Pdo Name="Ch B [SL] BiSS-C linear Inputs" Index="#x1a58" Flags="#x0280"/>
-			<Pdo Name="Ch B [SL] BiSS-C linear Dynamic Inputs" Index="#x1b38" Flags="#x0280" SyncUnit="1"/>
 			<CoeProfile ProfileNo="402" DisplayName="Ch A"/>
 			<CoeProfile ProfileNo="402" DisplayName="Ch B"/>
 			<Slot Name="DeviceMainSlot">
@@ -3315,13 +3129,6 @@
 				<ModuleIdent>6838748</ModuleIdent>
 				<ModuleIdent>6838751</ModuleIdent>
 				<ModuleIdent>6838752</ModuleIdent>
-				<Module Id="#x030900b3" Type="BiSS-C linear" Class="">
-					<Name>Ch B</Name>
-					<ImageId>419</ImageId>
-					<ModuleData>02000000e0596800000004000000000000000000000000000000000000000000</ModuleData>
-					<PdoIndex>6744</PdoIndex>
-					<PdoIndex>6968</PdoIndex>
-				</Module>
 			</Slot>
 			<Slot Name="Empty Slot">
 				<SlotData>0200010001000600000000000000000000000000000000000000000000000000</SlotData>
