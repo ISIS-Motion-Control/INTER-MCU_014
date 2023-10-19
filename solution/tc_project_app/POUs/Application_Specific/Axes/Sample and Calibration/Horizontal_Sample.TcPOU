@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="Horizontal_Sample" Id="{33e2f27d-2a6a-4757-a88a-96a036297ac6}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM Horizontal_Sample
+VAR
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[astAxes[AXIS_HORIZONTAL_SAMPLE].stControl.bEnable := TRUE;
+astAxes[AXIS_HORIZONTAL_SAMPLE].stInputs.bLimitBwd := astAxes[AXIS_HORIZONTAL_TRANSLATION].stInputs.bLimitBwd;
+astAxes[AXIS_HORIZONTAL_SAMPLE].stInputs.bLimitFwd := astAxes[AXIS_HORIZONTAL_TRANSLATION].stInputs.bLimitFwd;
+
+astAxes[AXIS_HORIZONTAL_SAMPLE].stDescription.sAxisName := 'SAMPLE_HORIZ';
+]]></ST>
+    </Implementation>
+    <LineIds Name="Horizontal_Sample">
+      <LineId Id="3" Count="1" />
+      <LineId Id="2" Count="0" />
+      <LineId Id="9" Count="1" />
+      <LineId Id="8" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

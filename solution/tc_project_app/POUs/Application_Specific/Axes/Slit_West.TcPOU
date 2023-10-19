@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
+  <POU Name="Slit_West" Id="{9d925e4b-3cf8-4201-a6d5-cf5a0af1fd0f}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM Slit_West
+VAR
+//Outputs: Power for Limit switches, Home Sensors, etc.
+    //bPowerSwitchesAxis1 AT %Q*: BOOL:= TRUE;
+
+//Hardware interlocks
+    //bInterlockFwdOK AT %I*: BOOL;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[//Initial parameters of an Axis
+IF _TaskInfo[fbGetCurTaskIndex.index].FirstCycle THEN
+    //Initial default values:
+    GVL.astAxes[AXIS_SLIT_WEST].stConfig.eHomeSeq := E_HomingRoutines.eHomeToLimit_Fwd;
+    GVL.astAxes[AXIS_SLIT_WEST].stConfig.fHomePosition := 70.0;
+    GVL.astAxes[AXIS_SLIT_WEST].stConfig.fHomeFinishDistance := -5.0;
+    GVL.astAxes[AXIS_SLIT_WEST].stConfig.eRestorePosition := E_RestorePosition.eRestoreWithoutHome;
+END_IF
+
+//Define ACTIONS() or write exclusive code for an specific axis.
+(*Eg. Stop when temperature reaches certain values, reduce speed if  a signal is activated, etc.
+Eg. GVL.astAxes[x].stControl.bInterlockFwd := NOT bInterlockFwdOK;*)
+astAxes[AXIS_SLIT_WEST].stControl.bEnable:=TRUE;
+]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

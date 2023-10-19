@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="Rotation" Id="{83b74736-0e2a-4820-b07c-7378d567dc02}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM Rotation
+VAR
+//Outputs: Power for Limit switches, Home Sensors, etc.
+    //bPowerSwitchesAxis1 AT %Q*: BOOL:= TRUE;
+    bFwdLimitPower AT %Q* : BOOL := TRUE;
+    bBwdLimitPower AT %Q* : BOOL := TRUE;
+    bEnable : BOOL := TRUE;
+//Hardware interlocks
+    //bInterlockFwdOK AT %I*: BOOL;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[//Initial parameters of an Axis
+(*IF _TaskInfo[fbGetCurTaskIndex.index].FirstCycle THEN
+    //Initial default values:
+    GVL.astAxes[1].stConfig.eHomeSeq := 0;
+    GVL.astAxes[1].stConfig.fHomePosition := 0.0;
+    GVL.astAxes[1].stConfig.fHomeFinishDistance := 0.0;
+    GVL.astAxes[1].stConfig.eRestorePosition := E_RestorePosition.eRestoreWithoutHome;
+END_IF*)
+astAxes[AXIS_ROTATION].stControl.bEnable := bEnable;
+astAxes[AXIS_ROTATION].stDescription.sAxisName := 'ROTATION';
+//Define ACTIONS() or write exclusive code for an specific axis.
+(*Eg. Stop when temperature reaches certain values, reduce speed if  a signal is activated, etc.
+Eg. GVL.astAxes[x].stControl.bInterlockFwd := NOT bInterlockFwdOK;*)
+]]></ST>
+    </Implementation>
+    <LineIds Name="Rotation">
+      <LineId Id="3" Count="8" />
+      <LineId Id="25" Count="0" />
+      <LineId Id="12" Count="2" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

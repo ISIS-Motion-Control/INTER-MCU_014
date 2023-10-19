@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="Doff_Parallel" Id="{9c8484c8-8761-45e8-9dcf-a9453bb68485}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM Doff_Parallel
+VAR
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[GVL.astAxes[AXIS_DOFF_PARALLEL].stInputs.bLimitBwd := TRUE;
+GVL.astAxes[AXIS_DOFF_PARALLEL].stInputs.bLimitFwd := TRUE;
+GVL.astAxes[AXIS_DOFF_PARALLEL].stControl.bEnable := TRUE;
+
+astAxes[AXIS_DOFF_PARALLEL].stDescription.sAxisName := 'DOFF_PARALLEL';
+]]></ST>
+    </Implementation>
+    <LineIds Name="Doff_Parallel">
+      <LineId Id="3" Count="1" />
+      <LineId Id="2" Count="0" />
+      <LineId Id="10" Count="0" />
+      <LineId Id="8" Count="0" />
+      <LineId Id="11" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

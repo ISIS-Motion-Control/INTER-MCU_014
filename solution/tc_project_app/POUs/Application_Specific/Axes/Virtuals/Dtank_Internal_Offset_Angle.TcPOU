@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="Dtank_Internal_Offset_Angle" Id="{0a9f1d4c-9996-4061-864c-e0bddc502c1f}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM Dtank_Internal_Offset_Angle
+VAR
+    fEncoderPosition : LREAL;
+    EncoderPosition AT %Q* : DINT; //Encoder value for NC
+    fScaler : LREAL := 100000;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[GVL.astAxes[AXIS_DTANK_INTERNAL_OFFSET_ANGLE].stInputs.bLimitBwd := TRUE;
+GVL.astAxes[AXIS_DTANK_INTERNAL_OFFSET_ANGLE].stInputs.bLimitFwd := TRUE;
+GVL.astAxes[AXIS_DTANK_INTERNAL_OFFSET_ANGLE].stControl.bEnable := TRUE;
+
+//gamma = atan(F/C)
+
+IF(astAxes[AXIS_DTANK_LENGTH].stStatus.fActPosition = 0) THEN
+    fEncoderPosition:=0;
+ELSE
+    fEncoderPosition := RAD_TO_DEG(ATAN(astAxes[AXIS_DOFF_ANGLED].stStatus.fActPosition / astAxes[AXIS_DTANK_LENGTH].stStatus.fActPosition));
+END_IF
+
+
+
+
+
+
+   
+EncoderPosition:= LREAL_TO_DINT(fEncoderPosition * fScaler);
+
+astAxes[AXIS_DTANK_INTERNAL_OFFSET_ANGLE].stDescription.sAxisName := 'DRAD_INT_OFF';
+]]></ST>
+    </Implementation>
+    <LineIds Name="Dtank_Internal_Offset_Angle">
+      <LineId Id="3" Count="17" />
+      <LineId Id="2" Count="0" />
+      <LineId Id="28" Count="1" />
+      <LineId Id="27" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

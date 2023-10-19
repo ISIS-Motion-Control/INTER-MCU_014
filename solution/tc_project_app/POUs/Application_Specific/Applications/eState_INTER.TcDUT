@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <DUT Name="eState_INTER" Id="{5c829116-f8b2-4b9d-94cf-bbbb41200982}">
+    <Declaration><![CDATA[{attribute 'qualified_only'}
+{attribute 'strict'}
+{attribute 'to_string'}
+TYPE eState_INTER :
+(
+	init :=0,
+    setPositions :=1,
+    checkSetPositions:=2,
+    alignKinematics:=3,
+    checkAlignKinematics:=4,
+    enableSPG:=5,
+    checkEnableSPG:=6,
+    disableSPG:=7,
+    checkDisableSPG:=8,
+    operation:=9,
+    startRecovery:=10,
+    recoveryDefaultPosition:=11,
+    waitForRecovery:=12,
+    fixRotation:=13,
+    error:=999,
+    safetyError:=666,
+    none:=1000
+);
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Name>Drive Manager 2</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{436507c4-d37a-417a-889f-94d7c897f1aa}</ProjectGuid>
+    <TcPath>
+    </TcPath>
+    <AssemblyName>TwinCAT Drive Manager 2 Project1</AssemblyName>
+    <RootNamespace>TwinCAT Drive Manager 2 Project1</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include="Term 23 %28EL7047%29.tcdmdrv">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Term 24 %28EL7047%29.tcdmdrv">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Term 25 %28EL7047%29.tcdmdrv">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Term 26 %28EL7047%29.tcdmdrv">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Term 70 %28AX8640-0000-0103%29.tcdmdrv">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Term 70 %28AX8640-0000-0103%29\Drive 71 %28AX8206-0210-0104%29.tcdmdrv">
+      <SubType>Content</SubType>
+      <DependentUpon>Term 70 (AX8640-0000-0103).tcdmdrv</DependentUpon>
+    </Content>
+    <Content Include="Term 70 %28AX8640-0000-0103%29\Drive 74 %28AX8206-0210-0104%29.tcdmdrv">
+      <SubType>Content</SubType>
+      <DependentUpon>Term 70 (AX8640-0000-0103).tcdmdrv</DependentUpon>
+    </Content>
+  </ItemGroup>
+</Project>

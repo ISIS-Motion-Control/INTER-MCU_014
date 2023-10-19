@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="Combined_Vertical" Id="{0f34f732-07ed-43ff-ba09-f9229513977f}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM Combined_Vertical
+VAR
+//Outputs: Power for Limit switches, Home Sensors, etc.
+    //bPowerSwitchesAxis1 AT %Q*: BOOL:= TRUE;
+
+//Hardware interlocks
+    //bInterlockFwdOK AT %I*: BOOL;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[//Initial parameters of an Axis
+(*IF _TaskInfo[fbGetCurTaskIndex.index].FirstCycle THEN
+    //Initial default values:
+    GVL.astAxes[1].stConfig.eHomeSeq := 0;
+    GVL.astAxes[1].stConfig.fHomePosition := 0.0;
+    GVL.astAxes[1].stConfig.fHomeFinishDistance := 0.0;
+    GVL.astAxes[1].stConfig.eRestorePosition := E_RestorePosition.eRestoreWithoutHome;
+END_IF*)
+astAxes[AXIS_COMBINED_VERTICAL].stInputs.bLimitFwd := astAxes[AXIS_VERTICAL_TRANSLATION_Y1].stInputs.bLimitFwd AND astAxes[AXIS_VERTICAL_TRANSLATION_Y2].stInputs.bLimitFwd;
+astAxes[AXIS_COMBINED_VERTICAL].stInputs.bLimitBwd := astAxes[AXIS_VERTICAL_TRANSLATION_Y1].stInputs.bLimitBwd AND astAxes[AXIS_VERTICAL_TRANSLATION_Y2].stInputs.bLimitBwd;
+
+astAxes[AXIS_COMBINED_VERTICAL].stDescription.sAxisName := 'COMBINED_Y';
+//Define ACTIONS() or write exclusive code for an specific axis.
+(*Eg. Stop when temperature reaches certain values, reduce speed if  a signal is activated, etc.
+Eg. GVL.astAxes[x].stControl.bInterlockFwd := NOT bInterlockFwdOK;*)
+
+//astAxes[AXIS_COMBINED_VERTICAL].stControl.bEnable := astAxes[AXIS_VERTICAL_TRANSLATION_Z1].stStatus.bEnabled AND astAxes[AXIS_VERTICAL_TRANSLATION_Z2].stStatus.bEnabled;
+(*
+This will be the axis that drives the vertical stages, there will be no "real master"
+This axis will only be able to run if the two axes below it are coupled in.
+*)
+]]></ST>
+    </Implementation>
+    <LineIds Name="Combined_Vertical">
+      <LineId Id="3" Count="9" />
+      <LineId Id="31" Count="0" />
+      <LineId Id="13" Count="9" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

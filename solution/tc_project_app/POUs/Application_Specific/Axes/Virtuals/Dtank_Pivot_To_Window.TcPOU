@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="Dtank_Pivot_To_Window" Id="{80308c5a-8765-4ec4-96d3-88987add8d1c}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM Dtank_Pivot_To_Window
+VAR
+
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[GVL.astAxes[AXIS_DTANK_PIVOT_TO_WINDOW].stInputs.bLimitBwd := TRUE;
+GVL.astAxes[AXIS_DTANK_PIVOT_TO_WINDOW].stInputs.bLimitFwd := TRUE;
+GVL.astAxes[AXIS_DTANK_PIVOT_TO_WINDOW].stControl.bEnable := TRUE;
+
+
+
+IF _TaskInfo[fbGetCurTaskIndex.index].FirstCycle THEN
+    //Initial default values:
+END_IF
+
+astAxes[AXIS_DTANK_PIVOT_TO_WINDOW].stDescription.sAxisName := 'PIVOT_TO_WINDOW';
+]]></ST>
+    </Implementation>
+    <LineIds Name="Dtank_Pivot_To_Window">
+      <LineId Id="3" Count="9" />
+      <LineId Id="17" Count="0" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

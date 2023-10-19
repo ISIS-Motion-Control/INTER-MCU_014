@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
+  <POU Name="Slit_3" Id="{2442a95e-730f-4c91-8d13-516744e93144}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM Slit_3
+VAR
+    NorthSouthPowerOutput AT %Q* : BOOL:= TRUE;
+    EastWestPowerOutput AT %Q* : BOOL:= TRUE;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

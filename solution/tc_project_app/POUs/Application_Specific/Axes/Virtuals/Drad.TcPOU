@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="Drad" Id="{9e9b2a5e-8f4c-4158-9427-7e82bbe0b745}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM Drad
+VAR
+        //Requires feedback
+    fEncoderPosition_DetectorArcRadius : LREAL;
+    EncoderPosition_DetectorArcRadius AT %Q* : DINT;
+    fEncoderPosition_MeasurementAngle : LREAL;
+    EncoderPosition_MeasurementAngle AT %Q* : DINT;
+    
+    fScaler : LREAL := 100000;
+    
+    
+    yPosition : LREAL;
+    zPosition : LREAL;
+    
+    yPixelFromPivot : LREAL;
+    zPixelFromPivot : LREAL;
+    
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[GVL.astAxes[AXIS_DRAD].stInputs.bLimitBwd := TRUE;
+GVL.astAxes[AXIS_DRAD].stInputs.bLimitFwd := TRUE;
+GVL.astAxes[AXIS_DRAD].stControl.bEnable := TRUE;
+
+
+yPixelFromPivot := -SIN(DEG_TO_RAD((astAxes[AXIS_DELTA].stStatus.fActPosition - astAxes[AXIS_MEASUREMENT_ANGLE].stStatus.fActPosition)))*astAxes[AXIS_TAU].stStatus.fActPosition;
+zPixelFromPivot := COS(DEG_TO_RAD((astAxes[AXIS_DELTA].stStatus.fActPosition - astAxes[AXIS_MEASUREMENT_ANGLE].stStatus.fActPosition)))*astAxes[AXIS_TAU].stStatus.fActPosition;
+
+yPosition := astAxes[AXIS_COMBINED_VERTICAL_VIRTUAL].stStatus.fActPosition + yPixelFromPivot;
+zPosition := astAxes[AXIS_HORIZONTAL_VIRTUAL].stStatus.fActPosition + zPixelFromPivot; 
+
+fEncoderPosition_DetectorArcRadius := SQRT(EXPT(yPosition,2)+EXPT(zPosition,2));
+EncoderPosition_DetectorArcRadius := LREAL_TO_DINT(fEncoderPosition_DetectorArcRadius*fScaler);
+
+IF zPosition = 0 THEN
+    fEncoderPosition_MeasurementAngle := 0;
+ELSE
+    fEncoderPosition_MeasurementAngle := RAD_TO_DEG(ATAN(yPosition/zPosition));
+END_IF
+
+
+EncoderPosition_MeasurementAngle := LREAL_TO_DINT(fEncoderPosition_MeasurementAngle*fScaler);
+
+IF _TaskInfo[fbGetCurTaskIndex.index].FirstCycle THEN
+    //Initial default values:
+
+END_IF
+
+astAxes[AXIS_DRAD].stDescription.sAxisName := 'DRAD';
+]]></ST>
+    </Implementation>
+    <LineIds Name="Drad">
+      <LineId Id="3" Count="26" />
+      <LineId Id="50" Count="1" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

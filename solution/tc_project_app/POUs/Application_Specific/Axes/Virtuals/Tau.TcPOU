@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="Tau" Id="{5260687c-e8fb-4c08-a5b5-4fb9c59b152b}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM Tau
+VAR
+    fEncoderPosition_tau : LREAL;
+    EncoderPosition_tau AT %Q* : DINT; //Encoder value for NC
+    fEncoderPosition_delta : LREAL;
+    EncoderPosition_delta AT %Q* : DINT; //Encoder value for NC
+    
+    fScaler : LREAL := 100000;
+    
+    comp1 : LREAL; //holder
+    comp2 : LREAL; //holder
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[GVL.astAxes[AXIS_TAU].stInputs.bLimitBwd := TRUE;
+GVL.astAxes[AXIS_TAU].stInputs.bLimitFwd := TRUE;
+GVL.astAxes[AXIS_TAU].stControl.bEnable := TRUE;
+
+
+//C-D
+comp1:= astAxes[AXIS_DTANK_LENGTH].stStatus.fActPosition - astAxes[AXIS_DTANK_PIVOT_TO_WINDOW].stStatus.fActPosition;
+
+//F+G
+comp2:= astAxes[AXIS_DOFF_ANGLED].stStatus.fActPosition + astAxes[AXIS_DOFF_PARALLEL].stStatus.fActPosition;
+
+fEncoderPosition_tau := SQRT(EXPT(comp1,2)+EXPT(comp2,2));
+
+IF comp1=0 THEN
+    fEncoderPosition_delta := 0;
+ELSE
+    fEncoderPosition_delta := RAD_TO_DEG(ATAN(comp2/comp1));
+END_IF
+
+
+EncoderPosition_tau:= LREAL_TO_DINT(fEncoderPosition_tau * fScaler);
+EncoderPosition_delta:= LREAL_TO_DINT(fEncoderPosition_delta * fScaler);
+
+astAxes[AXIS_TAU].stDescription.sAxisName := 'TAU';
+]]></ST>
+    </Implementation>
+    <LineIds Name="Tau">
+      <LineId Id="3" Count="20" />
+      <LineId Id="2" Count="0" />
+      <LineId Id="37" Count="1" />
+      <LineId Id="36" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

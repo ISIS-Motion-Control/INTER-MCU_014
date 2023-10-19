@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
+  <POU Name="PLC_SAFETY_LOGIC" Id="{33cb3f8d-dfd1-442b-932e-74cbe3827726}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM PLC_SAFETY_LOGIC
+VAR
+    ackTON : TON;
+    ackFTrig : F_TRIG;
+    driveAckTON : TON;
+    
+    remoteTon : TON;
+    
+    resetFtrig : F_TRIG;
+    secondResetStartTON : TON;
+    secondResetStopTON : TON;
+    
+    buttonPressedTimeCheck : TON;
+    buttonPressedRTrig : R_TRIG;
+    
+    resetHoldTON : TON;
+    
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[remoteTon(PT:=T#500MS,IN:= GVL_INTER.REMOTE_RESET);
+IF remoteTon.Q THEN
+    GVL_INTER.REMOTE_RESET:= FALSE;
+END_IF
+
+GVL_Safety.SafetyReset := GVL_Safety.SafetyReset_ButtonIn OR GVL_INTER.REMOTE_RESET;// THIS IS WHAT RESETS THE ESTOP AT THE MOMENT
+GVL_Safety.Drive71_ChA_Reset := GVL_Safety.SafetyReset_ButtonIn OR GVL_Safety.SafetyReset;
+GVL_Safety.Drive71_ChB_Reset := GVL_Safety.SafetyReset_ButtonIn OR GVL_Safety.SafetyReset;
+GVL_Safety.Drive74_ChA_Reset := GVL_Safety.SafetyReset_ButtonIn OR GVL_Safety.SafetyReset;
+GVL_Safety.Drive74_ChB_Reset := GVL_Safety.SafetyReset_ButtonIn OR GVL_Safety.SafetyReset;
+
+GVL_Safety.Main_ErrorAck := GVL_Safety.SAFETY_ACK;
+GVL_Safety.Drive71_ErrorAck := GVL_Safety.SAFETY_ACK;
+GVL_Safety.Drive74_ErrorAck := GVL_Safety.SAFETY_ACK;
+
+GVL_Safety.SAFETY_ACK := FALSE;
+
+GVL_INTER.RESET_REQUESTED:= GVL_Safety.RESET_REQUESTED;
+GVL_Safety.SafetyReset_ButtonOut:= GVL_INTER.RESET_REQUESTED;
+GVL_INTER.SAFETY_ACK_REQUESTED:=NOT(GVL_Safety.EL69010_InRun AND GVL_Safety.Drive71_InRun AND GVL_Safety.Drive74_InRun);
+
+(*//ACknowledges for the safety block triggered one after other.
+ackTON(IN:= GVL_Safety.SAFETY_ACK, PT:= T#500MS);
+driveAckTON(PT:= T#500MS);
+IF ackTON.Q THEN
+    GVL_Safety.SAFETY_ACK:= FALSE;
+END_IF
+ackFTrig(CLK:= GVL_Safety.SAFETY_ACK);
+IF ackFTrig.Q THEN
+    driveAckTON.IN := TRUE;
+    GVL_Safety.ACK_DRIVE_71_SAFETY := TRUE;
+END_IF
+IF driveAckTON.Q THEN
+    driveAckTON.IN:= FALSE;
+    GVL_Safety.ACK_DRIVE_71_SAFETY := FALSE;
+END_IF
+
+GVL_INTER.SAFETY_ACK_REQUESTED:=NOT(GVL_Safety.EL6910_InRun AND GVL_Safety.Drive71_ChA_InRun AND GVL_Safety.Drive71_ChB_InRun);
+
+
+
+
+buttonPressedTimeCheck(IN:= GVL_Safety.SafetyReset_ButtonIn, PT:= T#250MS);
+buttonPressedRTrig(CLK:= buttonPressedTimeCheck.Q);
+resetHoldTON(PT:=T#250MS);
+secondResetStartTON(PT:=T#250MS);
+secondResetStopTON(PT:=T#250MS);
+
+
+
+IF buttonPressedRTrig.Q THEN
+    resetHoldTON.IN:= TRUE;
+    GVL_Safety.SafetyReset:= TRUE;
+END_IF
+IF resetHoldTON.Q THEN
+    resetHoldTON.IN:= FALSE;
+    GVL_Safety.SafetyReset:= FALSE;
+    secondResetStartTON.IN:= TRUE;
+END_IF
+IF secondResetStartTON.Q THEN
+    secondResetStartTON.IN:= FALSE;
+    secondResetStopTON.IN:= TRUE;
+    GVL_Safety.ACK_SAFE_SPEED_1_ChA:= TRUE;
+    GVL_Safety.ACK_SAFE_SPEED_1_ChB:= TRUE;
+END_IF
+IF secondResetStopTON.Q THEN
+    secondResetStopTON.IN:= FALSE;
+    GVL_Safety.ACK_SAFE_SPEED_1_ChA:= FALSE;
+    GVL_Safety.ACK_SAFE_SPEED_1_ChB:= FALSE;
+END_IF
+
+
+//GVL_Safety.SafetyReset := GVL_Safety.SafetyReset_ButtonIn;// THIS IS WHAT RESETS THE ESTOP AT THE MOMENT
+
+
+
+//GVL_Safety.SAFTEY_ACK := GVL_Safety.SafetyReset_ButtonIn;
+//GVL_Safety.ACK_SAFE_SPEED_1_ChA:= GVL_Safety.SafetyReset_ButtonIn;
+//GVL_Safety.ACK_SAFE_SPEED_1_ChB:= GVL_Safety.SafetyReset_ButtonIn;
+//GVL_Safety.ACK_SAFE_SPEED_2_ChA:= GVL_Safety.SafetyReset_ButtonIn;
+//GVL_Safety.ACK_SAFE_SPEED_2_ChB:= GVL_Safety.SafetyReset_ButtonIn;
+//GVL_Safety.ACK_DRIVE_71_SAFETY:= GVL_Safety.SAFETY_ACK;
+//GVL_Safety.ACK_DRIVE_74_SAFETY:= GVL_Safety.SAFETY_ACK;
+
+
+
+
+
+
+
+
+*)]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

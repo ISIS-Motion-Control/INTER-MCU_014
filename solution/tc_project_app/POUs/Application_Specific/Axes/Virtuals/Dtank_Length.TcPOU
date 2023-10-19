@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="Dtank_Length" Id="{89d9baec-ea80-4314-a7ab-842a813f72f1}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM Dtank_Length
+VAR
+
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[GVL.astAxes[AXIS_DTANK_LENGTH].stInputs.bLimitBwd := TRUE;
+GVL.astAxes[AXIS_DTANK_LENGTH].stInputs.bLimitFwd := TRUE;
+GVL.astAxes[AXIS_DTANK_LENGTH].stControl.bEnable := TRUE;
+
+
+
+
+IF _TaskInfo[fbGetCurTaskIndex.index].FirstCycle THEN
+    //Initial default values:
+
+END_IF
+
+
+astAxes[AXIS_DTANK_LENGTH].stDescription.sAxisName := 'DTANK_LENGTH';
+]]></ST>
+    </Implementation>
+    <LineIds Name="Dtank_Length">
+      <LineId Id="3" Count="12" />
+      <LineId Id="20" Count="0" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

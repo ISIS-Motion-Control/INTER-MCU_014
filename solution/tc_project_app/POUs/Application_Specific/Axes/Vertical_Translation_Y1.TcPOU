@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="Vertical_Translation_Y1" Id="{a65cebc1-4639-406e-a269-5da0d9aebcb0}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM Vertical_Translation_Y1
+VAR
+//Outputs: Power for Limit switches, Home Sensors, etc.
+    //bPowerSwitchesAxis1 AT %Q*: BOOL:= TRUE;
+    bFwdLimitPower AT %Q* : BOOL := TRUE;
+    bBwdLimitPower AT %Q* : BOOL := TRUE;
+//Hardware interlocks
+    //bInterlockFwdOK AT %I*: BOOL;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[//Initial parameters of an Axis
+(*IF _TaskInfo[fbGetCurTaskIndex.index].FirstCycle THEN
+    //Initial default values:
+    GVL.astAxes[1].stConfig.eHomeSeq := 0;
+    GVL.astAxes[1].stConfig.fHomePosition := 0.0;
+    GVL.astAxes[1].stConfig.fHomeFinishDistance := 0.0;
+    GVL.astAxes[1].stConfig.eRestorePosition := E_RestorePosition.eRestoreWithoutHome;
+END_IF*)
+
+astAxes[AXIS_VERTICAL_TRANSLATION_Y1].stControl.bEnable := TRUE;
+astAxes[AXIS_VERTICAL_TRANSLATION_Y1].stDescription.sAxisName := 'VERT_Y1';
+//Define ACTIONS() or write exclusive code for an specific axis.
+(*Eg. Stop when temperature reaches certain values, reduce speed if  a signal is activated, etc.
+Eg. GVL.astAxes[x].stControl.bInterlockFwd := NOT bInterlockFwdOK;*)
+]]></ST>
+    </Implementation>
+    <LineIds Name="Vertical_Translation_Y1">
+      <LineId Id="3" Count="9" />
+      <LineId Id="25" Count="0" />
+      <LineId Id="13" Count="2" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

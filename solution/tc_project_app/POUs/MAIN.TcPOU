@@ -32,8 +32,7 @@ END_VAR
     <Implementation>
       <ST><![CDATA[POSITION_RECOVERY();
 PROG();
-AXES();
-]]></ST>
+AXES();]]></ST>
     </Implementation>
     <Folder Name="POSITION_RECOVERY" Id="{3561f6ef-e145-4ed3-9839-f17334bd2d97}" />
     <Action Name="AXES" Id="{7eb32732-9b53-4934-8cd9-20ba971dd8ff}">
@@ -114,6 +113,53 @@ GVL.fbGetCurTaskIndex();
 
 //Application program calls
 //Application_Template();
+PLC_SAFETY_LOGIC();
+
+Horizontal_Translation();
+Vertical_Translation_Y2();
+Vertical_Translation_Y1();
+Rotation();
+
+Combined_Vertical();
+
+
+Drad_External();
+Drad_Internal();
+Doff_Angled();
+Doff_Parallel();
+Dtank_Internal_Offset_Angle();
+Dtank_Length();
+Dtank_Pivot_To_Window();
+Delta();
+Tau();
+Drad();
+Measurement_Angle();
+Rotation_Calibration();
+Rotation_Sample();
+Horizontal_Calibration();
+Horizontal_Sample();
+Combined_Vertical_Calibration();
+Combined_Vertical_Sample();
+Measurement_Angle_Offset();
+
+
+Rotation_Virtual();
+Combined_Vertical_Virtual();
+Horizontal_Virtual();
+
+
+
+
+INTER_LOGIC();
+
+//Slit setup
+Slit_North();
+Slit_South();
+Slit_East();
+Slit_West();
+Slit_3();
+
+
 ]]></ST>
       </Implementation>
     </Action>

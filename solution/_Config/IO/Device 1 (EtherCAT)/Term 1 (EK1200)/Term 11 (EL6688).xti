@@ -1,0 +1,127 @@
+<?xml version="1.0"?>
+<TcSmItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2012/07/TcSmProject" TcSmVersion="1.0" TcVersion="3.1.4024.32" ClassName="CFlbTermDef" SubType="9099">
+	<DataTypes>
+		<DataType>
+			<Name GUID="{18071995-0000-0000-0000-002000000006}" IecBaseType="true" AutoDeleteType="true" HideSubItems="true">ARRAY [0..5] OF BIT</Name>
+			<BitSize>6</BitSize>
+			<BaseType GUID="{18071995-0000-0000-0000-000000000010}">BIT</BaseType>
+			<ArrayInfo>
+				<LBound>0</LBound>
+				<Elements>6</Elements>
+			</ArrayInfo>
+		</DataType>
+		<DataType>
+			<Name GUID="{18071995-0000-0000-0000-002000000005}" IecBaseType="true" AutoDeleteType="true" HideSubItems="true">ARRAY [0..4] OF BIT</Name>
+			<BitSize>5</BitSize>
+			<BaseType GUID="{18071995-0000-0000-0000-000000000010}">BIT</BaseType>
+			<ArrayInfo>
+				<LBound>0</LBound>
+				<Elements>5</Elements>
+			</ArrayInfo>
+		</DataType>
+	</DataTypes>
+	<ImageDatas>
+		<ImageData Id="1000">424dd6020000000000003600000028000000100000000e0000000100180000000000a0020000c40e0000c40e00000000000000000000ff00ff000000000000ff00ffff00ffff00ff808080808080808080808080808080ff00ffff00ffff00ffff00ffff00ff000000ff00ffff00ff000000ff00ffff00ffc0c0c0000000c0c0c0000000808080ff00ffff00ffff00ffff00ffff00ff000000ff00ffff00ffff00ffff00ffff00ffc0c0c000ffffc0c0c000ffff808080ff00ffff00ffff00ffff00ffff00ff000000ff00ffff00ffff00ffff00ffff00ffc0c0c0c0c0c0c0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ff000000ff00ffff00ff000000ff00ffff00ffc0c0c0000000c0c0c0000000808080ff00ffff00ffff00ffff00ffff00ffff00ff000000000000ff00ffff00ffff00ffc0c0c0ff0000c0c0c0ff0000808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffc0c0c0c0c0c0c0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ff007fff007fff007fff007fff007fff007fffc0c0c0000000c0c0c0000000808080ff00ffff00ffff00ffff00ffff00ff007fff007fff007fff007fff007fff007fffc0c0c00000ffc0c0c00000ff808080ff00ffff00ffff00ffff00ffff00ff007fff007fff007fff007fff007fff007fffc0c0c0c0c0c0c0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ff007fff007fff007fff007fff007fff007fffc0c0c0000000c0c0c0000000808080ff00ffff00ffff00ffff00ffff00ff007fff007fff007fff007fff007fff007fffc0c0c0c0c0c0c0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ff007fff007fff007fff007fff007fff007fffc0c0c0008000c0c0c0008000808080ff00ffff00ffff00ffff00ffff00ff007fff007fff007fff007fff007fff007fffc0c0c0c0c0c0c0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ff</ImageData>
+	</ImageDatas>
+	<Box Id="11" BoxType="9099" BoxFlags="#x00000020">
+		<Name>__FILENAME__</Name>
+		<ImageId>1000</ImageId>
+		<EtherCAT SlaveType="2" PdiType="#x0c08" MboxDataLinkLayer="true" StateMBoxPolling="true" CycleMBoxPollingTime="0" CoeType="39" FoeType="1" VendorId="#x00000002" ProductCode="#x1a203052" RevisionNo="#x00160000" InfoDataAddr="true" InfoDataDcTimes="true" RepeatSupport="true" TimeoutMailbox2="2000" ExternalDcRefClock="true" CheckRevisionNoType="3" PortPhys="51" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="EL6688 - External Synchronisation Interface (IEEE1588)" Desc="EL6688">
+			<SyncMan>001000042600010001000000400000040004001026010000</SyncMan>
+			<SyncMan>001400042200010002000000400000040004001422010000</SyncMan>
+			<SyncMan>001800000400000003000000000000000000001804000000</SyncMan>
+			<SyncMan>002416002000010004000000000000001600002420010000</SyncMan>
+			<Fmmu>0000000000000000002400010100000002000000000000000000000000000000</Fmmu>
+			<Fmmu>00000000000000000d0800010100000003000000000000000000000000000000</Fmmu>
+			<BootStrapData>0010140200181402</BootStrapData>
+			<DcData>3000000000000000000000000000000000000000000000000000000000000000</DcData>
+			<DcMode>44434c415443480000000000000000004443204c61746368204163746976650000000000000000000000000000000000000000000000000000000000000030000000000000000000000000000000000000000000000000000000000000000000</DcMode>
+			<DcMode>4672656552756e0000000000000000004672656552756e00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000</DcMode>
+			<Pdo Name="  External Sync" Index="#x1a00" Flags="#x0010" SyncMan="3">
+				<ExcludePdo>#x1a01</ExcludePdo>
+				<ExcludePdo>#x1a02</ExcludePdo>
+				<Entry Name="Sync Mode" Index="#x10f4" Sub="#x01">
+					<Type>BIT2</Type>
+				</Entry>
+				<Entry>
+					<Type GUID="{18071995-0000-0000-0000-002000000006}">ARRAY [0..5] OF BIT</Type>
+				</Entry>
+				<Entry>
+					<Type GUID="{18071995-0000-0000-0000-002000000005}">ARRAY [0..4] OF BIT</Type>
+				</Entry>
+				<Entry Name="Control value update toggle" Index="#x10f4" Sub="#x0e">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry Name="Time stamp update toggle" Index="#x10f4" Sub="#x0f">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry Name="External device not connected" Index="#x10f4" Sub="#x10">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry Name="Internal time stamp" Index="#x10f4" Sub="#x11">
+					<Type>ULINT</Type>
+				</Entry>
+				<Entry Name="External time stamp" Index="#x10f4" Sub="#x12">
+					<Type>ULINT</Type>
+				</Entry>
+				<Entry Name="Control Value for DC Master Clock" Index="#x10f4" Sub="#x13">
+					<Type>DINT</Type>
+				</Entry>
+			</Pdo>
+			<Pdo Name="  External Sync (32 Bit)" Index="#x1a01" Flags="#x0010">
+				<ExcludePdo>#x1a00</ExcludePdo>
+				<ExcludePdo>#x1a02</ExcludePdo>
+				<Entry Name="Sync Mode" Index="#x10f4" Sub="#x01">
+					<Type>BIT2</Type>
+				</Entry>
+				<Entry>
+					<Type GUID="{18071995-0000-0000-0000-002000000006}">ARRAY [0..5] OF BIT</Type>
+				</Entry>
+				<Entry>
+					<Type GUID="{18071995-0000-0000-0000-002000000005}">ARRAY [0..4] OF BIT</Type>
+				</Entry>
+				<Entry Name="Control value update toggle" Index="#x10f4" Sub="#x0e">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry Name="Time stamp update toggle" Index="#x10f4" Sub="#x0f">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry Name="External device not connected" Index="#x10f4" Sub="#x10">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry Name="Internal time stamp" Index="#x10f4" Sub="#x11">
+					<Type>UDINT</Type>
+				</Entry>
+				<Entry Name="External time stamp" Index="#x10f4" Sub="#x12">
+					<Type>UDINT</Type>
+				</Entry>
+				<Entry Name="Control Value for DC Master Clock" Index="#x10f4" Sub="#x13">
+					<Type>DINT</Type>
+				</Entry>
+			</Pdo>
+			<Pdo Name="  External Sync Compact" Index="#x1a02" Flags="#x0010">
+				<ExcludePdo>#x1a00</ExcludePdo>
+				<ExcludePdo>#x1a01</ExcludePdo>
+				<Entry Name="Sync Mode" Index="#x10f4" Sub="#x01">
+					<Type>BIT2</Type>
+				</Entry>
+				<Entry>
+					<Type GUID="{18071995-0000-0000-0000-002000000006}">ARRAY [0..5] OF BIT</Type>
+				</Entry>
+				<Entry>
+					<Type GUID="{18071995-0000-0000-0000-002000000005}">ARRAY [0..4] OF BIT</Type>
+				</Entry>
+				<Entry Name="Control value update toggle" Index="#x10f4" Sub="#x0e">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry Name="Time stamp update toggle" Index="#x10f4" Sub="#x0f">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry Name="External device not connected" Index="#x10f4" Sub="#x10">
+					<Type>BIT</Type>
+				</Entry>
+			</Pdo>
+			<CoeProfile ProfileNo="5001"/>
+		</EtherCAT>
+	</Box>
+</TcSmItem>
