@@ -1390,6 +1390,156 @@
                 </CoE>
               </Calc>
             </Feedback>
+            <Feedback DataSource="1" HasWeight="true">
+              <DatabaseType>
+                <OrderCode>Reni#RL32Bxx1nm-5V-BiSS_C</OrderCode>
+                <IsRotary>false</IsRotary>
+                <AbsolutePosInterface>6</AbsolutePosInterface>
+                <GroupType>Reni#RL-BiSS_C</GroupType>
+                <ElectricFeedbackType>BiSS_C-RL32Bxx1nm-5V</ElectricFeedbackType>
+              </DatabaseType>
+              <DatabaseParameters>
+                <Parameter>
+                  <Comment LcId="1033">cf: AbsolutePositionInterfaceType 0: No interface 1: BiSS B 2: EnDat2.1 3: EnDat2.2 4: Hiperface 5: BiSS C 6: BiSS C 7: Hiperface DSL 8: Resolver 9: MES 10: SSI binary 11: SSI gray 12: EnDat3.0 100: Electrical analog commutation channel: sin(x) and sin(x-120) 102: Mechanical analog commutation channel: cos and sin 103: Electrical analog commutation channel: cos and sin</Comment>
+                  <Name>AbsolutePositionInterface</Name>
+                  <Data type="int8">6</Data>
+                </Parameter>
+                <Parameter>
+                  <Comment LcId="1033">cf: KindType 0: rotary 1: linear</Comment>
+                  <Name>Kind</Name>
+                  <Data type="int8">1</Data>
+                </Parameter>
+                <Parameter>
+                  <Comment LcId="1033">cf. PowerSupplyType 0: No voltage 1: 11 V without sense 2: 5 V with sense 3: 5 V without sense 4: 3.5 V ~ 14 V</Comment>
+                  <Name>PowerManagement_PowerSupply</Name>
+                  <Data type="int8" unitSiNumerator="second">3</Data>
+                </Parameter>
+                <Parameter>
+                  <Comment LcId="1033" />
+                  <Name>PowerManagement_DelayTimeAfterPowerUp</Name>
+                  <Data type="real64" unitSiNumerator="second">0.7</Data>
+                </Parameter>
+                <Parameter>
+                  <Comment LcId="1033" />
+                  <Name>RelativePositonData_LengthPerSignalPeriod</Name>
+                  <Data type="real64" unitPrefix="-9" unitSiNumerator="metre">20000</Data>
+                </Parameter>
+                <Parameter>
+                  <Comment LcId="1033" />
+                  <Name>AbsolutePositionData_ResolutionSinglePos</Name>
+                  <Data type="int16">32</Data>
+                </Parameter>
+                <Parameter>
+                  <Comment LcId="1033" />
+                  <Name>AbsolutePositionData_NumberOfClockCyclesForSinglePos</Name>
+                  <Data type="int16">32</Data>
+                </Parameter>
+                <Parameter>
+                  <Comment LcId="1033" />
+                  <Name>AbsolutePositionData_LinearResolution_Numerator</Name>
+                  <Data type="real64" unitPrefix="-9" unitSiNumerator="metre">1</Data>
+                </Parameter>
+                <Parameter>
+                  <Comment LcId="1033" />
+                  <Name>AbsolutePositionData_LinearResolution_Denominator</Name>
+                  <Data type="real64">1</Data>
+                </Parameter>
+                <Parameter>
+                  <Comment LcId="1033">cf: AbsolutePositionData_SensorMode_DataLayout 0: Msb first, left aligned, multiposition-singleposition-status-crc-mcd; 1: Msb first, right aligned, multiposition-singleposition-status-crc</Comment>
+                  <Name>AbsolutePositionData_SensorMode_DataLayout</Name>
+                  <Data type="real64">1</Data>
+                </Parameter>
+                <Parameter>
+                  <Comment LcId="1033" />
+                  <Name>AbsolutePositionData_SensorMode_CrcPolynomial</Name>
+                  <Data type="real64">67</Data>
+                </Parameter>
+                <Parameter>
+                  <Comment LcId="1033" />
+                  <Name>AbsolutePositionData_SensorMode_InvertedCrc</Name>
+                  <Data type="real64">1</Data>
+                </Parameter>
+                <Parameter>
+                  <Comment LcId="1033" />
+                  <Name>AbsolutePositionData_SensorMode_MaxClockSpeed</Name>
+                  <Data type="real64" unitSiNumerator="hertz">10000000</Data>
+                </Parameter>
+                <Parameter>
+                  <Comment LcId="1033" />
+                  <Name>AbsolutePositionData_MaxPositionCalculationTime</Name>
+                  <Data type="real64" unitPrefix="-6" unitSiNumerator="second">20</Data>
+                </Parameter>
+                <Parameter>
+                  <Comment LcId="1033">maximal allowed continuous speed</Comment>
+                  <Name>MaxContinousOperationSpeed</Name>
+                  <Data type="real64" unitSiNumerator="metre" unitSiDenominator="second">65</Data>
+                </Parameter>
+                <Parameter>
+                  <Comment LcId="1033">maximal  allowed temperature</Comment>
+                  <Name>MaxTemperature</Name>
+                  <Data type="real64" unitSiNumerator="degreeCelsius">0</Data>
+                </Parameter>
+              </DatabaseParameters>
+              <FeedbackUse>Feedback2</FeedbackUse>
+              <Calc>
+                <CoE>
+                  <InitCmd>
+                    <Transition>PS</Transition>
+                    <Comment>Ch B VeloCtrl observer / Observer type</Comment>
+                    <Timeout>0</Timeout>
+                    <Ccs>1</Ccs>
+                    <Index>13635</Index>
+                    <SubIndex>4</SubIndex>
+                    <Data>0400</Data>
+                  </InitCmd>
+                  <InitCmd>
+                    <Transition>PS</Transition>
+                    <Comment>Ch B Secondary Feedback BiSS-C: Encoder parameter (linear) / Power supply</Comment>
+                    <Timeout>0</Timeout>
+                    <Ccs>1</Ccs>
+                    <Index>14095</Index>
+                    <SubIndex>2</SubIndex>
+                    <Data>00000000</Data>
+                  </InitCmd>
+                  <InitCmd>
+                    <Transition>PS</Transition>
+                    <Comment>Ch B Secondary Feedback BiSS-C: Encoder parameter (linear) / Data layout</Comment>
+                    <Timeout>0</Timeout>
+                    <Ccs>1</Ccs>
+                    <Index>14095</Index>
+                    <SubIndex>6</SubIndex>
+                    <Data>00</Data>
+                  </InitCmd>
+                  <InitCmd>
+                    <Transition>PS</Transition>
+                    <Comment>Ch B Secondary Feedback BiSS-C: Encoder parameter (linear) / Fill bit count left</Comment>
+                    <Timeout>0</Timeout>
+                    <Ccs>1</Ccs>
+                    <Index>14095</Index>
+                    <SubIndex>7</SubIndex>
+                    <Data>00</Data>
+                  </InitCmd>
+                  <InitCmd>
+                    <Transition>PS</Transition>
+                    <Comment>Ch B Secondary Feedback BiSS-C: Encoder parameter (linear) / Fill bit count right</Comment>
+                    <Timeout>0</Timeout>
+                    <Ccs>1</Ccs>
+                    <Index>14095</Index>
+                    <SubIndex>8</SubIndex>
+                    <Data>00</Data>
+                  </InitCmd>
+                  <InitCmd>
+                    <Transition>PS</Transition>
+                    <Comment>Ch B AxisMain parameters encoder polarity / Secondary encoder actual values</Comment>
+                    <Timeout>0</Timeout>
+                    <Ccs>1</Ccs>
+                    <Index>13320</Index>
+                    <SubIndex>1</SubIndex>
+                    <Data>00</Data>
+                  </InitCmd>
+                </CoE>
+              </Calc>
+            </Feedback>
             <Brake>
               <DatabaseType>
                 <OrderCode>AM8053-1GH1-0000-brake</OrderCode>
@@ -1431,7 +1581,7 @@
                 </Parameter>
               </DatabaseParameters>
             </Brake>
-            <Load MoveStyle="Linear">
+            <Load MoveStyle="Linear" IsOnlyLinearMoveAllowed="true">
               <IsMotorRotary>true</IsMotorRotary>
               <Name>InverterChannelTypeBlockLoad</Name>
               <Parameter>
@@ -1474,6 +1624,10 @@
                 <PropertyName>MaxApplicationSpeed</PropertyName>
                 <Value>895.35391</Value>
               </Parameter>
+              <FeedConstantUnitValueDic>
+                <UnitValuePair Unit="mm" Value="0.001" />
+                <UnitValuePair Unit="m" Value="1E-06" />
+              </FeedConstantUnitValueDic>
             </Load>
             <Controller />
           </Block>
@@ -1528,19 +1682,19 @@
       </Info>
       <ProcessData>
         <Send>
-          <BitStart>1376</BitStart>
+          <BitStart>1568</BitStart>
           <BitLength>176</BitLength>
         </Send>
         <Send>
-          <BitStart>13688</BitStart>
+          <BitStart>13496</BitStart>
           <BitLength>112</BitLength>
         </Send>
         <Recv>
-          <BitStart>1376</BitStart>
+          <BitStart>1568</BitStart>
           <BitLength>272</BitLength>
         </Recv>
         <Recv>
-          <BitStart>13688</BitStart>
+          <BitStart>13496</BitStart>
           <BitLength>112</BitLength>
         </Recv>
         <Sm2>
@@ -1817,7 +1971,7 @@
               <Ccs>1</Ccs>
               <Index>7152</Index>
               <SubIndex>0</SubIndex>
-              <Data>0300010106f6010206f606000000</Data>
+              <Data>0400010106f6010206f6010306f605000000</Data>
             </InitCmd>
             <InitCmd Fixed="true" CompleteAccess="true">
               <Transition>PS</Transition>
@@ -2460,6 +2614,24 @@
             </InitCmd>
             <InitCmd Fixed="true" CompleteAccess="true">
               <Transition>PS</Transition>
+              <Comment><![CDATA[download pdo 0x1A58 entries]]></Comment>
+              <Timeout>0</Timeout>
+              <Ccs>1</Ccs>
+              <Index>6744</Index>
+              <SubIndex>0</SubIndex>
+              <Data>0000</Data>
+            </InitCmd>
+            <InitCmd Fixed="true" CompleteAccess="true">
+              <Transition>PS</Transition>
+              <Comment><![CDATA[download pdo 0x1B38 entries]]></Comment>
+              <Timeout>0</Timeout>
+              <Ccs>1</Ccs>
+              <Index>6968</Index>
+              <SubIndex>0</SubIndex>
+              <Data>0000</Data>
+            </InitCmd>
+            <InitCmd Fixed="true" CompleteAccess="true">
+              <Transition>PS</Transition>
               <Comment><![CDATA[download pdo 0x1C12 index]]></Comment>
               <Timeout>0</Timeout>
               <Ccs>1</Ccs>
@@ -2519,7 +2691,7 @@
               <Ccs>1</Ccs>
               <Index>61488</Index>
               <SubIndex>0</SubIndex>
-              <Data>5f006400680000000000000000000000000000000000000000000000000000000000000000000000000071006800000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000e80368000000000000000000b80b6800000000000000000070176800000000000000000000000000102768000000000000000000000000000000000000000000000000000000000050466800000000000000000000000000f0556800d9596800e059680000000000000000000000000000000000000000000000000000000000e80368000000000000000000b80b6800000000000000000070176800000000000000000000000000102768000000000000000000000000000000000000000000000000000000000050466800000000000000000000000000f0556800d959680000000000000000000000000000000000000000000000000000000000</Data>
+              <Data>5f006400680000000000000000000000000000000000000000000000000000000000000000000000000071006800000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000e80368000000000000000000b80b6800000000000000000070176800000000000000000000000000102768000000000000000000000000000000000000000000000000000000000050466800000000000000000000000000f0556800d9596800e059680000000000000000000000000000000000000000000000000000000000e80368000000000000000000b80b6800000000000000000070176800000000000000000000000000102768000000000000000000000000000000000000000000000000000000000050466800000000000000000000000000f0556800d9596800e0596800000000000000000000000000000000000000000000000000</Data>
             </InitCmd>
             <InitCmd>
               <Transition>PS</Transition>
@@ -2609,7 +2781,7 @@
               <Ccs>1</Ccs>
               <Index>13632</Index>
               <SubIndex>2</SubIndex>
-              <Data>5cf1433e</Data>
+              <Data>9ee83f3e</Data>
             </InitCmd>
             <InitCmd>
               <Transition>PS</Transition>
@@ -3356,7 +3528,7 @@
               <Ccs>1</Ccs>
               <Index>26774</Index>
               <SubIndex>1</SubIndex>
-              <Data>9f240000</Data>
+              <Data>03000000</Data>
             </InitCmd>
             <InitCmd>
               <Transition>PS</Transition>
@@ -3365,7 +3537,7 @@
               <Ccs>1</Ccs>
               <Index>26774</Index>
               <SubIndex>2</SubIndex>
-              <Data>00400000</Data>
+              <Data>05000000</Data>
             </InitCmd>
             <InitCmd>
               <Transition>PS</Transition>
@@ -4390,7 +4562,7 @@
               <Ccs>1</Ccs>
               <Index>24677</Index>
               <SubIndex>0</SubIndex>
-              <Data>40420f00</Data>
+              <Data>80841e00</Data>
             </InitCmd>
             <InitCmd>
               <Transition>PS</Transition>
@@ -4426,7 +4598,7 @@
               <Ccs>1</Ccs>
               <Index>26770</Index>
               <SubIndex>1</SubIndex>
-              <Data>00001000</Data>
+              <Data>e8030000</Data>
             </InitCmd>
             <InitCmd>
               <Transition>PS</Transition>
@@ -4435,7 +4607,7 @@
               <Ccs>1</Ccs>
               <Index>26857</Index>
               <SubIndex>1</SubIndex>
-              <Data>00001000</Data>
+              <Data>e8030000</Data>
             </InitCmd>
             <InitCmd>
               <Transition>PS</Transition>
@@ -4444,7 +4616,7 @@
               <Ccs>1</Ccs>
               <Index>26769</Index>
               <SubIndex>2</SubIndex>
-              <Data>01000000</Data>
+              <Data>e8030000</Data>
             </InitCmd>
             <InitCmd>
               <Transition>PS</Transition>
@@ -4453,7 +4625,7 @@
               <Ccs>1</Ccs>
               <Index>26725</Index>
               <SubIndex>0</SubIndex>
-              <Data>00001000</Data>
+              <Data>80841e00</Data>
             </InitCmd>
             <InitCmd>
               <Transition>PS</Transition>
@@ -4462,7 +4634,7 @@
               <Ccs>1</Ccs>
               <Index>13317</Index>
               <SubIndex>1</SubIndex>
-              <Data>14120000</Data>
+              <Data>031a0000</Data>
             </InitCmd>
             <InitCmd>
               <Transition>PS</Transition>
@@ -4471,7 +4643,7 @@
               <Ccs>1</Ccs>
               <Index>13317</Index>
               <SubIndex>6</SubIndex>
-              <Data>14620000</Data>
+              <Data>036a0000</Data>
             </InitCmd>
             <InitCmd>
               <Transition>PS</Transition>
@@ -4534,7 +4706,7 @@
               <Ccs>1</Ccs>
               <Index>13504</Index>
               <SubIndex>1</SubIndex>
-              <Data>843ba740</Data>
+              <Data>79bfaa40</Data>
             </InitCmd>
             <InitCmd>
               <Transition>PS</Transition>
@@ -4592,15 +4764,6 @@
             </InitCmd>
             <InitCmd>
               <Transition>PS</Transition>
-              <Comment><![CDATA[Ch B AxisMain parameters position offset / Offset additional position actual value source]]></Comment>
-              <Timeout>0</Timeout>
-              <Ccs>1</Ccs>
-              <Index>13319</Index>
-              <SubIndex>4</SubIndex>
-              <Data>0200</Data>
-            </InitCmd>
-            <InitCmd>
-              <Transition>PS</Transition>
               <Comment><![CDATA[Ch A VeloCtrl parameters / Velocity threshold]]></Comment>
               <Timeout>0</Timeout>
               <Ccs>1</Ccs>
@@ -4642,6 +4805,159 @@
               <Ccs>1</Ccs>
               <Index>13319</Index>
               <SubIndex>2</SubIndex>
+              <Data>0200</Data>
+            </InitCmd>
+            <InitCmd>
+              <Transition>PS</Transition>
+              <Comment><![CDATA[Ch B Following error time out]]></Comment>
+              <Timeout>0</Timeout>
+              <Ccs>1</Ccs>
+              <Index>26726</Index>
+              <SubIndex>0</SubIndex>
+              <Data>f401</Data>
+            </InitCmd>
+            <InitCmd>
+              <Transition>PS</Transition>
+              <Comment><![CDATA[Ch A Following error time out]]></Comment>
+              <Timeout>0</Timeout>
+              <Ccs>1</Ccs>
+              <Index>24678</Index>
+              <SubIndex>0</SubIndex>
+              <Data>f401</Data>
+            </InitCmd>
+            <InitCmd>
+              <Transition>PS</Transition>
+              <Comment><![CDATA[Ch B Secondary Feedback BiSS-C: Encoder parameter (linear) / Measuring step length]]></Comment>
+              <Timeout>0</Timeout>
+              <Ccs>1</Ccs>
+              <Index>14095</Index>
+              <SubIndex>3</SubIndex>
+              <Data>e803000000000000</Data>
+            </InitCmd>
+            <InitCmd>
+              <Transition>PS</Transition>
+              <Comment><![CDATA[Ch B Secondary Feedback BiSS-C: Encoder parameter (linear) / Measuring step length divisor]]></Comment>
+              <Timeout>0</Timeout>
+              <Ccs>1</Ccs>
+              <Index>14095</Index>
+              <SubIndex>4</SubIndex>
+              <Data>01000000</Data>
+            </InitCmd>
+            <InitCmd>
+              <Transition>PS</Transition>
+              <Comment><![CDATA[Ch B Secondary Feedback BiSS-C: Encoder parameter (linear) / Position bit count]]></Comment>
+              <Timeout>0</Timeout>
+              <Ccs>1</Ccs>
+              <Index>14095</Index>
+              <SubIndex>5</SubIndex>
+              <Data>20</Data>
+            </InitCmd>
+            <InitCmd>
+              <Transition>PS</Transition>
+              <Comment><![CDATA[Ch B Secondary Feedback BiSS-C: Encoder parameter (linear) / Max encoder clock frequency]]></Comment>
+              <Timeout>0</Timeout>
+              <Ccs>1</Ccs>
+              <Index>14095</Index>
+              <SubIndex>10</SubIndex>
+              <Data>1027</Data>
+            </InitCmd>
+            <InitCmd>
+              <Transition>PS</Transition>
+              <Comment><![CDATA[Ch B Secondary Feedback BiSS-C: Encoder parameter (linear) / Delay time after power up]]></Comment>
+              <Timeout>0</Timeout>
+              <Ccs>1</Ccs>
+              <Index>14095</Index>
+              <SubIndex>11</SubIndex>
+              <Data>bc02</Data>
+            </InitCmd>
+            <InitCmd>
+              <Transition>PS</Transition>
+              <Comment><![CDATA[Ch B Secondary Feedback BiSS-C: Encoder parameter (linear) / Calculation time]]></Comment>
+              <Timeout>0</Timeout>
+              <Ccs>1</Ccs>
+              <Index>14095</Index>
+              <SubIndex>12</SubIndex>
+              <Data>c800</Data>
+            </InitCmd>
+            <InitCmd>
+              <Transition>PS</Transition>
+              <Comment><![CDATA[Ch B Secondary Feedback BiSS-C: Encoder parameter (linear) / CRC polynome]]></Comment>
+              <Timeout>0</Timeout>
+              <Ccs>1</Ccs>
+              <Index>14095</Index>
+              <SubIndex>13</SubIndex>
+              <Data>43</Data>
+            </InitCmd>
+            <InitCmd>
+              <Transition>PS</Transition>
+              <Comment><![CDATA[Ch B Secondary Feedback BiSS-C: Encoder parameter (linear) / CRC data inverted]]></Comment>
+              <Timeout>0</Timeout>
+              <Ccs>1</Ccs>
+              <Index>14095</Index>
+              <SubIndex>14</SubIndex>
+              <Data>01</Data>
+            </InitCmd>
+            <InitCmd>
+              <Transition>PS</Transition>
+              <Comment><![CDATA[Ch B VeloCtrl observer / Observer type]]></Comment>
+              <Timeout>0</Timeout>
+              <Ccs>1</Ccs>
+              <Index>13635</Index>
+              <SubIndex>4</SubIndex>
+              <Data>0400</Data>
+            </InitCmd>
+            <InitCmd>
+              <Transition>PS</Transition>
+              <Comment><![CDATA[Ch B Secondary Feedback BiSS-C: Encoder parameter (linear) / Power supply]]></Comment>
+              <Timeout>0</Timeout>
+              <Ccs>1</Ccs>
+              <Index>14095</Index>
+              <SubIndex>2</SubIndex>
+              <Data>00000000</Data>
+            </InitCmd>
+            <InitCmd>
+              <Transition>PS</Transition>
+              <Comment><![CDATA[Ch B Secondary Feedback BiSS-C: Encoder parameter (linear) / Data layout]]></Comment>
+              <Timeout>0</Timeout>
+              <Ccs>1</Ccs>
+              <Index>14095</Index>
+              <SubIndex>6</SubIndex>
+              <Data>00</Data>
+            </InitCmd>
+            <InitCmd>
+              <Transition>PS</Transition>
+              <Comment><![CDATA[Ch B Secondary Feedback BiSS-C: Encoder parameter (linear) / Fill bit count left]]></Comment>
+              <Timeout>0</Timeout>
+              <Ccs>1</Ccs>
+              <Index>14095</Index>
+              <SubIndex>7</SubIndex>
+              <Data>00</Data>
+            </InitCmd>
+            <InitCmd>
+              <Transition>PS</Transition>
+              <Comment><![CDATA[Ch B Secondary Feedback BiSS-C: Encoder parameter (linear) / Fill bit count right]]></Comment>
+              <Timeout>0</Timeout>
+              <Ccs>1</Ccs>
+              <Index>14095</Index>
+              <SubIndex>8</SubIndex>
+              <Data>00</Data>
+            </InitCmd>
+            <InitCmd>
+              <Transition>PS</Transition>
+              <Comment><![CDATA[Ch B AxisMain parameters encoder polarity / Secondary encoder actual values]]></Comment>
+              <Timeout>0</Timeout>
+              <Ccs>1</Ccs>
+              <Index>13320</Index>
+              <SubIndex>1</SubIndex>
+              <Data>00</Data>
+            </InitCmd>
+            <InitCmd>
+              <Transition>PS</Transition>
+              <Comment><![CDATA[Ch B AxisMain parameters position offset / Offset additional position actual value source]]></Comment>
+              <Timeout>0</Timeout>
+              <Ccs>1</Ccs>
+              <Index>13319</Index>
+              <SubIndex>4</SubIndex>
               <Data>0200</Data>
             </InitCmd>
             <InitCmd>
@@ -5079,7 +5395,7 @@
           <Cmd>5</Cmd>
           <Adp>1037</Adp>
           <Ado>1536</Ado>
-          <Data>52000001160000070018000201000000</Data>
+          <Data>6a000001160000070018000201000000</Data>
           <Cnt>1</Cnt>
           <Retries>3</Retries>
         </InitCmd>
@@ -5089,7 +5405,7 @@
           <Cmd>5</Cmd>
           <Adp>1037</Adp>
           <Ado>1552</Ado>
-          <Data>5200000122000007002a000101000000</Data>
+          <Data>6a00000122000007002a000101000000</Data>
           <Cnt>1</Cnt>
           <Retries>3</Retries>
         </InitCmd>
@@ -5110,7 +5426,7 @@
           <Cmd>5</Cmd>
           <Adp>1037</Adp>
           <Ado>1616</Ado>
-          <Data>950000020e0000070060000201000000</Data>
+          <Data>7d0000020e0000070060000201000000</Data>
           <Cnt>1</Cnt>
           <Retries>3</Retries>
         </InitCmd>
@@ -5120,7 +5436,7 @@
           <Cmd>5</Cmd>
           <Adp>1037</Adp>
           <Ado>1632</Ado>
-          <Data>950000020e0000070072000101000000</Data>
+          <Data>7d0000020e0000070072000101000000</Data>
           <Cnt>1</Cnt>
           <Retries>3</Retries>
         </InitCmd>
@@ -5494,7 +5810,7 @@
                   <AmsPort>27906</AmsPort>
                 </AmsAddress>
                 <IndexGroup>61472</IndexGroup>
-                <IndexOffset>172</IndexOffset>
+                <IndexOffset>196</IndexOffset>
                 <Length>2</Length>
               </AdsInfo>
             </Entry>
@@ -5599,7 +5915,7 @@
                   <AmsPort>11</AmsPort>
                 </AmsAddress>
                 <IndexGroup>50593856</IndexGroup>
-                <IndexOffset>-2147483473</IndexOffset>
+                <IndexOffset>-2147483497</IndexOffset>
                 <Length>1</Length>
               </AdsInfo>
             </Entry>
@@ -5614,7 +5930,7 @@
                   <AmsPort>11</AmsPort>
                 </AmsAddress>
                 <IndexGroup>50593856</IndexGroup>
-                <IndexOffset>-1073740416</IndexOffset>
+                <IndexOffset>-1073740608</IndexOffset>
                 <Length>1</Length>
               </AdsInfo>
             </Entry>
@@ -5633,7 +5949,7 @@
                   <AmsPort>11</AmsPort>
                 </AmsAddress>
                 <IndexGroup>50593856</IndexGroup>
-                <IndexOffset>-1073740409</IndexOffset>
+                <IndexOffset>-1073740601</IndexOffset>
                 <Length>1</Length>
               </AdsInfo>
             </Entry>
@@ -5648,7 +5964,7 @@
                   <AmsPort>11</AmsPort>
                 </AmsAddress>
                 <IndexGroup>50593856</IndexGroup>
-                <IndexOffset>-1073740408</IndexOffset>
+                <IndexOffset>-1073740600</IndexOffset>
                 <Length>1</Length>
               </AdsInfo>
             </Entry>
@@ -5667,7 +5983,7 @@
                   <AmsPort>11</AmsPort>
                 </AmsAddress>
                 <IndexGroup>50593856</IndexGroup>
-                <IndexOffset>-2147483470</IndexOffset>
+                <IndexOffset>-2147483494</IndexOffset>
                 <Length>2</Length>
               </AdsInfo>
             </Entry>
@@ -5682,7 +5998,7 @@
                   <AmsPort>11</AmsPort>
                 </AmsAddress>
                 <IndexGroup>50593856</IndexGroup>
-                <IndexOffset>-1073740384</IndexOffset>
+                <IndexOffset>-1073740576</IndexOffset>
                 <Length>1</Length>
               </AdsInfo>
             </Entry>
@@ -5701,7 +6017,7 @@
                   <AmsPort>11</AmsPort>
                 </AmsAddress>
                 <IndexGroup>50593856</IndexGroup>
-                <IndexOffset>-1073740377</IndexOffset>
+                <IndexOffset>-1073740569</IndexOffset>
                 <Length>1</Length>
               </AdsInfo>
             </Entry>
@@ -5716,7 +6032,7 @@
                   <AmsPort>11</AmsPort>
                 </AmsAddress>
                 <IndexGroup>50593856</IndexGroup>
-                <IndexOffset>-1073740376</IndexOffset>
+                <IndexOffset>-1073740568</IndexOffset>
                 <Length>1</Length>
               </AdsInfo>
             </Entry>
@@ -5735,7 +6051,7 @@
                   <AmsPort>11</AmsPort>
                 </AmsAddress>
                 <IndexGroup>50593856</IndexGroup>
-                <IndexOffset>-2147483466</IndexOffset>
+                <IndexOffset>-2147483490</IndexOffset>
                 <Length>2</Length>
               </AdsInfo>
             </Entry>
@@ -5750,7 +6066,7 @@
                   <AmsPort>11</AmsPort>
                 </AmsAddress>
                 <IndexGroup>50593856</IndexGroup>
-                <IndexOffset>-2147483464</IndexOffset>
+                <IndexOffset>-2147483488</IndexOffset>
                 <Length>2</Length>
               </AdsInfo>
             </Entry>
@@ -5844,7 +6160,7 @@
                   <AmsPort>11</AmsPort>
                 </AmsAddress>
                 <IndexGroup>50593856</IndexGroup>
-                <IndexOffset>-1073740336</IndexOffset>
+                <IndexOffset>-1073740528</IndexOffset>
                 <Length>1</Length>
               </AdsInfo>
             </Entry>
@@ -5859,13 +6175,28 @@
                   <AmsPort>11</AmsPort>
                 </AmsAddress>
                 <IndexGroup>50593856</IndexGroup>
-                <IndexOffset>-1073740335</IndexOffset>
+                <IndexOffset>-1073740527</IndexOffset>
+                <Length>1</Length>
+              </AdsInfo>
+            </Entry>
+            <Entry>
+              <Index>#xf606</Index>
+              <SubIndex>3</SubIndex>
+              <BitLen>1</BitLen>
+              <Name>Standard Out Var 9</Name>
+              <DataType>BIT</DataType>
+              <AdsInfo>
+                <AmsAddress>
+                  <AmsPort>11</AmsPort>
+                </AmsAddress>
+                <IndexGroup>50593856</IndexGroup>
+                <IndexOffset>-1073740526</IndexOffset>
                 <Length>1</Length>
               </AdsInfo>
             </Entry>
             <Entry>
               <Index>#x0</Index>
-              <BitLen>6</BitLen>
+              <BitLen>5</BitLen>
             </Entry>
           </TxPdo>
           <TxPdo Su="2">
@@ -5898,7 +6229,7 @@
                   <AmsPort>11</AmsPort>
                 </AmsAddress>
                 <IndexGroup>50593856</IndexGroup>
-                <IndexOffset>-2147483461</IndexOffset>
+                <IndexOffset>-2147483485</IndexOffset>
                 <Length>1</Length>
               </AdsInfo>
             </Entry>
@@ -5913,7 +6244,7 @@
                   <AmsPort>11</AmsPort>
                 </AmsAddress>
                 <IndexGroup>50593856</IndexGroup>
-                <IndexOffset>-2147483460</IndexOffset>
+                <IndexOffset>-2147483484</IndexOffset>
                 <Length>1</Length>
               </AdsInfo>
             </Entry>
@@ -5933,7 +6264,7 @@
                   <AmsPort>11</AmsPort>
                 </AmsAddress>
                 <IndexGroup>50593856</IndexGroup>
-                <IndexOffset>-2130706257</IndexOffset>
+                <IndexOffset>-2130706281</IndexOffset>
                 <Length>1</Length>
               </AdsInfo>
             </Entry>
@@ -5948,7 +6279,7 @@
                   <AmsPort>11</AmsPort>
                 </AmsAddress>
                 <IndexGroup>50593856</IndexGroup>
-                <IndexOffset>-1056963200</IndexOffset>
+                <IndexOffset>-1056963392</IndexOffset>
                 <Length>1</Length>
               </AdsInfo>
             </Entry>
@@ -5963,7 +6294,7 @@
                   <AmsPort>11</AmsPort>
                 </AmsAddress>
                 <IndexGroup>50593856</IndexGroup>
-                <IndexOffset>-1056963199</IndexOffset>
+                <IndexOffset>-1056963391</IndexOffset>
                 <Length>1</Length>
               </AdsInfo>
             </Entry>
@@ -5982,7 +6313,7 @@
                   <AmsPort>11</AmsPort>
                 </AmsAddress>
                 <IndexGroup>50593856</IndexGroup>
-                <IndexOffset>-1056963193</IndexOffset>
+                <IndexOffset>-1056963385</IndexOffset>
                 <Length>1</Length>
               </AdsInfo>
             </Entry>
@@ -5997,7 +6328,7 @@
                   <AmsPort>11</AmsPort>
                 </AmsAddress>
                 <IndexGroup>50593856</IndexGroup>
-                <IndexOffset>-1056963192</IndexOffset>
+                <IndexOffset>-1056963384</IndexOffset>
                 <Length>1</Length>
               </AdsInfo>
             </Entry>
@@ -6016,7 +6347,7 @@
                   <AmsPort>11</AmsPort>
                 </AmsAddress>
                 <IndexGroup>50593856</IndexGroup>
-                <IndexOffset>-2130706254</IndexOffset>
+                <IndexOffset>-2130706278</IndexOffset>
                 <Length>2</Length>
               </AdsInfo>
             </Entry>
@@ -6031,7 +6362,7 @@
                   <AmsPort>11</AmsPort>
                 </AmsAddress>
                 <IndexGroup>50593856</IndexGroup>
-                <IndexOffset>-1056963168</IndexOffset>
+                <IndexOffset>-1056963360</IndexOffset>
                 <Length>1</Length>
               </AdsInfo>
             </Entry>
@@ -6046,7 +6377,7 @@
                   <AmsPort>11</AmsPort>
                 </AmsAddress>
                 <IndexGroup>50593856</IndexGroup>
-                <IndexOffset>-1056963167</IndexOffset>
+                <IndexOffset>-1056963359</IndexOffset>
                 <Length>1</Length>
               </AdsInfo>
             </Entry>
@@ -6065,7 +6396,7 @@
                   <AmsPort>11</AmsPort>
                 </AmsAddress>
                 <IndexGroup>50593856</IndexGroup>
-                <IndexOffset>-1056963161</IndexOffset>
+                <IndexOffset>-1056963353</IndexOffset>
                 <Length>1</Length>
               </AdsInfo>
             </Entry>
@@ -6080,7 +6411,7 @@
                   <AmsPort>11</AmsPort>
                 </AmsAddress>
                 <IndexGroup>50593856</IndexGroup>
-                <IndexOffset>-1056963160</IndexOffset>
+                <IndexOffset>-1056963352</IndexOffset>
                 <Length>1</Length>
               </AdsInfo>
             </Entry>
@@ -6099,7 +6430,7 @@
                   <AmsPort>11</AmsPort>
                 </AmsAddress>
                 <IndexGroup>50593856</IndexGroup>
-                <IndexOffset>-2130706250</IndexOffset>
+                <IndexOffset>-2130706274</IndexOffset>
                 <Length>2</Length>
               </AdsInfo>
             </Entry>
@@ -6114,7 +6445,7 @@
                   <AmsPort>11</AmsPort>
                 </AmsAddress>
                 <IndexGroup>50593856</IndexGroup>
-                <IndexOffset>-2130706248</IndexOffset>
+                <IndexOffset>-2130706272</IndexOffset>
                 <Length>2</Length>
               </AdsInfo>
             </Entry>
@@ -6208,7 +6539,7 @@
                   <AmsPort>11</AmsPort>
                 </AmsAddress>
                 <IndexGroup>50593856</IndexGroup>
-                <IndexOffset>-1056963120</IndexOffset>
+                <IndexOffset>-1056963312</IndexOffset>
                 <Length>1</Length>
               </AdsInfo>
             </Entry>
@@ -6223,7 +6554,7 @@
                   <AmsPort>11</AmsPort>
                 </AmsAddress>
                 <IndexGroup>50593856</IndexGroup>
-                <IndexOffset>-1056963119</IndexOffset>
+                <IndexOffset>-1056963311</IndexOffset>
                 <Length>1</Length>
               </AdsInfo>
             </Entry>
@@ -6238,7 +6569,7 @@
                   <AmsPort>11</AmsPort>
                 </AmsAddress>
                 <IndexGroup>50593856</IndexGroup>
-                <IndexOffset>-1056963118</IndexOffset>
+                <IndexOffset>-1056963310</IndexOffset>
                 <Length>1</Length>
               </AdsInfo>
             </Entry>
@@ -6253,7 +6584,7 @@
                   <AmsPort>11</AmsPort>
                 </AmsAddress>
                 <IndexGroup>50593856</IndexGroup>
-                <IndexOffset>-1056963117</IndexOffset>
+                <IndexOffset>-1056963309</IndexOffset>
                 <Length>1</Length>
               </AdsInfo>
             </Entry>
@@ -6462,7 +6793,7 @@
                   <AmsPort>27906</AmsPort>
                 </AmsAddress>
                 <IndexGroup>61489</IndexGroup>
-                <IndexOffset>1377</IndexOffset>
+                <IndexOffset>1569</IndexOffset>
                 <Length>1</Length>
               </AdsInfo>
             </Entry>
@@ -6478,7 +6809,7 @@
                   <AmsPort>27906</AmsPort>
                 </AmsAddress>
                 <IndexGroup>61489</IndexGroup>
-                <IndexOffset>1378</IndexOffset>
+                <IndexOffset>1570</IndexOffset>
                 <Length>1</Length>
               </AdsInfo>
             </Entry>
@@ -6514,7 +6845,7 @@
                   <AmsPort>27906</AmsPort>
                 </AmsAddress>
                 <IndexGroup>61488</IndexGroup>
-                <IndexOffset>173</IndexOffset>
+                <IndexOffset>197</IndexOffset>
                 <Length>2</Length>
               </AdsInfo>
             </Entry>
@@ -6530,7 +6861,7 @@
                   <AmsPort>27906</AmsPort>
                 </AmsAddress>
                 <IndexGroup>61488</IndexGroup>
-                <IndexOffset>175</IndexOffset>
+                <IndexOffset>199</IndexOffset>
                 <Length>4</Length>
               </AdsInfo>
             </Entry>
@@ -6545,7 +6876,7 @@
                   <AmsPort>27906</AmsPort>
                 </AmsAddress>
                 <IndexGroup>61488</IndexGroup>
-                <IndexOffset>179</IndexOffset>
+                <IndexOffset>203</IndexOffset>
                 <Length>4</Length>
               </AdsInfo>
             </Entry>
@@ -6578,7 +6909,7 @@
                   <AmsPort>27906</AmsPort>
                 </AmsAddress>
                 <IndexGroup>61472</IndexGroup>
-                <IndexOffset>174</IndexOffset>
+                <IndexOffset>198</IndexOffset>
                 <Length>2</Length>
               </AdsInfo>
             </Entry>
@@ -6634,7 +6965,7 @@
                   <AmsPort>27906</AmsPort>
                 </AmsAddress>
                 <IndexGroup>61472</IndexGroup>
-                <IndexOffset>176</IndexOffset>
+                <IndexOffset>200</IndexOffset>
                 <Length>4</Length>
               </AdsInfo>
             </Entry>
@@ -6650,7 +6981,7 @@
                   <AmsPort>27906</AmsPort>
                 </AmsAddress>
                 <IndexGroup>61472</IndexGroup>
-                <IndexOffset>180</IndexOffset>
+                <IndexOffset>204</IndexOffset>
                 <Length>4</Length>
               </AdsInfo>
             </Entry>
@@ -6698,7 +7029,7 @@
                   <AmsPort>27906</AmsPort>
                 </AmsAddress>
                 <IndexGroup>61488</IndexGroup>
-                <IndexOffset>183</IndexOffset>
+                <IndexOffset>207</IndexOffset>
                 <Length>4</Length>
               </AdsInfo>
             </Entry>
@@ -6826,7 +7157,7 @@
                   <AmsPort>27906</AmsPort>
                 </AmsAddress>
                 <IndexGroup>61488</IndexGroup>
-                <IndexOffset>187</IndexOffset>
+                <IndexOffset>211</IndexOffset>
                 <Length>2</Length>
               </AdsInfo>
             </Entry>
@@ -7004,7 +7335,7 @@
                   <AmsPort>27906</AmsPort>
                 </AmsAddress>
                 <IndexGroup>61489</IndexGroup>
-                <IndexOffset>1513</IndexOffset>
+                <IndexOffset>1705</IndexOffset>
                 <Length>1</Length>
               </AdsInfo>
             </Entry>
@@ -7020,7 +7351,7 @@
                   <AmsPort>27906</AmsPort>
                 </AmsAddress>
                 <IndexGroup>61489</IndexGroup>
-                <IndexOffset>1514</IndexOffset>
+                <IndexOffset>1706</IndexOffset>
                 <Length>1</Length>
               </AdsInfo>
             </Entry>
@@ -7056,7 +7387,7 @@
                   <AmsPort>27906</AmsPort>
                 </AmsAddress>
                 <IndexGroup>61488</IndexGroup>
-                <IndexOffset>190</IndexOffset>
+                <IndexOffset>214</IndexOffset>
                 <Length>2</Length>
               </AdsInfo>
             </Entry>
@@ -7072,7 +7403,7 @@
                   <AmsPort>27906</AmsPort>
                 </AmsAddress>
                 <IndexGroup>61488</IndexGroup>
-                <IndexOffset>192</IndexOffset>
+                <IndexOffset>216</IndexOffset>
                 <Length>4</Length>
               </AdsInfo>
             </Entry>
@@ -7087,7 +7418,7 @@
                   <AmsPort>27906</AmsPort>
                 </AmsAddress>
                 <IndexGroup>61488</IndexGroup>
-                <IndexOffset>196</IndexOffset>
+                <IndexOffset>220</IndexOffset>
                 <Length>4</Length>
               </AdsInfo>
             </Entry>
@@ -7120,7 +7451,7 @@
                   <AmsPort>27906</AmsPort>
                 </AmsAddress>
                 <IndexGroup>61472</IndexGroup>
-                <IndexOffset>184</IndexOffset>
+                <IndexOffset>208</IndexOffset>
                 <Length>2</Length>
               </AdsInfo>
             </Entry>
@@ -7176,7 +7507,7 @@
                   <AmsPort>27906</AmsPort>
                 </AmsAddress>
                 <IndexGroup>61472</IndexGroup>
-                <IndexOffset>186</IndexOffset>
+                <IndexOffset>210</IndexOffset>
                 <Length>4</Length>
               </AdsInfo>
             </Entry>
@@ -7192,7 +7523,7 @@
                   <AmsPort>27906</AmsPort>
                 </AmsAddress>
                 <IndexGroup>61472</IndexGroup>
-                <IndexOffset>190</IndexOffset>
+                <IndexOffset>214</IndexOffset>
                 <Length>4</Length>
               </AdsInfo>
             </Entry>
@@ -7240,7 +7571,7 @@
                   <AmsPort>27906</AmsPort>
                 </AmsAddress>
                 <IndexGroup>61488</IndexGroup>
-                <IndexOffset>200</IndexOffset>
+                <IndexOffset>224</IndexOffset>
                 <Length>4</Length>
               </AdsInfo>
             </Entry>
@@ -7368,7 +7699,7 @@
                   <AmsPort>27906</AmsPort>
                 </AmsAddress>
                 <IndexGroup>61488</IndexGroup>
-                <IndexOffset>204</IndexOffset>
+                <IndexOffset>228</IndexOffset>
                 <Length>2</Length>
               </AdsInfo>
             </Entry>
@@ -7456,6 +7787,18 @@
         <ModuleIdent>#x6859dc</ModuleIdent>
         <ModuleIdent>#x6859df</ModuleIdent>
         <ModuleIdent>#x6859e0</ModuleIdent>
+        <Module>
+          <Name>Ch B</Name>
+          <ModuleIdent>6838752</ModuleIdent>
+          <TxPdo>
+            <Index DependOnSlot="true">#x1a58</Index>
+            <Name>Ch B [SL] BiSS-C linear Inputs</Name>
+          </TxPdo>
+          <TxPdo Su="1">
+            <Index DependOnSlot="true">#x1b38</Index>
+            <Name>Ch B [SL] BiSS-C linear Dynamic Inputs</Name>
+          </TxPdo>
+        </Module>
       </Slot>
       <Slot SlotGroup="2" MinInstances="1" MaxInstances="1" SlotPdoIncrement="0" SlotGroupPdoIncrement="0" SlotIndexIncrement="0" SlotGroupIndexIncrement="0" MdpChannel="0" FallbackSet="0">
         <Name>Empty Slot</Name>

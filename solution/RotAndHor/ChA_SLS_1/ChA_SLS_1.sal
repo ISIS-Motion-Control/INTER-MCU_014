@@ -1,5 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<safetyApplication Crc="471537497" xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.4.0.0" Id="b26a0a1d-ea0f-474c-9c09-242f313942f5" name="" mapState="false" mapDiag="false" groupOrderId="1" passificationAllowed="false" temporaryDeactivationAllowed="false" permamentDeactivationAllowed="false" xmlid="0" analogFBOutputReplacementValues="Zero" verifyAnalogFBInputsIfStart="false" userFbId="00000000-0000-0000-0000-000000000000" xmlns="http://schemas.microsoft.com/dsltools/SafetyApplicationLanguage">
+<safetyApplication Crc="3765207865" xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.4.0.0" Id="b26a0a1d-ea0f-474c-9c09-242f313942f5" name="" mapState="false" mapDiag="false" groupOrderId="1" passificationAllowed="false" temporaryDeactivationAllowed="false" permamentDeactivationAllowed="false" xmlid="0" analogFBOutputReplacementValues="Zero" verifyAnalogFBInputsIfStart="false" userFbId="00000000-0000-0000-0000-000000000000" xmlns="http://schemas.microsoft.com/dsltools/SafetyApplicationLanguage">
+  <comments>
+    <comment Id="4d39dda5-e8d8-483d-824d-87d480407104" text="32bits per revolution&#xD;&#xA;42.3deg per second motor restriction for 5mm/s limit at lever&#xD;&#xA;1ms cycle time&#xD;&#xA;515,396 limit" currentNetworkOrderId="0">
+      <networks>
+        <commentReferencesNetworks Id="268b29c3-83a1-440f-88eb-cea566345abe">
+          <networkMoniker name="//SLS_1_ChA" />
+        </commentReferencesNetworks>
+      </networks>
+    </comment>
+  </comments>
   <networks>
     <safetyApplicationHasNetworks Id="b2082481-7938-4eba-8b69-28abed859de1">
       <Network Id="0809a31c-69ec-43a3-a48e-59baa6894191" name="SLS_1_ChA" networkName="SLS_1_ChA" intId="1" networkOrderId="0">
@@ -30,8 +39,8 @@
                 <functionBlockHasOutPorts Id="4848657b-822a-4c0a-8762-774dce246e8e">
                   <outPort Id="bfe01502-8249-4a9a-b610-aa52fe17f5aa" name="InLimit" portName="InLimit" portNum="3" objectIndex="1" varId="5" filter="73472" portDataType="1" replacementValue="0">
                     <targetFunctionBlockPorts>
-                      <wiredLink Id="bd8d230c-cce0-44e7-a465-5884705710af">
-                        <inPortMoniker name="//SLS_1_ChA/SLS_1_Enable/OrIn2" />
+                      <wiredLink Id="e9950d67-0863-4dbf-834a-538512f08540">
+                        <inPortMoniker name="//SLS_1_ChA/FBTof1/TofIn" />
                       </wiredLink>
                     </targetFunctionBlockPorts>
                   </outPort>
@@ -45,16 +54,16 @@
               </outPorts>
               <parameterPorts>
                 <functionBlockHasParamPorts Id="d269de03-1ccc-4941-8474-65c9672620ce">
-                  <parameterPort Id="6df9a1fe-6639-443c-806c-f509588eefd4" name="Minimum Value" portName="Minimum Value" portNum="5" objectIndex="0" varId="0" filter="0" portDataType="0" timing="-1365333" userFbPortName="Minimum Value" useInUserFb="false" />
+                  <parameterPort Id="6df9a1fe-6639-443c-806c-f509588eefd4" name="Minimum Value" portName="Minimum Value" portNum="5" objectIndex="0" varId="0" filter="0" portDataType="0" timing="-515396" userFbPortName="Minimum Value" useInUserFb="false" />
                 </functionBlockHasParamPorts>
                 <functionBlockHasParamPorts Id="efc81c5d-2537-44ab-8c2e-e0d8f09c7eb2">
-                  <parameterPort Id="3a22b066-a230-4b4d-9597-682f0d9fea0e" name="Maximum Value" portName="Maximum Value" portNum="6" objectIndex="0" varId="0" filter="0" portDataType="0" timing="1365333" userFbPortName="Maximum Value" useInUserFb="false" />
+                  <parameterPort Id="3a22b066-a230-4b4d-9597-682f0d9fea0e" name="Maximum Value" portName="Maximum Value" portNum="6" objectIndex="0" varId="0" filter="0" portDataType="0" timing="515396" userFbPortName="Maximum Value" useInUserFb="false" />
                 </functionBlockHasParamPorts>
               </parameterPorts>
             </fBLimit>
           </networkHasFunctionBlocks>
           <networkHasFunctionBlocks Id="baada096-396a-4935-9754-fc24d046f04a">
-            <fBOr Id="913dfe44-1620-4b5d-85a0-70cc63275484" name="SLS_1_Enable" instanceName="SLS_1_Enable" orderOfExecution="2" mapState="false" mapDiag="false" functionName="safeOr">
+            <fBOr Id="913dfe44-1620-4b5d-85a0-70cc63275484" name="SLS_1_Enable" instanceName="SLS_1_Enable" orderOfExecution="3" mapState="false" mapDiag="false" functionName="safeOr">
               <inPorts>
                 <functioBlockHasInPorts Id="a74a6adc-3062-4fab-93ad-1fa5de606ab2">
                   <inPort Id="c97294af-131d-427a-905b-44ce1aa5ed0f" name="OrIn1" portName="OrIn1" portNum="2" objectIndex="8" varId="2" filter="2" portDataType="1" channelInterface="Activated" deactivate1="Break Contact (NC)" maxDeviation="0" resetTime="0">
@@ -106,7 +115,7 @@
             </fBOr>
           </networkHasFunctionBlocks>
           <networkHasFunctionBlocks Id="d7fd82ef-d859-4d6b-8b20-ac64dd56a22e">
-            <fBAnd Id="a49750ec-bb65-49ee-8ea9-94b857902e9b" name="INVERT_SLS_1_STATE_ChA" instanceName="INVERT_SLS_1_STATE_ChA" orderOfExecution="3" mapState="false" mapDiag="false" functionName="safeAnd">
+            <fBAnd Id="a49750ec-bb65-49ee-8ea9-94b857902e9b" name="INVERT_SLS_1_STATE_ChA" instanceName="INVERT_SLS_1_STATE_ChA" orderOfExecution="4" mapState="false" mapDiag="false" functionName="safeAnd">
               <inPorts>
                 <functioBlockHasInPorts Id="207ee331-f94b-4124-98c1-becb0c28524c">
                   <inPort Id="7c29d99b-3c22-47be-9e93-79b9494d76ae" name="AndIn1" portName="AndIn1" portNum="2" objectIndex="8" varId="2" filter="3" portDataType="1" channelInterface="Activated" deactivate1="Make Contact (NO)" maxDeviation="0" resetTime="0">
@@ -151,6 +160,31 @@
                 </functionBlockHasOutPorts>
               </outPorts>
             </fBAnd>
+          </networkHasFunctionBlocks>
+          <networkHasFunctionBlocks Id="75bf29d5-4ad4-4519-9d61-dc12292101f3">
+            <fBTof Id="0f91e959-7c81-4399-b025-a274f7eb6d38" name="FBTof1" instanceName="SLS_Delay" orderOfExecution="2" mapState="false" mapDiag="false" functionName="safeTof">
+              <inPorts>
+                <functioBlockHasInPorts Id="87618e86-5113-4ca2-9ac2-c17d3e367e40">
+                  <inPort Id="d67d3e0a-a3fd-4e2d-98ce-f035ac1f90b8" name="TofIn" portName="TofIn" portNum="2" objectIndex="8" varId="1" filter="2" portDataType="1" channelInterface="Activated" deactivate1="Break Contact (NC)" maxDeviation="0" resetTime="0" />
+                </functioBlockHasInPorts>
+              </inPorts>
+              <outPorts>
+                <functionBlockHasOutPorts Id="65808322-06f2-47e3-8505-a5f86f45e844">
+                  <outPort Id="189aac61-978a-49e0-bbe8-e46968acff5d" name="TofOut" portName="TofOut" portNum="4" objectIndex="1" varId="4" filter="6" portDataType="1" replacementValue="0">
+                    <targetFunctionBlockPorts>
+                      <wiredLink Id="ef5abc92-e23a-4679-b398-949851339f77">
+                        <inPortMoniker name="//SLS_1_ChA/SLS_1_Enable/OrIn2" />
+                      </wiredLink>
+                    </targetFunctionBlockPorts>
+                  </outPort>
+                </functionBlockHasOutPorts>
+              </outPorts>
+              <parameterPorts>
+                <functionBlockHasParamPorts Id="f65cb27a-74b2-4a50-a3a7-0eda9b211643">
+                  <parameterPort Id="0c5a6594-6068-4465-bb17-308e0ee69453" name="Delay Time (s)" portName="Delay Time (s)" portNum="4" objectIndex="0" varId="0" filter="0" portDataType="0" timing="0.1" userFbPortName="Delay Time (s)" useInUserFb="false" />
+                </functionBlockHasParamPorts>
+              </parameterPorts>
+            </fBTof>
           </networkHasFunctionBlocks>
         </functionBlocks>
       </Network>
@@ -249,6 +283,70 @@
                       </groupPortUsageReferencesTwinSAFEGroupAliasPort>
                     </twinSAFEGroupAliasPort>
                   </groupPortUsage>
+                </variableUsagesHasUsages>
+              </usages>
+            </variableUsages>
+          </variableHasTargetUsages>
+        </targetUsages>
+      </variable>
+    </safetyApplicationHasVariables>
+    <safetyApplicationHasVariables Id="2c9b4a60-b014-414f-a787-56e2a72a95fb">
+      <variable Id="7d64c3ea-061a-4281-b32a-35d53c3c870f" name="ChA_SLS_PLC_OUT" isLocal="false">
+        <sourceUsages>
+          <variableHasSourceUsages Id="81ac6ae3-99c7-40cd-bf00-cc2ff3575494">
+            <variableUsages Id="9206d869-08f4-476c-8539-da1e9fd3eecb">
+              <usages>
+                <variableUsagesHasUsages Id="dd88240f-2c45-49d5-937e-8a0c9515f100">
+                  <fbPortUsage Id="198a45be-bb56-4232-adbb-1e8899c174e8">
+                    <functionBlockPort>
+                      <fbPortUsageReferencesFunctionBlockPort Id="5643608e-ed97-4b4b-bd82-ce1f7fd6845e">
+                        <outPortMoniker name="//SLS_1_ChA/FBTof1/TofOut" />
+                      </fbPortUsageReferencesFunctionBlockPort>
+                    </functionBlockPort>
+                  </fbPortUsage>
+                </variableUsagesHasUsages>
+              </usages>
+            </variableUsages>
+          </variableHasSourceUsages>
+        </sourceUsages>
+        <targetUsages>
+          <variableHasTargetUsages Id="eea6da18-1a59-43db-8eb2-de00e06c69a4">
+            <variableUsages Id="d2fa1a48-7383-472f-9f33-6aa141e3387d">
+              <usages>
+                <variableUsagesHasUsages Id="d61866bc-ba6b-484a-a42f-8f4982313b67">
+                  <aliasDeviceIoUsage Id="83cd3560-af39-4f87-a5e9-df64a38e1b35" sdsId="11" channelId="1" functionId="1131179972" />
+                </variableUsagesHasUsages>
+              </usages>
+            </variableUsages>
+          </variableHasTargetUsages>
+        </targetUsages>
+      </variable>
+    </safetyApplicationHasVariables>
+    <safetyApplicationHasVariables Id="38a690c0-8403-4461-9398-511e61682ae2">
+      <variable Id="e7da4b13-0e72-45ee-b1b5-512ce6a5d461" name="SlS_Out" isLocal="false">
+        <sourceUsages>
+          <variableHasSourceUsages Id="be04dd78-3629-4957-8b63-fbf73fe473ac">
+            <variableUsages Id="a7285e38-e79a-4f90-8262-da69e23eb1bb">
+              <usages>
+                <variableUsagesHasUsages Id="67dc6a32-e934-4bb9-9202-9c242a7cae92">
+                  <fbPortUsage Id="d5e46b26-e75a-40e1-bfe6-e50bd0a85915">
+                    <functionBlockPort>
+                      <fbPortUsageReferencesFunctionBlockPort Id="5141fccd-127f-495e-b6ff-54dd1b451e04">
+                        <outPortMoniker name="//SLS_1_ChA/SLS_1_Limit/InLimit" />
+                      </fbPortUsageReferencesFunctionBlockPort>
+                    </functionBlockPort>
+                  </fbPortUsage>
+                </variableUsagesHasUsages>
+              </usages>
+            </variableUsages>
+          </variableHasSourceUsages>
+        </sourceUsages>
+        <targetUsages>
+          <variableHasTargetUsages Id="40d88fe8-c97c-4bc0-b93c-40228a92fd4b">
+            <variableUsages Id="7006dcd6-d288-4385-8cef-0b3797b5f2d9">
+              <usages>
+                <variableUsagesHasUsages Id="ae914aeb-2b89-41b1-ae90-ca53d128f55c">
+                  <aliasDeviceIoUsage Id="432e32d4-a156-43ad-b77f-b613f3a45332" sdsId="10" channelId="1" functionId="1131179972" />
                 </variableUsagesHasUsages>
               </usages>
             </variableUsages>

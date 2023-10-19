@@ -152,6 +152,12 @@ Horizontal_Virtual();
 
 INTER_LOGIC();
 
+//Slit setup
+Slit_North();
+Slit_South();
+Slit_East();
+Slit_West();
+Slit_3();
 
 
 ]]></ST>

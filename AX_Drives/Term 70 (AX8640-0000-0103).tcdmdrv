@@ -114,7 +114,7 @@
       </Info>
       <ProcessData>
         <Recv>
-          <BitStart>1744</BitStart>
+          <BitStart>1936</BitStart>
           <BitLength>16</BitLength>
         </Recv>
         <Sm2>
@@ -146,7 +146,7 @@
                 <AmsPort>27906</AmsPort>
               </AmsAddress>
               <IndexGroup>61489</IndexGroup>
-              <IndexOffset>1744</IndexOffset>
+              <IndexOffset>1936</IndexOffset>
               <Length>1</Length>
             </AdsInfo>
           </Entry>
@@ -162,7 +162,7 @@
                 <AmsPort>27906</AmsPort>
               </AmsAddress>
               <IndexGroup>61489</IndexGroup>
-              <IndexOffset>1745</IndexOffset>
+              <IndexOffset>1937</IndexOffset>
               <Length>1</Length>
             </AdsInfo>
           </Entry>
@@ -178,7 +178,7 @@
                 <AmsPort>27906</AmsPort>
               </AmsAddress>
               <IndexGroup>61489</IndexGroup>
-              <IndexOffset>1746</IndexOffset>
+              <IndexOffset>1938</IndexOffset>
               <Length>1</Length>
             </AdsInfo>
           </Entry>
@@ -194,7 +194,7 @@
                 <AmsPort>27906</AmsPort>
               </AmsAddress>
               <IndexGroup>61489</IndexGroup>
-              <IndexOffset>1747</IndexOffset>
+              <IndexOffset>1939</IndexOffset>
               <Length>1</Length>
             </AdsInfo>
           </Entry>
@@ -210,7 +210,7 @@
                 <AmsPort>27906</AmsPort>
               </AmsAddress>
               <IndexGroup>61489</IndexGroup>
-              <IndexOffset>1748</IndexOffset>
+              <IndexOffset>1940</IndexOffset>
               <Length>1</Length>
             </AdsInfo>
           </Entry>
@@ -226,7 +226,7 @@
                 <AmsPort>27906</AmsPort>
               </AmsAddress>
               <IndexGroup>61489</IndexGroup>
-              <IndexOffset>1749</IndexOffset>
+              <IndexOffset>1941</IndexOffset>
               <Length>1</Length>
             </AdsInfo>
           </Entry>
@@ -252,7 +252,7 @@
                 <AmsPort>27906</AmsPort>
               </AmsAddress>
               <IndexGroup>61488</IndexGroup>
-              <IndexOffset>219</IndexOffset>
+              <IndexOffset>243</IndexOffset>
               <Length>0</Length>
             </AdsInfo>
           </Entry>

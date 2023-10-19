@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
   <GVL Name="GVL_INTER" Id="{63432ee2-bd23-46cb-909b-5d2ebfcf2a46}">
     <Declaration><![CDATA[{attribute 'qualified_only'}
 VAR_GLOBAL
@@ -10,6 +10,7 @@ VAR_GLOBAL
     ENABLE_ALL_AXES : BOOL;
     RESET_ALL : BOOL;
     ACKNOWLEDGE_LOGIC_ERROR : BOOL;
+    REMOTE_RESET : BOOL;
     
     
     REINITIALISE : BOOL;

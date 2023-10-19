@@ -7,6 +7,8 @@ VAR
     ackFTrig : F_TRIG;
     driveAckTON : TON;
     
+    remoteTon : TON;
+    
     resetFtrig : F_TRIG;
     secondResetStartTON : TON;
     secondResetStopTON : TON;
@@ -19,12 +21,16 @@ VAR
 END_VAR
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[
-GVL_Safety.SafetyReset := GVL_Safety.SafetyReset_ButtonIn;// THIS IS WHAT RESETS THE ESTOP AT THE MOMENT
-GVL_Safety.Drive71_ChA_Reset := GVL_Safety.SafetyReset_ButtonIn;
-GVL_Safety.Drive71_ChB_Reset := GVL_Safety.SafetyReset_ButtonIn;
-GVL_Safety.Drive74_ChA_Reset := GVL_Safety.SafetyReset_ButtonIn;
-GVL_Safety.Drive74_ChB_Reset := GVL_Safety.SafetyReset_ButtonIn;
+      <ST><![CDATA[remoteTon(PT:=T#500MS,IN:= GVL_INTER.REMOTE_RESET);
+IF remoteTon.Q THEN
+    GVL_INTER.REMOTE_RESET:= FALSE;
+END_IF
+
+GVL_Safety.SafetyReset := GVL_Safety.SafetyReset_ButtonIn OR GVL_INTER.REMOTE_RESET;// THIS IS WHAT RESETS THE ESTOP AT THE MOMENT
+GVL_Safety.Drive71_ChA_Reset := GVL_Safety.SafetyReset_ButtonIn OR GVL_Safety.SafetyReset;
+GVL_Safety.Drive71_ChB_Reset := GVL_Safety.SafetyReset_ButtonIn OR GVL_Safety.SafetyReset;
+GVL_Safety.Drive74_ChA_Reset := GVL_Safety.SafetyReset_ButtonIn OR GVL_Safety.SafetyReset;
+GVL_Safety.Drive74_ChB_Reset := GVL_Safety.SafetyReset_ButtonIn OR GVL_Safety.SafetyReset;
 
 GVL_Safety.Main_ErrorAck := GVL_Safety.SAFETY_ACK;
 GVL_Safety.Drive71_ErrorAck := GVL_Safety.SAFETY_ACK;

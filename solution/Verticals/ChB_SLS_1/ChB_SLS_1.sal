@@ -1,5 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<safetyApplication Crc="1526356280" xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.4.0.0" Id="aa5d3857-67b1-450f-881f-e975a36daddd" name="" mapState="false" mapDiag="false" groupOrderId="3" passificationAllowed="false" temporaryDeactivationAllowed="false" permamentDeactivationAllowed="false" xmlid="0" analogFBOutputReplacementValues="Zero" verifyAnalogFBInputsIfStart="false" userFbId="00000000-0000-0000-0000-000000000000" xmlns="http://schemas.microsoft.com/dsltools/SafetyApplicationLanguage">
+<safetyApplication Crc="3413547432" xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.4.0.0" Id="aa5d3857-67b1-450f-881f-e975a36daddd" name="" mapState="false" mapDiag="false" groupOrderId="3" passificationAllowed="false" temporaryDeactivationAllowed="false" permamentDeactivationAllowed="false" xmlid="0" analogFBOutputReplacementValues="Zero" verifyAnalogFBInputsIfStart="false" userFbId="00000000-0000-0000-0000-000000000000" xmlns="http://schemas.microsoft.com/dsltools/SafetyApplicationLanguage">
+  <comments>
+    <comment Id="06efea9b-3f59-4a1d-b614-69855fc05a06" text="32bits per revolution&#xD;&#xA;5 motor revs per second for 5mm/s limit&#xD;&#xA;1ms cycle time&#xD;&#xA;21,474,836 limit" currentNetworkOrderId="0">
+      <networks>
+        <commentReferencesNetworks Id="5bab9c8f-fbbf-4584-b0a0-1ee3c5177267">
+          <networkMoniker name="//SLS_1_ChB" />
+        </commentReferencesNetworks>
+      </networks>
+    </comment>
+  </comments>
   <networks>
     <safetyApplicationHasNetworks Id="8a34e709-d874-40e1-b80f-d6fddfd9165b">
       <Network Id="a26da2cc-8c65-4c2f-90b5-af6bd130d748" name="SLS_1_ChB" networkName="SLS_1_ChB" intId="1" networkOrderId="0">
@@ -30,8 +39,8 @@
                 <functionBlockHasOutPorts Id="66247950-8e08-472f-944f-16f0385165ab">
                   <outPort Id="ce21fbcc-becb-40d9-a492-a566baa9fe41" name="InLimit" portName="InLimit" portNum="3" objectIndex="1" varId="5" filter="73472" portDataType="1" replacementValue="0">
                     <targetFunctionBlockPorts>
-                      <wiredLink Id="563d0bf2-2aed-4a60-8f76-b93284507911">
-                        <inPortMoniker name="//SLS_1_ChB/SLS_1_Enable/OrIn2" />
+                      <wiredLink Id="1e63597e-3c78-448f-a9bc-9e055694ebf9">
+                        <inPortMoniker name="//SLS_1_ChB/FBTof1/TofIn" />
                       </wiredLink>
                     </targetFunctionBlockPorts>
                   </outPort>
@@ -45,16 +54,16 @@
               </outPorts>
               <parameterPorts>
                 <functionBlockHasParamPorts Id="14c723ef-06fc-45c8-b7e9-ed1b9771c7d8">
-                  <parameterPort Id="0d7959dd-b59a-4724-b787-7ce752f9fdf1" name="Minimum Value" portName="Minimum Value" portNum="5" objectIndex="0" varId="0" filter="0" portDataType="0" timing="-20480000" userFbPortName="Minimum Value" useInUserFb="false" />
+                  <parameterPort Id="0d7959dd-b59a-4724-b787-7ce752f9fdf1" name="Minimum Value" portName="Minimum Value" portNum="5" objectIndex="0" varId="0" filter="0" portDataType="0" timing="-21474836" userFbPortName="Minimum Value" useInUserFb="false" />
                 </functionBlockHasParamPorts>
                 <functionBlockHasParamPorts Id="5b946599-af0b-4cef-9884-76a1103a0a28">
-                  <parameterPort Id="1e40e695-854f-4d95-bd38-f44eeba11ef6" name="Maximum Value" portName="Maximum Value" portNum="6" objectIndex="0" varId="0" filter="0" portDataType="0" timing="20480000" userFbPortName="Maximum Value" useInUserFb="false" />
+                  <parameterPort Id="1e40e695-854f-4d95-bd38-f44eeba11ef6" name="Maximum Value" portName="Maximum Value" portNum="6" objectIndex="0" varId="0" filter="0" portDataType="0" timing="21474836" userFbPortName="Maximum Value" useInUserFb="false" />
                 </functionBlockHasParamPorts>
               </parameterPorts>
             </fBLimit>
           </networkHasFunctionBlocks>
           <networkHasFunctionBlocks Id="19e4aa20-f1d7-4ac5-a230-f420a5515b83">
-            <fBOr Id="f63aacf6-7568-4bc2-9cb2-4abbcbdd5c7e" name="SLS_1_Enable" instanceName="SLS_1_Enable" orderOfExecution="2" mapState="false" mapDiag="false" functionName="safeOr">
+            <fBOr Id="f63aacf6-7568-4bc2-9cb2-4abbcbdd5c7e" name="SLS_1_Enable" instanceName="SLS_1_Enable" orderOfExecution="3" mapState="false" mapDiag="false" functionName="safeOr">
               <inPorts>
                 <functioBlockHasInPorts Id="a7296b67-8817-48b5-a6c6-90f956bae225">
                   <inPort Id="83ef3055-3f80-4e72-9a85-720dbfa4830b" name="OrIn1" portName="OrIn1" portNum="2" objectIndex="8" varId="2" filter="2" portDataType="1" channelInterface="Activated" deactivate1="Break Contact (NC)" maxDeviation="0" resetTime="0">
@@ -109,7 +118,7 @@
             </fBOr>
           </networkHasFunctionBlocks>
           <networkHasFunctionBlocks Id="f02604c1-8a4a-41f0-b1d8-7aed24601683">
-            <fBAnd Id="093aba13-d091-42d7-b7f2-542d82eaf51e" name="INVERT_SLS_1_STATE_ChB" instanceName="INVERT_SLS_1_STATE_ChB" orderOfExecution="3" mapState="false" mapDiag="false" functionName="safeAnd">
+            <fBAnd Id="093aba13-d091-42d7-b7f2-542d82eaf51e" name="INVERT_SLS_1_STATE_ChB" instanceName="INVERT_SLS_1_STATE_ChB" orderOfExecution="4" mapState="false" mapDiag="false" functionName="safeAnd">
               <inPorts>
                 <functioBlockHasInPorts Id="20f0a8e8-dc3b-4ae7-8df6-98d64108af47">
                   <inPort Id="683682a4-6f9c-406f-8308-e3c391e34f91" name="AndIn1" portName="AndIn1" portNum="2" objectIndex="8" varId="2" filter="3" portDataType="1" channelInterface="Activated" deactivate1="Make Contact (NO)" maxDeviation="0" resetTime="0">
@@ -154,6 +163,31 @@
                 </functionBlockHasOutPorts>
               </outPorts>
             </fBAnd>
+          </networkHasFunctionBlocks>
+          <networkHasFunctionBlocks Id="7ec58811-4b8f-4580-b78b-46e231ae0d9b">
+            <fBTof Id="1b5d6273-11d8-4424-bc32-31ac48f46c99" name="FBTof1" instanceName="SLS_Delay" orderOfExecution="2" mapState="false" mapDiag="false" functionName="safeTof">
+              <inPorts>
+                <functioBlockHasInPorts Id="41c5c83d-3724-4dba-bfbe-601f5953c145">
+                  <inPort Id="6645dd2b-ae54-4650-8632-c443597692a1" name="TofIn" portName="TofIn" portNum="2" objectIndex="8" varId="1" filter="2" portDataType="1" channelInterface="Activated" deactivate1="Break Contact (NC)" maxDeviation="0" resetTime="0" />
+                </functioBlockHasInPorts>
+              </inPorts>
+              <outPorts>
+                <functionBlockHasOutPorts Id="9791944d-c3f5-4fd1-b5b8-5f347ea85b34">
+                  <outPort Id="ef4ca1f9-41af-4408-a4b1-af18266a5b6a" name="TofOut" portName="TofOut" portNum="4" objectIndex="1" varId="4" filter="6" portDataType="1" replacementValue="0">
+                    <targetFunctionBlockPorts>
+                      <wiredLink Id="dba5b1e7-222d-40a3-abf2-86d80c3bd1ad">
+                        <inPortMoniker name="//SLS_1_ChB/SLS_1_Enable/OrIn2" />
+                      </wiredLink>
+                    </targetFunctionBlockPorts>
+                  </outPort>
+                </functionBlockHasOutPorts>
+              </outPorts>
+              <parameterPorts>
+                <functionBlockHasParamPorts Id="ee69d015-3a04-45b0-b22b-681abb534c4a">
+                  <parameterPort Id="3626180d-b02b-4739-90f9-3ac93b258d5b" name="Delay Time (s)" portName="Delay Time (s)" portNum="4" objectIndex="0" varId="0" filter="0" portDataType="0" timing="0.05" userFbPortName="Delay Time (s)" useInUserFb="false" />
+                </functionBlockHasParamPorts>
+              </parameterPorts>
+            </fBTof>
           </networkHasFunctionBlocks>
         </functionBlocks>
       </Network>

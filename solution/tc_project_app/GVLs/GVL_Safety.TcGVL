@@ -35,6 +35,9 @@ VAR_GLOBAL
     //EL6910_InRun AT %I* : BOOL;
     
     SAFETY_ACK AT %Q* : BOOL := FALSE;
+    
+    tempChASLS AT %I*: BOOL;
+    tempChASLSperm AT %I*: BOOL;
 END_VAR]]></Declaration>
   </GVL>
 </TcPlcObject>

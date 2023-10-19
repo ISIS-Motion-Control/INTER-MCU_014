@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project Crc="3474302416" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+<Project Crc="2270064956" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
   <PropertyGroup>
     <Configuration Condition="'$(Configuration)' == ''">Debug</Configuration>
     <SchemaVersion>2.0</SchemaVersion>
@@ -10,9 +10,20 @@
     <ProgrammingLanguage>Graphical Editor</ProgrammingLanguage>
     <Worker />
     <IntProjName />
-    <NextSdsId>10</NextSdsId>
+    <NextSdsId>12</NextSdsId>
     <SPlcProjVersion>1.7.0.0</SPlcProjVersion>
     <SortMode>2</SortMode>
+    <DocuEditor>Simon Cooper</DocuEditor>
+    <PlotDate>2023-10-11</PlotDate>
+    <CompanyName>UKRI</CompanyName>
+    <CompanyLogo />
+    <FbPerPage>0</FbPerPage>
+    <AddUserAdministrationPages>False</AddUserAdministrationPages>
+    <AddProjectVersionHistoryPages>False</AddProjectVersionHistoryPages>
+    <AddCustomPages>False</AddCustomPages>
+    <TextBox />
+    <AddMultiSettingDocuments>False</AddMultiSettingDocuments>
+    <AddHashValueTablePages>False</AddHashValueTablePages>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)' == 'Release'">
     <DebugSymbols>false</DebugSymbols>
@@ -38,6 +49,8 @@
       <Visible>false</Visible>
       <DependentUpon>ChA_ChB_Connection_Output\ChA_ChB_Connection_Output.sal</DependentUpon>
     </None>
+    <None Include="ChA_SLS_1\Alias Devices\ChA_SLS_OUT.sds" />
+    <None Include="ChA_SLS_1\Alias Devices\ChA_SLS_perm.sds" />
     <None Include="ChA_SLS_1\ChA_SLS_1.sal" />
     <None Include="ChA_SLS_1\ChA_SLS_1.sal.diagram">
       <Visible>false</Visible>
@@ -82,4 +95,9 @@
     <Folder Include="GVLs" />
     <Folder Include="User FBs" />
   </ItemGroup>
+  <ProjectExtensions>
+    <DocumentationProperty>
+      <ProjectVersionHistories />
+    </DocumentationProperty>
+  </ProjectExtensions>
 </Project>

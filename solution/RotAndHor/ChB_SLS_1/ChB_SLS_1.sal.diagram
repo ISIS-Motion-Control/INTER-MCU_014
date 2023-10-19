@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<safetyApplicationLanguageDiagram Crc="3544808075" dslVersion="1.4.0.0" Id="d1ee81ba-71bc-4672-b0cd-561e7b6c21b3" absoluteBounds="0, 0, 21.125, 8.5" diagramId="5ec5729f-7103-4ec4-9510-29cdb96752fc" name="ChB_SLS_1">
+<safetyApplicationLanguageDiagram Crc="2816112476" dslVersion="1.4.0.0" Id="d1ee81ba-71bc-4672-b0cd-561e7b6c21b3" absoluteBounds="0, 0, 21.125, 8.5" diagramId="5ec5729f-7103-4ec4-9510-29cdb96752fc" name="ChB_SLS_1">
   <safetyApplicationMoniker name="/" />
   <nestedChildShapes>
     <networkSwimLane Id="28c944ef-4237-47d6-976d-795a18ae2439" absoluteBounds="0, 0, 21.125, 4.125">
@@ -144,5 +144,8 @@
         </wiredLinkConnector>
       </nestedChildShapes>
     </networkSwimLane>
+    <commentBoxShape Id="f82a6e42-e509-4822-818e-476e27201d86" absoluteBounds="3.125, 3.625, 3.25, 1.875">
+      <commentMoniker Id="215f1071-fb71-4cc9-aee9-7b7dedf95abd" />
+    </commentBoxShape>
   </nestedChildShapes>
 </safetyApplicationLanguageDiagram>

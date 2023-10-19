@@ -4,10 +4,10 @@
     <Declaration><![CDATA[VAR_GLOBAL CONSTANT
     
     //RAW AXES
-    AXIS_1_xxx : UINT :=1;
-    AXIS_2_xxx : UINT :=2;
-    AXIS_3_xxx : UINT :=3;
-    AXIS_4_XXX : UINT :=4;
+    AXIS_SLIT_NORTH : UINT :=1;
+    AXIS_SLIT_SOUTH : UINT :=2;
+    AXIS_SLIT_EAST : UINT :=3;
+    AXIS_SLIT_WEST : UINT :=4;
     AXIS_ROTATION : UINT:= 5; //rotation about X axis
     AXIS_HORIZONTAL_TRANSLATION : UINT :=6; //Z translation along beam
     AXIS_VERTICAL_TRANSLATION_Y1 : UINT :=7;

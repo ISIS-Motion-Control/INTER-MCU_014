@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<safetyApplication Crc="3914063400" xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.4.0.0" Id="57e81d90-8f5b-43f9-9243-76178e0c5af2" name="" mapState="false" mapDiag="false" groupOrderId="0" passificationAllowed="false" temporaryDeactivationAllowed="false" permamentDeactivationAllowed="false" xmlid="0" analogFBOutputReplacementValues="Zero" verifyAnalogFBInputsIfStart="false" userFbId="00000000-0000-0000-0000-000000000000" xmlns="http://schemas.microsoft.com/dsltools/SafetyApplicationLanguage">
+<safetyApplication Crc="2051505501" xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.4.0.0" Id="57e81d90-8f5b-43f9-9243-76178e0c5af2" name="" mapState="false" mapDiag="false" groupOrderId="0" passificationAllowed="false" temporaryDeactivationAllowed="false" permamentDeactivationAllowed="false" xmlid="0" analogFBOutputReplacementValues="Zero" verifyAnalogFBInputsIfStart="false" userFbId="00000000-0000-0000-0000-000000000000" xmlns="http://schemas.microsoft.com/dsltools/SafetyApplicationLanguage">
   <comments>
     <comment Id="a493d472-4a43-4a3c-bf2e-9068890fa362" text="SOUTH CLOCHE" currentNetworkOrderId="0">
       <networks>
@@ -46,6 +46,44 @@
     <comment Id="176db170-ecbf-4b85-a9ad-b9954e6548f7" text="NORTH REAR" currentNetworkOrderId="0">
       <networks>
         <commentReferencesNetworks Id="e915f2d1-c155-4c83-bf9c-8ae952065954">
+          <networkMoniker name="//Network1" />
+        </commentReferencesNetworks>
+      </networks>
+    </comment>
+    <comment Id="d179da0e-ce46-402f-8e70-7434f1f71780" text="ESTOPS COMBINED OUTPUT" currentNetworkOrderId="0">
+      <networks>
+        <commentReferencesNetworks Id="c48bb8bb-5892-40fc-9702-e982e5fe5e58">
+          <networkMoniker name="//Network1" />
+        </commentReferencesNetworks>
+      </networks>
+      <subjects>
+        <fBAndMoniker name="//Network1/FBAnd1" />
+      </subjects>
+    </comment>
+    <comment Id="6caff31c-9857-4afb-955a-820aa833df23" text="Contactor feedback from galil rack" currentNetworkOrderId="0">
+      <networks>
+        <commentReferencesNetworks Id="425b4965-e526-40bb-8f97-77ee776ab2ca">
+          <networkMoniker name="//Network1" />
+        </commentReferencesNetworks>
+      </networks>
+    </comment>
+    <comment Id="f911817b-e091-4018-a1cf-f01c777bffcb" text="Beckhof contactor output" currentNetworkOrderId="0">
+      <networks>
+        <commentReferencesNetworks Id="bc298080-2167-41af-ac41-17308099c65c">
+          <networkMoniker name="//Network1" />
+        </commentReferencesNetworks>
+      </networks>
+    </comment>
+    <comment Id="a8cf6cfa-9d58-4259-ae3d-0c8494ff331c" text="Galil contactor output" currentNetworkOrderId="0">
+      <networks>
+        <commentReferencesNetworks Id="fc943477-917c-4a22-a0d7-6a7afb09d2bd">
+          <networkMoniker name="//Network1" />
+        </commentReferencesNetworks>
+      </networks>
+    </comment>
+    <comment Id="d2a0be92-a1b6-4c69-b547-0b279aff6220" text="Combined Drive and contactor outputs for monitoring reset requests" currentNetworkOrderId="0">
+      <networks>
+        <commentReferencesNetworks Id="0969c364-7488-4a86-8b22-a81311f5575e">
           <networkMoniker name="//Network1" />
         </commentReferencesNetworks>
       </networks>
@@ -1383,47 +1421,6 @@
                 </variableUsagesHasUsages>
                 <variableUsagesHasUsages Id="997569e3-4bcb-4216-b176-276e53753243">
                   <aliasDeviceIoUsage Id="febc7373-5045-4c16-8e1c-1efeba1597a0" sdsId="22" channelId="18" functionId="-1624607622" />
-                </variableUsagesHasUsages>
-              </usages>
-            </variableUsages>
-          </variableHasTargetUsages>
-        </targetUsages>
-      </variable>
-    </safetyApplicationHasVariables>
-    <safetyApplicationHasVariables Id="8b92c90d-1588-441a-a857-85c60008333c">
-      <variable Id="c2c3a7bb-cf5c-41d6-a089-5d47e7c75909" name="TEMP_SLS_OVERRIDE" isLocal="false">
-        <sourceUsages>
-          <variableHasSourceUsages Id="fbaa31cf-73de-49c4-af2c-068b395e68b5">
-            <variableUsages Id="7545b2a0-49c8-4ca2-a313-2c7f21d4d9ce">
-              <usages>
-                <variableUsagesHasUsages Id="dfb2ac29-a612-41cc-a77c-a734779a98d4">
-                  <fbPortUsage Id="866cebfa-d2c9-4834-bca2-ca20d60278f9">
-                    <functionBlockPort>
-                      <fbPortUsageReferencesFunctionBlockPort Id="fb520944-4a23-4657-9dc5-e0fab2b4681a">
-                        <outPortMoniker name="//Network1/FBMon2/MonOut" />
-                      </fbPortUsageReferencesFunctionBlockPort>
-                    </functionBlockPort>
-                  </fbPortUsage>
-                </variableUsagesHasUsages>
-              </usages>
-            </variableUsages>
-          </variableHasSourceUsages>
-        </sourceUsages>
-        <targetUsages>
-          <variableHasTargetUsages Id="e2e3f8a3-a8d1-493a-beac-1b908bb8964b">
-            <variableUsages Id="48a1f6d6-a6e0-46e4-8731-03c35a65ffe7">
-              <usages>
-                <variableUsagesHasUsages Id="26fe63d0-88f7-4812-8503-6bb4a7646d84">
-                  <aliasDeviceIoUsage Id="46fea82f-54f4-43c7-a16e-f79467c0f41f" sdsId="21" channelId="9" functionId="1753905529" />
-                </variableUsagesHasUsages>
-                <variableUsagesHasUsages Id="4ab0cd0a-12bb-49fb-8b6a-bd0c9c36ad03">
-                  <aliasDeviceIoUsage Id="d81c1709-ce8f-41f9-adf9-ec29b576011b" sdsId="21" channelId="25" functionId="1753905508" />
-                </variableUsagesHasUsages>
-                <variableUsagesHasUsages Id="1bbd8e0d-8a18-4780-9c36-907d810048d1">
-                  <aliasDeviceIoUsage Id="870a9b40-9238-4fe9-969f-78175b758c4b" sdsId="22" channelId="9" functionId="1753905529" />
-                </variableUsagesHasUsages>
-                <variableUsagesHasUsages Id="084692ae-a4ba-4680-94c4-7296c9c77955">
-                  <aliasDeviceIoUsage Id="acde23c8-5108-47bd-8bd0-e3040641daef" sdsId="22" channelId="25" functionId="1753905508" />
                 </variableUsagesHasUsages>
               </usages>
             </variableUsages>

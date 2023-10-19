@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<SafetyDeviceDesc Crc="4179780427" FileFormatVersion="1.8">
+<SafetyDeviceDesc Crc="2830443077" FileFormatVersion="1.8">
   <AliasDeviceType>
     <Type>4</Type>
     <SubType>6815857</SubType>
@@ -17,7 +17,7 @@
     <MapOutputs>false</MapOutputs>
     <MapState>false</MapState>
     <ModuleFaultIsComErr>false</ModuleFaultIsComErr>
-    <SafeAddress>0</SafeAddress>
+    <SafeAddress>10</SafeAddress>
     <Watchdog>100</Watchdog>
     <ComErrAck Type="Unset" />
     <Params>
@@ -542,7 +542,7 @@
       <Param Index="49456" SubIndex="2">01</Param>
       <Param Index="49456" SubIndex="3">00</Param>
       <Param Index="49472" SubIndex="1">00</Param>
-      <Param Index="49472" SubIndex="5">02</Param>
+      <Param Index="49472" SubIndex="5">06</Param>
       <Param Index="49472" SubIndex="13">00</Param>
       <Param Index="49472" SubIndex="17">00</Param>
       <Param Index="49472" SubIndex="25">00</Param>

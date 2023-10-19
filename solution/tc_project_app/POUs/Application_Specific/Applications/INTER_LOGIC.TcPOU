@@ -96,7 +96,8 @@ VAR
     retryCounter : INT := 0;
     
     i : INT :=0; //iterator for FOR loops
-      
+    bVertCorrectionInProgress : BOOL;
+    vertDelay : TON;
 END_VAR
 
 VAR CONSTANT
@@ -303,7 +304,7 @@ END_IF
 //Sometimes the rotation loads in 360degrees out of phase, we need to be able to detect and fix this.
 setPosRotation(Axis:= astAxes[AXIS_ROTATION].Axis);
 setPosRotation.Execute:= FALSE;
-IF ABS(astAxes[AXIS_ROTATION].Axis.NcToPlc.ActPos)>20 THEN
+IF ABS(astAxes[AXIS_ROTATION].Axis.NcToPlc.ActPos)>20 AND astAxes[AXIS_ROTATION].Axis.Status.NotMoving THEN
     astAxes[AXIS_ROTATION].stControl.bEnable:= FALSE;
     IF astAxes[AXIS_ROTATION].Axis.NcToPlc.ActPos>20 THEN
         //we need to minus 360
@@ -861,18 +862,31 @@ GVL_INTER.SETDIR_ROTATION:= axisSpg_Rot.direction;]]></ST>
       <Implementation>
         <ST><![CDATA[CombinedVerticalSetupComplete := FALSE;
 vertTon(PT:=T#100MS);
+vertDelay(PT:=T#100MS);
 CASE eStateVertical OF
         eState_Vertical.init:
-            IF NOT astAxes[AXIS_VERTICAL_TRANSLATION_Y1].stStatus.bError AND NOT astAxes[AXIS_VERTICAL_TRANSLATION_Y2].stStatus.bError THEN
+            IF NOT astAxes[AXIS_VERTICAL_TRANSLATION_Y1].Axis.STatus.Error OR NOT astAxes[AXIS_VERTICAL_TRANSLATION_Y2].Axis.Status.Error THEN
                 IF NOT GVL_INTER.DECOUPLE_VERTICAL_AXES THEN
                     eStateVertical := eState_Vertical.checkPosition;
                 END_IF
 			END_IF
             
         eState_Vertical.checkPosition:
+            vertDelay.IN:= TRUE;
+            IF ABS(astAxes[AXIS_VERTICAL_TRANSLATION_Y1].stStatus.fActPosition - astAxes[AXIS_VERTICAL_TRANSLATION_Y2].stStatus.fActPosition)>0.02 THEN
+                AbsoluteMove(axisID:=AXIS_VERTICAL_TRANSLATION_Y2,fPosition:= astAxes[AXIS_VERTICAL_TRANSLATION_Y1].stStatus.fActPosition);
+			    bVertCorrectionInProgress:= TRUE;
+            END_IF
+            IF vertDelay.Q AND astAxes[AXIS_VERTICAL_TRANSLATION_Y2].Axis.Status.NotMoving THEN
+                bVertCorrectionInProgress:= FALSE;
+			END_IF
+            IF NOT bVertCorrectionInProgress THEN
+                vertDelay.IN:= FALSE;
+                eStateVertical := eState_Vertical.setPosition; //should be setPosition state
+			END_IF
+            
             //Assume Z1 and Z2 calibrated to be at same position
             //IF ABS(fVerticalSimulatedDeviation)> fVerticalSimulatedDeviationAllowed THEN
-                eStateVertical := eState_Vertical.setPosition; //should be setPosition state
             //ELSE
                 //eStateVertical := eState_Vertical.enableSpg;
 			//END_IF
@@ -920,7 +934,7 @@ CASE eStateVertical OF
             IF NOT VerticalAxesSpgEnabled THEN
                 eStateVertical:= eState_Vertical.init;
 			END_IF
-            IF astAxes[AXIS_VERTICAL_TRANSLATION_Y1].stStatus.bError OR astAxes[AXIS_VERTICAL_TRANSLATION_Y2].stStatus.bError THEN
+            IF astAxes[AXIS_VERTICAL_TRANSLATION_Y1].Axis.STatus.Error OR astAxes[AXIS_VERTICAL_TRANSLATION_Y2].Axis.Status.Error THEN
                 eStateVertical:= eState_Vertical.init;
 			END_IF
             IF GVL_INTER.DECOUPLE_VERTICAL_AXES THEN
@@ -1204,8 +1218,10 @@ VAR
     i : UINT :=5;
 END_VAR]]></Declaration>
       <Implementation>
-        <ST><![CDATA[FOR i :=5 TO GVL_APP.nAXIS_NUM DO
+        <ST><![CDATA[FOR i :=1 TO GVL_APP.nAXIS_NUM DO
+    IF astAxes[i].stStatus.bError OR astAxes[i].Axis.Status.Error THEN
         astAxes[i].stControl.bReset:= TRUE;
+	END_IF      
 END_FOR
 
 GVL_INTER.RESET_ALL := FALSE;]]></ST>

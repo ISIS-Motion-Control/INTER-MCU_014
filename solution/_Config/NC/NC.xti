@@ -24,10 +24,10 @@
 		<AxisFolder Name="Control Inputs"/>
 		<AxisFolder Name="Offsets"/>
 		<AxisFolder Name="Sample Offsets"/>
-		<Axis File="Axis 1.xti" Id="1"/>
-		<Axis File="Axis 2.xti" Id="2"/>
-		<Axis File="Axis 3.xti" Id="3"/>
-		<Axis File="Axis 4.xti" Id="4"/>
+		<Axis File="M1 - South.xti" Id="1"/>
+		<Axis File="M2 - North.xti" Id="2"/>
+		<Axis File="M3 - West.xti" Id="3"/>
+		<Axis File="M4 - East.xti" Id="4"/>
 		<Axis File="Rotation.xti" Id="5"/>
 		<Axis File="Horizontal Z Translation.xti" Id="6"/>
 		<Axis File="Vertical Y1.xti" Id="7"/>
