@@ -965,11 +965,41 @@ External Setpoint Generation:
 		</DataType>
 	</DataTypes>
 	<Project GUID="{FB261665-FD20-4BF2-97F8-2854C82B752D}" Name="tc_project_app" PrjFilePath="..\..\tc_project_app\tc_project_app.plcproj" TmcFilePath="..\..\tc_project_app\tc_project_app.tmc" ReloadTmc="true" AmsPort="852" FileArchiveSettings="#x000e" SymbolicMapping="true">
-		<Instance Id="#x08502040" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="tc_project_app\tc_project_app.tmc" TmcHash="{941FBD34-D226-5363-3341-59559769796E}">
+		<Instance Id="#x08502040" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="tc_project_app\tc_project_app.tmc" TmcHash="{1E12EE10-AEFC-4A7D-D822-F82982DC1C11}">
 			<Name>tc_project_app Instance</Name>
 			<CLSID ClassFactory="TcPlc30">{08500001-0000-0000-F000-000000000064}</CLSID>
 			<Vars VarGrpType="1">
 				<Name>PlcTask Inputs</Name>
+				<Var>
+					<Name>GVL_Safety.SafetyReset_ButtonIn</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Safety.RESET_REQUESTED</Name>
+					<Comment><![CDATA[ THIS IS THE ACTUAL ACK REQUEST SIGNAL]]></Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Safety.Drive71_InRun</Name>
+					<Comment><![CDATA[SAFETY_ACK_REQUESTED : BOOL;]]></Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Safety.Drive74_InRun</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Safety.EL69010_InRun</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Safety.tempChASLS</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Safety.tempChASLSperm</Name>
+					<Type>BOOL</Type>
+				</Var>
 				<Var>
 					<Name>GVL.astAxes[1].stStatus.nEncoderRawCounter</Name>
 					<Comment><![CDATA[Raw encoder counter value]]></Comment>
@@ -1780,36 +1810,6 @@ External Setpoint Generation:
 					<Name>GVL.astAxes[30].Axis.NcToPlc</Name>
 					<Type GUID="{10036166-C9D3-404B-BDD3-323034AAA7F4}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
 				</Var>
-				<Var>
-					<Name>GVL_Safety.SafetyReset_ButtonIn</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Safety.RESET_REQUESTED</Name>
-					<Comment><![CDATA[ THIS IS THE ACTUAL ACK REQUEST SIGNAL]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Safety.Drive71_InRun</Name>
-					<Comment><![CDATA[SAFETY_ACK_REQUESTED : BOOL;]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Safety.Drive74_InRun</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Safety.EL69010_InRun</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Safety.tempChASLS</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Safety.tempChASLSperm</Name>
-					<Type>BOOL</Type>
-				</Var>
 			</Vars>
 			<Vars VarGrpType="2" AreaNo="1">
 				<Name>PlcTask Outputs</Name>
@@ -1905,6 +1905,65 @@ bPowerSwitchesAxis1 AT %Q*: BOOL:= TRUE;]]></Comment>
 				</Var>
 				<Var>
 					<Name>Slit_3.EastWestPowerOutput</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Safety.SafetyReset</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Safety.SafetyReset_ButtonOut</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Safety.Drive71_ErrorAck</Name>
+					<Comment><![CDATA[RUN_SAFETY AT %Q* : BOOL := TRUE;
+RUN_SAFETY_SPEED AT %Q* : BOOL := TRUE;
+ACK_DRIVE_71_SAFETY AT %Q* : BOOL;
+ACK_DRIVE_74_SAFETY AT %Q* : BOOL;]]></Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Safety.Drive74_ErrorAck</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Safety.Main_ErrorAck</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Safety.Drive71_RunSafety</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Safety.Drive74_RunSafety</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Safety.Main_RunSafety</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Safety.Drive71_ChA_Reset</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Safety.Drive71_ChB_Reset</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Safety.Drive74_ChA_Reset</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Safety.Drive74_ChB_Reset</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Safety.SAFETY_ACK</Name>
+					<Comment><![CDATA[Drive71_ChA_InRun AT %I* :BOOL;
+Drive71_ChB_InRun AT %I* : BOOL;
+EL6910_InRun AT %I* : BOOL;]]></Comment>
 					<Type>BOOL</Type>
 				</Var>
 				<Var>
@@ -2026,65 +2085,6 @@ bPowerSwitchesAxis1 AT %Q*: BOOL:= TRUE;]]></Comment>
 				<Var>
 					<Name>GVL.astAxes[30].Axis.PlcToNc</Name>
 					<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Safety.SafetyReset</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Safety.SafetyReset_ButtonOut</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Safety.Drive71_ErrorAck</Name>
-					<Comment><![CDATA[RUN_SAFETY AT %Q* : BOOL := TRUE;
-RUN_SAFETY_SPEED AT %Q* : BOOL := TRUE;
-ACK_DRIVE_71_SAFETY AT %Q* : BOOL;
-ACK_DRIVE_74_SAFETY AT %Q* : BOOL;]]></Comment>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Safety.Drive74_ErrorAck</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Safety.Main_ErrorAck</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Safety.Drive71_RunSafety</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Safety.Drive74_RunSafety</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Safety.Main_RunSafety</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Safety.Drive71_ChA_Reset</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Safety.Drive71_ChB_Reset</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Safety.Drive74_ChA_Reset</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Safety.Drive74_ChB_Reset</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Safety.SAFETY_ACK</Name>
-					<Comment><![CDATA[Drive71_ChA_InRun AT %I* :BOOL;
-Drive71_ChB_InRun AT %I* : BOOL;
-EL6910_InRun AT %I* : BOOL;]]></Comment>
-					<Type>BOOL</Type>
 				</Var>
 			</Vars>
 			<UnrestoredVarLinks ImportTime="2023-08-07T13:53:39">

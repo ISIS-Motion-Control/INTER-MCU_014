@@ -1410,8 +1410,9 @@ External Setpoint Generation:
 		<Name>__FILENAME__</Name>
 		<AxisPara>
 			<Dynamic AccelerationMaximum="600" DecelerationMaximum="600" Acceleration="0.1" Deceleration="0.1" Jerk="10"/>
-			<Velo RefSearch="0.55548" RefSync="0.55548" SlowManual="0.4" FastManual="0.075" Maximum="0.6"/>
+			<Velo RefSearch="0.55548" RefSync="0.55548" SlowManual="0.05" FastManual="0.075" Maximum="0.6"/>
 			<OtherSettings AllowMotionCmdToSlave="true"/>
+			<ParameterChanged>8</ParameterChanged>
 		</AxisPara>
 		<Encoder Name="Enc" EncType="1">
 			<EncPara ScaleFactorNumerator="1e-06"/>

@@ -6,7 +6,7 @@
     <Node>
       <Title>Bode Project1</Title>
       <Expanded>True</Expanded>
-      <FileName>C:\Users\bem74844\Documents\TcXaeShell\INTER ACTUAL CX\TwinCAT Measurement Project1\Bode Project1.tcbodeproj</FileName>
+      <FileName>C:\Users\bem74844\Documents\TcXaeShell\MCU_014 INTER\MCU_014---INTER\TwinCAT Measurement Project1\Bode Project1.tcbodeproj</FileName>
       <Children>
         <Node>
           <Title>Bode Plot</Title>
@@ -56,7 +56,7 @@
     <Node>
       <Title>Scope Project1</Title>
       <Expanded>False</Expanded>
-      <FileName>C:\Users\bem74844\Documents\TcXaeShell\INTER ACTUAL CX\TwinCAT Measurement Project1\Scope Project1.tcscopex</FileName>
+      <FileName>C:\Users\bem74844\Documents\TcXaeShell\MCU_014 INTER\MCU_014---INTER\TwinCAT Measurement Project1\Scope Project1.tcscopex</FileName>
       <Children>
         <Node>
           <Title>DataPool</Title>
@@ -225,12 +225,12 @@
     </Node>
     <Node>
       <Title>YT Scope Project</Title>
-      <Expanded>True</Expanded>
-      <FileName>C:\Users\bem74844\Documents\TcXaeShell\INTER ACTUAL CX\TwinCAT Measurement Project1\YT Scope Project.tcscopex</FileName>
+      <Expanded>False</Expanded>
+      <FileName>C:\Users\bem74844\Documents\TcXaeShell\MCU_014 INTER\MCU_014---INTER\TwinCAT Measurement Project1\YT Scope Project.tcscopex</FileName>
       <Children>
         <Node>
           <Title>DataPool</Title>
-          <Expanded>True</Expanded>
+          <Expanded>False</Expanded>
           <FileName></FileName>
           <Children>
             <Node>
@@ -267,12 +267,12 @@
         </Node>
         <Node>
           <Title>YT Chart</Title>
-          <Expanded>True</Expanded>
+          <Expanded>False</Expanded>
           <FileName></FileName>
           <Children>
             <Node>
               <Title>Axis Group</Title>
-              <Expanded>True</Expanded>
+              <Expanded>False</Expanded>
               <FileName></FileName>
               <Children>
                 <Node>
@@ -291,7 +291,7 @@
             </Node>
             <Node>
               <Title>Axis Group (1)</Title>
-              <Expanded>True</Expanded>
+              <Expanded>False</Expanded>
               <FileName></FileName>
               <Children>
                 <Node>
@@ -310,7 +310,7 @@
             </Node>
             <Node>
               <Title>Axis Group (2)</Title>
-              <Expanded>True</Expanded>
+              <Expanded>False</Expanded>
               <FileName></FileName>
               <Children>
                 <Node>

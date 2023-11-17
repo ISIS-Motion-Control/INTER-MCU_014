@@ -30,9 +30,8 @@ VAR_GLOBAL
     Drive71_InRun AT %I* : BOOL;
     Drive74_InRun AT %I* : BOOL;
     EL69010_InRun AT %I* : BOOL;
-    //Drive71_ChA_InRun AT %I* :BOOL;
-    //Drive71_ChB_InRun AT %I* : BOOL;
-    //EL6910_InRun AT %I* : BOOL;
+    
+    SearchedAndLocked AT %I* : BOOL;
     
     SAFETY_ACK AT %Q* : BOOL := FALSE;
     

@@ -106,9 +106,9 @@ VAR CONSTANT
     ARRAYSIZE_VIRTUALCAL : INT :=3;
     ARRAYSIZE_VIRTUAL : INT:= 10;
     ARRAYSIZE_ALLVIRTUALS : INT:=13;
-    VERTICAL_SPEED_LIMIT :LREAL := 25;
-    HORIZONTAL_SPEED_LIMIT:LREAL:= 20;
-    ROTATION_SPEED_LIMIT :LREAL:= 0.8;
+    VERTICAL_SPEED_LIMIT :LREAL := 4;
+    HORIZONTAL_SPEED_LIMIT:LREAL:= 4;
+    ROTATION_SPEED_LIMIT :LREAL:= 0.1;
 END_VAR
 
 VAR PERSISTENT   
@@ -255,7 +255,7 @@ timeoutDelay(PT:=T#2S);
 actKinematicSetpoints();
 actCheckNotMoving();
 
-GVL_INTER.TARGET_MEASUREMENT_ANGLE:= astAxes[AXIS_MEASUREMENT_ANGLE].Axis.NcToPlc.SetPos + astAxes[AXIS_MEASUREMENT_ANGLE_OFFSET].Axis.NcToPlc.SetPos;
+GVL_INTER.TARGET_MEASUREMENT_ANGLE:= astAxes[AXIS_MEASUREMENT_ANGLE].Axis.NcToPlc.SetPos + astAxes[AXIS_MEASUREMENT_ANGLE_OFFSET].Axis.NcToPlc.SetPos + astAxes[AXIS_ROTATION_SAMPLE].Axis.NcToPlc.SetPos;
 
 
 FOR i:=1 TO ARRAYSIZE_ALLVIRTUALS DO
@@ -810,11 +810,14 @@ END_IF
 //NEW LOGIC
 axisSpg_Vertical.position:= astAxes[AXIS_COMBINED_VERTICAL_VIRTUAL].Axis.NcToPlc.ActPos + astAxes[AXIS_COMBINED_VERTICAL_CALIBRATION].Axis.NcToPlc.ActPos + astAxes[AXIS_COMBINED_VERTICAL_SAMPLE].Axis.NcToPlc.ActPos;
 axisSpg_Horizontal.position:= astAxes[AXIS_HORIZONTAL_VIRTUAL].Axis.NcToPlc.ActPos + astAxes[AXIS_HORIZONTAL_CALIBRATION].Axis.NcToPlc.ActPos + astAxes[AXIS_HORIZONTAL_SAMPLE].Axis.NcToPlc.ActPos;
-axisSpg_Rot.position:= astAxes[AXIS_ROTATION_VIRTUAL].Axis.NcToPlc.ActPos + astAxes[AXIS_ROTATION_CALIBRATION].Axis.NcToPlc.ActPos + astAxes[AXIS_ROTATION_SAMPLE].Axis.NcToPlc.ActPos;
+//axisSpg_Rot.position:= astAxes[AXIS_ROTATION_VIRTUAL].Axis.NcToPlc.ActPos + astAxes[AXIS_ROTATION_CALIBRATION].Axis.NcToPlc.ActPos + astAxes[AXIS_ROTATION_SAMPLE].Axis.NcToPlc.ActPos;
+
+axisSpg_Rot.position:= astAxes[AXIS_ROTATION_VIRTUAL].Axis.NcToPlc.ActPos + astAxes[AXIS_ROTATION_CALIBRATION].Axis.NcToPlc.ActPos;
 
 axisSpg_Vertical.velocity:= astAxes[AXIS_COMBINED_VERTICAL_VIRTUAL].Axis.NcToPlc.ActVelo + astAxes[AXIS_COMBINED_VERTICAL_CALIBRATION].Axis.NcToPlc.ActVelo + astAxes[AXIS_COMBINED_VERTICAL_SAMPLE].Axis.NcToPlc.ActVelo;
 axisSpg_Horizontal.velocity:=astAxes[AXIS_HORIZONTAL_VIRTUAL].Axis.NcToPlc.ActVelo + astAxes[AXIS_HORIZONTAL_CALIBRATION].Axis.NcToPlc.ActVelo + astAxes[AXIS_HORIZONTAL_SAMPLE].Axis.NcToPlc.ActVelo;
-axisSpg_Rot.velocity:= astAxes[AXIS_ROTATION_VIRTUAL].Axis.NcToPlc.ActVelo + astAxes[AXIS_ROTATION_CALIBRATION].Axis.NcToPlc.ActVelo + astAxes[AXIS_ROTATION_SAMPLE].Axis.NcToPlc.ActVelo;
+//axisSpg_Rot.velocity:= astAxes[AXIS_ROTATION_VIRTUAL].Axis.NcToPlc.ActVelo + astAxes[AXIS_ROTATION_CALIBRATION].Axis.NcToPlc.ActVelo + astAxes[AXIS_ROTATION_SAMPLE].Axis.NcToPlc.ActVelo;
+axisSpg_Rot.velocity:= astAxes[AXIS_ROTATION_VIRTUAL].Axis.NcToPlc.ActVelo + astAxes[AXIS_ROTATION_CALIBRATION].Axis.NcToPlc.ActVelo;
 
 //Horizontal direction
 IF axisSpg_Horizontal.velocity >0 THEN
