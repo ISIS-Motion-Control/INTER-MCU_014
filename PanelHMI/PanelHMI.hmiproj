@@ -118,6 +118,7 @@
     <Content Include="Server\ADS\ADS.Config.default.json">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="Server\ADS\ADS.Config.default.json" />
     <Content Include="UserContent\AxisControlContent - StAxis.usercontrol">
       <SubType>Content</SubType>
     </Content>
@@ -131,6 +132,9 @@
     <Content Include="UserContent\AxisControlContent.usercontrol.json">
       <SubType>Content</SubType>
       <DependentUpon>UserContent\AxisControlContent.usercontrol</DependentUpon>
+    </Content>
+    <Content Include="UserContent\Content_Safety.content">
+      <SubType>Content</SubType>
     </Content>
     <Content Include="UserContent\Content_Axes.content">
       <SubType>Content</SubType>

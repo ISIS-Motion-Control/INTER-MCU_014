@@ -1,0 +1,93 @@
+<div id="Content_Axes_1" data-tchmi-type="TcHmi.Controls.System.TcHmiContent" data-tchmi-top="0" data-tchmi-left="0" data-tchmi-width="1024" data-tchmi-height="720" data-tchmi-width-mode="Value" data-tchmi-height-mode="Value" data-tchmi-creator-viewport-width="1024" data-tchmi-creator-viewport-height="640">
+<div id="TcHmiContainer_1" data-tchmi-type="TcHmi.Controls.System.TcHmiContainer" data-tchmi-height="222" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-top="10" data-tchmi-top-unit="px" data-tchmi-width="346" data-tchmi-width-unit="px">
+<div id="UserControl1_14" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserContent/TextAndIndicator.usercontrol" data-tchmi-text="Safety Reset Requested" data-tchmi-top="53" data-tchmi-top-unit="px" data-tchmi-width-unit="px" data-tchmi-width-mode="Content" data-tchmi-height-mode="Content" data-tchmi-onoff="%s%PLC1.GVL_INTER.RESET_REQUESTED%/s%" data-tchmi-status="true">
+
+<script data-tchmi-target-attribute="data-tchmi-background-color" type="application/json">
+{
+  "color": "rgba(255, 255, 255, 0.3921568)"
+}
+</script>
+</div>
+<div id="UserControl1_15" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserContent/TextAndIndicator.usercontrol" data-tchmi-text="Safety Ack Requested" data-tchmi-top="111" data-tchmi-top-unit="px" data-tchmi-width-unit="px" data-tchmi-width-mode="Content" data-tchmi-height-mode="Content" data-tchmi-onoff="%s%PLC1.GVL_INTER.SAFETY_ACK_REQUESTED%/s%" data-tchmi-status="true">
+
+<script data-tchmi-target-attribute="data-tchmi-background-color" type="application/json">
+{
+  "color": "rgba(255, 255, 255, 0.3921568)"
+}
+</script>
+</div>
+<div id="TcHmiTextblock_5" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="33" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-text="SAFETY" data-tchmi-top="10" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-word-wrap="true" data-tchmi-text-font-size="24">
+</div>
+
+<script data-tchmi-target-attribute="data-tchmi-background-color" type="application/json">
+{
+  "color": "rgba(249, 255, 0, 1)"
+}
+</script>
+<div id="TcHmiButton_11" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiButton" data-tchmi-height="45" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-text="Ack. Error" data-tchmi-top="169" data-tchmi-top-unit="px" data-tchmi-width="320" data-tchmi-width-unit="px" data-tchmi-word-wrap="true" data-tchmi-text-font-size="28">
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "TcHmiButton_11.onPressed",
+    "actions": [
+      {
+        "objectType": "Condition",
+        "active": true,
+        "parts": [
+          {
+            "if": [
+              {
+                "compare1": {
+                  "objectType": "Symbol",
+                  "valueType": "tchmi:general#/definitions/String",
+                  "symbolExpression": "%s%PLC1.GVL_Safety.SAFETY_ACK%/s%"
+                },
+                "compare2": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/BOOL",
+                  "value": false
+                },
+                "compareOperator": "==",
+                "logic": null
+              }
+            ],
+            "then": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%s%PLC1.GVL_Safety.SAFETY_ACK%/s%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/BOOL",
+                  "value": true
+                },
+                "asyncWait": true
+              }
+            ]
+          },
+          {
+            "else": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%s%PLC1.GVL_Safety.SAFETY_ACK%/s%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/BOOL",
+                  "value": false
+                },
+                "asyncWait": true
+              }
+            ]
+          }
+        ],
+        "asyncWait": true
+      }
+    ]
+  }
+]
+</script>
+</div>
+</div>
+</div>

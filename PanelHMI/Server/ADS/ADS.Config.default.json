@@ -16,7 +16,7 @@
     "RUNTIMES": {
         "PLC1": {
             "ENABLED": true,
-            "NETID": "5.119.206.217.1.1",
+            "NETID": "127.0.0.1.1.1",
             "PORT": 852,
             "READ_ONLY": false,
             "SYMBOLS": {},

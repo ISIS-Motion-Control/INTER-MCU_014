@@ -1,5 +1,24 @@
 <div id="UserControl1" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControl" data-tchmi-top="0" data-tchmi-left="0" data-tchmi-width="320" data-tchmi-height="48" data-tchmi-width-unit="px" data-tchmi-height-unit="px" data-tchmi-creator-viewport-width="500" data-tchmi-creator-viewport-height="500">
+<div id="TcHmiEllipse_4" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiEllipse" data-tchmi-height="46" data-tchmi-height-unit="px" data-tchmi-left="1" data-tchmi-left-unit="px" data-tchmi-top="1" data-tchmi-top-unit="px" data-tchmi-width-unit="px" data-tchmi-width="46">
 
+<script data-tchmi-target-attribute="data-tchmi-fill-color" type="application/json">
+{
+  "color": "rgba(198, 196, 196, 1)"
+}
+</script>
+
+
+
+<script data-tchmi-target-attribute="data-tchmi-stroke-color" type="application/json">
+{
+  "color": "rgba(107, 106, 106, 1)"
+}
+</script>
+
+
+</div>
+<div id="contentText" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="100" data-tchmi-height-unit="%" data-tchmi-left-unit="px" data-tchmi-top-unit="px" data-tchmi-width="80" data-tchmi-width-unit="%" data-tchmi-word-wrap="true" data-tchmi-text="%pp%Text%/pp%" data-tchmi-text-font-size="20" data-tchmi-right="3" data-tchmi-text-horizontal-alignment="Left" data-tchmi-text-vertical-alignment="Center">
+</div>
 <div id="contentLed" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiEllipse" data-tchmi-height="40" data-tchmi-height-unit="px" data-tchmi-left="4" data-tchmi-left-unit="px" data-tchmi-top="4" data-tchmi-top-unit="px" data-tchmi-width="40" data-tchmi-width-unit="px">
 
 
@@ -191,7 +210,11 @@
 </script>
 
 
-</div>
-<div id="contentText" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="100" data-tchmi-height-unit="%" data-tchmi-left-unit="px" data-tchmi-top-unit="px" data-tchmi-width="80" data-tchmi-width-unit="%" data-tchmi-word-wrap="true" data-tchmi-text="%pp%Text%/pp%" data-tchmi-text-font-size="20" data-tchmi-right="3" data-tchmi-text-horizontal-alignment="Left" data-tchmi-text-vertical-alignment="Center">
+
+<script data-tchmi-target-attribute="data-tchmi-stroke-color" type="application/json">
+{
+  "color": "rgba(107, 106, 106, 1)"
+}
+</script>
 </div>
 </div>

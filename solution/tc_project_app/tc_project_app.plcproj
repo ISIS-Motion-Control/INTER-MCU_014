@@ -557,7 +557,7 @@
       <Resolution>Tc2_Utilities, * (Beckhoff Automation GmbH)</Resolution>
     </PlaceholderResolution>
     <PlaceholderResolution Include="Tc3_MC2_AdvancedHoming">
-      <Resolution>Tc3_MC2_AdvancedHoming, * (Beckhoff Automation GmbH)</Resolution>
+      <Resolution>Tc3_MC2_AdvancedHoming, 3.0.15.0 (Beckhoff Automation GmbH)</Resolution>
     </PlaceholderResolution>
     <PlaceholderResolution Include="Tc3_Module">
       <Resolution>Tc3_Module, * (Beckhoff Automation GmbH)</Resolution>

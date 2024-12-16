@@ -1,3 +1,59 @@
 {
+  "controlTypeValues": {
+    "TcHmi.Controls.Beckhoff.TcHmiButton": {
+      "attributes": {
+        "BackgroundColor": {
+          "color": "rgba(222, 217, 217, 1)"
+        },
+        "BorderColor": {
+          "color": "rgba(125, 124, 124, 1)"
+        },
+        "BoxShadow": [
+          {
+            "color": {
+              "color": "rgba(0, 0, 0, 1)"
+            },
+            "offsetX": 0.0,
+            "offsetXUnit": "px",
+            "offsetY": 0.0,
+            "offsetYUnit": "px",
+            "inset": false,
+            "blur": 0.0,
+            "blurUnit": "px",
+            "spread": 0.0,
+            "spreadUnit": "px"
+          }
+        ],
+        "BorderRadius": {
+          "topLeft": 5.0,
+          "topRight": 5.0,
+          "bottomLeft": 5.0,
+          "bottomRight": 5.0,
+          "topLeftUnit": "px",
+          "topRightUnit": "px",
+          "bottomLeftUnit": "px",
+          "bottomRightUnit": "px"
+        },
+        "BorderStyle": {
+          "left": "Solid",
+          "right": "Solid",
+          "top": "Solid",
+          "bottom": "Solid"
+        },
+        "BorderWidth": {
+          "left": 1,
+          "right": 1,
+          "top": 1,
+          "bottom": 1,
+          "leftUnit": "px",
+          "rightUnit": "px",
+          "topUnit": "px",
+          "bottomUnit": "px"
+        }
+      },
+      "themedResources": {}
+    }
+  },
+  "controlClassValues": {},
   "$schema": "./../../../Packages/Beckhoff.TwinCAT.HMI.Framework.12.760.42/runtimes/native1.12-tchmi/Schema/ThemeDescription.Schema.json"
 }

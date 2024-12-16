@@ -1414,8 +1414,6 @@ External Setpoint Generation:
 			<PositionAreaControl Enable="false"/>
 			<TargetPosControl Range="0.005" Time="0.04"/>
 			<OtherSettings AllowMotionCmdToSlave="true"/>
-			<ParameterChanged>8</ParameterChanged>
-			<ParameterChanged>9</ParameterChanged>
 		</AxisPara>
 		<Encoder Name="Enc" EncType="1">
 			<EncPara ScaleFactorNumerator="5" ScaleFactorDenominator="10485760" Offset="2359.51" ModuloFactor="100000000" Inverse="true" EncPositionSource="1"/>

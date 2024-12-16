@@ -965,7 +965,7 @@ External Setpoint Generation:
 		</DataType>
 	</DataTypes>
 	<Project GUID="{FB261665-FD20-4BF2-97F8-2854C82B752D}" Name="tc_project_app" PrjFilePath="..\..\tc_project_app\tc_project_app.plcproj" TmcFilePath="..\..\tc_project_app\tc_project_app.tmc" ReloadTmc="true" AmsPort="852" FileArchiveSettings="#x000e" SymbolicMapping="true">
-		<Instance Id="#x08502040" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="tc_project_app\tc_project_app.tmc" TmcHash="{1E12EE10-AEFC-4A7D-D822-F82982DC1C11}">
+		<Instance Id="#x08502040" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="tc_project_app\tc_project_app.tmc" TmcHash="{50D22C8E-B983-090A-5D24-D1F323C08C43}">
 			<Name>tc_project_app Instance</Name>
 			<CLSID ClassFactory="TcPlc30">{08500001-0000-0000-F000-000000000064}</CLSID>
 			<Vars VarGrpType="1">
@@ -990,6 +990,10 @@ External Setpoint Generation:
 				</Var>
 				<Var>
 					<Name>GVL_Safety.EL69010_InRun</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Safety.SearchedAndLocked</Name>
 					<Type>BOOL</Type>
 				</Var>
 				<Var>
@@ -1961,9 +1965,6 @@ ACK_DRIVE_74_SAFETY AT %Q* : BOOL;]]></Comment>
 				</Var>
 				<Var>
 					<Name>GVL_Safety.SAFETY_ACK</Name>
-					<Comment><![CDATA[Drive71_ChA_InRun AT %I* :BOOL;
-Drive71_ChB_InRun AT %I* : BOOL;
-EL6910_InRun AT %I* : BOOL;]]></Comment>
 					<Type>BOOL</Type>
 				</Var>
 				<Var>

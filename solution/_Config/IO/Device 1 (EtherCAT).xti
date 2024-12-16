@@ -70,7 +70,7 @@
 			</ArrayInfo>
 		</DataType>
 	</DataTypes>
-	<Device Id="1" DevType="111" DevFlags="#x0003" AmsPort="28673" AmsNetId="5.119.206.217.2.1" RemoteName="Device 1 (EtherCAT)" InfoImageId="3">
+	<Device Id="1" Disabled="true" DevType="111" DevFlags="#x0003" AmsPort="28673" AmsNetId="5.119.206.217.2.1" RemoteName="Device 1 (EtherCAT)" InfoImageId="3">
 		<Name>__FILENAME__</Name>
 		<AddressInfo>
 			<Ccat>
