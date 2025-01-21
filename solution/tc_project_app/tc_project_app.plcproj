@@ -58,6 +58,9 @@
     <Compile Include="POUs\Application_Specific\Applications\PLC_SAFETY_LOGIC.TcPOU">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="POUs\Application_Specific\Applications\SBT_CODE.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="POUs\Application_Specific\Applications\Slit_3.TcPOU">
       <SubType>Code</SubType>
     </Compile>
