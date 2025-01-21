@@ -65,6 +65,13 @@
   ],
   "content": [
     {
+      "url": "UserContent/Content_Safety.content",
+      "preload": false,
+      "keepAlive": false,
+      "loadSync": false,
+      "preloadBindings": false
+    },
+    {
       "url": "UserContent/Content_Axes.content",
       "preload": false,
       "keepAlive": false,
@@ -73,13 +80,6 @@
     },
     {
       "url": "UserContent/Content_Statuses.content",
-      "preload": false,
-      "keepAlive": false,
-      "loadSync": false,
-      "preloadBindings": false
-    },
-    {
-      "url": "UserContent/Content_Safety.content",
       "preload": false,
       "keepAlive": false,
       "loadSync": false,

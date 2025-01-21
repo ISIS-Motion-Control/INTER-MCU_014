@@ -37,6 +37,11 @@ VAR_GLOBAL
     
     tempChASLS AT %I*: BOOL;
     tempChASLSperm AT %I*: BOOL;
+	
+	
+	safetyData : ST_SafetyData;
+	nSAFETY_OUTPUTS: UINT := 0; //do these break with a 0 value?
+	nSAFETY_DEVICES: UINT := 1;
 END_VAR]]></Declaration>
   </GVL>
 </TcPlcObject>

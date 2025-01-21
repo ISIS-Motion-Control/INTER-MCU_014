@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project Crc="4252432224" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+<Project Crc="2656443795" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <SchemaVersion>2.0</SchemaVersion>
@@ -20,10 +20,10 @@
     <DocuEditor>Simon Cooper</DocuEditor>
     <PlotDate>2023-10-11</PlotDate>
     <CompanyName>UKRI</CompanyName>
-    <CompanyLogo />
-    <FbPerPage>0</FbPerPage>
-    <AddUserAdministrationPages>False</AddUserAdministrationPages>
-    <AddProjectVersionHistoryPages>False</AddProjectVersionHistoryPages>
+    <CompanyLogo>Beckhoff Automation &amp; Co. KG</CompanyLogo>
+    <FbPerPage>1</FbPerPage>
+    <AddUserAdministrationPages>True</AddUserAdministrationPages>
+    <AddProjectVersionHistoryPages>True</AddProjectVersionHistoryPages>
     <AddCustomPages>False</AddCustomPages>
     <TextBox />
     <AddMultiSettingDocuments>False</AddMultiSettingDocuments>
