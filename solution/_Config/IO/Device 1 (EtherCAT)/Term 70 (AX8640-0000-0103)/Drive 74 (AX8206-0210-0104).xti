@@ -29,15 +29,6 @@
 			</ArrayInfo>
 		</DataType>
 		<DataType>
-			<Name GUID="{18071995-0000-0000-0000-002000000004}" IecBaseType="true" AutoDeleteType="true" HideSubItems="true">ARRAY [0..3] OF BIT</Name>
-			<BitSize>4</BitSize>
-			<BaseType GUID="{18071995-0000-0000-0000-000000000010}">BIT</BaseType>
-			<ArrayInfo>
-				<LBound>0</LBound>
-				<Elements>4</Elements>
-			</ArrayInfo>
-		</DataType>
-		<DataType>
 			<Name GUID="{18071995-0000-0000-0000-002000000010}" IecBaseType="true" AutoDeleteType="true" HideSubItems="true">ARRAY [0..1] OF BYTE</Name>
 			<BitSize>16</BitSize>
 			<BaseType GUID="{18071995-0000-0000-0000-000000000001}">BYTE</BaseType>
@@ -1709,7 +1700,7 @@
 				</Inverter>
 			</TcDMDrive>
 		</Xml>
-		<EtherCAT SlaveType="3" AdsServerAddress="0577ced9024b0d04" PdiType="#x0408" MboxDataLinkLayer="true" StateMBoxPolling="true" CfgModeSafeOp="true" CycleMBoxPollingTime="0" CoeType="47" FoeType="1" VendorId="#x00000002" ProductCode="#x200e6012" RevisionNo="#x006800d2" InfoDataAddr="true" InfoDataNetId="true" InfoDataSoeDS401="true" InfoDataDcTimes="true" TimeoutStateChange1="60000" TimeoutStateChange2="30000" TimeoutStateChange3="30000" TimeoutStateChange4="300" TimeoutMailbox2="2000" GenerateOwnNetId="true" InitializeOwnNetId="true" DownloadSlotCfg="true" CheckRevisionNoType="4" PortPhys="51" IdentificationAdo="308" SafetyLogicSupported="true" DownloadSlotCfgIP="true" MaxSlotCount="96" MaxSlotGroupCount="2" Type="AX8206-0210-0104 (2Ch. 6A servo axis, safe-motion, multi-FB)" Desc="AX8206-0210-0104">
+		<EtherCAT SlaveType="3" AdsServerAddress="0577ced9024b1304" PdiType="#x0408" MboxDataLinkLayer="true" StateMBoxPolling="true" CfgModeSafeOp="true" CycleMBoxPollingTime="0" CoeType="47" FoeType="1" VendorId="#x00000002" ProductCode="#x200e6012" RevisionNo="#x006800d2" InfoDataAddr="true" InfoDataNetId="true" InfoDataSoeDS401="true" InfoDataDcTimes="true" TimeoutStateChange1="60000" TimeoutStateChange2="30000" TimeoutStateChange3="30000" TimeoutStateChange4="300" TimeoutMailbox2="2000" GenerateOwnNetId="true" InitializeOwnNetId="true" DownloadSlotCfg="true" CheckRevisionNoType="4" PortPhys="51" IdentificationAdo="308" SafetyLogicSupported="true" DownloadSlotCfgIP="true" MaxSlotCount="96" MaxSlotGroupCount="2" Type="AX8206-0210-0104 (2Ch. 6A servo axis, safe-motion, multi-FB)" Desc="AX8206-0210-0104">
 			<SyncMan>001000022600010001000000700000040002001026010000</SyncMan>
 			<SyncMan>001400022200010002000000700000040002001422010000</SyncMan>
 			<SyncMan>001816006400010003000000000000002400001864010000</SyncMan>
@@ -1740,7 +1731,7 @@
 			<DcMode>446353796e633632353030000000000053796e63206379636c652074696d652036322e3530300000000000000000000024f400000000000000000000ffff00070000000000000000000000000000000000000000000000000000000000000000</DcMode>
 			<MBoxUserCmdData>020003000a00000029000000000000000000000000000000000000000000000020022c050200000030114465766963654d61696e20506172616d6574657273202f204d61696e73206d617820766f6c7461676500</MBoxUserCmdData>
 			<MBoxUserCmdData>020003000a0000002b000000000000000000000000000000000000000000000020022c010200000069014465766963654d61696e20506172616d6574657273202f204d696e204443206c696e6b20766f6c7461676500</MBoxUserCmdData>
-			<MBoxUserCmdData>020003000a00000042000000000000000000000000000000000000000000000020032c01020000000b044465766963654d61696e20506f77657220737570706c7920436f6e6e656374696f6e202f20506f77657220737570706c79204574686572434154204164647265737300</MBoxUserCmdData>
+			<MBoxUserCmdData>020003000a00000042000000000000000000000000000000000000000000000020032c010200000011044465766963654d61696e20506f77657220737570706c7920436f6e6e656374696f6e202f20506f77657220737570706c79204574686572434154204164647265737300</MBoxUserCmdData>
 			<MBoxUserCmdData>020003000a0000002b000000000000000000000000000000000000000000000020022c02020000006b034465766963654d61696e20506172616d6574657273202f204d6178204443206c696e6b20766f6c7461676500</MBoxUserCmdData>
 			<MBoxUserCmdData>02000300100000004c0000000000000000000000000000000000000000000000200d34050800000080841e000000000043682042204175746f74756e696e6720636f6d6d616e6420706172616d6574657273202f205065726d69737369626c65206d6f76656d656e7420706f73697469766520646972656374696f6e00</MBoxUserCmdData>
 			<MBoxUserCmdData>02000300100000004c0000000000000000000000000000000000000000000000200d34060800000080841e000000000043682042204175746f74756e696e6720636f6d6d616e6420706172616d6574657273202f205065726d69737369626c65206d6f76656d656e74206e6567617469766520646972656374696f6e00</MBoxUserCmdData>
@@ -2097,11 +2088,8 @@
 				<Entry Name="Standard Out Var 6" BitLen="1" Index="#xf606" Sub="#x02">
 					<Type>BIT</Type>
 				</Entry>
-				<Entry Name="Standard Out Var 9" BitLen="1" Index="#xf606" Sub="#x03">
-					<Type>BIT</Type>
-				</Entry>
-				<Entry BitLen="5">
-					<Type GUID="{18071995-0000-0000-0000-002000000005}">ARRAY [0..4] OF BIT</Type>
+				<Entry BitLen="6">
+					<Type GUID="{18071995-0000-0000-0000-002000000006}">ARRAY [0..5] OF BIT</Type>
 				</Entry>
 			</Pdo>
 			<Pdo Name="Function Block Info Data" Index="#x1bf1" Flags="#x0080" SyncUnit="2"/>
@@ -2219,14 +2207,8 @@
 				<Entry Name="Standard In Var 3" BitLen="1" Index="#xf706" Sub="#x02">
 					<Type>BIT</Type>
 				</Entry>
-				<Entry Name="Standard In Var 7" BitLen="1" Index="#xf706" Sub="#x03">
-					<Type>BIT</Type>
-				</Entry>
-				<Entry Name="Standard In Var 8" BitLen="1" Index="#xf706" Sub="#x04">
-					<Type>BIT</Type>
-				</Entry>
-				<Entry BitLen="4">
-					<Type GUID="{18071995-0000-0000-0000-002000000004}">ARRAY [0..3] OF BIT</Type>
+				<Entry BitLen="6">
+					<Type GUID="{18071995-0000-0000-0000-002000000006}">ARRAY [0..5] OF BIT</Type>
 				</Entry>
 			</Pdo>
 			<Pdo Name="FSLOGIC Outputs" Index="#x17ff" InOut="1" Flags="#x0091" SyncMan="6" SyncUnit="2">

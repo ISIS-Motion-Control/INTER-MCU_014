@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Crc="2980202334" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <PropertyGroup>
+    <Configuration Condition="'$(Configuration)' == ''">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{bea5fc1c-0b59-4c09-8d34-6c12698dbc12}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <TargetSystem>EL6910</TargetSystem>
+    <ProgrammingLanguage>Graphical Editor</ProgrammingLanguage>
+    <Worker />
+    <IntProjName />
+    <NextSdsId>20</NextSdsId>
+    <SPlcProjVersion>1.7.0.0</SPlcProjVersion>
+    <SortMode>2</SortMode>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'">
+    <DebugSymbols>false</DebugSymbols>
+    <OutputPath>bin\Release\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="GVLs\GVL.sgvl" />
+    <None Include="Main_Prog\Alias Devices\EL1904 - BrakeRelayFB.sds" />
+    <None Include="Main_Prog\Alias Devices\EL1904 - EStop1 and EStop2.sds" />
+    <None Include="Main_Prog\Alias Devices\EL1904 - EStop3 and SandL.sds" />
+    <None Include="Main_Prog\Alias Devices\EL1904 - EStop4 and EStop 5.sds" />
+    <None Include="Main_Prog\Alias Devices\EL1904 - EStop6 and HtR.sds" />
+    <None Include="Main_Prog\Alias Devices\EL1904 - EStop7 and BeckhoffContactor and GalilContactor.sds" />
+    <None Include="Main_Prog\Alias Devices\EL1904 - Reset.sds" />
+    <None Include="Main_Prog\Alias Devices\EL1904 - BrakeCntrFB.sds" />
+    <None Include="Main_Prog\Alias Devices\EL2904 - BrakeResets.sds" />
+    <None Include="Main_Prog\Alias Devices\EL2904 - ContactorGalil and Contactor Beckhoff.sds" />
+    <None Include="Main_Prog\Alias Devices\EL2904 - ResetLamp.sds" />
+    <None Include="Main_Prog\Alias Devices\EL2912 - Motion Signs.sds" />
+    <None Include="Main_Prog\Alias Devices\PLC_BrakeReset.sds" />
+    <None Include="TargetSystemConfig.xml">
+      <Visible>false</Visible>
+    </None>
+    <None Include="Main_Prog\Alias Devices\Connection to X_ROT_AND_Z_TRANS.sds" />
+    <None Include="Main_Prog\Alias Devices\Connection to Y_1_AND_Y_2.sds" />
+    <None Include="Main_Prog\Alias Devices\ErrorAcknowledgement.sds" />
+    <None Include="Main_Prog\Alias Devices\Run.sds" />
+    <None Include="Main_Prog\Main_Prog.sal" />
+    <None Include="Main_Prog\Main_Prog.sal.diagram">
+      <Visible>false</Visible>
+      <DependentUpon>Main_Prog\Main_Prog.sal</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="GVLs" />
+    <Folder Include="Main_Prog" />
+    <Folder Include="Main_Prog\Alias Devices" />
+    <Folder Include="User FBs" />
+  </ItemGroup>
+</Project>

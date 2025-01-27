@@ -622,12 +622,12 @@
                   <Data type="int8">0</Data>
                 </Parameter>
                 <Parameter>
-                  <Comment LcId="1033"></Comment>
+                  <Comment LcId="1033" />
                   <Name>AbsolutePositionData_ResolutionSinglePos</Name>
                   <Data type="int16">24</Data>
                 </Parameter>
                 <Parameter>
-                  <Comment LcId="1033"></Comment>
+                  <Comment LcId="1033" />
                   <Name>AbsolutePositionData_ResolutionMultiPos</Name>
                   <Data type="int16">12</Data>
                 </Parameter>
@@ -671,151 +671,6 @@
                     <Ccs>1</Ccs>
                     <Index>12296</Index>
                     <SubIndex>2</SubIndex>
-                    <Data>00</Data>
-                  </InitCmd>
-                </CoE>
-              </Calc>
-            </Feedback>
-            <Feedback DataSource="1" HasWeight="true">
-              <DatabaseType>
-                <OrderCode>Reni#RA32Bxx104-5V-BiSS_C</OrderCode>
-                <IsRotary>true</IsRotary>
-                <AbsolutePosInterface>6</AbsolutePosInterface>
-                <GroupType>Reni#RA-BiSS_C</GroupType>
-                <ElectricFeedbackType>BiSS_C-RA32Bxx104-5V</ElectricFeedbackType>
-              </DatabaseType>
-              <DatabaseParameters>
-                <Parameter>
-                  <Comment LcId="1033">cf: AbsolutePositionInterfaceType 0: No interface 1: BiSS B 2: EnDat2.1 3: EnDat2.2 4: Hiperface 5: BiSS C 6: BiSS C 7: Hiperface DSL 8: Resolver 9: MES 10: SSI binary 11: SSI gray 12: EnDat3.0 100: Electrical analog commutation channel: sin(x) and sin(x-120) 102: Mechanical analog commutation channel: cos and sin 103: Electrical analog commutation channel: cos and sin</Comment>
-                  <Name>AbsolutePositionInterface</Name>
-                  <Data type="int8">6</Data>
-                </Parameter>
-                <Parameter>
-                  <Comment LcId="1033">cf: KindType 0: rotary 1: linear</Comment>
-                  <Name>Kind</Name>
-                  <Data type="int8">0</Data>
-                </Parameter>
-                <Parameter>
-                  <Comment LcId="1033">cf. PowerSupplyType 0: No voltage 1: 11 V without sense 2: 5 V with sense 3: 5 V without sense 4: 3.5 V ~ 14 V</Comment>
-                  <Name>PowerManagement_PowerSupply</Name>
-                  <Data type="int8" unitSiNumerator="second">3</Data>
-                </Parameter>
-                <Parameter>
-                  <Comment LcId="1033"></Comment>
-                  <Name>PowerManagement_DelayTimeAfterPowerUp</Name>
-                  <Data type="real64" unitSiNumerator="second">0.7</Data>
-                </Parameter>
-                <Parameter>
-                  <Comment LcId="1033"></Comment>
-                  <Name>AbsolutePositionData_ResolutionSinglePos</Name>
-                  <Data type="int16">32</Data>
-                </Parameter>
-                <Parameter>
-                  <Comment LcId="1033"></Comment>
-                  <Name>AbsolutePositionData_ResolutionMultiPos</Name>
-                  <Data type="int16">0</Data>
-                </Parameter>
-                <Parameter>
-                  <Comment LcId="1033"></Comment>
-                  <Name>AbsolutePositionData_NumberOfClockCyclesForSinglePos</Name>
-                  <Data type="int16">32</Data>
-                </Parameter>
-                <Parameter>
-                  <Comment LcId="1033"></Comment>
-                  <Name>AbsolutePositionData_NumberOfClockCyclesForMultiPos</Name>
-                  <Data type="int16">0</Data>
-                </Parameter>
-                <Parameter>
-                  <Comment LcId="1033">cf: AbsolutePositionData_SensorMode_DataLayout 0: Msb first, left aligned, multiposition-singleposition-status-crc-mcd; 1: Msb first, right aligned, multiposition-singleposition-status-crc</Comment>
-                  <Name>AbsolutePositionData_SensorMode_DataLayout</Name>
-                  <Data type="real64">1</Data>
-                </Parameter>
-                <Parameter>
-                  <Comment LcId="1033"></Comment>
-                  <Name>AbsolutePositionData_SensorMode_CrcPolynomial</Name>
-                  <Data type="real64">67</Data>
-                </Parameter>
-                <Parameter>
-                  <Comment LcId="1033"></Comment>
-                  <Name>AbsolutePositionData_SensorMode_InvertedCrc</Name>
-                  <Data type="real64">1</Data>
-                </Parameter>
-                <Parameter>
-                  <Comment LcId="1033"></Comment>
-                  <Name>AbsolutePositionData_SensorMode_MaxClockSpeed</Name>
-                  <Data type="real64" unitSiNumerator="hertz">10000000</Data>
-                </Parameter>
-                <Parameter>
-                  <Comment LcId="1033"></Comment>
-                  <Name>AbsolutePositionData_MaxPositionCalculationTime</Name>
-                  <Data type="real64" unitPrefix="-6" unitSiNumerator="second">20</Data>
-                </Parameter>
-                <Parameter>
-                  <Comment LcId="1033">maximal allowed continuous speed</Comment>
-                  <Name>MaxContinousOperationSpeed</Name>
-                  <Data type="real64" unitSiNumerator="revolutionsminuterpm">18000</Data>
-                </Parameter>
-                <Parameter>
-                  <Comment LcId="1033">maximal  allowed temperature</Comment>
-                  <Name>MaxTemperature</Name>
-                  <Data type="real64" unitSiNumerator="degreeCelsius">80</Data>
-                </Parameter>
-              </DatabaseParameters>
-              <FeedbackUse>Feedback2</FeedbackUse>
-              <Calc>
-                <CoE>
-                  <InitCmd>
-                    <Transition>PS</Transition>
-                    <Comment>Ch A VeloCtrl observer / Observer type</Comment>
-                    <Timeout>0</Timeout>
-                    <Ccs>1</Ccs>
-                    <Index>12611</Index>
-                    <SubIndex>4</SubIndex>
-                    <Data>0400</Data>
-                  </InitCmd>
-                  <InitCmd>
-                    <Transition>PS</Transition>
-                    <Comment>Ch A Secondary Feedback BiSS-C: Encoder parameter (rotary) / Power supply</Comment>
-                    <Timeout>0</Timeout>
-                    <Ccs>1</Ccs>
-                    <Index>13071</Index>
-                    <SubIndex>2</SubIndex>
-                    <Data>00000000</Data>
-                  </InitCmd>
-                  <InitCmd>
-                    <Transition>PS</Transition>
-                    <Comment>Ch A Secondary Feedback BiSS-C: Encoder parameter (rotary) / Data layout</Comment>
-                    <Timeout>0</Timeout>
-                    <Ccs>1</Ccs>
-                    <Index>13071</Index>
-                    <SubIndex>5</SubIndex>
-                    <Data>00</Data>
-                  </InitCmd>
-                  <InitCmd>
-                    <Transition>PS</Transition>
-                    <Comment>Ch A Secondary Feedback BiSS-C: Encoder parameter (rotary) / Fill bit count left</Comment>
-                    <Timeout>0</Timeout>
-                    <Ccs>1</Ccs>
-                    <Index>13071</Index>
-                    <SubIndex>6</SubIndex>
-                    <Data>00</Data>
-                  </InitCmd>
-                  <InitCmd>
-                    <Transition>PS</Transition>
-                    <Comment>Ch A Secondary Feedback BiSS-C: Encoder parameter (rotary) / Fill bit count right</Comment>
-                    <Timeout>0</Timeout>
-                    <Ccs>1</Ccs>
-                    <Index>13071</Index>
-                    <SubIndex>7</SubIndex>
-                    <Data>00</Data>
-                  </InitCmd>
-                  <InitCmd>
-                    <Transition>PS</Transition>
-                    <Comment>Ch A AxisMain parameters encoder polarity / Secondary encoder actual values</Comment>
-                    <Timeout>0</Timeout>
-                    <Ccs>1</Ccs>
-                    <Index>12296</Index>
-                    <SubIndex>1</SubIndex>
                     <Data>00</Data>
                   </InitCmd>
                 </CoE>
@@ -883,7 +738,7 @@
               </Parameter>
               <Parameter>
                 <PropertyName>GearRatioMotorSide</PropertyName>
-                <Value>240</Value>
+                <Value>1</Value>
               </Parameter>
               <Parameter>
                 <PropertyName>GearRatioLoadSide</PropertyName>
@@ -903,15 +758,15 @@
               </Parameter>
               <Parameter>
                 <PropertyName>LoadInertiaMass</PropertyName>
-                <Value>0.02878</Value>
+                <Value>0</Value>
               </Parameter>
               <Parameter>
                 <PropertyName>MaxApplicationTorqueForce</PropertyName>
-                <Value>79.947</Value>
+                <Value>57.105</Value>
               </Parameter>
               <Parameter>
                 <PropertyName>MaxApplicationSpeed</PropertyName>
-                <Value>0.31416</Value>
+                <Value>895.35391</Value>
               </Parameter>
             </Load>
             <Controller />
@@ -1740,7 +1595,7 @@
     </TcDMDrive>
   </Xml>
   <BoxDef>
-    <FieldbusAddress>1036</FieldbusAddress>
+    <FieldbusAddress>1042</FieldbusAddress>
     <AmsAddress>
       <AmsPort>0</AmsPort>
       <AmsPortTimeout>5</AmsPortTimeout>
@@ -1750,8 +1605,8 @@
     <Slave>
       <Info>
         <Name><![CDATA[Drive 71 (AX8206-0210-0104)]]></Name>
-        <PhysAddr>1036</PhysAddr>
-        <AutoIncAddr>65501</AutoIncAddr>
+        <PhysAddr>1042</PhysAddr>
+        <AutoIncAddr>65495</AutoIncAddr>
         <Identification Value="0">
           <Ado>#x0134</Ado>
         </Identification>
@@ -1768,7 +1623,7 @@
           <BitLength>176</BitLength>
         </Send>
         <Send>
-          <BitStart>13384</BitStart>
+          <BitStart>14136</BitStart>
           <BitLength>112</BitLength>
         </Send>
         <Recv>
@@ -1776,7 +1631,7 @@
           <BitLength>400</BitLength>
         </Recv>
         <Recv>
-          <BitStart>13384</BitStart>
+          <BitStart>14136</BitStart>
           <BitLength>112</BitLength>
         </Recv>
         <Sm2>
@@ -1846,7 +1701,7 @@
         <Recv>
           <Start>5120</Start>
           <Length>512</Length>
-          <StatusBitAddr>24</StatusBitAddr>
+          <StatusBitAddr>29</StatusBitAddr>
         </Recv>
         <Timeout>
           <ReturningRequest>100</ReturningRequest>
@@ -2463,24 +2318,6 @@
             </InitCmd>
             <InitCmd Fixed="true" CompleteAccess="true">
               <Transition>PS</Transition>
-              <Comment><![CDATA[download pdo 0x1A38 entries]]></Comment>
-              <Timeout>0</Timeout>
-              <Ccs>1</Ccs>
-              <Index>6712</Index>
-              <SubIndex>0</SubIndex>
-              <Data>0000</Data>
-            </InitCmd>
-            <InitCmd Fixed="true" CompleteAccess="true">
-              <Transition>PS</Transition>
-              <Comment><![CDATA[download pdo 0x1B18 entries]]></Comment>
-              <Timeout>0</Timeout>
-              <Ccs>1</Ccs>
-              <Index>6936</Index>
-              <SubIndex>0</SubIndex>
-              <Data>0000</Data>
-            </InitCmd>
-            <InitCmd Fixed="true" CompleteAccess="true">
-              <Transition>PS</Transition>
               <Comment><![CDATA[download pdo 0x1A40 entries]]></Comment>
               <Timeout>0</Timeout>
               <Ccs>1</Ccs>
@@ -2774,7 +2611,7 @@
               <Ccs>1</Ccs>
               <Index>61488</Index>
               <SubIndex>0</SubIndex>
-              <Data>5f006400680000000000000000000000000000000000000000000000000000000000000000000000000071006800000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000e80368000000000000000000b80b6800000000000000000070176800000000000000000000000000102768000000000000000000000000000000000000000000000000000000000050466800000000000000000000000000f0556800d9596800df59680000000000000000000000000000000000000000000000000000000000e80368000000000000000000b80b6800000000000000000070176800000000000000000000000000102768000000000000000000000000000000000000000000000000000000000050466800000000000000000000000000f0556800d9596800e0596800000000000000000000000000000000000000000000000000</Data>
+              <Data>5f006400680000000000000000000000000000000000000000000000000000000000000000000000000071006800000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000e80368000000000000000000b80b6800000000000000000070176800000000000000000000000000102768000000000000000000000000000000000000000000000000000000000050466800000000000000000000000000f0556800d95968000000000000000000000000000000000000000000000000000000000000000000e80368000000000000000000b80b6800000000000000000070176800000000000000000000000000102768000000000000000000000000000000000000000000000000000000000050466800000000000000000000000000f0556800d9596800e0596800000000000000000000000000000000000000000000000000</Data>
             </InitCmd>
             <InitCmd>
               <Transition>PS</Transition>
@@ -2801,7 +2638,7 @@
               <Ccs>1</Ccs>
               <Index>11267</Index>
               <SubIndex>1</SubIndex>
-              <Data>0b04</Data>
+              <Data>1104</Data>
             </InitCmd>
             <InitCmd>
               <Transition>PS</Transition>
@@ -3803,6 +3640,195 @@
               <Data>0200</Data>
             </InitCmd>
             <InitCmd>
+              <Transition>PS</Transition>
+              <Comment><![CDATA[Ch B Feed constant / Feed]]></Comment>
+              <Timeout>0</Timeout>
+              <Ccs>1</Ccs>
+              <Index>26770</Index>
+              <SubIndex>1</SubIndex>
+              <Data>e8030000</Data>
+            </InitCmd>
+            <InitCmd>
+              <Transition>PS</Transition>
+              <Comment><![CDATA[Ch B Additional feed constant feed / SubIndex 001]]></Comment>
+              <Timeout>0</Timeout>
+              <Ccs>1</Ccs>
+              <Index>26857</Index>
+              <SubIndex>1</SubIndex>
+              <Data>e8030000</Data>
+            </InitCmd>
+            <InitCmd>
+              <Transition>PS</Transition>
+              <Comment><![CDATA[Ch B Following error window]]></Comment>
+              <Timeout>0</Timeout>
+              <Ccs>1</Ccs>
+              <Index>26725</Index>
+              <SubIndex>0</SubIndex>
+              <Data>40420f00</Data>
+            </InitCmd>
+            <InitCmd>
+              <Transition>PS</Transition>
+              <Comment><![CDATA[Ch B AxisMain scaling index / Scaling index position NC]]></Comment>
+              <Timeout>0</Timeout>
+              <Ccs>1</Ccs>
+              <Index>13317</Index>
+              <SubIndex>1</SubIndex>
+              <Data>031a0000</Data>
+            </InitCmd>
+            <InitCmd>
+              <Transition>PS</Transition>
+              <Comment><![CDATA[Ch B AxisMain scaling index / Scaling index position NC per second]]></Comment>
+              <Timeout>0</Timeout>
+              <Ccs>1</Ccs>
+              <Index>13317</Index>
+              <SubIndex>6</SubIndex>
+              <Data>036a0000</Data>
+            </InitCmd>
+            <InitCmd>
+              <Transition>PS</Transition>
+              <Comment><![CDATA[Ch B Position range limit / Min position range limit]]></Comment>
+              <Timeout>0</Timeout>
+              <Ccs>1</Ccs>
+              <Index>26747</Index>
+              <SubIndex>1</SubIndex>
+              <Data>00000080</Data>
+            </InitCmd>
+            <InitCmd>
+              <Transition>PS</Transition>
+              <Comment><![CDATA[Ch B Modes of operation]]></Comment>
+              <Timeout>0</Timeout>
+              <Ccs>1</Ccs>
+              <Index>26720</Index>
+              <SubIndex>0</SubIndex>
+              <Data>0f</Data>
+            </InitCmd>
+            <InitCmd>
+              <Transition>PS</Transition>
+              <Comment><![CDATA[Ch B Secondary Feedback BiSS-C: Encoder parameter (linear) / Measuring step length]]></Comment>
+              <Timeout>0</Timeout>
+              <Ccs>1</Ccs>
+              <Index>14095</Index>
+              <SubIndex>3</SubIndex>
+              <Data>e803000000000000</Data>
+            </InitCmd>
+            <InitCmd>
+              <Transition>PS</Transition>
+              <Comment><![CDATA[Ch B Secondary Feedback BiSS-C: Encoder parameter (linear) / Measuring step length divisor]]></Comment>
+              <Timeout>0</Timeout>
+              <Ccs>1</Ccs>
+              <Index>14095</Index>
+              <SubIndex>4</SubIndex>
+              <Data>01000000</Data>
+            </InitCmd>
+            <InitCmd>
+              <Transition>PS</Transition>
+              <Comment><![CDATA[Ch B Secondary Feedback BiSS-C: Encoder parameter (linear) / Position bit count]]></Comment>
+              <Timeout>0</Timeout>
+              <Ccs>1</Ccs>
+              <Index>14095</Index>
+              <SubIndex>5</SubIndex>
+              <Data>20</Data>
+            </InitCmd>
+            <InitCmd>
+              <Transition>PS</Transition>
+              <Comment><![CDATA[Ch B Secondary Feedback BiSS-C: Encoder parameter (linear) / Max encoder clock frequency]]></Comment>
+              <Timeout>0</Timeout>
+              <Ccs>1</Ccs>
+              <Index>14095</Index>
+              <SubIndex>10</SubIndex>
+              <Data>1027</Data>
+            </InitCmd>
+            <InitCmd>
+              <Transition>PS</Transition>
+              <Comment><![CDATA[Ch B Secondary Feedback BiSS-C: Encoder parameter (linear) / Delay time after power up]]></Comment>
+              <Timeout>0</Timeout>
+              <Ccs>1</Ccs>
+              <Index>14095</Index>
+              <SubIndex>11</SubIndex>
+              <Data>bc02</Data>
+            </InitCmd>
+            <InitCmd>
+              <Transition>PS</Transition>
+              <Comment><![CDATA[Ch B Secondary Feedback BiSS-C: Encoder parameter (linear) / Calculation time]]></Comment>
+              <Timeout>0</Timeout>
+              <Ccs>1</Ccs>
+              <Index>14095</Index>
+              <SubIndex>12</SubIndex>
+              <Data>c800</Data>
+            </InitCmd>
+            <InitCmd>
+              <Transition>PS</Transition>
+              <Comment><![CDATA[Ch B Secondary Feedback BiSS-C: Encoder parameter (linear) / CRC polynome]]></Comment>
+              <Timeout>0</Timeout>
+              <Ccs>1</Ccs>
+              <Index>14095</Index>
+              <SubIndex>13</SubIndex>
+              <Data>43</Data>
+            </InitCmd>
+            <InitCmd>
+              <Transition>PS</Transition>
+              <Comment><![CDATA[Ch B Secondary Feedback BiSS-C: Encoder parameter (linear) / CRC data inverted]]></Comment>
+              <Timeout>0</Timeout>
+              <Ccs>1</Ccs>
+              <Index>14095</Index>
+              <SubIndex>14</SubIndex>
+              <Data>01</Data>
+            </InitCmd>
+            <InitCmd>
+              <Transition>PS</Transition>
+              <Comment><![CDATA[Ch B VeloCtrl observer / Observer type]]></Comment>
+              <Timeout>0</Timeout>
+              <Ccs>1</Ccs>
+              <Index>13635</Index>
+              <SubIndex>4</SubIndex>
+              <Data>0400</Data>
+            </InitCmd>
+            <InitCmd>
+              <Transition>PS</Transition>
+              <Comment><![CDATA[Ch B Secondary Feedback BiSS-C: Encoder parameter (linear) / Power supply]]></Comment>
+              <Timeout>0</Timeout>
+              <Ccs>1</Ccs>
+              <Index>14095</Index>
+              <SubIndex>2</SubIndex>
+              <Data>00000000</Data>
+            </InitCmd>
+            <InitCmd>
+              <Transition>PS</Transition>
+              <Comment><![CDATA[Ch B Secondary Feedback BiSS-C: Encoder parameter (linear) / Data layout]]></Comment>
+              <Timeout>0</Timeout>
+              <Ccs>1</Ccs>
+              <Index>14095</Index>
+              <SubIndex>6</SubIndex>
+              <Data>00</Data>
+            </InitCmd>
+            <InitCmd>
+              <Transition>PS</Transition>
+              <Comment><![CDATA[Ch B Secondary Feedback BiSS-C: Encoder parameter (linear) / Fill bit count left]]></Comment>
+              <Timeout>0</Timeout>
+              <Ccs>1</Ccs>
+              <Index>14095</Index>
+              <SubIndex>7</SubIndex>
+              <Data>00</Data>
+            </InitCmd>
+            <InitCmd>
+              <Transition>PS</Transition>
+              <Comment><![CDATA[Ch B Secondary Feedback BiSS-C: Encoder parameter (linear) / Fill bit count right]]></Comment>
+              <Timeout>0</Timeout>
+              <Ccs>1</Ccs>
+              <Index>14095</Index>
+              <SubIndex>8</SubIndex>
+              <Data>00</Data>
+            </InitCmd>
+            <InitCmd>
+              <Transition>PS</Transition>
+              <Comment><![CDATA[Ch B AxisMain parameters encoder polarity / Secondary encoder actual values]]></Comment>
+              <Timeout>0</Timeout>
+              <Ccs>1</Ccs>
+              <Index>13320</Index>
+              <SubIndex>1</SubIndex>
+              <Data>01</Data>
+            </InitCmd>
+            <InitCmd>
               <Transition>IP</Transition>
               <Timeout>0</Timeout>
               <Ccs>1</Ccs>
@@ -3817,7 +3843,7 @@
               <Ccs>1</Ccs>
               <Index>12301</Index>
               <SubIndex>5</SubIndex>
-              <Data>1111110100000000</Data>
+              <Data>0000100000000000</Data>
             </InitCmd>
             <InitCmd>
               <Transition>PS</Transition>
@@ -3826,7 +3852,7 @@
               <Ccs>1</Ccs>
               <Index>12301</Index>
               <SubIndex>6</SubIndex>
-              <Data>1111110100000000</Data>
+              <Data>0000100000000000</Data>
             </InitCmd>
             <InitCmd>
               <Transition>PS</Transition>
@@ -3835,7 +3861,7 @@
               <Ccs>1</Ccs>
               <Index>12301</Index>
               <SubIndex>7</SubIndex>
-              <Data>00007041</Data>
+              <Data>00007042</Data>
             </InitCmd>
             <InitCmd>
               <Transition>PS</Transition>
@@ -3845,6 +3871,24 @@
               <Index>12301</Index>
               <SubIndex>8</SubIndex>
               <Data>0000f041</Data>
+            </InitCmd>
+            <InitCmd>
+              <Transition>PS</Transition>
+              <Comment><![CDATA[Ch A VeloCtrl parameters mappable / Velocity control proportional gain]]></Comment>
+              <Timeout>0</Timeout>
+              <Ccs>1</Ccs>
+              <Index>12608</Index>
+              <SubIndex>1</SubIndex>
+              <Data>f6f4a83e</Data>
+            </InitCmd>
+            <InitCmd>
+              <Transition>PS</Transition>
+              <Comment><![CDATA[Ch A VeloCtrl parameters mappable / Velocity control integral action time]]></Comment>
+              <Timeout>0</Timeout>
+              <Ccs>1</Ccs>
+              <Index>12608</Index>
+              <SubIndex>2</SubIndex>
+              <Data>6f12033c</Data>
             </InitCmd>
             <InitCmd>
               <Transition>PS</Transition>
@@ -4586,30 +4630,12 @@
             </InitCmd>
             <InitCmd>
               <Transition>PS</Transition>
-              <Comment><![CDATA[Ch A VeloCtrl parameters mappable / Velocity control proportional gain]]></Comment>
-              <Timeout>0</Timeout>
-              <Ccs>1</Ccs>
-              <Index>12608</Index>
-              <SubIndex>1</SubIndex>
-              <Data>cdcccc3e</Data>
-            </InitCmd>
-            <InitCmd>
-              <Transition>PS</Transition>
-              <Comment><![CDATA[Ch A VeloCtrl parameters mappable / Velocity control integral action time]]></Comment>
-              <Timeout>0</Timeout>
-              <Ccs>1</Ccs>
-              <Index>12608</Index>
-              <SubIndex>2</SubIndex>
-              <Data>cdcccc3c</Data>
-            </InitCmd>
-            <InitCmd>
-              <Transition>PS</Transition>
               <Comment><![CDATA[Ch A VeloCtrl parameters mappable / Bipolar velocity limit value]]></Comment>
               <Timeout>0</Timeout>
               <Ccs>1</Ccs>
               <Index>12608</Index>
               <SubIndex>3</SubIndex>
-              <Data>00004040</Data>
+              <Data>00980546</Data>
             </InitCmd>
             <InitCmd>
               <Transition>PS</Transition>
@@ -4619,6 +4645,15 @@
               <Index>12992</Index>
               <SubIndex>15</SubIndex>
               <Data>0100</Data>
+            </InitCmd>
+            <InitCmd>
+              <Transition>PS</Transition>
+              <Comment><![CDATA[Ch A VeloCtrl observer / Observer type]]></Comment>
+              <Timeout>0</Timeout>
+              <Ccs>1</Ccs>
+              <Index>12611</Index>
+              <SubIndex>4</SubIndex>
+              <Data>0400</Data>
             </InitCmd>
             <InitCmd>
               <Transition>PS</Transition>
@@ -4636,7 +4671,7 @@
               <Ccs>1</Ccs>
               <Index>24726</Index>
               <SubIndex>1</SubIndex>
-              <Data>51250200</Data>
+              <Data>9f240000</Data>
             </InitCmd>
             <InitCmd>
               <Transition>PS</Transition>
@@ -4645,7 +4680,7 @@
               <Ccs>1</Ccs>
               <Index>24726</Index>
               <SubIndex>2</SubIndex>
-              <Data>00004000</Data>
+              <Data>00400000</Data>
             </InitCmd>
             <InitCmd>
               <Transition>PS</Transition>
@@ -4654,7 +4689,7 @@
               <Ccs>1</Ccs>
               <Index>24721</Index>
               <SubIndex>1</SubIndex>
-              <Data>f0000000</Data>
+              <Data>01000000</Data>
             </InitCmd>
             <InitCmd>
               <Transition>PS</Transition>
@@ -4690,538 +4725,7 @@
               <Ccs>1</Ccs>
               <Index>12480</Index>
               <SubIndex>1</SubIndex>
-              <Data>00004040</Data>
-            </InitCmd>
-            <InitCmd>
-              <Transition>PS</Transition>
-              <Comment><![CDATA[Ch A PosCtrl parameters / Velocity demand value filter time constant]]></Comment>
-              <Timeout>0</Timeout>
-              <Ccs>1</Ccs>
-              <Index>12483</Index>
-              <SubIndex>1</SubIndex>
-              <Data>00000000</Data>
-            </InitCmd>
-            <InitCmd>
-              <Transition>PS</Transition>
-              <Comment><![CDATA[Ch A VeloCtrl parameters mappable / Load inertia/mass]]></Comment>
-              <Timeout>0</Timeout>
-              <Ccs>1</Ccs>
-              <Index>12608</Index>
-              <SubIndex>7</SubIndex>
-              <Data>39c1eb3c</Data>
-            </InitCmd>
-            <InitCmd>
-              <Transition>PS</Transition>
-              <Comment><![CDATA[Ch A Bipolar torque/force limit value]]></Comment>
-              <Timeout>0</Timeout>
-              <Ccs>1</Ccs>
-              <Index>24690</Index>
-              <SubIndex>0</SubIndex>
-              <Data>581b</Data>
-            </InitCmd>
-            <InitCmd>
-              <Transition>PS</Transition>
-              <Comment><![CDATA[Ch A VeloCtrl parameters mappable / Weight counterbalance]]></Comment>
-              <Timeout>0</Timeout>
-              <Ccs>1</Ccs>
-              <Index>12608</Index>
-              <SubIndex>5</SubIndex>
-              <Data>00000000</Data>
-            </InitCmd>
-            <InitCmd>
-              <Transition>PS</Transition>
-              <Comment><![CDATA[Ch A Autotuning command parameters / Excitation signal type]]></Comment>
-              <Timeout>0</Timeout>
-              <Ccs>1</Ccs>
-              <Index>12301</Index>
-              <SubIndex>3</SubIndex>
-              <Data>01</Data>
-            </InitCmd>
-            <InitCmd>
-              <Transition>PS</Transition>
-              <Comment><![CDATA[Ch A Interpolator parameters feed forward / Acceleration feed forward gain]]></Comment>
-              <Timeout>0</Timeout>
-              <Ccs>1</Ccs>
-              <Index>12386</Index>
-              <SubIndex>3</SubIndex>
               <Data>0000803f</Data>
-            </InitCmd>
-            <InitCmd>
-              <Transition>PS</Transition>
-              <Comment><![CDATA[Ch A Interpolator parameters feed forward / Acceleration feed forward filter time constant]]></Comment>
-              <Timeout>0</Timeout>
-              <Ccs>1</Ccs>
-              <Index>12386</Index>
-              <SubIndex>4</SubIndex>
-              <Data>00000000</Data>
-            </InitCmd>
-            <InitCmd>
-              <Transition>PS</Transition>
-              <Comment><![CDATA[Ch A Interpolator parameters feed forward / Velocity feed forward gain]]></Comment>
-              <Timeout>0</Timeout>
-              <Ccs>1</Ccs>
-              <Index>12386</Index>
-              <SubIndex>1</SubIndex>
-              <Data>0000803f</Data>
-            </InitCmd>
-            <InitCmd>
-              <Transition>PS</Transition>
-              <Comment><![CDATA[Ch A Interpolator parameters feed forward / Velocity feed forward filter time constant]]></Comment>
-              <Timeout>0</Timeout>
-              <Ccs>1</Ccs>
-              <Index>12386</Index>
-              <SubIndex>2</SubIndex>
-              <Data>00000000</Data>
-            </InitCmd>
-            <InitCmd>
-              <Transition>PS</Transition>
-              <Comment><![CDATA[Ch A VeloCtrl observer / Correction factor torque to acceleration]]></Comment>
-              <Timeout>0</Timeout>
-              <Ccs>1</Ccs>
-              <Index>12611</Index>
-              <SubIndex>3</SubIndex>
-              <Data>0000803f</Data>
-            </InitCmd>
-            <InitCmd>
-              <Transition>PS</Transition>
-              <Comment><![CDATA[Ch A VeloCtrl observer / Damping]]></Comment>
-              <Timeout>0</Timeout>
-              <Ccs>1</Ccs>
-              <Index>12611</Index>
-              <SubIndex>1</SubIndex>
-              <Data>f4fd343f</Data>
-            </InitCmd>
-            <InitCmd>
-              <Transition>PS</Transition>
-              <Comment><![CDATA[Ch A VeloCtrl observer / Bandwidth]]></Comment>
-              <Timeout>0</Timeout>
-              <Ccs>1</Ccs>
-              <Index>12611</Index>
-              <SubIndex>2</SubIndex>
-              <Data>0000fa43</Data>
-            </InitCmd>
-            <InitCmd>
-              <Transition>PS</Transition>
-              <Comment><![CDATA[Ch A Feed constant / Feed]]></Comment>
-              <Timeout>0</Timeout>
-              <Ccs>1</Ccs>
-              <Index>24722</Index>
-              <SubIndex>1</SubIndex>
-              <Data>00000000</Data>
-            </InitCmd>
-            <InitCmd>
-              <Transition>PS</Transition>
-              <Comment><![CDATA[Ch A Additional feed constant feed / SubIndex 001]]></Comment>
-              <Timeout>0</Timeout>
-              <Ccs>1</Ccs>
-              <Index>24809</Index>
-              <SubIndex>1</SubIndex>
-              <Data>00000000</Data>
-            </InitCmd>
-            <InitCmd>
-              <Transition>PS</Transition>
-              <Comment><![CDATA[Ch A Following error window]]></Comment>
-              <Timeout>0</Timeout>
-              <Ccs>1</Ccs>
-              <Index>24677</Index>
-              <SubIndex>0</SubIndex>
-              <Data>00000040</Data>
-            </InitCmd>
-            <InitCmd>
-              <Transition>PS</Transition>
-              <Comment><![CDATA[Ch A AxisMain scaling index / Scaling index position NC]]></Comment>
-              <Timeout>0</Timeout>
-              <Ccs>1</Ccs>
-              <Index>12293</Index>
-              <SubIndex>1</SubIndex>
-              <Data>20120000</Data>
-            </InitCmd>
-            <InitCmd>
-              <Transition>PS</Transition>
-              <Comment><![CDATA[Ch A AxisMain scaling index / Scaling index position NC per second]]></Comment>
-              <Timeout>0</Timeout>
-              <Ccs>1</Ccs>
-              <Index>12293</Index>
-              <SubIndex>6</SubIndex>
-              <Data>20620000</Data>
-            </InitCmd>
-            <InitCmd>
-              <Transition>PS</Transition>
-              <Comment><![CDATA[Ch B Feed constant / Feed]]></Comment>
-              <Timeout>0</Timeout>
-              <Ccs>1</Ccs>
-              <Index>26770</Index>
-              <SubIndex>1</SubIndex>
-              <Data>e8030000</Data>
-            </InitCmd>
-            <InitCmd>
-              <Transition>PS</Transition>
-              <Comment><![CDATA[Ch B Additional feed constant feed / SubIndex 001]]></Comment>
-              <Timeout>0</Timeout>
-              <Ccs>1</Ccs>
-              <Index>26857</Index>
-              <SubIndex>1</SubIndex>
-              <Data>e8030000</Data>
-            </InitCmd>
-            <InitCmd>
-              <Transition>PS</Transition>
-              <Comment><![CDATA[Ch B Following error window]]></Comment>
-              <Timeout>0</Timeout>
-              <Ccs>1</Ccs>
-              <Index>26725</Index>
-              <SubIndex>0</SubIndex>
-              <Data>40420f00</Data>
-            </InitCmd>
-            <InitCmd>
-              <Transition>PS</Transition>
-              <Comment><![CDATA[Ch B AxisMain scaling index / Scaling index position NC]]></Comment>
-              <Timeout>0</Timeout>
-              <Ccs>1</Ccs>
-              <Index>13317</Index>
-              <SubIndex>1</SubIndex>
-              <Data>031a0000</Data>
-            </InitCmd>
-            <InitCmd>
-              <Transition>PS</Transition>
-              <Comment><![CDATA[Ch B AxisMain scaling index / Scaling index position NC per second]]></Comment>
-              <Timeout>0</Timeout>
-              <Ccs>1</Ccs>
-              <Index>13317</Index>
-              <SubIndex>6</SubIndex>
-              <Data>036a0000</Data>
-            </InitCmd>
-            <InitCmd>
-              <Transition>PS</Transition>
-              <Comment><![CDATA[Ch B Position range limit / Min position range limit]]></Comment>
-              <Timeout>0</Timeout>
-              <Ccs>1</Ccs>
-              <Index>26747</Index>
-              <SubIndex>1</SubIndex>
-              <Data>00000080</Data>
-            </InitCmd>
-            <InitCmd>
-              <Transition>PS</Transition>
-              <Comment><![CDATA[Ch A Secondary Feedback BiSS-C: Encoder parameter (rotary) / Measuring steps per revolution]]></Comment>
-              <Timeout>0</Timeout>
-              <Ccs>1</Ccs>
-              <Index>13071</Index>
-              <SubIndex>3</SubIndex>
-              <Data>0000000001000000</Data>
-            </InitCmd>
-            <InitCmd>
-              <Transition>PS</Transition>
-              <Comment><![CDATA[Ch A Secondary Feedback BiSS-C: Encoder parameter (rotary) / Number of distinguishable revolutions]]></Comment>
-              <Timeout>0</Timeout>
-              <Ccs>1</Ccs>
-              <Index>13071</Index>
-              <SubIndex>4</SubIndex>
-              <Data>0100000000000000</Data>
-            </InitCmd>
-            <InitCmd>
-              <Transition>PS</Transition>
-              <Comment><![CDATA[Ch A Secondary Feedback BiSS-C: Encoder parameter (rotary) / Max encoder clock frequency]]></Comment>
-              <Timeout>0</Timeout>
-              <Ccs>1</Ccs>
-              <Index>13071</Index>
-              <SubIndex>9</SubIndex>
-              <Data>1027</Data>
-            </InitCmd>
-            <InitCmd>
-              <Transition>PS</Transition>
-              <Comment><![CDATA[Ch A Secondary Feedback BiSS-C: Encoder parameter (rotary) / Delay time after power up]]></Comment>
-              <Timeout>0</Timeout>
-              <Ccs>1</Ccs>
-              <Index>13071</Index>
-              <SubIndex>10</SubIndex>
-              <Data>bc02</Data>
-            </InitCmd>
-            <InitCmd>
-              <Transition>PS</Transition>
-              <Comment><![CDATA[Ch A Secondary Feedback BiSS-C: Encoder parameter (rotary) / Calculation time]]></Comment>
-              <Timeout>0</Timeout>
-              <Ccs>1</Ccs>
-              <Index>13071</Index>
-              <SubIndex>11</SubIndex>
-              <Data>c800</Data>
-            </InitCmd>
-            <InitCmd>
-              <Transition>PS</Transition>
-              <Comment><![CDATA[Ch A Secondary Feedback BiSS-C: Encoder parameter (rotary) / CRC polynome]]></Comment>
-              <Timeout>0</Timeout>
-              <Ccs>1</Ccs>
-              <Index>13071</Index>
-              <SubIndex>12</SubIndex>
-              <Data>43</Data>
-            </InitCmd>
-            <InitCmd>
-              <Transition>PS</Transition>
-              <Comment><![CDATA[Ch A Secondary Feedback BiSS-C: Encoder parameter (rotary) / CRC data inverted]]></Comment>
-              <Timeout>0</Timeout>
-              <Ccs>1</Ccs>
-              <Index>13071</Index>
-              <SubIndex>13</SubIndex>
-              <Data>01</Data>
-            </InitCmd>
-            <InitCmd>
-              <Transition>PS</Transition>
-              <Comment><![CDATA[Ch A VeloCtrl observer / Observer type]]></Comment>
-              <Timeout>0</Timeout>
-              <Ccs>1</Ccs>
-              <Index>12611</Index>
-              <SubIndex>4</SubIndex>
-              <Data>0100</Data>
-            </InitCmd>
-            <InitCmd>
-              <Transition>PS</Transition>
-              <Comment><![CDATA[Ch A Secondary Feedback BiSS-C: Encoder parameter (rotary) / Power supply]]></Comment>
-              <Timeout>0</Timeout>
-              <Ccs>1</Ccs>
-              <Index>13071</Index>
-              <SubIndex>2</SubIndex>
-              <Data>00000000</Data>
-            </InitCmd>
-            <InitCmd>
-              <Transition>PS</Transition>
-              <Comment><![CDATA[Ch A Secondary Feedback BiSS-C: Encoder parameter (rotary) / Data layout]]></Comment>
-              <Timeout>0</Timeout>
-              <Ccs>1</Ccs>
-              <Index>13071</Index>
-              <SubIndex>5</SubIndex>
-              <Data>00</Data>
-            </InitCmd>
-            <InitCmd>
-              <Transition>PS</Transition>
-              <Comment><![CDATA[Ch A Secondary Feedback BiSS-C: Encoder parameter (rotary) / Fill bit count left]]></Comment>
-              <Timeout>0</Timeout>
-              <Ccs>1</Ccs>
-              <Index>13071</Index>
-              <SubIndex>6</SubIndex>
-              <Data>00</Data>
-            </InitCmd>
-            <InitCmd>
-              <Transition>PS</Transition>
-              <Comment><![CDATA[Ch A Secondary Feedback BiSS-C: Encoder parameter (rotary) / Fill bit count right]]></Comment>
-              <Timeout>0</Timeout>
-              <Ccs>1</Ccs>
-              <Index>13071</Index>
-              <SubIndex>7</SubIndex>
-              <Data>00</Data>
-            </InitCmd>
-            <InitCmd>
-              <Transition>PS</Transition>
-              <Comment><![CDATA[Ch A AxisMain parameters encoder polarity / Secondary encoder actual values]]></Comment>
-              <Timeout>0</Timeout>
-              <Ccs>1</Ccs>
-              <Index>12296</Index>
-              <SubIndex>1</SubIndex>
-              <Data>00</Data>
-            </InitCmd>
-            <InitCmd>
-              <Transition>PS</Transition>
-              <Comment><![CDATA[Ch A Autotuning command parameters / Additive excitation amplitude]]></Comment>
-              <Timeout>0</Timeout>
-              <Ccs>1</Ccs>
-              <Index>12301</Index>
-              <SubIndex>4</SubIndex>
-              <Data>03</Data>
-            </InitCmd>
-            <InitCmd>
-              <Transition>PS</Transition>
-              <Comment><![CDATA[Ch A Autotuning command parameters / Feed in point]]></Comment>
-              <Timeout>0</Timeout>
-              <Ccs>1</Ccs>
-              <Index>12301</Index>
-              <SubIndex>2</SubIndex>
-              <Data>01</Data>
-            </InitCmd>
-            <InitCmd>
-              <Transition>PS</Transition>
-              <Comment><![CDATA[Ch A VeloCtrl parameters friction / Dynamic friction factor]]></Comment>
-              <Timeout>0</Timeout>
-              <Ccs>1</Ccs>
-              <Index>12612</Index>
-              <SubIndex>3</SubIndex>
-              <Data>00000000</Data>
-            </InitCmd>
-            <InitCmd>
-              <Transition>PS</Transition>
-              <Comment><![CDATA[Ch B Modes of operation]]></Comment>
-              <Timeout>0</Timeout>
-              <Ccs>1</Ccs>
-              <Index>26720</Index>
-              <SubIndex>0</SubIndex>
-              <Data>0f</Data>
-            </InitCmd>
-            <InitCmd>
-              <Transition>PS</Transition>
-              <Comment><![CDATA[Ch B Secondary Feedback BiSS-C: Encoder parameter (linear) / Measuring step length]]></Comment>
-              <Timeout>0</Timeout>
-              <Ccs>1</Ccs>
-              <Index>14095</Index>
-              <SubIndex>3</SubIndex>
-              <Data>e803000000000000</Data>
-            </InitCmd>
-            <InitCmd>
-              <Transition>PS</Transition>
-              <Comment><![CDATA[Ch B Secondary Feedback BiSS-C: Encoder parameter (linear) / Measuring step length divisor]]></Comment>
-              <Timeout>0</Timeout>
-              <Ccs>1</Ccs>
-              <Index>14095</Index>
-              <SubIndex>4</SubIndex>
-              <Data>01000000</Data>
-            </InitCmd>
-            <InitCmd>
-              <Transition>PS</Transition>
-              <Comment><![CDATA[Ch B Secondary Feedback BiSS-C: Encoder parameter (linear) / Position bit count]]></Comment>
-              <Timeout>0</Timeout>
-              <Ccs>1</Ccs>
-              <Index>14095</Index>
-              <SubIndex>5</SubIndex>
-              <Data>20</Data>
-            </InitCmd>
-            <InitCmd>
-              <Transition>PS</Transition>
-              <Comment><![CDATA[Ch B Secondary Feedback BiSS-C: Encoder parameter (linear) / Max encoder clock frequency]]></Comment>
-              <Timeout>0</Timeout>
-              <Ccs>1</Ccs>
-              <Index>14095</Index>
-              <SubIndex>10</SubIndex>
-              <Data>1027</Data>
-            </InitCmd>
-            <InitCmd>
-              <Transition>PS</Transition>
-              <Comment><![CDATA[Ch B Secondary Feedback BiSS-C: Encoder parameter (linear) / Delay time after power up]]></Comment>
-              <Timeout>0</Timeout>
-              <Ccs>1</Ccs>
-              <Index>14095</Index>
-              <SubIndex>11</SubIndex>
-              <Data>bc02</Data>
-            </InitCmd>
-            <InitCmd>
-              <Transition>PS</Transition>
-              <Comment><![CDATA[Ch B Secondary Feedback BiSS-C: Encoder parameter (linear) / Calculation time]]></Comment>
-              <Timeout>0</Timeout>
-              <Ccs>1</Ccs>
-              <Index>14095</Index>
-              <SubIndex>12</SubIndex>
-              <Data>c800</Data>
-            </InitCmd>
-            <InitCmd>
-              <Transition>PS</Transition>
-              <Comment><![CDATA[Ch B Secondary Feedback BiSS-C: Encoder parameter (linear) / CRC polynome]]></Comment>
-              <Timeout>0</Timeout>
-              <Ccs>1</Ccs>
-              <Index>14095</Index>
-              <SubIndex>13</SubIndex>
-              <Data>43</Data>
-            </InitCmd>
-            <InitCmd>
-              <Transition>PS</Transition>
-              <Comment><![CDATA[Ch B Secondary Feedback BiSS-C: Encoder parameter (linear) / CRC data inverted]]></Comment>
-              <Timeout>0</Timeout>
-              <Ccs>1</Ccs>
-              <Index>14095</Index>
-              <SubIndex>14</SubIndex>
-              <Data>01</Data>
-            </InitCmd>
-            <InitCmd>
-              <Transition>PS</Transition>
-              <Comment><![CDATA[Ch B VeloCtrl observer / Observer type]]></Comment>
-              <Timeout>0</Timeout>
-              <Ccs>1</Ccs>
-              <Index>13635</Index>
-              <SubIndex>4</SubIndex>
-              <Data>0400</Data>
-            </InitCmd>
-            <InitCmd>
-              <Transition>PS</Transition>
-              <Comment><![CDATA[Ch B Secondary Feedback BiSS-C: Encoder parameter (linear) / Power supply]]></Comment>
-              <Timeout>0</Timeout>
-              <Ccs>1</Ccs>
-              <Index>14095</Index>
-              <SubIndex>2</SubIndex>
-              <Data>00000000</Data>
-            </InitCmd>
-            <InitCmd>
-              <Transition>PS</Transition>
-              <Comment><![CDATA[Ch B Secondary Feedback BiSS-C: Encoder parameter (linear) / Data layout]]></Comment>
-              <Timeout>0</Timeout>
-              <Ccs>1</Ccs>
-              <Index>14095</Index>
-              <SubIndex>6</SubIndex>
-              <Data>00</Data>
-            </InitCmd>
-            <InitCmd>
-              <Transition>PS</Transition>
-              <Comment><![CDATA[Ch B Secondary Feedback BiSS-C: Encoder parameter (linear) / Fill bit count left]]></Comment>
-              <Timeout>0</Timeout>
-              <Ccs>1</Ccs>
-              <Index>14095</Index>
-              <SubIndex>7</SubIndex>
-              <Data>00</Data>
-            </InitCmd>
-            <InitCmd>
-              <Transition>PS</Transition>
-              <Comment><![CDATA[Ch B Secondary Feedback BiSS-C: Encoder parameter (linear) / Fill bit count right]]></Comment>
-              <Timeout>0</Timeout>
-              <Ccs>1</Ccs>
-              <Index>14095</Index>
-              <SubIndex>8</SubIndex>
-              <Data>00</Data>
-            </InitCmd>
-            <InitCmd>
-              <Transition>PS</Transition>
-              <Comment><![CDATA[Ch B AxisMain parameters encoder polarity / Secondary encoder actual values]]></Comment>
-              <Timeout>0</Timeout>
-              <Ccs>1</Ccs>
-              <Index>13320</Index>
-              <SubIndex>1</SubIndex>
-              <Data>01</Data>
-            </InitCmd>
-            <InitCmd>
-              <Transition>PS</Transition>
-              <Comment><![CDATA[Ch A VeloCtrl parameters friction / Static friction torque/force]]></Comment>
-              <Timeout>0</Timeout>
-              <Ccs>1</Ccs>
-              <Index>12612</Index>
-              <SubIndex>2</SubIndex>
-              <Data>3333b33f</Data>
-            </InitCmd>
-            <InitCmd>
-              <Transition>PS</Transition>
-              <Comment><![CDATA[Ch A VeloCtrl parameters friction / Static friction spring rate]]></Comment>
-              <Timeout>0</Timeout>
-              <Ccs>1</Ccs>
-              <Index>12612</Index>
-              <SubIndex>1</SubIndex>
-              <Data>00004843</Data>
-            </InitCmd>
-            <InitCmd>
-              <Transition>PS</Transition>
-              <Comment><![CDATA[Ch A AxisMain parameters / Motor brake usage]]></Comment>
-              <Timeout>0</Timeout>
-              <Ccs>1</Ccs>
-              <Index>12288</Index>
-              <SubIndex>2</SubIndex>
-              <Data>0100</Data>
-            </InitCmd>
-            <InitCmd>
-              <Transition>PS</Transition>
-              <Comment><![CDATA[Ch A Quick stop deceleration]]></Comment>
-              <Timeout>0</Timeout>
-              <Ccs>1</Ccs>
-              <Index>24709</Index>
-              <SubIndex>0</SubIndex>
-              <Data>d0070000</Data>
-            </InitCmd>
-            <InitCmd>
-              <Transition>PS</Transition>
-              <Comment><![CDATA[Ch A AxisMain parameters position offset / Offset additional position actual value source]]></Comment>
-              <Timeout>0</Timeout>
-              <Ccs>1</Ccs>
-              <Index>12295</Index>
-              <SubIndex>4</SubIndex>
-              <Data>0200</Data>
             </InitCmd>
             <InitCmd>
               <Transition>PS</Transition>
@@ -5254,7 +4758,7 @@
               <Transition>PS</Transition>
               <Comment><![CDATA[AoE Init Cmd (download NetId)]]></Comment>
               <Timeout>0</Timeout>
-              <Data>0577ced902010c040577ced902010c04030004001200000000000000010000000100000003000000060000000577ced90248</Data>
+              <Data>0577ced9020112040577ced902011204030004001200000000000000010000000100000003000000060000000577ced90248</Data>
             </InitCmd>
           </InitCmds>
           <NetId>5.119.206.217.2.72</NetId>
@@ -5269,7 +4773,7 @@
           <Comment><![CDATA[set device state to INIT]]></Comment>
           <Requires>cycle</Requires>
           <Cmd>2</Cmd>
-          <Adp>65501</Adp>
+          <Adp>65495</Adp>
           <Ado>288</Ado>
           <Data>1100</Data>
           <Retries>3</Retries>
@@ -5281,7 +4785,7 @@
           <Comment><![CDATA[clear DC activation]]></Comment>
           <Requires>cycle</Requires>
           <Cmd>2</Cmd>
-          <Adp>65501</Adp>
+          <Adp>65495</Adp>
           <Ado>2432</Ado>
           <Data>0000</Data>
           <Retries>3</Retries>
@@ -5293,7 +4797,7 @@
           <Comment><![CDATA[check device state for INIT]]></Comment>
           <Requires>cycle</Requires>
           <Cmd>1</Cmd>
-          <Adp>65501</Adp>
+          <Adp>65495</Adp>
           <Ado>304</Ado>
           <Data>0000</Data>
           <Retries>3</Retries>
@@ -5308,7 +4812,7 @@
           <Comment><![CDATA[check device state for INIT]]></Comment>
           <Requires>cycle</Requires>
           <Cmd>1</Cmd>
-          <Adp>65501</Adp>
+          <Adp>65495</Adp>
           <Ado>304</Ado>
           <Data>0000</Data>
           <Retries>3</Retries>
@@ -5324,7 +4828,7 @@
           <Comment><![CDATA[set device state to INIT]]></Comment>
           <Requires>cycle</Requires>
           <Cmd>2</Cmd>
-          <Adp>65501</Adp>
+          <Adp>65495</Adp>
           <Ado>288</Ado>
           <Data>1100</Data>
           <Cnt>1</Cnt>
@@ -5337,7 +4841,7 @@
           <Comment><![CDATA[check device state for INIT]]></Comment>
           <Requires>cycle</Requires>
           <Cmd>1</Cmd>
-          <Adp>65501</Adp>
+          <Adp>65495</Adp>
           <Ado>304</Ado>
           <Data>0000</Data>
           <Cnt>1</Cnt>
@@ -5353,7 +4857,7 @@
           <Comment><![CDATA[assign EEPROM to ECAT]]></Comment>
           <Requires>cycle</Requires>
           <Cmd>2</Cmd>
-          <Adp>65501</Adp>
+          <Adp>65495</Adp>
           <Ado>1280</Ado>
           <Data>00</Data>
           <Cnt>1</Cnt>
@@ -5363,7 +4867,7 @@
           <Transition>IP</Transition>
           <Comment><![CDATA[check vendor id]]></Comment>
           <Cmd>2</Cmd>
-          <Adp>65501</Adp>
+          <Adp>65495</Adp>
           <Ado>1282</Ado>
           <Data>000108000000</Data>
           <Cnt>1</Cnt>
@@ -5374,7 +4878,7 @@
           <Comment><![CDATA[check vendor id]]></Comment>
           <Requires>cycle</Requires>
           <Cmd>1</Cmd>
-          <Adp>65501</Adp>
+          <Adp>65495</Adp>
           <Ado>1288</Ado>
           <Data>00000000</Data>
           <Cnt>1</Cnt>
@@ -5388,7 +4892,7 @@
           <Transition>IP</Transition>
           <Comment><![CDATA[check product code]]></Comment>
           <Cmd>2</Cmd>
-          <Adp>65501</Adp>
+          <Adp>65495</Adp>
           <Ado>1282</Ado>
           <Data>00010a000000</Data>
           <Cnt>1</Cnt>
@@ -5399,7 +4903,7 @@
           <Comment><![CDATA[check product code]]></Comment>
           <Requires>cycle</Requires>
           <Cmd>1</Cmd>
-          <Adp>65501</Adp>
+          <Adp>65495</Adp>
           <Ado>1288</Ado>
           <Data>00000000</Data>
           <Cnt>1</Cnt>
@@ -5413,7 +4917,7 @@
           <Transition>IP</Transition>
           <Comment><![CDATA[check revision number (lo word)]]></Comment>
           <Cmd>2</Cmd>
-          <Adp>65501</Adp>
+          <Adp>65495</Adp>
           <Ado>1282</Ado>
           <Data>00010c000000</Data>
           <Cnt>1</Cnt>
@@ -5424,7 +4928,7 @@
           <Comment><![CDATA[check revision number (lo word)]]></Comment>
           <Requires>cycle</Requires>
           <Cmd>1</Cmd>
-          <Adp>65501</Adp>
+          <Adp>65495</Adp>
           <Ado>1288</Ado>
           <Data>0000</Data>
           <Cnt>1</Cnt>
@@ -5438,7 +4942,7 @@
           <Transition>IP</Transition>
           <Comment><![CDATA[check revision number (hi word >=)]]></Comment>
           <Cmd>2</Cmd>
-          <Adp>65501</Adp>
+          <Adp>65495</Adp>
           <Ado>1282</Ado>
           <Data>00010d000000</Data>
           <Cnt>1</Cnt>
@@ -5449,7 +4953,7 @@
           <Comment><![CDATA[check revision number (hi word >=)]]></Comment>
           <Requires>cycle</Requires>
           <Cmd>1</Cmd>
-          <Adp>65501</Adp>
+          <Adp>65495</Adp>
           <Ado>1288</Ado>
           <Data>0000</Data>
           <Cnt>1</Cnt>
@@ -5465,9 +4969,9 @@
           <Comment><![CDATA[set physical address]]></Comment>
           <Requires>cycle</Requires>
           <Cmd>2</Cmd>
-          <Adp>65501</Adp>
+          <Adp>65495</Adp>
           <Ado>16</Ado>
-          <Data>0c04</Data>
+          <Data>1204</Data>
           <Cnt>1</Cnt>
           <Retries>3</Retries>
         </InitCmd>
@@ -5479,7 +4983,7 @@
           <Transition>OI</Transition>
           <Comment><![CDATA[clear sm 0/1 (mailbox out/in)]]></Comment>
           <Cmd>5</Cmd>
-          <Adp>1036</Adp>
+          <Adp>1042</Adp>
           <Ado>2048</Ado>
           <Data>00000000000000000000000000000000</Data>
           <Retries>3</Retries>
@@ -5488,7 +4992,7 @@
           <Transition>BI</Transition>
           <Comment><![CDATA[clear sm 0/1 (mailbox out/in)]]></Comment>
           <Cmd>2</Cmd>
-          <Adp>65501</Adp>
+          <Adp>65495</Adp>
           <Ado>2048</Ado>
           <Data>00000000000000000000000000000000</Data>
           <Retries>3</Retries>
@@ -5497,7 +5001,7 @@
           <Transition>IP</Transition>
           <Comment><![CDATA[set sm 0 (mailbox out)]]></Comment>
           <Cmd>5</Cmd>
-          <Adp>1036</Adp>
+          <Adp>1042</Adp>
           <Ado>2048</Ado>
           <Data>0010000226000100</Data>
           <Cnt>1</Cnt>
@@ -5507,7 +5011,7 @@
           <Transition>IP</Transition>
           <Comment><![CDATA[set sm 1 (mailbox in)]]></Comment>
           <Cmd>5</Cmd>
-          <Adp>1036</Adp>
+          <Adp>1042</Adp>
           <Ado>2056</Ado>
           <Data>0014000222000100</Data>
           <Cnt>1</Cnt>
@@ -5517,7 +5021,7 @@
           <Transition>IB</Transition>
           <Comment><![CDATA[set sm 0 (bootstrap out)]]></Comment>
           <Cmd>5</Cmd>
-          <Adp>1036</Adp>
+          <Adp>1042</Adp>
           <Ado>2048</Ado>
           <Data>0010140226000100</Data>
           <Cnt>1</Cnt>
@@ -5527,7 +5031,7 @@
           <Transition>IB</Transition>
           <Comment><![CDATA[set sm 1 (bootstrap in)]]></Comment>
           <Cmd>5</Cmd>
-          <Adp>1036</Adp>
+          <Adp>1042</Adp>
           <Ado>2056</Ado>
           <Data>0018140222000100</Data>
           <Cnt>1</Cnt>
@@ -5538,7 +5042,7 @@
           <Comment><![CDATA[set DC cycle time]]></Comment>
           <Requires>cycle</Requires>
           <Cmd>5</Cmd>
-          <Adp>1036</Adp>
+          <Adp>1042</Adp>
           <Ado>2464</Ado>
           <Data>24f400005c901d00</Data>
           <Cnt>1</Cnt>
@@ -5549,7 +5053,7 @@
           <Comment><![CDATA[set DC start time]]></Comment>
           <Requires>cycle</Requires>
           <Cmd>5</Cmd>
-          <Adp>1036</Adp>
+          <Adp>1042</Adp>
           <Ado>2448</Ado>
           <Data>24f4000000000000</Data>
           <Cnt>1</Cnt>
@@ -5560,7 +5064,7 @@
           <Comment><![CDATA[set DC activation]]></Comment>
           <Requires>cycle</Requires>
           <Cmd>5</Cmd>
-          <Adp>1036</Adp>
+          <Adp>1042</Adp>
           <Ado>2432</Ado>
           <Data>0007</Data>
           <Cnt>1</Cnt>
@@ -5571,7 +5075,7 @@
           <Comment><![CDATA[set DC latch cfg]]></Comment>
           <Requires>cycle</Requires>
           <Cmd>5</Cmd>
-          <Adp>1036</Adp>
+          <Adp>1042</Adp>
           <Ado>2472</Ado>
           <Data>0000</Data>
           <Retries>3</Retries>
@@ -5582,7 +5086,7 @@
           <Comment><![CDATA[clear DC activation]]></Comment>
           <Requires>cycle</Requires>
           <Cmd>5</Cmd>
-          <Adp>1036</Adp>
+          <Adp>1042</Adp>
           <Ado>2432</Ado>
           <Data>0000</Data>
           <Retries>3</Retries>
@@ -5593,7 +5097,7 @@
           <Comment><![CDATA[set device state to PREOP]]></Comment>
           <Requires>cycle</Requires>
           <Cmd>5</Cmd>
-          <Adp>1036</Adp>
+          <Adp>1042</Adp>
           <Ado>288</Ado>
           <Data>1200</Data>
           <Retries>300</Retries>
@@ -5607,7 +5111,7 @@
           <Transition>OI</Transition>
           <Comment><![CDATA[clear sms]]></Comment>
           <Cmd>5</Cmd>
-          <Adp>1036</Adp>
+          <Adp>1042</Adp>
           <Ado>2064</Ado>
           <DataLength>48</DataLength>
           <Retries>3</Retries>
@@ -5616,7 +5120,7 @@
           <Transition>PS</Transition>
           <Comment><![CDATA[set sm 2 (outputs)]]></Comment>
           <Cmd>5</Cmd>
-          <Adp>1036</Adp>
+          <Adp>1042</Adp>
           <Ado>2064</Ado>
           <Data>0018160064000100</Data>
           <Cnt>1</Cnt>
@@ -5626,7 +5130,7 @@
           <Transition>PS</Transition>
           <Comment><![CDATA[set sm 3 (inputs)]]></Comment>
           <Cmd>5</Cmd>
-          <Adp>1036</Adp>
+          <Adp>1042</Adp>
           <Ado>2072</Ado>
           <Data>002a320020000100</Data>
           <Cnt>1</Cnt>
@@ -5636,7 +5140,7 @@
           <Transition>PS</Transition>
           <Comment><![CDATA[set sm 6 (outputs)]]></Comment>
           <Cmd>5</Cmd>
-          <Adp>1036</Adp>
+          <Adp>1042</Adp>
           <Ado>2096</Ado>
           <Data>00600e0024000100</Data>
           <Cnt>1</Cnt>
@@ -5646,7 +5150,7 @@
           <Transition>PS</Transition>
           <Comment><![CDATA[set sm 7 (inputs)]]></Comment>
           <Cmd>5</Cmd>
-          <Adp>1036</Adp>
+          <Adp>1042</Adp>
           <Ado>2104</Ado>
           <Data>00720e0020000100</Data>
           <Cnt>1</Cnt>
@@ -5656,7 +5160,7 @@
           <Transition>PS</Transition>
           <Comment><![CDATA[set fmmu 0 (outputs)]]></Comment>
           <Cmd>5</Cmd>
-          <Adp>1036</Adp>
+          <Adp>1042</Adp>
           <Ado>1536</Ado>
           <Data>38000001160000070018000201000000</Data>
           <Cnt>1</Cnt>
@@ -5666,7 +5170,7 @@
           <Transition>PS</Transition>
           <Comment><![CDATA[set fmmu 1 (inputs)]]></Comment>
           <Cmd>5</Cmd>
-          <Adp>1036</Adp>
+          <Adp>1042</Adp>
           <Ado>1552</Ado>
           <Data>3800000132000007002a000101000000</Data>
           <Cnt>1</Cnt>
@@ -5677,9 +5181,9 @@
           <Transition>IB</Transition>
           <Comment><![CDATA[set fmmu 2 (mailbox state)]]></Comment>
           <Cmd>5</Cmd>
-          <Adp>1036</Adp>
+          <Adp>1042</Adp>
           <Ado>1568</Ado>
-          <Data>03000009010000000d08000101000000</Data>
+          <Data>03000009010005050d08000101000000</Data>
           <Cnt>1</Cnt>
           <Retries>3</Retries>
         </InitCmd>
@@ -5687,9 +5191,9 @@
           <Transition>PS</Transition>
           <Comment><![CDATA[set fmmu 5 (outputs)]]></Comment>
           <Cmd>5</Cmd>
-          <Adp>1036</Adp>
+          <Adp>1042</Adp>
           <Ado>1616</Ado>
-          <Data>6f0000020e0000070060000201000000</Data>
+          <Data>cd0000020e0000070060000201000000</Data>
           <Cnt>1</Cnt>
           <Retries>3</Retries>
         </InitCmd>
@@ -5697,9 +5201,9 @@
           <Transition>PS</Transition>
           <Comment><![CDATA[set fmmu 6 (inputs)]]></Comment>
           <Cmd>5</Cmd>
-          <Adp>1036</Adp>
+          <Adp>1042</Adp>
           <Ado>1632</Ado>
-          <Data>6f0000020e0000070072000101000000</Data>
+          <Data>cd0000020e0000070072000101000000</Data>
           <Cnt>1</Cnt>
           <Retries>3</Retries>
         </InitCmd>
@@ -5708,7 +5212,7 @@
           <Comment><![CDATA[set device state to SAFEOP]]></Comment>
           <Requires>cycle</Requires>
           <Cmd>5</Cmd>
-          <Adp>1036</Adp>
+          <Adp>1042</Adp>
           <Ado>288</Ado>
           <Data>0400</Data>
           <Retries>3</Retries>
@@ -5721,7 +5225,7 @@
           <Transition>OI</Transition>
           <Comment><![CDATA[clear fmmu 0]]></Comment>
           <Cmd>5</Cmd>
-          <Adp>1036</Adp>
+          <Adp>1042</Adp>
           <Ado>1536</Ado>
           <Data>00000000000000000000000000000000</Data>
           <Retries>3</Retries>
@@ -5733,7 +5237,7 @@
           <Transition>OI</Transition>
           <Comment><![CDATA[clear fmmu 1]]></Comment>
           <Cmd>5</Cmd>
-          <Adp>1036</Adp>
+          <Adp>1042</Adp>
           <Ado>1552</Ado>
           <Data>00000000000000000000000000000000</Data>
           <Retries>3</Retries>
@@ -5745,7 +5249,7 @@
           <Transition>OI</Transition>
           <Comment><![CDATA[clear fmmu 2]]></Comment>
           <Cmd>5</Cmd>
-          <Adp>1036</Adp>
+          <Adp>1042</Adp>
           <Ado>1568</Ado>
           <Data>00000000000000000000000000000000</Data>
           <Retries>3</Retries>
@@ -5753,7 +5257,7 @@
         <InitCmd>
           <Comment><![CDATA[clear fmmu 3]]></Comment>
           <Cmd>5</Cmd>
-          <Adp>1036</Adp>
+          <Adp>1042</Adp>
           <Ado>1584</Ado>
           <Data>00000000000000000000000000000000</Data>
           <Retries>3</Retries>
@@ -5761,7 +5265,7 @@
         <InitCmd>
           <Comment><![CDATA[clear fmmu 4]]></Comment>
           <Cmd>5</Cmd>
-          <Adp>1036</Adp>
+          <Adp>1042</Adp>
           <Ado>1600</Ado>
           <Data>00000000000000000000000000000000</Data>
           <Retries>3</Retries>
@@ -5773,7 +5277,7 @@
           <Transition>OI</Transition>
           <Comment><![CDATA[clear fmmu 5]]></Comment>
           <Cmd>5</Cmd>
-          <Adp>1036</Adp>
+          <Adp>1042</Adp>
           <Ado>1616</Ado>
           <Data>00000000000000000000000000000000</Data>
           <Retries>3</Retries>
@@ -5785,7 +5289,7 @@
           <Transition>OI</Transition>
           <Comment><![CDATA[clear fmmu 6]]></Comment>
           <Cmd>5</Cmd>
-          <Adp>1036</Adp>
+          <Adp>1042</Adp>
           <Ado>1632</Ado>
           <Data>00000000000000000000000000000000</Data>
           <Retries>3</Retries>
@@ -5796,7 +5300,7 @@
           <Comment><![CDATA[clear DC activation]]></Comment>
           <Requires>cycle</Requires>
           <Cmd>5</Cmd>
-          <Adp>1036</Adp>
+          <Adp>1042</Adp>
           <Ado>2432</Ado>
           <Data>0000</Data>
           <Retries>3</Retries>
@@ -5807,7 +5311,7 @@
           <Comment><![CDATA[check device state for PREOP]]></Comment>
           <Requires>cycle</Requires>
           <Cmd>4</Cmd>
-          <Adp>1036</Adp>
+          <Adp>1042</Adp>
           <Ado>304</Ado>
           <Data>000000000000</Data>
           <Retries>3</Retries>
@@ -5823,7 +5327,7 @@
           <Comment><![CDATA[assign EEPROM to PDI]]></Comment>
           <Requires>cycle</Requires>
           <Cmd>5</Cmd>
-          <Adp>1036</Adp>
+          <Adp>1042</Adp>
           <Ado>1280</Ado>
           <Data>01</Data>
           <Cnt>1</Cnt>
@@ -5834,7 +5338,7 @@
           <Comment><![CDATA[assign EEPROM back to ECAT]]></Comment>
           <Requires>cycle</Requires>
           <Cmd>2</Cmd>
-          <Adp>65501</Adp>
+          <Adp>65495</Adp>
           <Ado>1280</Ado>
           <Data>00</Data>
           <Retries>3</Retries>
@@ -5844,7 +5348,7 @@
           <Comment><![CDATA[set device state to PREOP]]></Comment>
           <Requires>cycle</Requires>
           <Cmd>5</Cmd>
-          <Adp>1036</Adp>
+          <Adp>1042</Adp>
           <Ado>288</Ado>
           <Data>1200</Data>
           <Cnt>1</Cnt>
@@ -5856,7 +5360,7 @@
           <Comment><![CDATA[check device state for PREOP]]></Comment>
           <Requires>cycle</Requires>
           <Cmd>4</Cmd>
-          <Adp>1036</Adp>
+          <Adp>1042</Adp>
           <Ado>304</Ado>
           <Data>000000000000</Data>
           <Cnt>1</Cnt>
@@ -5873,7 +5377,7 @@
           <Comment><![CDATA[assign EEPROM back to ECAT]]></Comment>
           <Requires>cycle</Requires>
           <Cmd>2</Cmd>
-          <Adp>65501</Adp>
+          <Adp>65495</Adp>
           <Ado>1280</Ado>
           <Data>00</Data>
           <Retries>3</Retries>
@@ -5883,7 +5387,7 @@
           <Comment><![CDATA[set device state to BOOT]]></Comment>
           <Requires>cycle</Requires>
           <Cmd>5</Cmd>
-          <Adp>1036</Adp>
+          <Adp>1042</Adp>
           <Ado>288</Ado>
           <Data>1300</Data>
           <Cnt>1</Cnt>
@@ -5895,7 +5399,7 @@
           <Comment><![CDATA[check device state for BOOT]]></Comment>
           <Requires>cycle</Requires>
           <Cmd>4</Cmd>
-          <Adp>1036</Adp>
+          <Adp>1042</Adp>
           <Ado>304</Ado>
           <Data>000000000000</Data>
           <Cnt>1</Cnt>
@@ -5911,7 +5415,7 @@
           <Comment><![CDATA[set device state to SAFEOP]]></Comment>
           <Requires>cycle</Requires>
           <Cmd>5</Cmd>
-          <Adp>1036</Adp>
+          <Adp>1042</Adp>
           <Ado>288</Ado>
           <Data>0400</Data>
           <Cnt>1</Cnt>
@@ -5923,7 +5427,7 @@
           <Comment><![CDATA[check device state for SAFEOP]]></Comment>
           <Requires>cycle</Requires>
           <Cmd>4</Cmd>
-          <Adp>1036</Adp>
+          <Adp>1042</Adp>
           <Ado>304</Ado>
           <Data>000000000000</Data>
           <Cnt>1</Cnt>
@@ -5939,7 +5443,7 @@
           <Comment><![CDATA[check device state for SAFEOP]]></Comment>
           <Requires>cycle</Requires>
           <Cmd>4</Cmd>
-          <Adp>1036</Adp>
+          <Adp>1042</Adp>
           <Ado>304</Ado>
           <Data>000000000000</Data>
           <Retries>3</Retries>
@@ -5954,7 +5458,7 @@
           <Comment><![CDATA[set device state to OP]]></Comment>
           <Requires>cycle</Requires>
           <Cmd>5</Cmd>
-          <Adp>1036</Adp>
+          <Adp>1042</Adp>
           <Ado>288</Ado>
           <Data>0800</Data>
           <Cnt>1</Cnt>
@@ -5966,7 +5470,7 @@
           <Comment><![CDATA[check device state for OP]]></Comment>
           <Requires>cycle</Requires>
           <Cmd>4</Cmd>
-          <Adp>1036</Adp>
+          <Adp>1042</Adp>
           <Ado>304</Ado>
           <Data>000000000000</Data>
           <Cnt>1</Cnt>
@@ -5980,7 +5484,7 @@
       </InitCmds>
       <PreviousPort Selected="true">
         <Port>B</Port>
-        <PhysAddr>1035</PhysAddr>
+        <PhysAddr>1041</PhysAddr>
       </PreviousPort>
       <SyncUnits>
         <SyncUnit></SyncUnit>
@@ -6178,7 +5682,7 @@
                   <AmsPort>11</AmsPort>
                 </AmsAddress>
                 <IndexGroup>50593856</IndexGroup>
-                <IndexOffset>-2147483511</IndexOffset>
+                <IndexOffset>-2147483417</IndexOffset>
                 <Length>1</Length>
               </AdsInfo>
             </Entry>
@@ -6193,7 +5697,7 @@
                   <AmsPort>11</AmsPort>
                 </AmsAddress>
                 <IndexGroup>50593856</IndexGroup>
-                <IndexOffset>-1073740720</IndexOffset>
+                <IndexOffset>-1073739968</IndexOffset>
                 <Length>1</Length>
               </AdsInfo>
             </Entry>
@@ -6212,7 +5716,7 @@
                   <AmsPort>11</AmsPort>
                 </AmsAddress>
                 <IndexGroup>50593856</IndexGroup>
-                <IndexOffset>-1073740713</IndexOffset>
+                <IndexOffset>-1073739961</IndexOffset>
                 <Length>1</Length>
               </AdsInfo>
             </Entry>
@@ -6227,7 +5731,7 @@
                   <AmsPort>11</AmsPort>
                 </AmsAddress>
                 <IndexGroup>50593856</IndexGroup>
-                <IndexOffset>-1073740712</IndexOffset>
+                <IndexOffset>-1073739960</IndexOffset>
                 <Length>1</Length>
               </AdsInfo>
             </Entry>
@@ -6246,7 +5750,7 @@
                   <AmsPort>11</AmsPort>
                 </AmsAddress>
                 <IndexGroup>50593856</IndexGroup>
-                <IndexOffset>-2147483508</IndexOffset>
+                <IndexOffset>-2147483414</IndexOffset>
                 <Length>2</Length>
               </AdsInfo>
             </Entry>
@@ -6261,7 +5765,7 @@
                   <AmsPort>11</AmsPort>
                 </AmsAddress>
                 <IndexGroup>50593856</IndexGroup>
-                <IndexOffset>-1073740688</IndexOffset>
+                <IndexOffset>-1073739936</IndexOffset>
                 <Length>1</Length>
               </AdsInfo>
             </Entry>
@@ -6280,7 +5784,7 @@
                   <AmsPort>11</AmsPort>
                 </AmsAddress>
                 <IndexGroup>50593856</IndexGroup>
-                <IndexOffset>-1073740681</IndexOffset>
+                <IndexOffset>-1073739929</IndexOffset>
                 <Length>1</Length>
               </AdsInfo>
             </Entry>
@@ -6295,7 +5799,7 @@
                   <AmsPort>11</AmsPort>
                 </AmsAddress>
                 <IndexGroup>50593856</IndexGroup>
-                <IndexOffset>-1073740680</IndexOffset>
+                <IndexOffset>-1073739928</IndexOffset>
                 <Length>1</Length>
               </AdsInfo>
             </Entry>
@@ -6314,7 +5818,7 @@
                   <AmsPort>11</AmsPort>
                 </AmsAddress>
                 <IndexGroup>50593856</IndexGroup>
-                <IndexOffset>-2147483504</IndexOffset>
+                <IndexOffset>-2147483410</IndexOffset>
                 <Length>2</Length>
               </AdsInfo>
             </Entry>
@@ -6329,7 +5833,7 @@
                   <AmsPort>11</AmsPort>
                 </AmsAddress>
                 <IndexGroup>50593856</IndexGroup>
-                <IndexOffset>-2147483502</IndexOffset>
+                <IndexOffset>-2147483408</IndexOffset>
                 <Length>2</Length>
               </AdsInfo>
             </Entry>
@@ -6423,7 +5927,7 @@
                   <AmsPort>11</AmsPort>
                 </AmsAddress>
                 <IndexGroup>50593856</IndexGroup>
-                <IndexOffset>-1073740640</IndexOffset>
+                <IndexOffset>-1073739888</IndexOffset>
                 <Length>1</Length>
               </AdsInfo>
             </Entry>
@@ -6438,7 +5942,7 @@
                   <AmsPort>11</AmsPort>
                 </AmsAddress>
                 <IndexGroup>50593856</IndexGroup>
-                <IndexOffset>-1073740639</IndexOffset>
+                <IndexOffset>-1073739887</IndexOffset>
                 <Length>1</Length>
               </AdsInfo>
             </Entry>
@@ -6453,7 +5957,7 @@
                   <AmsPort>11</AmsPort>
                 </AmsAddress>
                 <IndexGroup>50593856</IndexGroup>
-                <IndexOffset>-1073740638</IndexOffset>
+                <IndexOffset>-1073739886</IndexOffset>
                 <Length>1</Length>
               </AdsInfo>
             </Entry>
@@ -6468,7 +5972,7 @@
                   <AmsPort>11</AmsPort>
                 </AmsAddress>
                 <IndexGroup>50593856</IndexGroup>
-                <IndexOffset>-1073740637</IndexOffset>
+                <IndexOffset>-1073739885</IndexOffset>
                 <Length>1</Length>
               </AdsInfo>
             </Entry>
@@ -6483,7 +5987,7 @@
                   <AmsPort>11</AmsPort>
                 </AmsAddress>
                 <IndexGroup>50593856</IndexGroup>
-                <IndexOffset>-1073740636</IndexOffset>
+                <IndexOffset>-1073739884</IndexOffset>
                 <Length>1</Length>
               </AdsInfo>
             </Entry>
@@ -6522,7 +6026,7 @@
                   <AmsPort>11</AmsPort>
                 </AmsAddress>
                 <IndexGroup>50593856</IndexGroup>
-                <IndexOffset>-2147483499</IndexOffset>
+                <IndexOffset>-2147483405</IndexOffset>
                 <Length>1</Length>
               </AdsInfo>
             </Entry>
@@ -6537,7 +6041,7 @@
                   <AmsPort>11</AmsPort>
                 </AmsAddress>
                 <IndexGroup>50593856</IndexGroup>
-                <IndexOffset>-2147483498</IndexOffset>
+                <IndexOffset>-2147483404</IndexOffset>
                 <Length>1</Length>
               </AdsInfo>
             </Entry>
@@ -6557,7 +6061,7 @@
                   <AmsPort>11</AmsPort>
                 </AmsAddress>
                 <IndexGroup>50593856</IndexGroup>
-                <IndexOffset>-2130706295</IndexOffset>
+                <IndexOffset>-2130706201</IndexOffset>
                 <Length>1</Length>
               </AdsInfo>
             </Entry>
@@ -6572,7 +6076,7 @@
                   <AmsPort>11</AmsPort>
                 </AmsAddress>
                 <IndexGroup>50593856</IndexGroup>
-                <IndexOffset>-1056963504</IndexOffset>
+                <IndexOffset>-1056962752</IndexOffset>
                 <Length>1</Length>
               </AdsInfo>
             </Entry>
@@ -6587,7 +6091,7 @@
                   <AmsPort>11</AmsPort>
                 </AmsAddress>
                 <IndexGroup>50593856</IndexGroup>
-                <IndexOffset>-1056963503</IndexOffset>
+                <IndexOffset>-1056962751</IndexOffset>
                 <Length>1</Length>
               </AdsInfo>
             </Entry>
@@ -6606,7 +6110,7 @@
                   <AmsPort>11</AmsPort>
                 </AmsAddress>
                 <IndexGroup>50593856</IndexGroup>
-                <IndexOffset>-1056963497</IndexOffset>
+                <IndexOffset>-1056962745</IndexOffset>
                 <Length>1</Length>
               </AdsInfo>
             </Entry>
@@ -6621,7 +6125,7 @@
                   <AmsPort>11</AmsPort>
                 </AmsAddress>
                 <IndexGroup>50593856</IndexGroup>
-                <IndexOffset>-1056963496</IndexOffset>
+                <IndexOffset>-1056962744</IndexOffset>
                 <Length>1</Length>
               </AdsInfo>
             </Entry>
@@ -6640,7 +6144,7 @@
                   <AmsPort>11</AmsPort>
                 </AmsAddress>
                 <IndexGroup>50593856</IndexGroup>
-                <IndexOffset>-2130706292</IndexOffset>
+                <IndexOffset>-2130706198</IndexOffset>
                 <Length>2</Length>
               </AdsInfo>
             </Entry>
@@ -6655,7 +6159,7 @@
                   <AmsPort>11</AmsPort>
                 </AmsAddress>
                 <IndexGroup>50593856</IndexGroup>
-                <IndexOffset>-1056963472</IndexOffset>
+                <IndexOffset>-1056962720</IndexOffset>
                 <Length>1</Length>
               </AdsInfo>
             </Entry>
@@ -6670,7 +6174,7 @@
                   <AmsPort>11</AmsPort>
                 </AmsAddress>
                 <IndexGroup>50593856</IndexGroup>
-                <IndexOffset>-1056963471</IndexOffset>
+                <IndexOffset>-1056962719</IndexOffset>
                 <Length>1</Length>
               </AdsInfo>
             </Entry>
@@ -6689,7 +6193,7 @@
                   <AmsPort>11</AmsPort>
                 </AmsAddress>
                 <IndexGroup>50593856</IndexGroup>
-                <IndexOffset>-1056963465</IndexOffset>
+                <IndexOffset>-1056962713</IndexOffset>
                 <Length>1</Length>
               </AdsInfo>
             </Entry>
@@ -6704,7 +6208,7 @@
                   <AmsPort>11</AmsPort>
                 </AmsAddress>
                 <IndexGroup>50593856</IndexGroup>
-                <IndexOffset>-1056963464</IndexOffset>
+                <IndexOffset>-1056962712</IndexOffset>
                 <Length>1</Length>
               </AdsInfo>
             </Entry>
@@ -6723,7 +6227,7 @@
                   <AmsPort>11</AmsPort>
                 </AmsAddress>
                 <IndexGroup>50593856</IndexGroup>
-                <IndexOffset>-2130706288</IndexOffset>
+                <IndexOffset>-2130706194</IndexOffset>
                 <Length>2</Length>
               </AdsInfo>
             </Entry>
@@ -6738,7 +6242,7 @@
                   <AmsPort>11</AmsPort>
                 </AmsAddress>
                 <IndexGroup>50593856</IndexGroup>
-                <IndexOffset>-2130706286</IndexOffset>
+                <IndexOffset>-2130706192</IndexOffset>
                 <Length>2</Length>
               </AdsInfo>
             </Entry>
@@ -6832,7 +6336,7 @@
                   <AmsPort>11</AmsPort>
                 </AmsAddress>
                 <IndexGroup>50593856</IndexGroup>
-                <IndexOffset>-1056963424</IndexOffset>
+                <IndexOffset>-1056962672</IndexOffset>
                 <Length>1</Length>
               </AdsInfo>
             </Entry>
@@ -6847,7 +6351,7 @@
                   <AmsPort>11</AmsPort>
                 </AmsAddress>
                 <IndexGroup>50593856</IndexGroup>
-                <IndexOffset>-1056963423</IndexOffset>
+                <IndexOffset>-1056962671</IndexOffset>
                 <Length>1</Length>
               </AdsInfo>
             </Entry>
@@ -6862,7 +6366,7 @@
                   <AmsPort>11</AmsPort>
                 </AmsAddress>
                 <IndexGroup>50593856</IndexGroup>
-                <IndexOffset>-1056963422</IndexOffset>
+                <IndexOffset>-1056962670</IndexOffset>
                 <Length>1</Length>
               </AdsInfo>
             </Entry>
@@ -6877,7 +6381,7 @@
                   <AmsPort>11</AmsPort>
                 </AmsAddress>
                 <IndexGroup>50593856</IndexGroup>
-                <IndexOffset>-1056963421</IndexOffset>
+                <IndexOffset>-1056962669</IndexOffset>
                 <Length>1</Length>
               </AdsInfo>
             </Entry>
@@ -7598,18 +7102,6 @@
         <ModuleIdent>#x6859dc</ModuleIdent>
         <ModuleIdent>#x6859df</ModuleIdent>
         <ModuleIdent>#x6859e0</ModuleIdent>
-        <Module>
-          <Name>Ch A</Name>
-          <ModuleIdent>6838751</ModuleIdent>
-          <TxPdo>
-            <Index DependOnSlot="true">#x1a38</Index>
-            <Name>Ch A [SL] BiSS-C rotary Inputs</Name>
-          </TxPdo>
-          <TxPdo Su="1">
-            <Index DependOnSlot="true">#x1b18</Index>
-            <Name>Ch A [SL] BiSS-C rotary Dynamic Inputs</Name>
-          </TxPdo>
-        </Module>
       </Slot>
       <Slot SlotGroup="1" MinInstances="1" MaxInstances="1" SlotPdoIncrement="0" SlotGroupPdoIncrement="0" SlotIndexIncrement="0" SlotGroupIndexIncrement="0" MdpChannel="0" FallbackSet="0">
         <Name>Empty Slot</Name>
@@ -8248,7 +7740,7 @@
     </Slave>
     <AmsAddress>
       <AmsNetId>5.119.206.217.2.1</AmsNetId>
-      <AmsPort>1036</AmsPort>
+      <AmsPort>1042</AmsPort>
     </AmsAddress>
     <CoeDS402Channels>2</CoeDS402Channels>
     <LinkedAxis Chn="0">TINC^NC-Task 1 SAF^Axes^Rotation</LinkedAxis>
