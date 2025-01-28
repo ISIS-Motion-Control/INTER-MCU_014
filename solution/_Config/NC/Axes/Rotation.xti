@@ -1621,13 +1621,11 @@ External Setpoint Generation:
 		<AxisPara>
 			<General UnitName="°"/>
 			<Dynamic AccelerationMaximum="19997.325" DecelerationMaximum="19997.325" Acceleration="19997.325" Deceleration="19997.325" Jerk="59991.975"/>
-			<Velo RefSearch="133.3155" RefSync="133.3155" SlowManual="0.05" FastManual="3600" Fast="13331.55" Maximum="13331.55"/>
+			<Velo RefSearch="133.3155" RefSync="133.3155" SlowManual="0.05" FastManual="400" Fast="13331.55" Maximum="13331.55"/>
 			<OtherSettings AllowMotionCmdToSlave="true" DataPersistence="true"/>
 		</AxisPara>
 		<Encoder Name="Enc" EncType="19">
-			<EncPara ScaleFactorNumerator="360" ScaleFactorDenominator="1048576" Offset="52469.4022750854" ToleranceWndModuloStart="10" MaxCount="#xffffffff" ReferenceSystem="1">
-				<ParameterChanged>7</ParameterChanged>
-			</EncPara>
+			<EncPara ScaleFactorNumerator="360" ScaleFactorDenominator="1048576" Offset="52469.4022750854" ToleranceWndModuloStart="10" MaxCount="#xffffffff" ReferenceSystem="1"/>
 			<Vars VarGrpType="1">
 				<Name>Inputs</Name>
 				<Var>

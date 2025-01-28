@@ -1,23 +1,23 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<SafetyDeviceDesc Crc="2648939049" FileFormatVersion="1.8">
+<SafetyDeviceDesc Crc="3981200193" FileFormatVersion="1.8">
   <AliasDeviceType>
     <Type>4</Type>
     <SubType>190</SubType>
     <VendorId>2</VendorId>
   </AliasDeviceType>
-  <SDSID>17</SDSID>
+  <SDSID>18</SDSID>
   <SafetyAliasDevice>
-    <ObjectId>50921669</ObjectId>
+    <ObjectId>50921670</ObjectId>
     <LinkingMode>Automatic</LinkingMode>
-    <ConnectionId>17</ConnectionId>
+    <ConnectionId>18</ConnectionId>
     <ConnectionMode>master</ConnectionMode>
     <ConnectionType>FSoE</ConnectionType>
     <MapDiag>false</MapDiag>
-    <MapInputs>false</MapInputs>
+    <MapInputs>true</MapInputs>
     <MapOutputs>false</MapOutputs>
     <MapState>false</MapState>
     <ModuleFaultIsComErr>false</ModuleFaultIsComErr>
-    <SafeAddress>14</SafeAddress>
+    <SafeAddress>270</SafeAddress>
     <Watchdog>100</Watchdog>
     <ComErrAck Type="Unset" />
     <Params>
@@ -27,7 +27,7 @@
       <Param Index="32769" SubIndex="1">00</Param>
       <Param Index="32769" SubIndex="2">00</Param>
       <Param Index="32769" SubIndex="3">00</Param>
-      <Param Index="32769" SubIndex="4">00</Param>
+      <Param Index="32769" SubIndex="4">01</Param>
       <Param Index="32770" SubIndex="1">00</Param>
       <Param Index="32770" SubIndex="3">00</Param>
       <Messages>
@@ -87,7 +87,7 @@
           <BitOffsData>-1</BitOffsData>
         </IO>
         <IO>
-          <Name>InputChannel1</Name>
+          <Name>FailSafeOutput</Name>
           <Index>24577</Index>
           <SubIndex>1</SubIndex>
           <DataType>BIT</DataType>
@@ -98,7 +98,7 @@
           <BitOffsData>0</BitOffsData>
         </IO>
         <IO>
-          <Name>InputChannel2</Name>
+          <Name>Circuit1FailsafeOutput</Name>
           <Index>24577</Index>
           <SubIndex>2</SubIndex>
           <DataType>BIT</DataType>
@@ -109,7 +109,7 @@
           <BitOffsData>1</BitOffsData>
         </IO>
         <IO>
-          <Name>BrakeCircuit1_Error</Name>
+          <Name>Circuit2FailsafeOutput</Name>
           <Index>24577</Index>
           <SubIndex>3</SubIndex>
           <DataType>BIT</DataType>
@@ -120,7 +120,7 @@
           <BitOffsData>2</BitOffsData>
         </IO>
         <IO>
-          <Name>BrakeCircuit2_Error</Name>
+          <Name>NC_InputChannel4</Name>
           <Index>24577</Index>
           <SubIndex>4</SubIndex>
           <DataType>BIT</DataType>

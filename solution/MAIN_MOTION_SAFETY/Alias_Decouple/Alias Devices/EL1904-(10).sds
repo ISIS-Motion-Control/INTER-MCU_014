@@ -1,23 +1,23 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<SafetyDeviceDesc Crc="3050464322" FileFormatVersion="1.8">
+<SafetyDeviceDesc Crc="1542137109" FileFormatVersion="1.8">
   <AliasDeviceType>
     <Type>4</Type>
     <SubType>190</SubType>
     <VendorId>2</VendorId>
   </AliasDeviceType>
-  <SDSID>14</SDSID>
+  <SDSID>13</SDSID>
   <SafetyAliasDevice>
-    <ObjectId>50921662</ObjectId>
+    <ObjectId>50921661</ObjectId>
     <LinkingMode>Automatic</LinkingMode>
-    <ConnectionId>14</ConnectionId>
+    <ConnectionId>13</ConnectionId>
     <ConnectionMode>master</ConnectionMode>
     <ConnectionType>FSoE</ConnectionType>
     <MapDiag>false</MapDiag>
-    <MapInputs>false</MapInputs>
+    <MapInputs>true</MapInputs>
     <MapOutputs>false</MapOutputs>
     <MapState>false</MapState>
     <ModuleFaultIsComErr>false</ModuleFaultIsComErr>
-    <SafeAddress>8</SafeAddress>
+    <SafeAddress>7</SafeAddress>
     <Watchdog>100</Watchdog>
     <ComErrAck Type="Unset" />
     <Params>
@@ -87,7 +87,7 @@
           <BitOffsData>-1</BitOffsData>
         </IO>
         <IO>
-          <Name>InputChannel1</Name>
+          <Name>EStop6_ChA</Name>
           <Index>24577</Index>
           <SubIndex>1</SubIndex>
           <DataType>BIT</DataType>
@@ -98,7 +98,7 @@
           <BitOffsData>0</BitOffsData>
         </IO>
         <IO>
-          <Name>InputChannel2</Name>
+          <Name>HoldToRun_ChA</Name>
           <Index>24577</Index>
           <SubIndex>2</SubIndex>
           <DataType>BIT</DataType>
@@ -109,7 +109,7 @@
           <BitOffsData>1</BitOffsData>
         </IO>
         <IO>
-          <Name>InputChannel3</Name>
+          <Name>EStop6_ChB</Name>
           <Index>24577</Index>
           <SubIndex>3</SubIndex>
           <DataType>BIT</DataType>
@@ -120,7 +120,7 @@
           <BitOffsData>2</BitOffsData>
         </IO>
         <IO>
-          <Name>Reset</Name>
+          <Name>HoldToRun_ChB</Name>
           <Index>24577</Index>
           <SubIndex>4</SubIndex>
           <DataType>BIT</DataType>

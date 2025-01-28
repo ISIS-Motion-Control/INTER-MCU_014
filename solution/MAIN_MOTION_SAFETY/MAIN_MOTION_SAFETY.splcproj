@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project Crc="2980202334" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+<Project Crc="1215885762" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
   <PropertyGroup>
     <Configuration Condition="'$(Configuration)' == ''">Debug</Configuration>
     <SchemaVersion>2.0</SchemaVersion>
@@ -10,7 +10,7 @@
     <ProgrammingLanguage>Graphical Editor</ProgrammingLanguage>
     <Worker />
     <IntProjName />
-    <NextSdsId>20</NextSdsId>
+    <NextSdsId>24</NextSdsId>
     <SPlcProjVersion>1.7.0.0</SPlcProjVersion>
     <SortMode>2</SortMode>
   </PropertyGroup>
@@ -21,27 +21,36 @@
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
+    <None Include="Alias_Decouple\Alias Devices\Connection to X_ROT_AND_Z_TRANS.sds" />
+    <None Include="Alias_Decouple\Alias Devices\Connection to Y_1_AND_Y_2.sds" />
+    <None Include="Alias_Decouple\Alias Devices\EL1904-%2813%29.sds" />
+    <None Include="Alias_Decouple\Alias Devices\EL1904-%2812%29.sds" />
+    <None Include="Alias_Decouple\Alias Devices\EL1904-%2806%29.sds" />
+    <None Include="Alias_Decouple\Alias Devices\EL1904-%2807%29.sds" />
+    <None Include="Alias_Decouple\Alias Devices\EL1904-%2809%29.sds" />
+    <None Include="Alias_Decouple\Alias Devices\EL1904-%2810%29.sds" />
+    <None Include="Alias_Decouple\Alias Devices\EL1904-%2808%29.sds" />
+    <None Include="Alias_Decouple\Alias Devices\EL1904-%2811%29.sds" />
+    <None Include="Alias_Decouple\Alias Devices\EL2904-%2809%29.sds" />
+    <None Include="Alias_Decouple\Alias Devices\EL2904-%2806%29.sds" />
+    <None Include="Alias_Decouple\Alias Devices\EL2904-%2808%29.sds" />
+    <None Include="Alias_Decouple\Alias Devices\EL2912 - Motion Signs.sds" />
+    <None Include="Alias_Decouple\Alias Devices\ErrorAcknowledgement.sds" />
+    <None Include="Alias_Decouple\Alias Devices\Run.sds" />
+    <None Include="Alias_Decouple\Alias_Decouple.sal" />
+    <None Include="Alias_Decouple\Alias_Decouple.sal.diagram">
+      <Visible>false</Visible>
+      <DependentUpon>Alias_Decouple\Alias_Decouple.sal</DependentUpon>
+    </None>
     <None Include="GVLs\GVL.sgvl" />
-    <None Include="Main_Prog\Alias Devices\EL1904 - BrakeRelayFB.sds" />
-    <None Include="Main_Prog\Alias Devices\EL1904 - EStop1 and EStop2.sds" />
-    <None Include="Main_Prog\Alias Devices\EL1904 - EStop3 and SandL.sds" />
-    <None Include="Main_Prog\Alias Devices\EL1904 - EStop4 and EStop 5.sds" />
-    <None Include="Main_Prog\Alias Devices\EL1904 - EStop6 and HtR.sds" />
-    <None Include="Main_Prog\Alias Devices\EL1904 - EStop7 and BeckhoffContactor and GalilContactor.sds" />
-    <None Include="Main_Prog\Alias Devices\EL1904 - Reset.sds" />
-    <None Include="Main_Prog\Alias Devices\EL1904 - BrakeCntrFB.sds" />
-    <None Include="Main_Prog\Alias Devices\EL2904 - BrakeResets.sds" />
-    <None Include="Main_Prog\Alias Devices\EL2904 - ContactorGalil and Contactor Beckhoff.sds" />
-    <None Include="Main_Prog\Alias Devices\EL2904 - ResetLamp.sds" />
-    <None Include="Main_Prog\Alias Devices\EL2912 - Motion Signs.sds" />
-    <None Include="Main_Prog\Alias Devices\PLC_BrakeReset.sds" />
+    <None Include="OpMode\OpMode.sal" />
+    <None Include="OpMode\OpMode.sal.diagram">
+      <Visible>false</Visible>
+      <DependentUpon>OpMode\OpMode.sal</DependentUpon>
+    </None>
     <None Include="TargetSystemConfig.xml">
       <Visible>false</Visible>
     </None>
-    <None Include="Main_Prog\Alias Devices\Connection to X_ROT_AND_Z_TRANS.sds" />
-    <None Include="Main_Prog\Alias Devices\Connection to Y_1_AND_Y_2.sds" />
-    <None Include="Main_Prog\Alias Devices\ErrorAcknowledgement.sds" />
-    <None Include="Main_Prog\Alias Devices\Run.sds" />
     <None Include="Main_Prog\Main_Prog.sal" />
     <None Include="Main_Prog\Main_Prog.sal.diagram">
       <Visible>false</Visible>
@@ -49,9 +58,13 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Alias_Decouple" />
+    <Folder Include="Alias_Decouple\Alias Devices" />
     <Folder Include="GVLs" />
     <Folder Include="Main_Prog" />
     <Folder Include="Main_Prog\Alias Devices" />
+    <Folder Include="OpMode" />
+    <Folder Include="OpMode\Alias Devices" />
     <Folder Include="User FBs" />
   </ItemGroup>
 </Project>

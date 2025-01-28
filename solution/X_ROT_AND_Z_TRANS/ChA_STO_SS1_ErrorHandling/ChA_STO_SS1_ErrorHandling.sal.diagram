@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<safetyApplicationLanguageDiagram Crc="1204984996" dslVersion="1.4.0.0" Id="79b308a6-614f-493d-a9a4-a06ade93ac95" absoluteBounds="0, 0, 35.625, 9.875" diagramId="a5abe5d8-eb4e-4b61-89d8-e6a00d56f73e">
+<safetyApplicationLanguageDiagram Crc="4220695347" dslVersion="1.4.0.0" Id="79b308a6-614f-493d-a9a4-a06ade93ac95" absoluteBounds="0, 0, 35.625, 9.875" diagramId="a5abe5d8-eb4e-4b61-89d8-e6a00d56f73e" name="ChA_STO_SS1_ErrorHandling">
   <safetyApplicationMoniker name="/" />
   <nestedChildShapes>
     <networkSwimLane Id="2aef06f4-6e8d-453d-b36b-44df40116715" absoluteBounds="0, 0, 35.625, 9.875">

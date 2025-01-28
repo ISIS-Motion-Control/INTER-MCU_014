@@ -20,30 +20,12 @@
 			</ArrayInfo>
 		</DataType>
 		<DataType>
-			<Name GUID="{18071995-0000-0000-0000-002000000003}" IecBaseType="true" AutoDeleteType="true" HideSubItems="true">ARRAY [0..2] OF BIT</Name>
-			<BitSize>3</BitSize>
-			<BaseType GUID="{18071995-0000-0000-0000-000000000010}">BIT</BaseType>
-			<ArrayInfo>
-				<LBound>0</LBound>
-				<Elements>3</Elements>
-			</ArrayInfo>
-		</DataType>
-		<DataType>
 			<Name GUID="{18071995-0000-0000-0000-002000000005}" IecBaseType="true" BitType="true" AutoDeleteType="true" HideSubItems="true">ARRAY [0..4] OF BIT</Name>
 			<BitSize>5</BitSize>
 			<BaseType GUID="{18071995-0000-0000-0000-000000000010}">BIT</BaseType>
 			<ArrayInfo>
 				<LBound>0</LBound>
 				<Elements>5</Elements>
-			</ArrayInfo>
-		</DataType>
-		<DataType>
-			<Name GUID="{18071995-0000-0000-0000-002000000004}" IecBaseType="true" AutoDeleteType="true" HideSubItems="true">ARRAY [0..3] OF BIT</Name>
-			<BitSize>4</BitSize>
-			<BaseType GUID="{18071995-0000-0000-0000-000000000010}">BIT</BaseType>
-			<ArrayInfo>
-				<LBound>0</LBound>
-				<Elements>4</Elements>
 			</ArrayInfo>
 		</DataType>
 		<DataType>
@@ -2026,17 +2008,8 @@
 				<Entry Name="Standard Out Var 6" BitLen="1" Index="#xf606" Sub="#x02">
 					<Type>BIT</Type>
 				</Entry>
-				<Entry Name="Standard Out Var 9" BitLen="1" Index="#xf606" Sub="#x03">
-					<Type>BIT</Type>
-				</Entry>
-				<Entry Name="Standard Out Var 10" BitLen="1" Index="#xf606" Sub="#x04">
-					<Type>BIT</Type>
-				</Entry>
-				<Entry Name="Standard Out Var 11" BitLen="1" Index="#xf606" Sub="#x05">
-					<Type>BIT</Type>
-				</Entry>
-				<Entry BitLen="3">
-					<Type GUID="{18071995-0000-0000-0000-002000000003}">ARRAY [0..2] OF BIT</Type>
+				<Entry BitLen="6">
+					<Type GUID="{18071995-0000-0000-0000-002000000006}">ARRAY [0..5] OF BIT</Type>
 				</Entry>
 			</Pdo>
 			<Pdo Name="Function Block Info Data" Index="#x1bf1" Flags="#x0080" SyncUnit="2"/>
@@ -2154,14 +2127,8 @@
 				<Entry Name="Standard In Var 3" BitLen="1" Index="#xf706" Sub="#x02">
 					<Type>BIT</Type>
 				</Entry>
-				<Entry Name="Standard In Var 7" BitLen="1" Index="#xf706" Sub="#x03">
-					<Type>BIT</Type>
-				</Entry>
-				<Entry Name="Standard In Var 8" BitLen="1" Index="#xf706" Sub="#x04">
-					<Type>BIT</Type>
-				</Entry>
-				<Entry BitLen="4">
-					<Type GUID="{18071995-0000-0000-0000-002000000004}">ARRAY [0..3] OF BIT</Type>
+				<Entry BitLen="6">
+					<Type GUID="{18071995-0000-0000-0000-002000000006}">ARRAY [0..5] OF BIT</Type>
 				</Entry>
 			</Pdo>
 			<Pdo Name="FSLOGIC Outputs" Index="#x17ff" InOut="1" Flags="#x0091" SyncMan="6" SyncUnit="2">
