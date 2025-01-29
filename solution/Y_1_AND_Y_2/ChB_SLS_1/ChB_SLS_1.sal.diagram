@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<safetyApplicationLanguageDiagram Crc="1107760451" dslVersion="1.4.0.0" Id="4811986c-74aa-4d6d-abbf-44102211cce6" absoluteBounds="0, 0, 21.125, 8.5" diagramId="733646b5-493f-4722-beb2-9cda993794f6">
+<safetyApplicationLanguageDiagram Crc="1058969744" dslVersion="1.4.0.0" Id="4811986c-74aa-4d6d-abbf-44102211cce6" absoluteBounds="0, 0, 21.125, 8.5" diagramId="733646b5-493f-4722-beb2-9cda993794f6" name="ChB_SLS_1">
   <safetyApplicationMoniker name="/" />
   <nestedChildShapes>
     <networkSwimLane Id="e91f31a5-e889-4d6d-b99a-dd8b48edbcb5" absoluteBounds="0, 0, 21.125, 4.125">
@@ -144,5 +144,14 @@
         </wiredLinkConnector>
       </nestedChildShapes>
     </networkSwimLane>
+    <commentBoxShape Id="818b97f7-f02a-469d-aabb-8457a6c5bead" absoluteBounds="2.75, 3.875, 3.75, 1.25">
+      <commentMoniker Id="1c71cc95-48cb-4b1a-87ad-982ba06f2b73" />
+    </commentBoxShape>
+    <commentLink Id="6f881220-d61f-46ab-bf79-624f952f21f8" edgePoints="[(4.675 : 3.875); (4.675 : 3.625)]" fixedFrom="NotFixed" fixedTo="NotFixed" TargetRelationshipDomainClassId="da515b91-20b6-4f26-a83d-46793fbef22a">
+      <nodes>
+        <commentBoxShapeMoniker Id="818b97f7-f02a-469d-aabb-8457a6c5bead" />
+        <fBLimitShapeMoniker Id="9047e61e-df2f-4a8e-a8b1-a2050f856a45" />
+      </nodes>
+    </commentLink>
   </nestedChildShapes>
 </safetyApplicationLanguageDiagram>

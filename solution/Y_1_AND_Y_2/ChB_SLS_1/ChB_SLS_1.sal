@@ -1,5 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<safetyApplication Crc="1682978237" xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.4.0.0" Id="80648765-a69f-47d5-8704-a51bef8018d5" name="" mapState="false" mapDiag="false" groupOrderId="3" passificationAllowed="false" temporaryDeactivationAllowed="false" permamentDeactivationAllowed="false" xmlid="0" analogFBOutputReplacementValues="Zero" verifyAnalogFBInputsIfStart="false" userFbId="00000000-0000-0000-0000-000000000000" xmlns="http://schemas.microsoft.com/dsltools/SafetyApplicationLanguage">
+<safetyApplication Crc="521333091" xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.4.0.0" Id="80648765-a69f-47d5-8704-a51bef8018d5" name="" mapState="false" mapDiag="false" groupOrderId="3" passificationAllowed="false" temporaryDeactivationAllowed="false" permamentDeactivationAllowed="false" xmlid="0" analogFBOutputReplacementValues="Zero" verifyAnalogFBInputsIfStart="false" userFbId="00000000-0000-0000-0000-000000000000" xmlns="http://schemas.microsoft.com/dsltools/SafetyApplicationLanguage">
+  <comments>
+    <comment Id="1c71cc95-48cb-4b1a-87ad-982ba06f2b73" text="32bits per revolution&#xD;&#xA;5 motor revs per second for 5mm/s limit&#xD;&#xA;1ms cycle time&#xD;&#xA;21,474,836 limit" currentNetworkOrderId="0">
+      <networks>
+        <commentReferencesNetworks Id="8e5f2d76-6d0b-4bc0-a3e2-3a844c327589">
+          <networkMoniker name="//SLS_1_ChB" />
+        </commentReferencesNetworks>
+      </networks>
+      <subjects>
+        <fBLimitMoniker name="//SLS_1_ChB/SLS_1_Limit" />
+      </subjects>
+    </comment>
+  </comments>
   <networks>
     <safetyApplicationHasNetworks Id="41cc13fb-beca-499f-86e3-d1f32e9f7404">
       <Network Id="d8e3e413-bc40-4f65-8d53-c2774ef04f4f" name="SLS_1_ChB" networkName="SLS_1_ChB" intId="1" networkOrderId="0">
@@ -45,10 +57,10 @@
               </outPorts>
               <parameterPorts>
                 <functionBlockHasParamPorts Id="93335eee-26db-4d35-ad7a-1b73ee0403b8">
-                  <parameterPort Id="45e4ad7a-a9c3-4025-a3d7-97fbe5713b7c" name="Minimum Value" portName="Minimum Value" portNum="5" objectIndex="0" varId="0" filter="0" portDataType="0" timing="0" userFbPortName="Minimum Value" useInUserFb="false" />
+                  <parameterPort Id="45e4ad7a-a9c3-4025-a3d7-97fbe5713b7c" name="Minimum Value" portName="Minimum Value" portNum="5" objectIndex="0" varId="0" filter="0" portDataType="0" timing="-21474836" userFbPortName="Minimum Value" useInUserFb="false" />
                 </functionBlockHasParamPorts>
                 <functionBlockHasParamPorts Id="987dc719-7d8a-460c-ac3c-9e10d111d877">
-                  <parameterPort Id="2c5ecc3c-ddac-4cff-a398-3becb1ccc860" name="Maximum Value" portName="Maximum Value" portNum="6" objectIndex="0" varId="0" filter="0" portDataType="0" timing="0" userFbPortName="Maximum Value" useInUserFb="false" />
+                  <parameterPort Id="2c5ecc3c-ddac-4cff-a398-3becb1ccc860" name="Maximum Value" portName="Maximum Value" portNum="6" objectIndex="0" varId="0" filter="0" portDataType="0" timing="21474836" userFbPortName="Maximum Value" useInUserFb="false" />
                 </functionBlockHasParamPorts>
               </parameterPorts>
             </fBLimit>
@@ -96,8 +108,8 @@
                       </wiredLink>
                     </targetFunctionBlockPorts>
                     <functionBlockPortReferences>
-                      <globalReferenceLink Id="3f817b21-6f1f-48a5-80a9-b2db9f44da38">
-                        <functionBlockPortReference Id="1c609557-626b-4efb-bd45-97fa4c52cf6a" portId="aa96e3ac-59b5-45d6-81f3-f88e03bfe112" lastKnownPath="ChB_STO_SS1_ErrorHandling.STO_SS1_1.SS1_ChB.MonIn4" />
+                      <globalReferenceLink Id="5e1cf237-6dba-49db-9864-da7cb713d839">
+                        <functionBlockPortReference Id="834ad090-b4e1-4c7d-92c7-d709d20d0e3f" portId="06916444-a9ed-4a2a-8d65-f3905597a846" lastKnownPath="ChB_STO_SS1_ErrorHandling.STO_SS1_1.FBMon_SLS.MonIn1" />
                       </globalReferenceLink>
                     </functionBlockPortReferences>
                   </outPort>
@@ -162,6 +174,33 @@
     </safetyApplicationHasTwinSAFEGroupAliasPort>
     <safetyApplicationHasTwinSAFEGroupAliasPort Id="c1403506-e8c5-4ed9-85ae-2804203362b0">
       <twinSAFEGroupAliasPort Id="7d56c950-799b-420a-b73d-eb36ff264ce9" name="RunStop" sdsId="0" channelId="0" portName="RunStop" functionId="0" />
+    </safetyApplicationHasTwinSAFEGroupAliasPort>
+    <safetyApplicationHasTwinSAFEGroupAliasPort Id="7d4bdb76-e1a1-4a10-8351-3f939918a294">
+      <twinSAFEGroupAliasPort Id="48a8837c-0c7b-4438-b6f1-24f3835f2ca6" name="ModuleFault" sdsId="0" channelId="0" portName="ModuleFault" functionId="0" />
+    </safetyApplicationHasTwinSAFEGroupAliasPort>
+    <safetyApplicationHasTwinSAFEGroupAliasPort Id="97714d7c-ddd6-4a2d-8156-1bb52b897be8">
+      <twinSAFEGroupAliasPort Id="d1c5add3-0736-405a-bd44-b68ddeab2850" name="FbErr" sdsId="0" channelId="0" portName="FbErr" functionId="0" />
+    </safetyApplicationHasTwinSAFEGroupAliasPort>
+    <safetyApplicationHasTwinSAFEGroupAliasPort Id="2887e516-5406-4d44-8a64-6d16d3ca7269">
+      <twinSAFEGroupAliasPort Id="54b0dc9c-0fff-416c-a160-b6f2c541a221" name="ComErr" sdsId="0" channelId="0" portName="ComErr" functionId="0" />
+    </safetyApplicationHasTwinSAFEGroupAliasPort>
+    <safetyApplicationHasTwinSAFEGroupAliasPort Id="030a875a-6164-46b2-9fa2-ed77de0e7972">
+      <twinSAFEGroupAliasPort Id="006b9a36-c96c-4180-a13d-698e5d8f510e" name="OutErr" sdsId="0" channelId="0" portName="OutErr" functionId="0" />
+    </safetyApplicationHasTwinSAFEGroupAliasPort>
+    <safetyApplicationHasTwinSAFEGroupAliasPort Id="61acbff4-b3cf-4510-93fa-5910e285c9d6">
+      <twinSAFEGroupAliasPort Id="001dabd2-0a0f-45f8-ada2-aeac1522a922" name="OtherErr" sdsId="0" channelId="0" portName="OtherErr" functionId="0" />
+    </safetyApplicationHasTwinSAFEGroupAliasPort>
+    <safetyApplicationHasTwinSAFEGroupAliasPort Id="2fcbf47a-2340-4715-a1eb-cb893dacefee">
+      <twinSAFEGroupAliasPort Id="feb7554f-4f82-4e58-bd30-7c442c0a0435" name="ComStartup" sdsId="0" channelId="0" portName="ComStartup" functionId="0" />
+    </safetyApplicationHasTwinSAFEGroupAliasPort>
+    <safetyApplicationHasTwinSAFEGroupAliasPort Id="e229fbf8-1897-4c8e-a74a-a387865461c6">
+      <twinSAFEGroupAliasPort Id="fdbb37be-ba24-45ea-b48e-a37a0a2e2542" name="FbDeactive" sdsId="0" channelId="0" portName="FbDeactive" functionId="0" />
+    </safetyApplicationHasTwinSAFEGroupAliasPort>
+    <safetyApplicationHasTwinSAFEGroupAliasPort Id="b2ac4f2f-ec05-4e5e-86a5-f933d8379b10">
+      <twinSAFEGroupAliasPort Id="f5a15082-92e7-45ca-add7-d24841edff8e" name="FbRun" sdsId="0" channelId="0" portName="FbRun" functionId="0" />
+    </safetyApplicationHasTwinSAFEGroupAliasPort>
+    <safetyApplicationHasTwinSAFEGroupAliasPort Id="bcb767a8-b5eb-4267-9416-4b6d866dba37">
+      <twinSAFEGroupAliasPort Id="9b754e63-02d5-44bc-bab0-727fb98707be" name="InRun" sdsId="0" channelId="0" portName="InRun" functionId="0" />
     </safetyApplicationHasTwinSAFEGroupAliasPort>
   </twinSAFEGroupAliasPorts>
   <variables>

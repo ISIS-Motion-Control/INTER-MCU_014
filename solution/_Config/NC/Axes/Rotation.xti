@@ -1620,12 +1620,12 @@ External Setpoint Generation:
 		<Name>__FILENAME__</Name>
 		<AxisPara>
 			<General UnitName="°"/>
-			<Dynamic AccelerationMaximum="19997.325" DecelerationMaximum="19997.325" Acceleration="19997.325" Deceleration="19997.325" Jerk="59991.975"/>
-			<Velo RefSearch="133.3155" RefSync="133.3155" SlowManual="0.05" FastManual="400" Fast="13331.55" Maximum="13331.55"/>
+			<Dynamic AccelerationMaximum="19997.325" DecelerationMaximum="19997.325" Acceleration="11.9025" Deceleration="11.9025" Jerk="35.7075"/>
+			<Velo RefSearch="0.07935" RefSync="0.07935" SlowManual="0.05" FastManual="0.5" Fast="7.935" Maximum="7.935"/>
 			<OtherSettings AllowMotionCmdToSlave="true" DataPersistence="true"/>
 		</AxisPara>
 		<Encoder Name="Enc" EncType="19">
-			<EncPara ScaleFactorNumerator="360" ScaleFactorDenominator="1048576" Offset="52469.4022750854" ToleranceWndModuloStart="10" MaxCount="#xffffffff" ReferenceSystem="1"/>
+			<EncPara ScaleFactorNumerator="360" ScaleFactorDenominator="1761607680" ToleranceWndModuloStart="10" MaxCount="#xffffffff" ReferenceSystem="1"/>
 			<Vars VarGrpType="1">
 				<Name>Inputs</Name>
 				<Var>
@@ -1719,7 +1719,7 @@ External Setpoint Generation:
 		</Encoder>
 		<Drive Name="Drive" DrvType="16">
 			<DrvPara MaxCount="#xffffffff" DriveControlDWord="#x00020100">
-				<Analog VeloReferenz="14664.705" VeloScale="71.5255737304688" TorqueSetpointScale="10" ScaleFactorActTorque="0.1"/>
+				<Analog VeloReferenz="8.7285" VeloScale="71.5255737304688" TorqueSetpointScale="10" ScaleFactorActTorque="0.1"/>
 				<TimeComp TaskDelayCycles="1"/>
 			</DrvPara>
 			<Vars VarGrpType="1">

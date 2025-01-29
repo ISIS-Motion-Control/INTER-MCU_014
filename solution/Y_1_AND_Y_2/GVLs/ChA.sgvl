@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<GlobalVariables Crc="2402519442" Id="07b29ae0-5128-4d00-b905-97db463a66ef" FileFormatVersion="1.0">
+<GlobalVariables Crc="3717196601" Id="07b29ae0-5128-4d00-b905-97db463a66ef" FileFormatVersion="1.0">
   <Variable Id="3769f1d5-50ef-4db0-80ae-e5e92cdca993">
     <Name>STO_CMD</Name>
     <SourceUsages>
@@ -34,8 +34,8 @@
       </FbPortUsage>
     </SourceUsages>
     <TargetUsages>
-      <FbPortUsage Id="f08b1500-ba39-4e0c-b074-16e769e2565b">
-        <ModelElementId>04bc52bd-22f3-46c7-9bd0-984262bdc956</ModelElementId>
+      <FbPortUsage Id="8a13ea0a-a428-4d4d-a052-5df800aefd7b">
+        <ModelElementId>1a94e0fa-90fe-459f-85ec-20044fbd4673</ModelElementId>
       </FbPortUsage>
     </TargetUsages>
   </Variable>

@@ -304,7 +304,7 @@ END_IF
 //Sometimes the rotation loads in 360degrees out of phase, we need to be able to detect and fix this.
 setPosRotation(Axis:= astAxes[AXIS_ROTATION].Axis);
 setPosRotation.Execute:= FALSE;
-(*
+
 IF ABS(astAxes[AXIS_ROTATION].Axis.NcToPlc.ActPos)>20 AND astAxes[AXIS_ROTATION].Axis.Status.NotMoving THEN
     astAxes[AXIS_ROTATION].stControl.bEnable:= FALSE;
     IF astAxes[AXIS_ROTATION].Axis.NcToPlc.ActPos>20 THEN
@@ -320,7 +320,7 @@ ELSE
     bRotationValid:= TRUE;
 END_IF
 
-*)    
+    
     CASE eStateInter OF
         eState_INTER.init:       
             IF GVL_INTER.RUN_KINEMATICS AND CombinedVerticalSetupComplete AND bRotationValid THEN
@@ -582,7 +582,7 @@ FOR i:=1 TO ARRAYSIZE_ALLVIRTUALS DO
     aVirtualAxisDefaults[i].mcSetPosition(Axis:=astAxes[aVirtualAxisDefaults[i].axisID].Axis);
     aVirtualAxisDefaults[i].mcSetPosition.Execute:= FALSE;
 END_FOR   
-
+(*
 //Check speeds not too high
 IF NOT GVL_INTER.SPEED_LIMITING AND (ABS(axisSpg_Vertical.velocity)>VERTICAL_SPEED_LIMIT OR ABS(axisSpg_Horizontal.velocity)>HORIZONTAL_SPEED_LIMIT OR ABS(axisSpg_Rot.velocity)>ROTATION_SPEED_LIMIT) THEN
     IF axisSpg_Vertical.velocity>0 THEN
@@ -615,7 +615,7 @@ IF GVL_INTER.VIRTUAL_AXES_NOT_MOVING AND GVL_INTER.SPEED_LIMITING THEN
         GVL_INTER.SPEED_LIMITING:= FALSE;
 	END_FOR
 END_IF
-
+*)
 GVL_INTER.LOGIC_STATE_STR := TO_STRING(GVL_INTER.LOGIC_STATE);
 GVL_INTER.LOGIC_STATE_ERROR_STR := TO_STRING(GVL_INTER.LOGIC_STATE_ERROR);
 
