@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<safetyApplicationLanguageDiagram Crc="4239091392" dslVersion="1.4.0.0" Id="e2bb0aae-6dbc-4eee-866a-17b05f6f54ef" absoluteBounds="0, 0, 20.875, 27.75" name="TwinSAFE">
+<safetyApplicationLanguageDiagram Crc="546919316" dslVersion="1.4.0.0" Id="e2bb0aae-6dbc-4eee-866a-17b05f6f54ef" absoluteBounds="0, 0, 20.875, 24" name="TwinSAFE">
   <safetyApplicationMoniker name="/" />
   <nestedChildShapes>
     <networkSwimLane Id="a4cdb824-9b62-4c0e-875f-849d291a2692" absoluteBounds="0, 0, 20.875, 7.5">
@@ -643,7 +643,7 @@
         </fBDecoupleShape>
       </nestedChildShapes>
     </networkSwimLane>
-    <networkSwimLane Id="e2591a97-9201-463d-9745-f87d1432bf7e" absoluteBounds="0, 20, 20.875, 7.75">
+    <networkSwimLane Id="e2591a97-9201-463d-9745-f87d1432bf7e" absoluteBounds="0, 20, 20.875, 4">
       <networkMoniker name="//Network5" />
       <nestedChildShapes>
         <fBDecoupleShape Id="f1b6bddc-1bb6-45d8-852b-146266063b56" absoluteBounds="1.625, 20.5, 2.75, 3.25">

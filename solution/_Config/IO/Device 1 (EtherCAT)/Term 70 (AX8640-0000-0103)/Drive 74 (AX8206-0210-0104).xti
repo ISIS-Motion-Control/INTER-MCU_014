@@ -1708,7 +1708,7 @@
 			<SyncMan>003c00002400000005000000000000000000003c24000000</SyncMan>
 			<SyncMan>004e00002000000006000000000000000000004e20000000</SyncMan>
 			<SyncMan>00600e002400010003000000000000000a00006024010000</SyncMan>
-			<SyncMan>00720e002000010004000000000000000a00007220010000</SyncMan>
+			<SyncMan>007210002000010004000000000000000a00007220010000</SyncMan>
 			<Fmmu>0000000000000000001800020100000001000000060000000200000000000000</Fmmu>
 			<Fmmu>0000000000000000002a00010100000002000000060000000300000000000000</Fmmu>
 			<Fmmu>00000000000000000d0800010100000003000000000000000000000000000000</Fmmu>
@@ -2094,7 +2094,14 @@
 			</Pdo>
 			<Pdo Name="Function Block Info Data" Index="#x1bf1" Flags="#x0080" SyncUnit="2"/>
 			<Pdo Name="Connection Info Data" Index="#x1bf6" Flags="#x0080" SyncUnit="2"/>
-			<Pdo Name="Group Info Data" Index="#x1bf9" Flags="#x0080" SyncUnit="2"/>
+			<Pdo Name="Group Info Data" Index="#x1bf9" Flags="#x0080" SyncMan="7" SyncUnit="2">
+				<Entry Name="ChA_ChB_Connection_Input Info Data__State" BitLen="8" Index="#xf192" Sub="#x01">
+					<Type>USINT</Type>
+				</Entry>
+				<Entry Name="ChA_ChB_Connection_Input Info Data__Diag" BitLen="8" Index="#xf193" Sub="#x01">
+					<Type>USINT</Type>
+				</Entry>
+			</Pdo>
 			<Pdo Name="Device Info Data" Index="#x1bfb" Flags="#x0080" SyncUnit="2"/>
 			<Pdo Name="FSLOGIC Inputs" Index="#x1bff" Flags="#x0091" SyncMan="7" SyncUnit="2">
 				<Entry Name="FSOE__Safe Logic State" BitLen="8" Index="#xf100" Sub="#x01">

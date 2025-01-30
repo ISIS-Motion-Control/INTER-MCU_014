@@ -965,11 +965,19 @@ External Setpoint Generation:
 		</DataType>
 	</DataTypes>
 	<Project GUID="{FB261665-FD20-4BF2-97F8-2854C82B752D}" Name="tc_project_app" PrjFilePath="..\..\tc_project_app\tc_project_app.plcproj" TmcFilePath="..\..\tc_project_app\tc_project_app.tmc" ReloadTmc="true" AmsPort="852" FileArchiveSettings="#x000e" SymbolicMapping="true">
-		<Instance Id="#x08502040" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="tc_project_app\tc_project_app.tmc" TmcHash="{53C6EC47-7A66-0F3D-C5F1-6A5CB269DC15}">
+		<Instance Id="#x08502040" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="tc_project_app\tc_project_app.tmc" TmcHash="{EC8F0B89-1806-6A8E-B9F7-AA0EC9D136E4}">
 			<Name>tc_project_app Instance</Name>
 			<CLSID ClassFactory="TcPlc30">{08500001-0000-0000-F000-000000000064}</CLSID>
 			<Vars VarGrpType="1">
 				<Name>PlcTask Inputs</Name>
+				<Var>
+					<Name>PLC_SAFETY_LOGIC.localModeButton_Pressed</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Safety.LocalMode</Name>
+					<Type>BOOL</Type>
+				</Var>
 				<Var>
 					<Name>GVL.astAxes[1].stStatus.nEncoderRawCounter</Name>
 					<Comment><![CDATA[Raw encoder counter value]]></Comment>
@@ -1780,6 +1788,18 @@ External Setpoint Generation:
 					<Name>GVL.astAxes[30].Axis.NcToPlc</Name>
 					<Type GUID="{10036166-C9D3-404B-BDD3-323034AAA7F4}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
 				</Var>
+				<Var>
+					<Name>GVL_Safety.ResetPossibleAndPressed</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Safety.UnoccupiedMode</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Safety.fbMon_StateValid_Status</Name>
+					<Type>BYTE</Type>
+				</Var>
 			</Vars>
 			<Vars VarGrpType="2" AreaNo="1">
 				<Name>PlcTask Outputs</Name>
@@ -2086,6 +2106,12 @@ bPowerSwitchesAxis1 AT %Q*: BOOL:= TRUE;]]></Comment>
 				<Link VarA="PlcTask Inputs^GVL.astAxes[8].stInputs.bLimitFwd" VarB="Channel 5^Vertical Z2 Fwd Limit In" Size="1"/>
 			</OwnerB>
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 27 (EK1100)^EL6910-(04)">
+				<Link VarA="PlcTask Inputs^GVL_Safety.LocalMode" VarB="StandardInputs^Standard Out Var 26" Size="1"/>
+				<Link VarA="PlcTask Inputs^GVL_Safety.ResetPossibleAndPressed" VarB="StandardInputs^Standard Out Var 25" Size="1"/>
+				<Link VarA="PlcTask Inputs^GVL_Safety.UnoccupiedMode" VarB="StandardInputs^Standard Out Var 27" Size="1"/>
+				<Link VarA="PlcTask Inputs^GVL_Safety.fbMon_StateValid_Status" VarB="Function Block Info Data^Main_Prog.ESTOPS.FBMon_StateValid Info Data^State"/>
+				<Link VarA="PlcTask Inputs^PLC_SAFETY_LOGIC.localModeButton_Pressed" VarB="Connection Info Data^Message_14 Info Data^Input Safe Data LocalMode_Enable" Size="1"/>
+				<Link VarA="PlcTask Outputs^GVL_Safety.BrakeReset" VarB="StandardOutputs^Standard In Var 24" Size="1"/>
 				<Link VarA="PlcTask Outputs^GVL_Safety.ErrorAck_MotionSafety" VarB="StandardOutputs^Standard In Var 20" Size="1"/>
 				<Link VarA="PlcTask Outputs^GVL_Safety.Run_MotionSafety" VarB="StandardOutputs^Standard In Var 21" Size="1"/>
 			</OwnerB>

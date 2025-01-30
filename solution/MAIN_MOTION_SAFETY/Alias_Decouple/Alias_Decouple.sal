@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<safetyApplication Crc="1204064429" xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.4.0.0" Id="16071a2a-4609-4226-b5df-6fe2d129c35a" name="" mapState="false" mapDiag="false" groupOrderId="1" passificationAllowed="false" temporaryDeactivationAllowed="false" permamentDeactivationAllowed="false" xmlid="0" analogFBOutputReplacementValues="Zero" verifyAnalogFBInputsIfStart="false" userFbId="00000000-0000-0000-0000-000000000000" xmlns="http://schemas.microsoft.com/dsltools/SafetyApplicationLanguage">
+<safetyApplication Crc="1602700452" xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.4.0.0" Id="16071a2a-4609-4226-b5df-6fe2d129c35a" name="" mapState="true" mapDiag="true" groupOrderId="0" passificationAllowed="false" temporaryDeactivationAllowed="false" permamentDeactivationAllowed="false" xmlid="0" analogFBOutputReplacementValues="Zero" verifyAnalogFBInputsIfStart="false" userFbId="00000000-0000-0000-0000-000000000000" xmlns="http://schemas.microsoft.com/dsltools/SafetyApplicationLanguage">
   <networks>
     <safetyApplicationHasNetworks Id="7062707e-0c76-4e43-bafe-3bdbd0cda212">
       <Network Id="285e35e5-4bf3-4f71-8f68-aea90a95ccd8" name="Network1" networkName="EStop_Decouple" intId="1" networkOrderId="0">
@@ -360,7 +360,7 @@
                   <outPort Id="ac4c243a-a215-4e37-bd88-efa9e6bc989b" name="DecOut2" portName="DecOut2" portNum="4" objectIndex="9" varId="18" filter="7" portDataType="1" replacementValue="0">
                     <fbPortGlobalVariableReferences>
                       <functionBlockPortHasFbPortGlobalVariableReferences Id="9e0ade44-5fef-4180-b86f-c0172322db29">
-                        <fbPortGlobalVariableReference Id="8091e7a0-31c8-4349-9af8-f8cd9b5b7a97" variableId="3ead2538-aef8-462a-a58c-a6918c0815c1" lastKnownPath="GVL.LightCurtainChB" />
+                        <fbPortGlobalVariableReference Id="8091e7a0-31c8-4349-9af8-f8cd9b5b7a97" variableId="3ead2538-aef8-462a-a58c-a6918c0815c1" lastKnownPath="GVL.LightCurtain_ChB" />
                       </functionBlockPortHasFbPortGlobalVariableReferences>
                     </fbPortGlobalVariableReferences>
                   </outPort>

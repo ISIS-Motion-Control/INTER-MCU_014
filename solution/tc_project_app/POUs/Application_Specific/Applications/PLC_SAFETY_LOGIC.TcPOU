@@ -3,18 +3,58 @@
   <POU Name="PLC_SAFETY_LOGIC" Id="{33cb3f8d-dfd1-442b-932e-74cbe3827726}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM PLC_SAFETY_LOGIC
 VAR
-  iCounter : INT:=0;  
+    safetyAckTon : TON;
+    
+    localModeButton_Pressed AT %I* : BOOL;
+    localModeTon : TON;
+    
+    unoccupiedTon : TON;
+    unoccupiedTrig : R_TRIG;
+    
 END_VAR
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[IF GVL_Safety.BrakeReset THEN
-    iCounter:= iCounter+1;
+      <ST><![CDATA[GVL_Safety.ErrorAck_MotionSafety := GVL_Safety.Safety_Ack;
+GVL_Safety.ErrorAck_MotionSafety_XRotAndZHor := GVL_Safety.Safety_Ack;
+GVL_Safety.ErrorAck_MotionSafety_Y1AndY2 := GVL_Safety.Safety_Ack;
+
+safetyAckTon(IN:= GVL_Safety.Safety_Ack, PT:= T#500MS);
+
+IF safetyAckTon.Q  THEN
+    GVL_Safety.Safety_Ack:= FALSE;
 END_IF
 
-IF iCounter>4 THEN
-    GVL_Safety.BrakeReset := FALSE;
-    iCounter:=0;
-END_IF]]></ST>
+IF GVL_Safety.fbMon_StateValid_Status = 1 THEN
+    GVL_Safety.LocalMode_Disabled:= FALSE;
+ELSE
+    GVL_Safety.LocalMode_Disabled:= TRUE;
+END_IF
+
+
+
+
+IF localModeButton_Pressed THEN
+    localModeTon.IN:= TRUE;
+    localModeTon.PT:= T#1S;        
+END_IF
+IF localModeTon.Q THEN
+    GVL_INTER.RESET_ALL:= TRUE;
+    localModeTon.IN:= FALSE;
+END_IF
+localModeTon();
+
+unoccupiedTrig(CLK:= GVL_Safety.UnoccupiedMode);
+IF unoccupiedTrig.Q THEN
+    unoccupiedTon.IN:= TRUE;
+    unoccupiedTon.PT:= T#1S;
+END_IF
+IF unoccupiedTon.Q THEN
+    GVL_INTER.RESET_ALL:= TRUE;
+    unoccupiedTon.IN:= FALSE;
+END_IF
+unoccupiedTon();
+
+]]></ST>
     </Implementation>
   </POU>
 </TcPlcObject>

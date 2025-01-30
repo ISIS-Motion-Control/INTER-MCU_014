@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<safetyApplication Crc="3056945849" xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.4.0.0" Id="c969160e-007c-4a50-b9fe-7808477021ac" name="" mapState="false" mapDiag="false" groupOrderId="2" passificationAllowed="false" temporaryDeactivationAllowed="false" permamentDeactivationAllowed="false" xmlid="0" analogFBOutputReplacementValues="Zero" verifyAnalogFBInputsIfStart="false" userFbId="00000000-0000-0000-0000-000000000000" xmlns="http://schemas.microsoft.com/dsltools/SafetyApplicationLanguage">
+<safetyApplication Crc="873392224" xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.4.0.0" Id="c969160e-007c-4a50-b9fe-7808477021ac" name="" mapState="false" mapDiag="false" groupOrderId="2" passificationAllowed="false" temporaryDeactivationAllowed="false" permamentDeactivationAllowed="false" xmlid="0" analogFBOutputReplacementValues="Zero" verifyAnalogFBInputsIfStart="false" userFbId="00000000-0000-0000-0000-000000000000" xmlns="http://schemas.microsoft.com/dsltools/SafetyApplicationLanguage">
   <networks>
     <safetyApplicationHasNetworks Id="a4e98494-4d79-4784-a33c-6f8668583bd3">
       <Network Id="78f236b8-47a3-4eb2-9778-317caced6603" name="STO_SS1_1" networkName="STO_SS1_1" intId="1" networkOrderId="0">
@@ -66,8 +66,8 @@
                 <functionBlockHasOutPorts Id="181e9cda-f07e-4e5f-9be1-6cd5e33118f0">
                   <outPort Id="01c22988-a2bd-40e3-95cd-1471b30e0d88" name="OrOut" portName="OrOut" portNum="8" objectIndex="1" varId="20" filter="7" portDataType="1" replacementValue="0">
                     <targetFunctionBlockPorts>
-                      <wiredLink Id="675de5ee-0234-444e-9aa5-79968fb47247">
-                        <inPortMoniker name="//STO_SS1_1/SS1_ChA/MonIn2" />
+                      <wiredLink Id="4b3b6efb-d6a9-48a9-b0a9-5ed244e5c1e8">
+                        <inPortMoniker name="//STO_SS1_1/FBMon1/MonIn2" />
                       </wiredLink>
                     </targetFunctionBlockPorts>
                   </outPort>
@@ -82,7 +82,7 @@
                   <inPort Id="94681d50-a1d7-43c3-b657-f156bc55c951" name="Restart" portName="Restart" portNum="2" objectIndex="0" varId="1" filter="3" portDataType="1" maxDeviation="0" resetTime="0" />
                 </functioBlockHasInPorts>
                 <functioBlockHasInPorts Id="bf53202e-71d9-4936-a553-c237fdbf5bcf">
-                  <inPort Id="c70f67db-2691-4511-96e7-b739f83231c1" name="MonIn1" portName="MonIn1" portNum="4" objectIndex="8" varId="4" filter="2" portDataType="1" channelInterface="Single-Channel Both Activated" deactivate1="Break Contact (NC)" deactivate2="Make Contact (NO)" maxDeviation="0" resetTime="0">
+                  <inPort Id="c70f67db-2691-4511-96e7-b739f83231c1" name="MonIn1" portName="MonIn1" portNum="4" objectIndex="8" varId="4" filter="2" portDataType="1" channelInterface="Single-Channel Both Activated" deactivate1="Break Contact (NC)" deactivate2="Break Contact (NC)" maxDeviation="0" resetTime="0">
                     <fbPortGlobalVariableReferences>
                       <functionBlockPortHasFbPortGlobalVariableReferences Id="96682560-fb43-4f32-91cb-e6853edd9c90">
                         <fbPortGlobalVariableReference Id="c1abe2d8-67a0-4259-b5d3-6d06aa60c222" variableId="305973b8-eeee-436a-9f58-3c40c7a30013" lastKnownPath="ChA.SS1_CMD" />
@@ -94,13 +94,7 @@
                   <inPort Id="cbb718f6-9c20-418b-b1f1-94e8532a5eea" name="MonIn2" portName="MonIn2" portNum="5" objectIndex="9" varId="5" filter="2" portDataType="1" channelInterface="Both Deactivated" maxDeviation="0" resetTime="0" />
                 </functioBlockHasInPorts>
                 <functioBlockHasInPorts Id="0794154b-c612-4952-ac9a-80f0668ddbf3">
-                  <inPort Id="e4a503ff-2285-4995-b553-115eb8f52256" name="MonIn3" portName="MonIn3" portNum="6" objectIndex="10" varId="6" filter="2" portDataType="1" channelInterface="Single-Channel Both Activated" deactivate1="Break Contact (NC)" deactivate2="Break Contact (NC)" maxDeviation="0" resetTime="0">
-                    <fbPortGlobalVariableReferences>
-                      <functionBlockPortHasFbPortGlobalVariableReferences Id="fc60eea3-2178-4e92-b81c-7a15ded8bc86">
-                        <fbPortGlobalVariableReference Id="17c3da1a-5795-4e9d-911e-68029856e7a4" variableId="98b7f3da-5bd2-4e87-a5d9-9c9eb9e6d6f6" lastKnownPath="ChA.PRIFB_POSITION_VALID" />
-                      </functionBlockPortHasFbPortGlobalVariableReferences>
-                    </fbPortGlobalVariableReferences>
-                  </inPort>
+                  <inPort Id="e4a503ff-2285-4995-b553-115eb8f52256" name="MonIn3" portName="MonIn3" portNum="6" objectIndex="10" varId="6" filter="2" portDataType="1" channelInterface="Both Deactivated" maxDeviation="0" resetTime="0" />
                 </functioBlockHasInPorts>
                 <functioBlockHasInPorts Id="edce6754-558a-4eef-80cd-b53876610bde">
                   <inPort Id="717595d8-cb0c-42ef-a9d3-c1afa25998d7" name="MonIn4" portName="MonIn4" portNum="7" objectIndex="11" varId="7" filter="2" portDataType="1" channelInterface="Both Deactivated" maxDeviation="0" resetTime="0" />
@@ -298,7 +292,7 @@
                   </inPort>
                 </functioBlockHasInPorts>
                 <functioBlockHasInPorts Id="ae4725ba-6797-475c-b815-1093b420f8b4">
-                  <inPort Id="a19a6b26-4042-4caf-b188-5ae2b4a852ae" name="MonIn1" portName="MonIn1" portNum="4" objectIndex="8" varId="4" filter="2" portDataType="1" channelInterface="Single-Channel 1 Activated" deactivate1="Break Contact (NC)" maxDeviation="0" resetTime="0">
+                  <inPort Id="a19a6b26-4042-4caf-b188-5ae2b4a852ae" name="MonIn1" portName="MonIn1" portNum="4" objectIndex="8" varId="4" filter="2" portDataType="1" channelInterface="Single-Channel Both Activated" deactivate1="Break Contact (NC)" deactivate2="Make Contact (NO)" maxDeviation="0" resetTime="0">
                     <functionBlockPortReferences>
                       <globalReferenceLink Id="8233950f-b02b-4073-9561-314bcda9bf04">
                         <functionBlockPortReference Id="2440f7df-c268-44fb-a77d-25717263bc1f" portId="31dcde69-729f-4307-8325-25b1afe0b9d7" lastKnownPath="ChA_SLS_1.SLS_1_ChA.SLS_1_Enable.OrOut" />
@@ -310,7 +304,13 @@
                   <inPort Id="2ab52602-9fbb-4651-aa18-99172b8c9c22" name="MonIn2" portName="MonIn2" portNum="5" objectIndex="9" varId="5" filter="2" portDataType="1" channelInterface="Both Deactivated" maxDeviation="0" resetTime="0" />
                 </functioBlockHasInPorts>
                 <functioBlockHasInPorts Id="73d6f1da-31f0-45b3-b631-c1ebc9a91c20">
-                  <inPort Id="a99c0d00-7ceb-4d83-8e1a-c153e802f292" name="MonIn3" portName="MonIn3" portNum="6" objectIndex="10" varId="6" filter="2" portDataType="1" channelInterface="Both Deactivated" maxDeviation="0" resetTime="0" />
+                  <inPort Id="a99c0d00-7ceb-4d83-8e1a-c153e802f292" name="MonIn3" portName="MonIn3" portNum="6" objectIndex="10" varId="6" filter="2" portDataType="1" channelInterface="Single-Channel 1 Activated" deactivate1="Break Contact (NC)" maxDeviation="0" resetTime="0">
+                    <fbPortGlobalVariableReferences>
+                      <functionBlockPortHasFbPortGlobalVariableReferences Id="40549a68-43dd-4efb-a135-9fea39feac07">
+                        <fbPortGlobalVariableReference Id="5b4eaef2-42c8-4f2b-a952-dea76fe7d2cb" variableId="98b7f3da-5bd2-4e87-a5d9-9c9eb9e6d6f6" lastKnownPath="ChA.PRIFB_POSITION_VALID" />
+                      </functionBlockPortHasFbPortGlobalVariableReferences>
+                    </fbPortGlobalVariableReferences>
+                  </inPort>
                 </functioBlockHasInPorts>
                 <functioBlockHasInPorts Id="c41ffb8b-da73-48e3-95fb-b50f70dc7a15">
                   <inPort Id="0367cd3c-5e23-449e-a1c2-ad5aa230da24" name="MonIn4" portName="MonIn4" portNum="7" objectIndex="11" varId="7" filter="2" portDataType="1" channelInterface="Both Deactivated" maxDeviation="0" resetTime="0" />
@@ -335,11 +335,11 @@
                 <functionBlockHasOutPorts Id="9e862f5d-0833-42c5-a016-1396e744b294">
                   <outPort Id="689d90c3-7752-4f57-aa98-88474fc28dc7" name="MonOut" portName="MonOut" portNum="11" objectIndex="1" varId="23" filter="7" portDataType="1" replacementValue="0">
                     <targetFunctionBlockPorts>
-                      <wiredLink Id="80f7956c-c4a1-40db-9793-d3c2546f0f4b">
-                        <inPortMoniker name="//STO_SS1_1/SS1_ChA/MonIn4" />
-                      </wiredLink>
                       <wiredLink Id="681fa0dc-05b5-4424-a1bb-6b35faa40be9">
                         <inPortMoniker name="//STO_SS1_1/INVERT_ERROR_STATE_ChA/OrIn1" />
+                      </wiredLink>
+                      <wiredLink Id="d80ff38f-8a0a-43f9-874b-dad154143dd5">
+                        <inPortMoniker name="//STO_SS1_1/SS1_ChA/MonIn2" />
                       </wiredLink>
                     </targetFunctionBlockPorts>
                   </outPort>

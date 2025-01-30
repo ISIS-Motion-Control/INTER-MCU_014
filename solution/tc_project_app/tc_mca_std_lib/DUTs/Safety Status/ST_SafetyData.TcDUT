@@ -12,6 +12,9 @@ STRUCT
 	aSafetyOuputs : ARRAY[1..GVL_Safety.nSAFETY_OUTPUTS] OF ST_SafetyOutput;
 	
 	aSafetyDevices : ARRAY[1..GVL_Safety.nSAFETY_DEVICES] OF ST_SafetyDevice;
+    
+
+    SafetyGroups : ARRAY[1..GVL_Safety.nSAFETY_GROUPS] OF ST_SafetyGroup;
 END_STRUCT
 END_TYPE
 ]]></Declaration>

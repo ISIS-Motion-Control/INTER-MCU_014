@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<safetyApplication Crc="1601987247" xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.4.0.0" Id="df2780a3-1b46-42dc-8292-9e60931f3436" name="" mapState="false" mapDiag="false" groupOrderId="1" passificationAllowed="false" temporaryDeactivationAllowed="false" permamentDeactivationAllowed="false" xmlid="0" analogFBOutputReplacementValues="Zero" verifyAnalogFBInputsIfStart="false" userFbId="00000000-0000-0000-0000-000000000000" xmlns="http://schemas.microsoft.com/dsltools/SafetyApplicationLanguage">
+<safetyApplication Crc="2313362157" xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.4.0.0" Id="df2780a3-1b46-42dc-8292-9e60931f3436" name="" mapState="false" mapDiag="false" groupOrderId="1" passificationAllowed="false" temporaryDeactivationAllowed="false" permamentDeactivationAllowed="false" xmlid="0" analogFBOutputReplacementValues="Zero" verifyAnalogFBInputsIfStart="false" userFbId="00000000-0000-0000-0000-000000000000" xmlns="http://schemas.microsoft.com/dsltools/SafetyApplicationLanguage">
   <comments>
     <comment Id="80f1145b-94e9-485a-a670-949aabf5c4db" text="32bits per revolution&#xD;&#xA;5 motor revs per second for 5mm/s limit&#xD;&#xA;1ms cycle time&#xD;&#xA;21,474,836 limit" currentNetworkOrderId="0">
       <networks>
@@ -107,6 +107,9 @@
                     <functionBlockPortReferences>
                       <globalReferenceLink Id="aedc6fd4-ea57-4fde-bd83-76b61a6d0378">
                         <functionBlockPortReference Id="fb15e5fe-2778-4ee1-9b52-4e070668b816" portId="33bd8cfd-5e7f-4958-bb3a-2da503c02229" lastKnownPath="ChA_STO_SS1_ErrorHandling.STO_SS1_1.FBMon_SLS.MonIn1" />
+                      </globalReferenceLink>
+                      <globalReferenceLink Id="3f1a8f77-56d2-4783-a13d-2e4c717af380">
+                        <functionBlockPortReference Id="c8fbd7eb-c61b-4863-a87e-4b4f5b1bb111" portId="d3038a65-5393-49a9-9b6d-26f359af0503" lastKnownPath="ChB_STO_SS1_ErrorHandling.STO_SS1_1.FBMon_SLS.MonIn2" />
                       </globalReferenceLink>
                     </functionBlockPortReferences>
                   </outPort>

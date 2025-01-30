@@ -263,6 +263,9 @@
     <Compile Include="tc_mca_std_lib\DUTs\Safety Status\ST_SafetyDevice.TcDUT">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="tc_mca_std_lib\DUTs\Safety Status\ST_SafetyGroup.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="tc_mca_std_lib\DUTs\Safety Status\ST_SafetyOutput.TcDUT">
       <SubType>Code</SubType>
     </Compile>

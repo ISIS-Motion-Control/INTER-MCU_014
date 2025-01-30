@@ -105,7 +105,7 @@ VAR CONSTANT
     ARRAYSIZE_REAL : INT := 3;
     ARRAYSIZE_VIRTUALCAL : INT :=3;
     ARRAYSIZE_VIRTUAL : INT:= 10;
-    ARRAYSIZE_ALLVIRTUALS : INT:=13;
+    ARRAYSIZE_ALLVIRTUALS : INT:= 13;
     VERTICAL_SPEED_LIMIT :LREAL := 4;
     HORIZONTAL_SPEED_LIMIT:LREAL:= 4;
     ROTATION_SPEED_LIMIT :LREAL:= 0.1;
@@ -138,7 +138,7 @@ IF GVL_INTER.DISABLE_ALL_AXES THEN
     DisableAxes();
 END_IF
 
-safetyFTrig(CLK:= GVL_Safety.SafetyReset);
+safetyFTrig(CLK:= GVL_Safety.ResetPossibleAndPressed);
 IF safetyFTrig.Q THEN
     safetyResetLatch := TRUE;
     safetyResetDone:= FALSE;
@@ -544,6 +544,14 @@ END_IF
                 GVL_INTER.LOGIC_ERROR:= FALSE;
                 GVL_INTER.RESET_ALL:= TRUE;
 			END_IF
+            IF GVL_Safety.LocalMode AND GVL_Safety.LocalMode_Disabled THEN
+                eStateInter:= eState_INTER.localModeDisabled;
+			END_IF
+            IF NOT GVL_INTER.NC_AXIS_ERROR  AND NOT GVL_INTER.LOGIC_ERROR THEN
+                eStateInter:= eState_INTER.init;
+			END_IF
+            
+        eState_INTER.localModeDisabled:
             IF NOT GVL_INTER.NC_AXIS_ERROR  AND NOT GVL_INTER.LOGIC_ERROR THEN
                 eStateInter:= eState_INTER.init;
 			END_IF

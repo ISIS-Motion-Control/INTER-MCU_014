@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project Crc="1215885762" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+<Project Crc="4251453745" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
   <PropertyGroup>
     <Configuration Condition="'$(Configuration)' == ''">Debug</Configuration>
     <SchemaVersion>2.0</SchemaVersion>
@@ -10,7 +10,7 @@
     <ProgrammingLanguage>Graphical Editor</ProgrammingLanguage>
     <Worker />
     <IntProjName />
-    <NextSdsId>24</NextSdsId>
+    <NextSdsId>28</NextSdsId>
     <SPlcProjVersion>1.7.0.0</SPlcProjVersion>
     <SortMode>2</SortMode>
   </PropertyGroup>
@@ -43,6 +43,10 @@
       <DependentUpon>Alias_Decouple\Alias_Decouple.sal</DependentUpon>
     </None>
     <None Include="GVLs\GVL.sgvl" />
+    <None Include="Main_Prog\Alias Devices\PLC_BrakeReset.sds" />
+    <None Include="Main_Prog\Alias Devices\ResetPossibleAndPressed.sds" />
+    <None Include="OpMode\Alias Devices\LocalMode.sds" />
+    <None Include="OpMode\Alias Devices\UnoccupiedMode.sds" />
     <None Include="OpMode\OpMode.sal" />
     <None Include="OpMode\OpMode.sal.diagram">
       <Visible>false</Visible>

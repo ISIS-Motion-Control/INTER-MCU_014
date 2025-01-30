@@ -70,12 +70,12 @@
 			</SubItem>
 		</DataType>
 		<DataType>
-			<Name GUID="{18071995-0000-0000-0000-002000000006}" IecBaseType="true" BitType="true" AutoDeleteType="true" HideSubItems="true">ARRAY [0..5] OF BIT</Name>
-			<BitSize>6</BitSize>
+			<Name GUID="{18071995-0000-0000-0000-002000000005}" IecBaseType="true" BitType="true" AutoDeleteType="true" HideSubItems="true">ARRAY [0..4] OF BIT</Name>
+			<BitSize>5</BitSize>
 			<BaseType GUID="{18071995-0000-0000-0000-000000000010}">BIT</BaseType>
 			<ArrayInfo>
 				<LBound>0</LBound>
-				<Elements>6</Elements>
+				<Elements>5</Elements>
 			</ArrayInfo>
 		</DataType>
 		<DataType>
@@ -92,6 +92,120 @@
 				<Type GUID="{18071995-0000-0000-0000-000000000005}">UINT</Type>
 				<BitSize>16</BitSize>
 				<BitOffs>8</BitOffs>
+			</SubItem>
+		</DataType>
+		<DataType>
+			<Name GUID="{91BA7A38-806B-5E06-59E6-F04F15D6B8FF}" AutoDeleteType="true">INFODATA_FB_5</Name>
+			<BitSize>16</BitSize>
+			<SubItem>
+				<Name>State</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000002}">USINT</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>0</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>Diag</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000002}">USINT</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>8</BitOffs>
+			</SubItem>
+		</DataType>
+		<DataType>
+			<Name GUID="{73F57572-A2C9-F88F-FFC6-9BA3A895E419}" AutoDeleteType="true">INFODATA_FB_1</Name>
+			<BitSize>8</BitSize>
+			<SubItem>
+				<Name>State</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000002}">USINT</Type>
+				<BitSize>8</BitSize>
+				<BitOffs>0</BitOffs>
+			</SubItem>
+		</DataType>
+		<DataType>
+			<Name GUID="{062E6611-5C1A-5EFF-C202-AC34B8A9B6DD}" AutoDeleteType="true">INFODATA_3710525088</Name>
+			<BitSize>64</BitSize>
+			<SubItem>
+				<Name>Input Safe Data STO_active_ChA</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>0</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>Input Safe Data Error_AckReq_ChA</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>7</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>Input Safe Data SLS_1_active_ChA</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>8</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>Input Safe Data STO_active_ChB</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>16</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>Input Safe Data Error_AckReq_ChB</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>23</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>Input Safe Data SLS_1_active_ChB</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>24</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>Output Safe Data STO_ChA</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>32</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>Output Safe Data SS1_ChA</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>33</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>Output Safe Data Error_Ack_ChA</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>39</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>Output Safe Data SLS_1_ChA</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>40</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>Output Safe Data STO_ChB</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>48</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>Output Safe Data SS1_ChB</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>49</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>Output Safe Data Error_Ack_ChB</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>55</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>Output Safe Data SLS_1_ChB</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>56</BitOffs>
 			</SubItem>
 		</DataType>
 		<DataType>
@@ -466,7 +580,7 @@
 			<SyncMan>001000012600010001000000000100010001001026010000</SyncMan>
 			<SyncMan>001100012200010002000000000100010001001122010000</SyncMan>
 			<SyncMan>001261002400010003000000000000000200001224010000</SyncMan>
-			<SyncMan>001d7d002000010004000000000000000200001d20010000</SyncMan>
+			<SyncMan>001da9002000010004000000000000000200001d20010000</SyncMan>
 			<SyncMan>002e00002400000003000000000000000000002e24000000</SyncMan>
 			<SyncMan>002f00002000000004000000000000000000002f20000000</SyncMan>
 			<Fmmu>0000000000000000001200020100000001000000060000000200000000000000</Fmmu>
@@ -564,6 +678,20 @@
 					<Type GUID="{2438F91B-E188-4ED7-8594-54354F9ED6A4}" Namespace="Safety">FSOE_6</Type>
 				</Entry>
 			</Pdo>
+			<Pdo Name="StandardInputs" Index="#x1bf0" Flags="#x2011" SyncMan="3">
+				<Entry Name="Standard Out Var 25" Index="#x7000" Sub="#x01">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry Name="Standard Out Var 26" Index="#x7000" Sub="#x02">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry Name="Standard Out Var 27" Index="#x7000" Sub="#x03">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry>
+					<Type GUID="{18071995-0000-0000-0000-002000000005}">ARRAY [0..4] OF BIT</Type>
+				</Entry>
+			</Pdo>
 			<Pdo Name="StandardOutputs" Index="#x17f0" InOut="1" Flags="#x2011" SyncMan="2">
 				<Entry Name="Standard In Var 20" Index="#x6000" Sub="#x01">
 					<Type>BIT</Type>
@@ -571,67 +699,112 @@
 				<Entry Name="Standard In Var 21" Index="#x6000" Sub="#x02">
 					<Type>BIT</Type>
 				</Entry>
+				<Entry Name="Standard In Var 24" Index="#x6000" Sub="#x03">
+					<Type>BIT</Type>
+				</Entry>
 				<Entry>
-					<Type GUID="{18071995-0000-0000-0000-002000000006}">ARRAY [0..5] OF BIT</Type>
+					<Type GUID="{18071995-0000-0000-0000-002000000005}">ARRAY [0..4] OF BIT</Type>
 				</Entry>
 			</Pdo>
 			<Pdo Name="Function Block Info Data" Index="#x1bf8" Flags="#x2011" SyncMan="3">
-				<Entry Name="Main_Prog.ESTOPS.FBMon_EStopsCloche Info Data" Index="#x7000" Sub="#x01">
+				<Entry Name="OpMode.DeviceMonitoring.FBMon_LightCurtain Info Data" Index="#x7000" Sub="#x01">
 					<Type GUID="{2B008623-51EE-EF6A-ACDE-0017707F5BB8}">INFODATA_FB_3</Type>
 				</Entry>
-				<Entry Name="Main_Prog.ESTOPS.FBMon_EStopsSample Info Data" Index="#x7000" Sub="#x02">
+				<Entry Name="OpMode.DeviceMonitoring.FBMon_Searched Info Data" Index="#x7000" Sub="#x02">
 					<Type GUID="{2B008623-51EE-EF6A-ACDE-0017707F5BB8}">INFODATA_FB_3</Type>
 				</Entry>
-				<Entry Name="Main_Prog.ESTOPS.FBMon_EStopsRear Info Data" Index="#x7000" Sub="#x03">
+				<Entry Name="OpMode.DeviceMonitoring.FBMon_LocalMode_Disable Info Data" Index="#x7000" Sub="#x03">
 					<Type GUID="{2B008623-51EE-EF6A-ACDE-0017707F5BB8}">INFODATA_FB_3</Type>
 				</Entry>
-				<Entry Name="Main_Prog.ESTOPS.FBMon_EStopPanel Info Data" Index="#x7000" Sub="#x04">
+				<Entry Name="OpMode.OperationModes.OpMode Info Data" Index="#x7000" Sub="#x04">
+					<Type GUID="{91BA7A38-806B-5E06-59E6-F04F15D6B8FF}">INFODATA_FB_5</Type>
+				</Entry>
+				<Entry Name="Main_Prog.DeviceMonitoring.FBMon_EStopsCloche Info Data" Index="#x7000" Sub="#x05">
 					<Type GUID="{2B008623-51EE-EF6A-ACDE-0017707F5BB8}">INFODATA_FB_3</Type>
 				</Entry>
-				<Entry Name="Main_Prog.ESTOPS.FBMon_EStopsCombined Info Data" Index="#x7000" Sub="#x05">
+				<Entry Name="Main_Prog.DeviceMonitoring.FBMon_EStopsSample Info Data" Index="#x7000" Sub="#x06">
 					<Type GUID="{2B008623-51EE-EF6A-ACDE-0017707F5BB8}">INFODATA_FB_3</Type>
+				</Entry>
+				<Entry Name="Main_Prog.DeviceMonitoring.FBMon_EStopsRear Info Data" Index="#x7000" Sub="#x07">
+					<Type GUID="{2B008623-51EE-EF6A-ACDE-0017707F5BB8}">INFODATA_FB_3</Type>
+				</Entry>
+				<Entry Name="Main_Prog.DeviceMonitoring.FBMon_EStopPanel Info Data" Index="#x7000" Sub="#x08">
+					<Type GUID="{2B008623-51EE-EF6A-ACDE-0017707F5BB8}">INFODATA_FB_3</Type>
+				</Entry>
+				<Entry Name="Main_Prog.ESTOPS.FBMon_EStopsCombined Info Data" Index="#x7000" Sub="#x09">
+					<Type GUID="{2B008623-51EE-EF6A-ACDE-0017707F5BB8}">INFODATA_FB_3</Type>
+				</Entry>
+				<Entry Name="Main_Prog.ESTOPS.FBMon_StateValid Info Data" Index="#x7000" Sub="#x0a">
+					<Type GUID="{2B008623-51EE-EF6A-ACDE-0017707F5BB8}">INFODATA_FB_3</Type>
+				</Entry>
+				<Entry Name="Main_Prog.ESTOPS.FBRs_ResetToAxDrives Info Data" Index="#x7000" Sub="#x0b">
+					<Type GUID="{73F57572-A2C9-F88F-FFC6-9BA3A895E419}">INFODATA_FB_1</Type>
+				</Entry>
+				<Entry Name="Main_Prog.ESTOPS.FBEdm1 Info Data" Index="#x7000" Sub="#x0c">
+					<Type GUID="{91BA7A38-806B-5E06-59E6-F04F15D6B8FF}">INFODATA_FB_5</Type>
+				</Entry>
+				<Entry Name="Main_Prog.ESTOPS.FBEdm2 Info Data" Index="#x7000" Sub="#x0d">
+					<Type GUID="{91BA7A38-806B-5E06-59E6-F04F15D6B8FF}">INFODATA_FB_5</Type>
+				</Entry>
+				<Entry Name="Main_Prog.ESTOPS.FBEdm3 Info Data" Index="#x7000" Sub="#x0e">
+					<Type GUID="{91BA7A38-806B-5E06-59E6-F04F15D6B8FF}">INFODATA_FB_5</Type>
+				</Entry>
+				<Entry Name="Main_Prog.ESTOPS.FBEdm4 Info Data" Index="#x7000" Sub="#x0f">
+					<Type GUID="{91BA7A38-806B-5E06-59E6-F04F15D6B8FF}">INFODATA_FB_5</Type>
 				</Entry>
 			</Pdo>
 			<Pdo Name="Connection Info Data" Index="#x1bf9" Flags="#x2011" SyncMan="3">
-				<Entry Name="Message_7 Info Data" Index="#x7000" Sub="#x01">
+				<Entry Name="Message_5 Info Data" Index="#x7000" Sub="#x01">
+					<Type GUID="{062E6611-5C1A-5EFF-C202-AC34B8A9B6DD}">INFODATA_3710525088</Type>
+				</Entry>
+				<Entry Name="Message_6 Info Data" Index="#x7000" Sub="#x02">
+					<Type GUID="{062E6611-5C1A-5EFF-C202-AC34B8A9B6DD}">INFODATA_3710525088</Type>
+				</Entry>
+				<Entry Name="Message_7 Info Data" Index="#x7000" Sub="#x03">
 					<Type GUID="{0DA0B757-07A5-22DF-64B8-BD6517B7C1EE}">INFODATA_1568227348</Type>
 				</Entry>
-				<Entry Name="Message_8 Info Data" Index="#x7000" Sub="#x02">
+				<Entry Name="Message_8 Info Data" Index="#x7000" Sub="#x04">
 					<Type GUID="{EC82464A-3A59-B36B-8FD9-05831A3971E9}">INFODATA_1736391193</Type>
 				</Entry>
-				<Entry Name="Message_9 Info Data" Index="#x7000" Sub="#x03">
+				<Entry Name="Message_9 Info Data" Index="#x7000" Sub="#x05">
 					<Type GUID="{C6C8DD1F-8EDD-107D-9A21-B4527A25C499}">INFODATA_2606873062</Type>
 				</Entry>
-				<Entry Name="Message_10 Info Data" Index="#x7000" Sub="#x04">
+				<Entry Name="Message_10 Info Data" Index="#x7000" Sub="#x06">
 					<Type GUID="{1C5480CC-07B5-1889-2231-F44AA970E55F}">INFODATA_1027419143</Type>
 				</Entry>
-				<Entry Name="Message_11 Info Data" Index="#x7000" Sub="#x05">
+				<Entry Name="Message_11 Info Data" Index="#x7000" Sub="#x07">
 					<Type GUID="{A96BB65B-455E-7ED9-E3DC-03CB65C31684}">INFODATA_306337812</Type>
 				</Entry>
-				<Entry Name="Message_12 Info Data" Index="#x7000" Sub="#x06">
+				<Entry Name="Message_12 Info Data" Index="#x7000" Sub="#x08">
 					<Type GUID="{A859E440-AB96-9F0A-A38F-98E884E510AB}">INFODATA_2685864775</Type>
 				</Entry>
-				<Entry Name="Message_13 Info Data" Index="#x7000" Sub="#x07">
+				<Entry Name="Message_13 Info Data" Index="#x7000" Sub="#x09">
 					<Type GUID="{FAB87629-858E-8D68-44CA-26209F2A087F}">INFODATA_664190641</Type>
 				</Entry>
-				<Entry Name="Message_14 Info Data" Index="#x7000" Sub="#x08">
+				<Entry Name="Message_14 Info Data" Index="#x7000" Sub="#x0a">
 					<Type GUID="{F88FFF1E-82DC-2B75-A11A-FC7225F03C1B}">INFODATA_2797027238</Type>
 				</Entry>
-				<Entry Name="Message_15 Info Data" Index="#x7000" Sub="#x09">
+				<Entry Name="Message_15 Info Data" Index="#x7000" Sub="#x0b">
 					<Type GUID="{C544E127-DCC4-DA67-5286-DA28A80AE4A2}">INFODATA_657060765</Type>
 				</Entry>
-				<Entry Name="Message_16 Info Data" Index="#x7000" Sub="#x0a">
+				<Entry Name="Message_16 Info Data" Index="#x7000" Sub="#x0c">
 					<Type GUID="{84CDD389-178C-95CD-F085-054CBF4AEAE8}">INFODATA_1004584321</Type>
 				</Entry>
-				<Entry Name="Message_17 Info Data" Index="#x7000" Sub="#x0b">
+				<Entry Name="Message_17 Info Data" Index="#x7000" Sub="#x0d">
 					<Type GUID="{BE0EE8C5-C3FA-EDA5-2A14-9E31EBF54ABB}">INFODATA_1093559078</Type>
 				</Entry>
-				<Entry Name="Message_18 Info Data" Index="#x7000" Sub="#x0c">
+				<Entry Name="Message_18 Info Data" Index="#x7000" Sub="#x0e">
 					<Type GUID="{89B3C0C4-2220-F462-37AA-6F2C8E8D6331}">INFODATA_39859053</Type>
 				</Entry>
 			</Pdo>
 			<Pdo Name="TwinSAFE Group Info Data" Index="#x1bfa" Flags="#x2011" SyncMan="3">
-				<Entry Name="Main_Prog Info Data" Index="#x7000" Sub="#x01">
+				<Entry Name="Alias_Decouple Info Data" Index="#x7000" Sub="#x01">
+					<Type GUID="{1553EE7F-0490-4879-4F41-423085C83887}">INFODATA_GRP_3</Type>
+				</Entry>
+				<Entry Name="OpMode Info Data" Index="#x7000" Sub="#x02">
+					<Type GUID="{1553EE7F-0490-4879-4F41-423085C83887}">INFODATA_GRP_3</Type>
+				</Entry>
+				<Entry Name="Main_Prog Info Data" Index="#x7000" Sub="#x03">
 					<Type GUID="{1553EE7F-0490-4879-4F41-423085C83887}">INFODATA_GRP_3</Type>
 				</Entry>
 			</Pdo>
