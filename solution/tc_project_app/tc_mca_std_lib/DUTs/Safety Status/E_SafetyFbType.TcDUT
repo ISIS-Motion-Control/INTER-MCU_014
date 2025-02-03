@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
+  <DUT Name="E_SafetyFbType" Id="{ac6175e1-4d1b-463f-925f-350b8000b68d}">
+    <Declaration><![CDATA[{attribute 'qualified_only'}
+{attribute 'strict'}
+TYPE E_SafetyFbType :
+(
+	Unassigned := 0,
+    FB_Mon := 1,
+    FB_OpMode := 2,
+    FB_RS :=3,
+    FB_SR :=4,
+    FB_EDM :=5
+);
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

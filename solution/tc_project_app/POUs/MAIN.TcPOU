@@ -24,7 +24,7 @@ VAR
     afbWritePositionBias: ARRAY [1..GVL_APP.nAXIS_NUM] OF MC_WriteParameter;
     fbGetDeviceIdentification: FB_GetDeviceIdentificationEx;
     
-    stSafetyData : ST_SafetyData;
+    
     
 END_VAR
 

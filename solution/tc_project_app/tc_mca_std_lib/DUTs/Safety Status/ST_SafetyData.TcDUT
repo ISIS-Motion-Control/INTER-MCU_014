@@ -3,18 +3,24 @@
   <DUT Name="ST_SafetyData" Id="{a789b0db-cb16-428f-becb-4ec322949747}">
     <Declaration><![CDATA[TYPE ST_SafetyData :
 STRUCT
-	bResetPressed : BOOL; //Read only implementation
+	bSafetyAckReq : BOOL;   //SafetyProgram requires acknowledge
+
+    bResetPressed : BOOL; //Read only implementation
 	sBannerMessage : STRING(255); // Max string length
 	bStopAllMotion : BOOL; //Command bool to IBEX to initiate a non-ss1 stop on galil axes
 	
 	bSearchedAndLocked AT %I* : BOOL;
 	
-	aSafetyOuputs : ARRAY[1..GVL_Safety.nSAFETY_OUTPUTS] OF ST_SafetyOutput;
-	
+	aSafetyAliasOuputs : ARRAY[1..GVL_Safety.nSAFETY_OUTPUTS] OF ST_SafetyAliasOutput;
+	aSafetyAliasInputs : ARRAY[1..GVL_Safety.nSAFETY_INPUTS] OF ST_SafetyAliasInput;
 	aSafetyDevices : ARRAY[1..GVL_Safety.nSAFETY_DEVICES] OF ST_SafetyDevice;
-    
+    aSafetyFBS : ARRAY[1..GVL_Safety.nSAFETY_FBS] OF ST_SafetyFB;
 
     SafetyGroups : ARRAY[1..GVL_Safety.nSAFETY_GROUPS] OF ST_SafetyGroup;
+    sInError : STRING;
+    sInErrorDiag : STRING;
+    sDiagMessageToUser : STRING;
+    
 END_STRUCT
 END_TYPE
 ]]></Declaration>

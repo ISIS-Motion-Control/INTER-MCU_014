@@ -4,11 +4,12 @@
     <Declaration><![CDATA[TYPE ST_SafetyGroup :
 STRUCT
     Name : STRING;
-    RunGroup AT %Q* : BOOL;
+    RunGroup AT %Q* : BOOL := TRUE; //Auto default to run state
     AckGroup AT %Q* : BOOL;
     
     Diag AT %I* : BYTE;
     Status AT %I* : BYTE;
+    groupState : E_SafetyGroupState;
 END_STRUCT
 END_TYPE
 ]]></Declaration>

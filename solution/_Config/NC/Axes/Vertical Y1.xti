@@ -1411,7 +1411,7 @@ External Setpoint Generation:
 		<Comment><![CDATA[ACTUALLY Y?]]></Comment>
 		<AxisPara>
 			<Dynamic Acceleration="10" Deceleration="10" Jerk="40"/>
-			<Velo RefSearch="0.37029" RefSync="0.37029" SlowManual="2" FastManual="4" Fast="37.029" Maximum="37.029"/>
+			<Velo RefSearch="0.37029" RefSync="0.37029" SlowManual="5" FastManual="30" Fast="37.029" Maximum="32"/>
 			<PositionAreaControl Enable="false"/>
 			<TargetPosControl Range="0.01"/>
 			<OtherSettings AllowMotionCmdToSlave="true"/>

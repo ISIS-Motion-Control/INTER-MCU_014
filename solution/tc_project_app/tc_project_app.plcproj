@@ -19,6 +19,9 @@
     <WriteProductVersion>true</WriteProductVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="DUTs\E_RotationBrakeCheckerState.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="DUTs\ST_AxisSpg.TcDUT">
       <SubType>Code</SubType>
     </Compile>
@@ -254,7 +257,22 @@
     <Compile Include="tc_mca_std_lib\DUTs\E_SlitPairStates.TcDUT">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="tc_mca_std_lib\DUTs\Safety Status\E_SafetyFbState.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="tc_mca_std_lib\DUTs\Safety Status\E_SafetyFbType.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="tc_mca_std_lib\DUTs\Safety Status\E_SafetyGroupState.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="tc_mca_std_lib\DUTs\Safety Status\E_SafetyDevices.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="tc_mca_std_lib\DUTs\Safety Status\FB_SafeFBDiag.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="tc_mca_std_lib\DUTs\Safety Status\ST_SafetyAliasInput.TcDUT">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="tc_mca_std_lib\DUTs\Safety Status\ST_SafetyData.TcDUT">
@@ -263,10 +281,13 @@
     <Compile Include="tc_mca_std_lib\DUTs\Safety Status\ST_SafetyDevice.TcDUT">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="tc_mca_std_lib\DUTs\Safety Status\ST_SafetyFB.TcDUT">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="tc_mca_std_lib\DUTs\Safety Status\ST_SafetyGroup.TcDUT">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="tc_mca_std_lib\DUTs\Safety Status\ST_SafetyOutput.TcDUT">
+    <Compile Include="tc_mca_std_lib\DUTs\Safety Status\ST_SafetyAliasOutput.TcDUT">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="tc_mca_std_lib\DUTs\Safety Status\ST_SafetyProject.TcDUT">

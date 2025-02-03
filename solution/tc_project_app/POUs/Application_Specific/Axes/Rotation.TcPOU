@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
   <POU Name="Rotation" Id="{83b74736-0e2a-4820-b07c-7378d567dc02}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM Rotation
 VAR
@@ -8,6 +8,9 @@ VAR
     bFwdLimitPower AT %Q* : BOOL := TRUE;
     bBwdLimitPower AT %Q* : BOOL := TRUE;
     bEnable : BOOL := TRUE;
+    
+    OpState : E_RotationBrakeCheckerState := E_RotationBrakeCheckerState.Brake_Test_Not_Valid;
+    bBrakeTestInProgress : BOOL;
 //Hardware interlocks
     //bInterlockFwdOK AT %I*: BOOL;
 END_VAR
@@ -23,16 +26,21 @@ END_VAR
 END_IF*)
 astAxes[AXIS_ROTATION].stControl.bEnable := bEnable;
 astAxes[AXIS_ROTATION].stDescription.sAxisName := 'ROTATION';
-//Define ACTIONS() or write exclusive code for an specific axis.
-(*Eg. Stop when temperature reaches certain values, reduce speed if  a signal is activated, etc.
-Eg. GVL.astAxes[x].stControl.bInterlockFwd := NOT bInterlockFwdOK;*)
+
+
+IF NOT GVL_INTER.BRAKE_TEST_PASSED AND NOT bBrakeTestInProgress THEN
+    OpState:= E_RotationBrakeCheckerState.Brake_Test_Not_Valid;
+END_IF
+
+CASE OpState OF
+    E_RotationBrakeCheckerState.Brake_Test_Not_Valid:
+           //Ensure motor cannot be enabled
+           astAxes[AXIS_ROTATION].stControl.bEnable := FALSE;      
+
+END_CASE
+
+
 ]]></ST>
     </Implementation>
-    <LineIds Name="Rotation">
-      <LineId Id="3" Count="8" />
-      <LineId Id="25" Count="0" />
-      <LineId Id="12" Count="2" />
-      <LineId Id="2" Count="0" />
-    </LineIds>
   </POU>
 </TcPlcObject>

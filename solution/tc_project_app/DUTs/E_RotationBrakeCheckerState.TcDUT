@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
+  <DUT Name="E_RotationBrakeCheckerState" Id="{df6ceeb3-9a81-4fa4-9e63-fc4949d40640}">
+    <Declaration><![CDATA[{attribute 'qualified_only'}
+{attribute 'strict'}
+TYPE E_RotationBrakeCheckerState :
+(
+	Brake_Test_Not_Valid,
+    Start_Brake_Test,
+    Check_Drive_Mode,
+    Set_Brake_Mode,
+    Check_Brake_Mode,
+    Error
+);
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

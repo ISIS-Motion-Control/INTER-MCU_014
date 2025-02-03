@@ -8057,6 +8057,24 @@
             },
             "USEMAPPING": true
         },
+        "PLC1.GVL_Safety.stSafetyData.bSafetyAckReq": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::GVL_Safety::stSafetyData::bSafetyAckReq",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:general#/definitions/BOOL"
+                    },
+                    {
+                        "comment": "SafetyProgram requires acknowledge",
+                        "propertyOrder": 1
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
         "RefreshDefinitions": {
             "ACCESS": 3,
             "DOMAIN": "TcHmiSrv",
@@ -9041,6 +9059,7 @@
                 "PLC1.GVL_INTER.START_RECOVERY": 3,
                 "PLC1.GVL_INTER.VIRTUAL_AXES_NOT_MOVING": 3,
                 "PLC1.GVL_Safety.SAFETY_ACK": 3,
+                "PLC1.GVL_Safety.stSafetyData.bSafetyAckReq": 3,
                 "SAFETY_ResetRequested": 3,
                 "SetLocale": 3,
                 "ShowKeyboard": 3,
