@@ -965,7 +965,7 @@ External Setpoint Generation:
 		</DataType>
 	</DataTypes>
 	<Project GUID="{FB261665-FD20-4BF2-97F8-2854C82B752D}" Name="tc_project_app" PrjFilePath="..\..\tc_project_app\tc_project_app.plcproj" TmcFilePath="..\..\tc_project_app\tc_project_app.tmc" ReloadTmc="true" AmsPort="852" FileArchiveSettings="#x000e" SymbolicMapping="true">
-		<Instance Id="#x08502040" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="tc_project_app\tc_project_app.tmc" TmcHash="{CF0C445F-9D12-AA17-A13B-84E2BC4A5B04}">
+		<Instance Id="#x08502040" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="tc_project_app\tc_project_app.tmc" TmcHash="{8F1628B9-036C-8B6D-DB1B-041DB4A77522}">
 			<Name>tc_project_app Instance</Name>
 			<CLSID ClassFactory="TcPlc30">{08500001-0000-0000-F000-000000000064}</CLSID>
 			<Vars VarGrpType="1">
@@ -1785,6 +1785,10 @@ External Setpoint Generation:
 					<Type GUID="{10036166-C9D3-404B-BDD3-323034AAA7F4}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
 				</Var>
 				<Var>
+					<Name>Rotation.bInBrakeTestMode</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
 					<Name>GVL_Safety.ResetPossibleAndPressed</Name>
 					<Type>BOOL</Type>
 				</Var>
@@ -2299,6 +2303,7 @@ ErrorAck_MotionSafety_Y1AndY2 AT %Q* : BOOL;]]></Comment>
 				<Link VarA="PlcTask Inputs^GVL_Safety.stSafetyData.aSafetyFBS[9].Diag" VarB="Function Block Info Data^Main_Prog.ESTOPS.FBMon_EStopsCombined Info Data^Diag"/>
 				<Link VarA="PlcTask Inputs^GVL_Safety.stSafetyData.aSafetyFBS[9].State" VarB="Function Block Info Data^Main_Prog.ESTOPS.FBMon_EStopsCombined Info Data^State"/>
 				<Link VarA="PlcTask Inputs^PLC_SAFETY_LOGIC.localModeButton_Pressed" VarB="Connection Info Data^Message_14 Info Data^Input Safe Data LocalMode_Enable" Size="1"/>
+				<Link VarA="PlcTask Inputs^Rotation.bInBrakeTestMode" VarB="StandardInputs^Standard Out Var 28" Size="1"/>
 				<Link VarA="PlcTask Outputs^GVL_Safety.BrakeReset" VarB="StandardOutputs^Standard In Var 24" Size="1"/>
 				<Link VarA="PlcTask Outputs^GVL_Safety.stSafetyData.SafetyGroups[1].AckGroup" VarB="StandardOutputs^Standard In Var 20" Size="1"/>
 				<Link VarA="PlcTask Outputs^GVL_Safety.stSafetyData.SafetyGroups[1].RunGroup" VarB="StandardOutputs^Standard In Var 21" Size="1"/>

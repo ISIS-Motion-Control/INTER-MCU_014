@@ -11,6 +11,12 @@ VAR
     
     OpState : E_RotationBrakeCheckerState := E_RotationBrakeCheckerState.Brake_Test_Not_Valid;
     bBrakeTestInProgress : BOOL;
+    fbBrakeControl : FB_CoEAX8000BrakeControl;
+    
+    fbReadDriveOpMode : MC_ReadDriveOperationMode;
+    driveOpModeReadIn : E_DriveOperationMode;
+    sErrorMessage : STRING;
+    bInBrakeTestMode AT %I* : BOOL;
 //Hardware interlocks
     //bInterlockFwdOK AT %I*: BOOL;
 END_VAR
@@ -34,9 +40,57 @@ END_IF
 
 CASE OpState OF
     E_RotationBrakeCheckerState.Brake_Test_Not_Valid:
-           //Ensure motor cannot be enabled
-           astAxes[AXIS_ROTATION].stControl.bEnable := FALSE;      
-
+        //Ensure motor cannot be enabled
+        astAxes[AXIS_ROTATION].stControl.bEnable := FALSE;
+        IF GVL_INTER.BRAKE_TEST_PASSED THEN
+            OpState:= E_RotationBrakeCheckerState.Set_Brake_Mode_To_Op;
+        END_IF
+        IF bInBrakeTestMode THEN
+            bBrakeTestInProgress:= TRUE;
+            OpState:= E_RotationBrakeCheckerState.Start_Brake_Test;            
+		END_IF
+    
+    E_RotationBrakeCheckerState.Set_Brake_Mode_To_Op:
+        fbBrakeControl.Execute:= TRUE;
+        fbBrakeControl.Mode:= E_AX8000BrakeMode.eAX8000BrakeMode_Automatic;
+        fbBrakeControl(Axis:= astAxes[AXIS_ROTATION].Axis);
+        OpState:= E_RotationBrakeCheckerState.Check_Brake_Mode_To_Op;
+    
+    E_RotationBrakeCheckerState.Check_Brake_Mode_To_Op:
+        fbBrakeControl(Axis:= astAxes[AXIS_ROTATION].Axis); //Run function block to update statuses    
+        IF NOT fbBrakeControl.Busy AND NOT fbBrakeControl.Error THEN
+            fbBrakeControl.Execute:= FALSE;
+            fbBrakeControl.Mode:= E_AX8000BrakeMode.eAX8000BrakeMode_Automatic;
+            fbBrakeControl(Axis:= astAxes[AXIS_ROTATION].Axis);
+            OpState:= E_RotationBrakeCheckerState.Check_Drive_Mode_To_Op;
+        ELSIF NOT fbBrakeControl.Busy AND fbBrakeControl.Error THEN
+            fbBrakeControl.Execute:= FALSE;
+            fbBrakeControl.Mode:= E_AX8000BrakeMode.eAX8000BrakeMode_Automatic;
+            fbBrakeControl(Axis:= astAxes[AXIS_ROTATION].Axis);
+            OpState:= E_RotationBrakeCheckerState.Error;
+            sErrorMessage:= 'Unable to set brake mode to automatic whilst moving to inop';
+        END_IF
+        
+    E_RotationBrakeCheckerState.Check_Drive_Mode_To_Op:
+        fbReadDriveOpMode(Axis:= astAxes[AXIS_ROTATION].Axis,Execute:= TRUE);
+        
+        IF NOT fbReadDriveOpMode.Busy AND NOT fbReadDriveOpMode.Error THEN
+            driveOpModeReadIn := fbReadDriveOpMode.DriveOperationMode;
+            fbReadDriveOpMode(Axis:= astAxes[AXIS_ROTATION].Axis,Execute:= FALSE);
+            IF driveOpModeReadIn = E_DriveOperationMode.DriveOperationMode_Default THEN
+                OpState:= E_RotationBrakeCheckerState.In_Operation;
+            ELSE
+                OpState:= E_RotationBrakeCheckerState.Error;
+                sErrorMessage:= 'Incorrect drive op mode when moving to InOp';
+			END_IF
+		END_IF
+        
+     E_RotationBrakeCheckerState.In_Operation:
+        //DO NOTHING
+        
+    //////////BRAKE TESTING SEQUENCE ////////
+    E_RotationBrakeCheckerState.Start_Brake_Test:
+        //Wait for trigger
 END_CASE
 
 

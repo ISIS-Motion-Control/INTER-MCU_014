@@ -8,8 +8,12 @@ TYPE E_RotationBrakeCheckerState :
 	Brake_Test_Not_Valid,
     Start_Brake_Test,
     Check_Drive_Mode,
+    Check_Drive_Mode_To_Op,
     Set_Brake_Mode,
+    Set_Brake_Mode_To_Op,
     Check_Brake_Mode,
+    Check_Brake_Mode_To_Op,
+    In_Operation,
     Error
 );
 END_TYPE
