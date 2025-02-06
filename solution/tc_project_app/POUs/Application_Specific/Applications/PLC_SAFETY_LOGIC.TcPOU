@@ -50,12 +50,6 @@ END_IF
 //Load Diagnostics
 
 
-
-/////OLD CODE BELOW
-//GVL_Safety.ErrorAck_MotionSafety := GVL_Safety.Safety_Ack;
-//GVL_Safety.ErrorAck_MotionSafety_XRotAndZHor := GVL_Safety.Safety_Ack;
-//GVL_Safety.ErrorAck_MotionSafety_Y1AndY2 := GVL_Safety.Safety_Ack;
-
 safetyAckTon(IN:= GVL_Safety.Safety_Ack, PT:= T#500MS);
 
 IF safetyAckTon.Q  THEN
@@ -206,5 +200,30 @@ GVL_Safety.stSafetyData.aSafetyFBS[15].eFbType:= E_SafetyFbType.FB_EDM;
 bSafetyDevicesSetup:= TRUE;]]></ST>
       </Implementation>
     </Action>
+    <LineIds Name="PLC_SAFETY_LOGIC">
+      <LineId Id="3" Count="27" />
+      <LineId Id="37" Count="38" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="PLC_SAFETY_LOGIC.ACT_ConvertFBState">
+      <LineId Id="2" Count="2" />
+      <LineId Id="1" Count="0" />
+    </LineIds>
+    <LineIds Name="PLC_SAFETY_LOGIC.ACT_ConvertState">
+      <LineId Id="2" Count="2" />
+      <LineId Id="1" Count="0" />
+    </LineIds>
+    <LineIds Name="PLC_SAFETY_LOGIC.ACT_ErrorAckReq">
+      <LineId Id="2" Count="13" />
+      <LineId Id="1" Count="0" />
+    </LineIds>
+    <LineIds Name="PLC_SAFETY_LOGIC.ACT_LoadDiagnosticString">
+      <LineId Id="2" Count="9" />
+      <LineId Id="1" Count="0" />
+    </LineIds>
+    <LineIds Name="PLC_SAFETY_LOGIC.ACT_SetupSafetyDevices">
+      <LineId Id="2" Count="55" />
+      <LineId Id="1" Count="0" />
+    </LineIds>
   </POU>
 </TcPlcObject>

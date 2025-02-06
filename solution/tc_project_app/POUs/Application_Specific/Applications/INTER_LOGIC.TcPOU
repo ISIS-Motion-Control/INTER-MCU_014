@@ -7,8 +7,7 @@ VAR
         [AXIS_HORIZONTAL_TRANSLATION,AXIS_COMBINED_VERTICAL,AXIS_ROTATION];
     vertTon : TON;
     
-    LOCALMODE_SPEED_OVERRIDE : LREAL := 20; //Local mode override of base 20%
-    LOCALMODE_SPEED_OVERRIDE_MODIFIER : LREAL := 1; //Proportional modifier to local mode speed
+    
     
     //arraysSetup : BOOL := FALSE;
     driveStartupDelay : TON;
@@ -132,7 +131,7 @@ VAR PERSISTENT
 END_VAR
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[actSafeSpeedSwitching();
+      <ST><![CDATA[
 IF GVL_INTER.ENABLE_ALL_AXES THEN
     EnableAxes();
 END_IF
@@ -753,41 +752,7 @@ END_IF]]></ST>
     </Action>
     <Action Name="actKinematicSetpoints" Id="{f7732646-7f90-42f9-b38f-67cffb5e750d}">
       <Implementation>
-        <ST><![CDATA[(*GVL_INTER.SETPOS_HORIZONTAL:= astAxes[AXIS_HORIZONTAL_VIRTUAL].Axis.NcToPlc.ActPos + astAxes[AXIS_HORIZONTAL_CALIBRATION].Axis.NcToPlc.ActPos + astAxes[AXIS_HORIZONTAL_SAMPLE].Axis.NcToPlc.ActPos;
-GVL_INTER.SETVELO_HORIZONTAL:=astAxes[AXIS_HORIZONTAL_VIRTUAL].Axis.NcToPlc.ActVelo + astAxes[AXIS_HORIZONTAL_CALIBRATION].Axis.NcToPlc.ActVelo + astAxes[AXIS_HORIZONTAL_SAMPLE].Axis.NcToPlc.ActVelo;
-GVL_INTER.SETPOS_COMBINED_VERTICAL:= astAxes[AXIS_COMBINED_VERTICAL_VIRTUAL].Axis.NcToPlc.ActPos + astAxes[AXIS_COMBINED_VERTICAL_CALIBRATION].Axis.NcToPlc.ActPos + astAxes[AXIS_COMBINED_VERTICAL_SAMPLE].Axis.NcToPlc.ActPos;
-GVL_INTER.SETVELO_COMBINED_VERTICAL:= astAxes[AXIS_COMBINED_VERTICAL_VIRTUAL].Axis.NcToPlc.ActVelo + astAxes[AXIS_COMBINED_VERTICAL_CALIBRATION].Axis.NcToPlc.ActVelo + astAxes[AXIS_COMBINED_VERTICAL_SAMPLE].Axis.NcToPlc.ActVelo;
-GVL_INTER.SETPOS_ROTATION:= astAxes[AXIS_ROTATION_VIRTUAL].Axis.NcToPlc.ActPos + astAxes[AXIS_ROTATION_CALIBRATION].Axis.NcToPlc.ActPos + astAxes[AXIS_ROTATION_SAMPLE].Axis.NcToPlc.ActPos;
-GVL_INTER.SETVELO_ROTATION:= astAxes[AXIS_ROTATION_VIRTUAL].Axis.NcToPlc.ActVelo + astAxes[AXIS_ROTATION_CALIBRATION].Axis.NcToPlc.ActVelo + astAxes[AXIS_ROTATION_SAMPLE].Axis.NcToPlc.ActVelo;
-
-//Horizontal direction
-IF GVL_INTER.SETVELO_HORIZONTAL >0 THEN
-    GVL_INTER.SETDIR_HORIZONTAL := 1;
-ELSIF GVL_INTER.SETVELO_HORIZONTAL<0 THEN
-    GVL_INTER.SETDIR_HORIZONTAL := -1;
-ELSE
-    GVL_INTER.SETDIR_HORIZONTAL := 0;
-END_IF
-
-//Vertical Direction
-IF GVL_INTER.SETVELO_COMBINED_VERTICAL>0 THEN
-    GVL_INTER.SETDIR_COMBINED_VERTICAL := 1;
-ELSIF GVL_INTER.SETVELO_COMBINED_VERTICAL<0 THEN
-    GVL_INTER.SETDIR_COMBINED_VERTICAL := -1;
-ELSE
-    GVL_INTER.SETDIR_COMBINED_VERTICAL := 0;
-END_IF
-
-//Rotation direction
-IF GVL_INTER.SETVELO_ROTATION>0 THEN
-    GVL_INTER.SETDIR_ROTATION := 1;
-ELSIF GVL_INTER.SETVELO_ROTATION<0 THEN
-    GVL_INTER.SETDIR_ROTATION := -1;
-ELSE
-    GVL_INTER.SETDIR_ROTATION := 0;
-END_IF
-*)
-
+        <ST><![CDATA[
 //NEW LOGIC
 axisSpg_Vertical.position:= astAxes[AXIS_COMBINED_VERTICAL_VIRTUAL].Axis.NcToPlc.ActPos + astAxes[AXIS_COMBINED_VERTICAL_CALIBRATION].Axis.NcToPlc.ActPos + astAxes[AXIS_COMBINED_VERTICAL_SAMPLE].Axis.NcToPlc.ActPos;
 axisSpg_Horizontal.position:= astAxes[AXIS_HORIZONTAL_VIRTUAL].Axis.NcToPlc.ActPos + astAxes[AXIS_HORIZONTAL_CALIBRATION].Axis.NcToPlc.ActPos + astAxes[AXIS_HORIZONTAL_SAMPLE].Axis.NcToPlc.ActPos;
@@ -840,65 +805,6 @@ GVL_INTER.SETDIR_COMBINED_VERTICAL:= axisSpg_Vertical.direction;
 GVL_INTER.SETPOS_ROTATION:= axisSpg_Rot.position;
 GVL_INTER.SETVELO_ROTATION:= axisSpg_Rot.velocity;
 GVL_INTER.SETDIR_ROTATION:= axisSpg_Rot.direction;]]></ST>
-      </Implementation>
-    </Action>
-    <Action Name="actSafeSpeedSwitching" Id="{015a79d1-c90d-4f3e-94a4-6c79b22c85b1}">
-      <Implementation>
-        <ST><![CDATA[IF GVL_Safety.UnoccupiedMode THEN
-    //HIGH SPEED
-    //MEASUREMENT AXIS valid at 0.65 degs/s  
-    //Verts max at 27.5
-    //Rot at 0.65
-    //Hor at 1.3
-    //
-    FOR i:=1 TO ARRAYSIZE_ALLVIRTUALS DO
-        astAxes[aVirtualAxisDefaults[i].axisID].stConfig.fOverride := 100;
-        GVL_INTER.SPEED_LIMITING:= FALSE;
-	END_FOR
-ELSE
-    //LOW SPEED
-    FOR i:=1 TO ARRAYSIZE_ALLVIRTUALS DO
-        astAxes[aVirtualAxisDefaults[i].axisID].stConfig.fOverride := LOCALMODE_SPEED_OVERRIDE * LOCALMODE_SPEED_OVERRIDE_MODIFIER;
-        GVL_INTER.SPEED_LIMITING:= TRUE;
-	END_FOR
-END_IF
-
-
-
-(*
-//Check speeds not too high
-IF NOT GVL_INTER.SPEED_LIMITING AND (ABS(axisSpg_Vertical.velocity)>VERTICAL_SPEED_LIMIT OR ABS(axisSpg_Horizontal.velocity)>HORIZONTAL_SPEED_LIMIT OR ABS(axisSpg_Rot.velocity)>ROTATION_SPEED_LIMIT) THEN
-    IF axisSpg_Vertical.velocity>0 THEN
-        axisSpg_Vertical.velocity:= VERTICAL_SPEED_LIMIT;
-    ELSE
-        axisSpg_Vertical.velocity:= -VERTICAL_SPEED_LIMIT;
-    END_IF    
-    
-    IF axisSpg_Horizontal.velocity>0 THEN
-        axisSpg_Horizontal.velocity:= HORIZONTAL_SPEED_LIMIT;
-    ELSE
-        axisSpg_Horizontal.velocity:= -HORIZONTAL_SPEED_LIMIT;
-    END_IF 
-    
-     IF axisSpg_Rot.velocity>0 THEN
-        axisSpg_Rot.velocity:= ROTATION_SPEED_LIMIT;
-    ELSE
-        axisSpg_Rot.velocity:= -ROTATION_SPEED_LIMIT;
-    END_IF 
-
-    FOR i:=1 TO ARRAYSIZE_ALLVIRTUALS DO
-        astAxes[aVirtualAxisDefaults[i].axisID].stConfig.fOverride := 20;
-        GVL_INTER.SPEED_LIMITING:= TRUE;
-	END_FOR
-END_IF
-//We have stopped moving so can stop speed limiting
-IF GVL_INTER.VIRTUAL_AXES_NOT_MOVING AND GVL_INTER.SPEED_LIMITING THEN
-    FOR i:=1 TO ARRAYSIZE_ALLVIRTUALS DO
-        astAxes[aVirtualAxisDefaults[i].axisID].stConfig.fOverride := 100;
-        GVL_INTER.SPEED_LIMITING:= FALSE;
-	END_FOR
-END_IF
-*)]]></ST>
       </Implementation>
     </Action>
     <Action Name="actSyncVertStateMachine" Id="{86ee614e-4a39-40bc-bbfb-49053b8e3adf}">
@@ -1270,5 +1176,72 @@ END_FOR
 GVL_INTER.RESET_ALL := FALSE;]]></ST>
       </Implementation>
     </Method>
+    <LineIds Name="INTER_LOGIC">
+      <LineId Id="3" Count="498" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="INTER_LOGIC.AbsoluteMove">
+      <LineId Id="3" Count="1" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="INTER_LOGIC.actCheckNotMoving">
+      <LineId Id="2" Count="14" />
+      <LineId Id="1" Count="0" />
+    </LineIds>
+    <LineIds Name="INTER_LOGIC.actCheckPositionDeviation">
+      <LineId Id="2" Count="49" />
+      <LineId Id="1" Count="0" />
+    </LineIds>
+    <LineIds Name="INTER_LOGIC.actCheckRealSpgStatus">
+      <LineId Id="2" Count="1" />
+      <LineId Id="1" Count="0" />
+    </LineIds>
+    <LineIds Name="INTER_LOGIC.actClearDefaults">
+      <LineId Id="2" Count="16" />
+      <LineId Id="1" Count="0" />
+    </LineIds>
+    <LineIds Name="INTER_LOGIC.actKinematicSetpoints">
+      <LineId Id="36" Count="51" />
+      <LineId Id="1" Count="0" />
+    </LineIds>
+    <LineIds Name="INTER_LOGIC.actSyncVertStateMachine">
+      <LineId Id="2" Count="98" />
+      <LineId Id="1" Count="0" />
+    </LineIds>
+    <LineIds Name="INTER_LOGIC.actUpdateDefaults">
+      <LineId Id="2" Count="6" />
+      <LineId Id="1" Count="0" />
+    </LineIds>
+    <LineIds Name="INTER_LOGIC.actZSetpoints">
+      <LineId Id="2" Count="151" />
+      <LineId Id="1" Count="0" />
+    </LineIds>
+    <LineIds Name="INTER_LOGIC.CheckNcErrors">
+      <LineId Id="3" Count="5" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="INTER_LOGIC.CheckRealLimits">
+      <LineId Id="3" Count="2" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="INTER_LOGIC.CheckVerticalCalibration">
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="INTER_LOGIC.CheckZSpgStatus">
+      <LineId Id="3" Count="0" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="INTER_LOGIC.DisableAxes">
+      <LineId Id="3" Count="4" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="INTER_LOGIC.EnableAxes">
+      <LineId Id="3" Count="4" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+    <LineIds Name="INTER_LOGIC.ResetAll">
+      <LineId Id="3" Count="5" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
   </POU>
 </TcPlcObject>
