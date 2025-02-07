@@ -1,19 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<safetyApplication Crc="3378238138" xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.4.0.0" Id="f9bc667f-d42e-4014-965d-0070f93aac94" name="" mapState="true" mapDiag="true" groupOrderId="1" passificationAllowed="false" temporaryDeactivationAllowed="false" permamentDeactivationAllowed="false" xmlid="0" analogFBOutputReplacementValues="Zero" verifyAnalogFBInputsIfStart="false" userFbId="00000000-0000-0000-0000-000000000000" xmlns="http://schemas.microsoft.com/dsltools/SafetyApplicationLanguage">
+<safetyApplication Crc="3336206530" xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.4.0.0" Id="f9bc667f-d42e-4014-965d-0070f93aac94" name="" mapState="true" mapDiag="true" groupOrderId="1" passificationAllowed="false" temporaryDeactivationAllowed="false" permamentDeactivationAllowed="false" xmlid="0" analogFBOutputReplacementValues="Zero" verifyAnalogFBInputsIfStart="false" userFbId="00000000-0000-0000-0000-000000000000" xmlns="http://schemas.microsoft.com/dsltools/SafetyApplicationLanguage">
   <comments>
-    <comment Id="c12f665c-be41-411f-a174-b7a6d66242d0" text="Unoccupied mode" currentNetworkOrderId="0">
+    <comment Id="c12f665c-be41-411f-a174-b7a6d66242d0" text="Mode 1 : Searched and Locked (Unoccupied)&#xD;&#xA;Mode 2 : Local mode&#xD;&#xA;Mode 3 : Brake test mode" currentNetworkOrderId="0">
       <networks>
         <commentReferencesNetworks Id="1982f320-a131-4d3e-9dc0-440141233bd4">
           <networkMoniker name="//Network1" />
         </commentReferencesNetworks>
       </networks>
-    </comment>
-    <comment Id="914c5904-42a1-4303-b118-d567e25e2d86" text="Mode 1 can override SLS" currentNetworkOrderId="0">
-      <networks>
-        <commentReferencesNetworks Id="88f76d56-f0a9-4b98-8c00-090054dbc4c3">
-          <networkMoniker name="//Network1" />
-        </commentReferencesNetworks>
-      </networks>
+      <subjects>
+        <fBOpmodeMoniker name="//Network1/FBOpmode1" />
+      </subjects>
     </comment>
     <comment Id="c8b88dc1-04fe-41f5-9ff0-493821584132" text="INVERTED" currentNetworkOrderId="0">
       <networks>
@@ -21,6 +17,9 @@
           <networkMoniker name="//Network1" />
         </commentReferencesNetworks>
       </networks>
+      <subjects>
+        <fBOrMoniker name="//Network1/FBOr1" />
+      </subjects>
     </comment>
     <comment Id="b1ae0e58-7bba-4d55-8423-679e83734d66" text="Needs checks of estops" currentNetworkOrderId="0">
       <networks>

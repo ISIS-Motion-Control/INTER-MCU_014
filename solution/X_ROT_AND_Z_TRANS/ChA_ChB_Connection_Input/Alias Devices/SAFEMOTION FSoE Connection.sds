@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<SafetyDeviceDesc Crc="729837803" FileFormatVersion="1.8">
+<SafetyDeviceDesc Crc="1845107401" FileFormatVersion="1.8">
   <AliasDeviceType>
     <Type>16</Type>
     <SubType>0</SubType>
@@ -50,13 +50,22 @@
         <BitOffsData>1</BitOffsData>
       </IO>
       <IO>
+        <Name>SBT_ChA</Name>
+        <DataType>BIT</DataType>
+        <Direction>In</Direction>
+        <SafetyType>SafetySil3</SafetyType>
+        <BitSize>1</BitSize>
+        <BitOffsMessage>10</BitOffsMessage>
+        <BitOffsData>2</BitOffsData>
+      </IO>
+      <IO>
         <Name />
         <DataType />
         <Direction>In</Direction>
         <SafetyType>SafetySil3</SafetyType>
-        <BitSize>5</BitSize>
-        <BitOffsMessage>10</BitOffsMessage>
-        <BitOffsData>2</BitOffsData>
+        <BitSize>4</BitSize>
+        <BitOffsMessage>11</BitOffsMessage>
+        <BitOffsData>3</BitOffsData>
       </IO>
       <IO>
         <Name>Error_Ack_ChA</Name>
@@ -185,13 +194,31 @@
         <BitOffsData>0</BitOffsData>
       </IO>
       <IO>
+        <Name>Brake1Valid_ChA</Name>
+        <DataType>BIT</DataType>
+        <Direction>Out</Direction>
+        <SafetyType>SafetySil3</SafetyType>
+        <BitSize>1</BitSize>
+        <BitOffsMessage>9</BitOffsMessage>
+        <BitOffsData>1</BitOffsData>
+      </IO>
+      <IO>
+        <Name>Brake2Valid_ChA</Name>
+        <DataType>BIT</DataType>
+        <Direction>Out</Direction>
+        <SafetyType>SafetySil3</SafetyType>
+        <BitSize>1</BitSize>
+        <BitOffsMessage>10</BitOffsMessage>
+        <BitOffsData>2</BitOffsData>
+      </IO>
+      <IO>
         <Name />
         <DataType />
         <Direction>Out</Direction>
         <SafetyType>SafetySil3</SafetyType>
-        <BitSize>6</BitSize>
-        <BitOffsMessage>9</BitOffsMessage>
-        <BitOffsData>1</BitOffsData>
+        <BitSize>4</BitSize>
+        <BitOffsMessage>11</BitOffsMessage>
+        <BitOffsData>3</BitOffsData>
       </IO>
       <IO>
         <Name>Error_AckReq_ChA</Name>

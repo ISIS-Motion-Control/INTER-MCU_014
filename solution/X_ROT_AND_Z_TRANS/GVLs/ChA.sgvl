@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<GlobalVariables Crc="4260255070" Id="fbff6f09-efa9-4367-b51c-e5c19e64e137" FileFormatVersion="1.0">
+<GlobalVariables Crc="1857093732" Id="fbff6f09-efa9-4367-b51c-e5c19e64e137" FileFormatVersion="1.0">
   <Variable Id="9a890fae-102d-4cf5-9f22-c4031a9056d5">
     <Name>STO_CMD</Name>
     <SourceUsages>
@@ -196,6 +196,33 @@
     <TargetUsages>
       <FbPortUsage Id="9d230973-de40-4bc1-92ca-3dee54af2b18">
         <ModelElementId>92ef41e4-f045-44ed-a9b6-92cf57747c2a</ModelElementId>
+      </FbPortUsage>
+    </TargetUsages>
+  </Variable>
+  <Variable Id="9a932912-6a01-4220-9f50-eba893f4d749">
+    <Name>SBT_CMD</Name>
+    <SourceUsages>
+      <FbPortUsage Id="3e0caa73-1aad-4dcf-9fbe-0ee14910f8b1">
+        <ModelElementId>15b2a592-09d5-435d-bd3a-ab24ad09757c</ModelElementId>
+      </FbPortUsage>
+    </SourceUsages>
+    <TargetUsages />
+  </Variable>
+  <Variable Id="075df2c3-aef4-4a8e-a82c-48978ada0667">
+    <Name>Brake1Valid_STATE</Name>
+    <SourceUsages />
+    <TargetUsages>
+      <FbPortUsage Id="d69f8534-892a-4a48-b789-f44be7598faf">
+        <ModelElementId>d289ac0f-8bd9-49c1-b471-7b295fb87ba8</ModelElementId>
+      </FbPortUsage>
+    </TargetUsages>
+  </Variable>
+  <Variable Id="1bded29d-df6a-4452-a3bd-68f7048f6e77">
+    <Name>Brake2Valid_STATE</Name>
+    <SourceUsages />
+    <TargetUsages>
+      <FbPortUsage Id="6019925c-f2c4-4fdf-b3fc-d51e2aa33e5d">
+        <ModelElementId>96bdfcbc-0245-4090-ae28-25cdc7f41e13</ModelElementId>
       </FbPortUsage>
     </TargetUsages>
   </Variable>

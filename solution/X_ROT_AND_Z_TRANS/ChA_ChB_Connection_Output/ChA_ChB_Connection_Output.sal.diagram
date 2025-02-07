@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<safetyApplicationLanguageDiagram Crc="189338330" dslVersion="1.4.0.0" Id="b4b7f737-e989-4047-9c78-8eb66de402d5" absoluteBounds="0, 0, 14.125, 8.5" diagramId="a1e7daeb-8476-49bf-9c89-e595d30c0bb7">
+<safetyApplicationLanguageDiagram Crc="787727313" dslVersion="1.4.0.0" Id="b4b7f737-e989-4047-9c78-8eb66de402d5" absoluteBounds="0, 0, 14.125, 8.5" diagramId="a1e7daeb-8476-49bf-9c89-e595d30c0bb7" name="ChA_ChB_Connection_Output">
   <safetyApplicationMoniker name="/" />
   <nestedChildShapes>
     <networkSwimLane Id="984d1c96-3d63-406a-a9d8-028673566c54" absoluteBounds="0, 0, 14.125, 4.125">

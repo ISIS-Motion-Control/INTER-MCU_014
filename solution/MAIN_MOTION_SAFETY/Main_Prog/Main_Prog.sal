@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<safetyApplication Crc="3992546853" xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.4.0.0" Id="baa15c43-a463-4afc-9782-7ef8a29c5cbf" name="" mapState="true" mapDiag="true" groupOrderId="2" passificationAllowed="false" temporaryDeactivationAllowed="false" permamentDeactivationAllowed="false" xmlid="0" analogFBOutputReplacementValues="Zero" verifyAnalogFBInputsIfStart="false" userFbId="00000000-0000-0000-0000-000000000000" xmlns="http://schemas.microsoft.com/dsltools/SafetyApplicationLanguage">
+<safetyApplication Crc="4012775747" xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.4.0.0" Id="baa15c43-a463-4afc-9782-7ef8a29c5cbf" name="" mapState="true" mapDiag="true" groupOrderId="2" passificationAllowed="false" temporaryDeactivationAllowed="false" permamentDeactivationAllowed="false" xmlid="0" analogFBOutputReplacementValues="Zero" verifyAnalogFBInputsIfStart="false" userFbId="00000000-0000-0000-0000-000000000000" xmlns="http://schemas.microsoft.com/dsltools/SafetyApplicationLanguage">
   <comments>
     <comment Id="b5cf0b25-e623-4d26-b4b5-648e8ff50145" text="Need to monitor errors here" currentNetworkOrderId="0">
       <networks>
@@ -36,6 +36,87 @@
       </networks>
       <subjects>
         <fBTonMoniker name="//Network1/FBTon1" />
+      </subjects>
+    </comment>
+    <comment Id="db8fdc51-e9a7-46e9-b166-4867b435a07a" text="Delay here reflects delay in AX projects, both will trigger STO at 300ms" currentNetworkOrderId="0">
+      <networks>
+        <commentReferencesNetworks Id="7fc36015-17d4-4fa5-9c4c-c146e2e6d650">
+          <networkMoniker name="//Network1" />
+        </commentReferencesNetworks>
+      </networks>
+      <subjects>
+        <fBMonMoniker name="//Network1/FBMon6" />
+      </subjects>
+    </comment>
+    <comment Id="869b6509-2cbb-4b91-8865-5780ebd22de9" text="Delay here same as in AX project, both trigger at 300ms" currentNetworkOrderId="0">
+      <networks>
+        <commentReferencesNetworks Id="e24aa5a5-72a2-45a0-be46-119edf8ce243">
+          <networkMoniker name="//Network1" />
+        </commentReferencesNetworks>
+      </networks>
+      <subjects>
+        <fBMonMoniker name="//Network1/FBMon1" />
+      </subjects>
+    </comment>
+    <comment Id="5d6ac98d-3269-4992-ad98-6f0c74273737" text="Captured correctly by SBC with proper timings configured by manufacturer" currentNetworkOrderId="0">
+      <networks>
+        <commentReferencesNetworks Id="086cbb2f-845c-4de9-ad9e-4cac088a69e3">
+          <networkMoniker name="//Network1" />
+        </commentReferencesNetworks>
+      </networks>
+      <subjects>
+        <fBEdmMoniker name="//Network1/FBEdm3" />
+        <fBEdmMoniker name="//Network1/FBEdm4" />
+      </subjects>
+    </comment>
+    <comment Id="60be9c1e-511f-4ac0-ba24-bf835d1af07d" text="Monitor drive project reset requests from SLS trip" currentNetworkOrderId="0">
+      <networks>
+        <commentReferencesNetworks Id="49e42e00-7886-49a5-9e88-b3c6a41b62fa">
+          <networkMoniker name="//Network1" />
+        </commentReferencesNetworks>
+      </networks>
+      <subjects>
+        <fBOrMoniker name="//Network1/FBOr2" />
+      </subjects>
+    </comment>
+    <comment Id="465fc681-35c4-4f3f-aaea-13d7cf8cf9e1" text="Check reset not pending on AX projects, if pending, not a valid reset request condition" currentNetworkOrderId="0">
+      <networks>
+        <commentReferencesNetworks Id="fee85d57-c5db-4cf6-8203-959e174b9482">
+          <networkMoniker name="//Network1" />
+        </commentReferencesNetworks>
+      </networks>
+      <subjects>
+        <fBAndMoniker name="//Network1/FBAnd2" />
+      </subjects>
+    </comment>
+    <comment Id="4b6e6deb-e534-4c06-8eb8-60333949c646" text="Monitor all possible reset request conditions" currentNetworkOrderId="0">
+      <networks>
+        <commentReferencesNetworks Id="cbe6ecad-5e11-424d-a4cb-258c84266a6f">
+          <networkMoniker name="//Network1" />
+        </commentReferencesNetworks>
+      </networks>
+      <subjects>
+        <fBOrMoniker name="//Network1/FBOr1" />
+      </subjects>
+    </comment>
+    <comment Id="88fe2dbf-ee28-454b-8e64-7bce6233d74e" text="Reset only possible if EStops are healthy.&#xD;&#xA;Output turns the motion reset light ON" currentNetworkOrderId="0">
+      <networks>
+        <commentReferencesNetworks Id="7c798055-11a7-4967-85a8-5acd4c5528df">
+          <networkMoniker name="//Network1" />
+        </commentReferencesNetworks>
+      </networks>
+      <subjects>
+        <fBAndMoniker name="//Network1/FBAnd5" />
+      </subjects>
+    </comment>
+    <comment Id="822e4a56-b026-4ea1-8701-4443fda32211" text="Look for no reset required and the operation state to be valid, this is used to trigger a falling edge on the AX drive projects thus completing the reset. This stagger ensures that THIS project reset completes before the AX projects can complete" currentNetworkOrderId="0">
+      <networks>
+        <commentReferencesNetworks Id="0e9e3ebd-1f49-42ca-ad6b-f7795cba89c9">
+          <networkMoniker name="//Network1" />
+        </commentReferencesNetworks>
+      </networks>
+      <subjects>
+        <fBAndMoniker name="//Network1/FBAnd8" />
       </subjects>
     </comment>
   </comments>
@@ -141,7 +222,7 @@
               </outPorts>
               <parameterPorts>
                 <functionBlockHasParamPorts Id="43d285eb-c304-443a-a0b3-c5478f83ad5e">
-                  <parameterPort Id="5cad04dd-fa0e-4e27-aa95-6ab2f2a71522" name="Delay Time (ms)" portName="Delay Time (ms)" portNum="8" objectIndex="0" varId="0" filter="0" portDataType="0" timing="1000" userFbPortName="Delay Time (ms)" useInUserFb="false" />
+                  <parameterPort Id="5cad04dd-fa0e-4e27-aa95-6ab2f2a71522" name="Delay Time (ms)" portName="Delay Time (ms)" portNum="8" objectIndex="0" varId="0" filter="0" portDataType="0" timing="100" userFbPortName="Delay Time (ms)" useInUserFb="false" />
                 </functionBlockHasParamPorts>
               </parameterPorts>
             </fBMon>
@@ -211,9 +292,6 @@
                       <wiredLink Id="ac57bf50-8691-4e8e-94f5-c974a8fdd171">
                         <inPortMoniker name="//Network1/FBAnd3/AndIn1" />
                       </wiredLink>
-                      <wiredLink Id="2fefc06e-fd58-4a61-9c12-a5eaf3bbc844">
-                        <inPortMoniker name="//Network1/FBAnd8/AndIn1" />
-                      </wiredLink>
                     </targetFunctionBlockPorts>
                     <fbPortGlobalVariableReferences>
                       <functionBlockPortHasFbPortGlobalVariableReferences Id="3e6c0207-09d7-443c-b5aa-a97ce700a8f9">
@@ -231,7 +309,7 @@
               </outPorts>
               <parameterPorts>
                 <functionBlockHasParamPorts Id="f9814c8c-6206-46a7-bb6f-b99cdbea6a3e">
-                  <parameterPort Id="5fb979da-32cd-4fa4-adcc-8c1feb6cee37" name="Delay Time (ms)" portName="Delay Time (ms)" portNum="8" objectIndex="0" varId="0" filter="0" portDataType="0" timing="1000" userFbPortName="Delay Time (ms)" useInUserFb="false" />
+                  <parameterPort Id="5fb979da-32cd-4fa4-adcc-8c1feb6cee37" name="Delay Time (ms)" portName="Delay Time (ms)" portNum="8" objectIndex="0" varId="0" filter="0" portDataType="0" timing="300" userFbPortName="Delay Time (ms)" useInUserFb="false" />
                 </functionBlockHasParamPorts>
               </parameterPorts>
             </fBMon>
@@ -701,7 +779,7 @@
             </fBAnd>
           </networkHasFunctionBlocks>
           <networkHasFunctionBlocks Id="d79c0b57-58f6-41ba-8558-5f0ff9fe5ceb">
-            <fBEdm Id="967ce9f7-a636-4536-91b8-a6e078811e0a" name="FBEdm1" instanceName="FBEdm1" orderOfExecution="19" mapState="true" mapDiag="true" functionName="safeEdm">
+            <fBEdm Id="967ce9f7-a636-4536-91b8-a6e078811e0a" name="FBEdm1" instanceName="FBEdm_BeckhoffContactor" orderOfExecution="19" mapState="true" mapDiag="true" functionName="safeEdm">
               <inPorts>
                 <functioBlockHasInPorts Id="56b9e73e-4cd0-4168-aec6-72d63a440e42">
                   <inPort Id="b4025bd0-536b-4b28-bf9f-900db8a67d2f" name="Mon1" portName="Mon1" portNum="5" objectIndex="8" varId="1" filter="3" portDataType="1" channelInterface="Single-Channel Both Activated" deactivate1="Break Contact (NC)" deactivate2="Break Contact (NC)" maxDeviation="0" resetTime="0" />
@@ -732,7 +810,7 @@
             </fBEdm>
           </networkHasFunctionBlocks>
           <networkHasFunctionBlocks Id="af0577e7-5821-4179-ae8a-468de31cfeef">
-            <fBEdm Id="a8b667bc-5f37-406e-a0b8-a93eb8cbfba4" name="FBEdm2" instanceName="FBEdm2" orderOfExecution="20" mapState="true" mapDiag="true" functionName="safeEdm">
+            <fBEdm Id="a8b667bc-5f37-406e-a0b8-a93eb8cbfba4" name="FBEdm2" instanceName="FBEdm_GalilContactor" orderOfExecution="20" mapState="true" mapDiag="true" functionName="safeEdm">
               <inPorts>
                 <functioBlockHasInPorts Id="67e3073b-1bb1-416d-9e28-4b7fafb7f64e">
                   <inPort Id="6ca0fb1a-ca81-4114-8a08-94ce1ad8065d" name="Mon1" portName="Mon1" portNum="5" objectIndex="8" varId="1" filter="3" portDataType="1" channelInterface="Single-Channel Both Activated" deactivate1="Break Contact (NC)" deactivate2="Break Contact (NC)" maxDeviation="0" resetTime="0" />
@@ -763,7 +841,7 @@
             </fBEdm>
           </networkHasFunctionBlocks>
           <networkHasFunctionBlocks Id="f1a139b2-5438-4be4-960c-b39556aa893a">
-            <fBEdm Id="edd7d96d-0e2c-4051-8804-622674e64de5" name="FBEdm3" instanceName="FBEdm3" orderOfExecution="21" mapState="true" mapDiag="true" functionName="safeEdm">
+            <fBEdm Id="edd7d96d-0e2c-4051-8804-622674e64de5" name="FBEdm3" instanceName="FBEdm_Brake1" orderOfExecution="21" mapState="true" mapDiag="true" functionName="safeEdm">
               <inPorts>
                 <functioBlockHasInPorts Id="e7e8d0c7-d1b5-4f89-9ab2-acfcb390fb72">
                   <inPort Id="18fb0129-547d-4fba-b44c-a0b98dee53ba" name="Mon1" portName="Mon1" portNum="5" objectIndex="8" varId="1" filter="3" portDataType="1" channelInterface="Single-Channel Both Activated" deactivate1="Break Contact (NC)" deactivate2="Make Contact (NO)" maxDeviation="0" resetTime="0">
@@ -800,7 +878,7 @@
             </fBEdm>
           </networkHasFunctionBlocks>
           <networkHasFunctionBlocks Id="488de3f3-8267-4948-b143-4b41822d0996">
-            <fBEdm Id="800417ba-4768-488c-b291-42e61c963c89" name="FBEdm4" instanceName="FBEdm4" orderOfExecution="22" mapState="true" mapDiag="true" functionName="safeEdm">
+            <fBEdm Id="800417ba-4768-488c-b291-42e61c963c89" name="FBEdm4" instanceName="FBEdm_Brake2" orderOfExecution="22" mapState="true" mapDiag="true" functionName="safeEdm">
               <inPorts>
                 <functioBlockHasInPorts Id="dc47300f-1edb-4877-8c6d-79df98310b72">
                   <inPort Id="94bcb920-9d37-4fc8-a480-2def8be8b67d" name="Mon1" portName="Mon1" portNum="5" objectIndex="8" varId="1" filter="3" portDataType="1" channelInterface="Single-Channel Both Activated" deactivate1="Break Contact (NC)" deactivate2="Make Contact (NO)" maxDeviation="0" resetTime="0">
@@ -837,10 +915,16 @@
             </fBEdm>
           </networkHasFunctionBlocks>
           <networkHasFunctionBlocks Id="a4df5154-79be-404f-8f6b-129c7059b760">
-            <fBAnd Id="2b30b312-e0ca-46f0-bf27-c330c79ca052" name="FBAnd8" instanceName="FBAnd2" orderOfExecution="15" mapState="false" mapDiag="false" functionName="safeAnd">
+            <fBAnd Id="2b30b312-e0ca-46f0-bf27-c330c79ca052" name="FBAnd8" instanceName="FBAnd_HoldForValid" orderOfExecution="15" mapState="false" mapDiag="false" functionName="safeAnd">
               <inPorts>
                 <functioBlockHasInPorts Id="847c264c-1757-40b0-894f-198f17e363fe">
-                  <inPort Id="643e7ab6-10d6-4046-a0d0-40bab42fc1d0" name="AndIn1" portName="AndIn1" portNum="2" objectIndex="8" varId="2" filter="3" portDataType="1" channelInterface="Activated" deactivate1="Break Contact (NC)" maxDeviation="0" resetTime="0" />
+                  <inPort Id="643e7ab6-10d6-4046-a0d0-40bab42fc1d0" name="AndIn1" portName="AndIn1" portNum="2" objectIndex="8" varId="2" filter="3" portDataType="1" channelInterface="Activated" deactivate1="Break Contact (NC)" maxDeviation="0" resetTime="0">
+                    <targetFunctionBlockPorts>
+                      <wiredLink Id="e70e5210-f26f-4d4a-ac53-b2a5f4ecfd33">
+                        <outPortMoniker name="//Network1/FBMon6/MonOut" />
+                      </wiredLink>
+                    </targetFunctionBlockPorts>
+                  </inPort>
                 </functioBlockHasInPorts>
                 <functioBlockHasInPorts Id="948d0d16-a685-4733-9d4c-e97cbc17e130">
                   <inPort Id="6d9353df-f023-445b-add2-6eac6f71d5b3" name="AndIn2" portName="AndIn2" portNum="3" objectIndex="9" varId="3" filter="2" portDataType="1" channelInterface="Activated" deactivate1="Make Contact (NO)" maxDeviation="0" resetTime="0" />
@@ -1716,6 +1800,38 @@
                       </fbPortUsageReferencesFunctionBlockPort>
                     </functionBlockPort>
                   </fbPortUsage>
+                </variableUsagesHasUsages>
+              </usages>
+            </variableUsages>
+          </variableHasTargetUsages>
+        </targetUsages>
+      </variable>
+    </safetyApplicationHasVariables>
+    <safetyApplicationHasVariables Id="da02abfd-f773-4929-8ef6-44d7a5ae112a">
+      <variable Id="24823a54-fde6-4ec0-a325-a91f1f5a1954" name="PLC_StopAllMotion" isLocal="false">
+        <sourceUsages>
+          <variableHasSourceUsages Id="b1488993-ee4d-48d6-bb85-7696e4ddb292">
+            <variableUsages Id="5db8a29f-96ed-4bce-bc10-d24a399a6549">
+              <usages>
+                <variableUsagesHasUsages Id="ceaa3ad1-2c7b-4ee0-95f8-176e756191ea">
+                  <fbPortUsage Id="8cc25d74-afb8-4969-987f-560da9a13281">
+                    <functionBlockPort>
+                      <fbPortUsageReferencesFunctionBlockPort Id="b73ff469-9ea8-48b9-97b9-514eee2f1ec2">
+                        <outPortMoniker name="//Network1/FBMon6/MonOut" />
+                      </fbPortUsageReferencesFunctionBlockPort>
+                    </functionBlockPort>
+                  </fbPortUsage>
+                </variableUsagesHasUsages>
+              </usages>
+            </variableUsages>
+          </variableHasSourceUsages>
+        </sourceUsages>
+        <targetUsages>
+          <variableHasTargetUsages Id="9a348a89-3d45-4bda-905b-79335b856367">
+            <variableUsages Id="371adb67-b981-4eda-b945-8ad9c670579a">
+              <usages>
+                <variableUsagesHasUsages Id="8fc02541-e19b-4d0e-b2e7-f09934592e84">
+                  <aliasDeviceIoUsage Id="8790b4da-6f91-47ac-b5c7-2ca47ada76e0" sdsId="29" channelId="1" functionId="1131179972" />
                 </variableUsagesHasUsages>
               </usages>
             </variableUsages>

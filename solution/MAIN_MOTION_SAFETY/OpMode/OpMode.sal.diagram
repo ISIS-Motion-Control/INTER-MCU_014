@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<safetyApplicationLanguageDiagram Crc="1699708629" dslVersion="1.4.0.0" Id="b1fff023-86d7-4b23-a2ea-a448d68926df" absoluteBounds="0, 0, 38.125, 25.125" name="TwinSAFE">
+<safetyApplicationLanguageDiagram Crc="2050089816" dslVersion="1.4.0.0" Id="b1fff023-86d7-4b23-a2ea-a448d68926df" absoluteBounds="0, 0, 38.125, 25.125" name="TwinSAFE">
   <safetyApplicationMoniker name="/" />
   <nestedChildShapes>
     <networkSwimLane Id="59f1bbeb-d038-44c2-b82f-e34a944fcba6" absoluteBounds="0, 0, 38.125, 19.85">
@@ -415,7 +415,7 @@
             </outPortShape>
           </relativeChildShapes>
         </fBRsShape>
-        <wiredLinkConnector Id="d996ec17-7e47-420a-8bc5-a0ccd215921d" edgePoints="[(4.675 : 11.44); (5.15 : 11.44); (5.15 : 9.82); (7.545 : 9.82)]" fixedFrom="Caller" fixedTo="Caller" color="0, 0, 0" thickness="0.01" expandedManuallyRouted="false">
+        <wiredLinkConnector Id="d996ec17-7e47-420a-8bc5-a0ccd215921d" edgePoints="[(4.675 : 11.44); (5.05 : 11.44); (5.05 : 9.82); (7.545 : 9.82)]" fixedFrom="Caller" fixedTo="Caller" color="0, 0, 0" thickness="0.01" expandedManuallyRouted="false">
           <wiredLinkMoniker Id="a849f905-9246-4a67-ac93-4704047085f9" />
           <nodes>
             <outPortShapeMoniker Id="c075d7d2-ea34-488e-b1d3-028f54fa9f1a" />
@@ -511,7 +511,7 @@
             </outPortShape>
           </relativeChildShapes>
         </fBAndShape>
-        <wiredLinkConnector Id="8b347166-3032-449a-bfbb-aeaa57b8bc1f" edgePoints="[(4.925 : 2.235); (5.4 : 2.235); (5.4 : 1.445); (11.045 : 1.445)]" fixedFrom="Caller" fixedTo="Caller" color="0, 0, 0" thickness="0.01" expandedManuallyRouted="false">
+        <wiredLinkConnector Id="8b347166-3032-449a-bfbb-aeaa57b8bc1f" edgePoints="[(4.925 : 2.235); (5.3 : 2.235); (5.3 : 1.445); (11.045 : 1.445)]" fixedFrom="Caller" fixedTo="Caller" color="0, 0, 0" thickness="0.01" expandedManuallyRouted="false">
           <wiredLinkMoniker Id="28e029d4-1a05-4f9b-9c4a-21faba5eba7f" />
           <nodes>
             <outPortShapeMoniker Id="b7c956e7-34a5-469b-9c71-4d140d88f4ad" />
@@ -573,7 +573,7 @@
             <inPortShapeMoniker Id="55b196cf-f06a-4377-9685-3199b55f9218" />
           </nodes>
         </wiredLinkConnector>
-        <wiredLinkConnector Id="9a31db6d-84f6-4e2f-80af-d6fac440f69a" edgePoints="[(13.925 : 6.815); (14.4 : 6.815); (14.4 : 2.505); (16.17 : 2.505)]" fixedFrom="Caller" fixedTo="Caller" color="0, 0, 0" thickness="0.01" expandedManuallyRouted="false">
+        <wiredLinkConnector Id="9a31db6d-84f6-4e2f-80af-d6fac440f69a" edgePoints="[(13.925 : 6.815); (14.3 : 6.815); (14.3 : 2.505); (16.17 : 2.505)]" fixedFrom="Caller" fixedTo="Caller" color="0, 0, 0" thickness="0.01" expandedManuallyRouted="false">
           <wiredLinkMoniker Id="40825dec-274c-435b-a04b-ea06540ec27c" />
           <nodes>
             <outPortShapeMoniker Id="651088c3-94d7-469a-ac52-1874a2985c23" />
@@ -582,11 +582,8 @@
         </wiredLinkConnector>
       </nestedChildShapes>
     </networkSwimLane>
-    <commentBoxShape Id="8f438327-4d1a-487d-aefe-d9c99bb9da58" absoluteBounds="19.875, 1.75, 1.5, 0.5">
+    <commentBoxShape Id="8f438327-4d1a-487d-aefe-d9c99bb9da58" absoluteBounds="20.375, 1.125, 3, 0.5">
       <commentMoniker Id="c12f665c-be41-411f-a174-b7a6d66242d0" />
-    </commentBoxShape>
-    <commentBoxShape Id="abccf7a3-7453-4200-a7ce-8f9e9bc1519a" absoluteBounds="21.625, 1.75, 3.5, 0.5">
-      <commentMoniker Id="914c5904-42a1-4303-b118-d567e25e2d86" />
     </commentBoxShape>
     <networkSwimLane Id="7e9be867-5bf2-448b-929f-21ca66975fa6" absoluteBounds="0, 19.85, 38.125, 5.3249999999999993">
       <networkMoniker name="//Network2" />
@@ -764,11 +761,23 @@
         </fBMonShape>
       </nestedChildShapes>
     </networkSwimLane>
-    <commentBoxShape Id="6f2c8aca-d40a-4719-8820-c041ac1662c7" absoluteBounds="14.25, 2.625, 1.5, 0.25">
+    <commentBoxShape Id="6f2c8aca-d40a-4719-8820-c041ac1662c7" absoluteBounds="6.5, 6.125, 1.5, 0.25">
       <commentMoniker Id="c8b88dc1-04fe-41f5-9ff0-493821584132" />
     </commentBoxShape>
     <commentBoxShape Id="a4c467b0-cdec-4774-85d7-bb3cd07f32f9" absoluteBounds="8.875, 15.875, 1.5, 0.25">
       <commentMoniker Id="b1ae0e58-7bba-4d55-8423-679e83734d66" />
     </commentBoxShape>
+    <commentLink Id="57bf3c88-4c19-46b2-9b87-1837939d683e" edgePoints="[(7.25 : 6.125); (7.25 : 5.75)]" fixedFrom="Algorithm" fixedTo="Algorithm" TargetRelationshipDomainClassId="da515b91-20b6-4f26-a83d-46793fbef22a">
+      <nodes>
+        <commentBoxShapeMoniker Id="6f2c8aca-d40a-4719-8820-c041ac1662c7" />
+        <fBOrShapeMoniker Id="d06289ef-8c2b-44d0-b7bc-ccdf88560a16" />
+      </nodes>
+    </commentLink>
+    <commentLink Id="949716d6-ea87-4b15-bb45-38dca3948a82" edgePoints="[(20.375 : 1.33718505859375); (19 : 1.33718505859375)]" fixedFrom="Algorithm" fixedTo="Algorithm" TargetRelationshipDomainClassId="da515b91-20b6-4f26-a83d-46793fbef22a">
+      <nodes>
+        <commentBoxShapeMoniker Id="8f438327-4d1a-487d-aefe-d9c99bb9da58" />
+        <fBOpmodeShapeMoniker Id="6d248899-df90-4b10-81ff-f3e4586a3cb4" />
+      </nodes>
+    </commentLink>
   </nestedChildShapes>
 </safetyApplicationLanguageDiagram>

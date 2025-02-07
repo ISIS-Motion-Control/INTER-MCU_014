@@ -67,6 +67,9 @@
     <Compile Include="POUs\Application_Specific\Applications\Slit_3.TcPOU">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="POUs\Application_Specific\Applications\VirtualSpeedOverrides.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="POUs\Application_Specific\Axes\AXIS_NAMES.TcGVL">
       <SubType>Code</SubType>
       <LinkAlways>true</LinkAlways>

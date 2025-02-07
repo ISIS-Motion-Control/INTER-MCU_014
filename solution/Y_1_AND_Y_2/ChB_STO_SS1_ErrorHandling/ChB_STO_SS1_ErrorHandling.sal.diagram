@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<safetyApplicationLanguageDiagram Crc="56408146" dslVersion="1.4.0.0" Id="3ac01323-d8f2-4049-8954-bf6a854b2464" absoluteBounds="0, 0, 35.625, 9.25" diagramId="0d741f46-1194-4ca9-b334-677b918e0dfc" name="ChB_STO_SS1_ErrorHandling">
+<safetyApplicationLanguageDiagram Crc="1570191970" dslVersion="1.4.0.0" Id="3ac01323-d8f2-4049-8954-bf6a854b2464" absoluteBounds="0, 0, 35.625, 9.25" diagramId="0d741f46-1194-4ca9-b334-677b918e0dfc" name="ChB_STO_SS1_ErrorHandling">
   <safetyApplicationMoniker name="/" />
   <nestedChildShapes>
     <networkSwimLane Id="082164df-b061-4344-9b98-be859f2a12b7" absoluteBounds="0, 0, 35.625, 9.25">
@@ -327,7 +327,7 @@
             <inPortShapeMoniker Id="7848eb72-0d4c-4082-98c3-9883f98baa6f" />
           </nodes>
         </wiredLinkConnector>
-        <wiredLinkConnector Id="8b2de2d3-96dd-4be7-b86f-6ae4d048a605" edgePoints="[(10.775 : 3.875); (11.25 : 3.875); (11.25 : 2.3575); (13.045 : 2.3575)]" fixedFrom="Caller" fixedTo="Caller" color="0, 0, 0" thickness="0.01" expandedManuallyRouted="false">
+        <wiredLinkConnector Id="8b2de2d3-96dd-4be7-b86f-6ae4d048a605" edgePoints="[(10.775 : 3.875); (11.15 : 3.875); (11.15 : 2.3575); (13.045 : 2.3575)]" fixedFrom="Caller" fixedTo="Caller" color="0, 0, 0" thickness="0.01" expandedManuallyRouted="false">
           <wiredLinkMoniker Id="c3822891-2015-4cd3-adf8-7429e583bc59" />
           <nodes>
             <outPortShapeMoniker Id="a11292ab-bde1-464a-b4fc-e6c66bef5be3" />

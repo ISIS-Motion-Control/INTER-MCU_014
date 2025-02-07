@@ -154,7 +154,7 @@ Horizontal_Virtual();
 
 
 INTER_LOGIC();
-
+VirtualSpeedOverrides();
 //Slit setup
 Slit_North();
 Slit_South();

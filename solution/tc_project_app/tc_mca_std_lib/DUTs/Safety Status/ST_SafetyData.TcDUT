@@ -7,7 +7,7 @@ STRUCT
 
     bResetPressed : BOOL; //Read only implementation
 	sBannerMessage : STRING(255); // Max string length
-	bStopAllMotion : BOOL; //Command bool to IBEX to initiate a non-ss1 stop on galil axes
+	bStopAllMotion AT %I* : BOOL; //Command bool to IBEX to initiate a non-ss1 stop on galil axes
 	
 	bSearchedAndLocked AT %I* : BOOL;
 	
