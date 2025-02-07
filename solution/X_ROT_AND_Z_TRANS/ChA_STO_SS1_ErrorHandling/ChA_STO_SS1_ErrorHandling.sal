@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<safetyApplication Crc="2901293761" xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.4.0.0" Id="c969160e-007c-4a50-b9fe-7808477021ac" name="" mapState="false" mapDiag="false" groupOrderId="2" passificationAllowed="false" temporaryDeactivationAllowed="false" permamentDeactivationAllowed="false" xmlid="0" analogFBOutputReplacementValues="Zero" verifyAnalogFBInputsIfStart="false" userFbId="00000000-0000-0000-0000-000000000000" xmlns="http://schemas.microsoft.com/dsltools/SafetyApplicationLanguage">
+<safetyApplication Crc="494950669" xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.4.0.0" Id="c969160e-007c-4a50-b9fe-7808477021ac" name="" mapState="false" mapDiag="false" groupOrderId="2" passificationAllowed="false" temporaryDeactivationAllowed="false" permamentDeactivationAllowed="false" xmlid="0" analogFBOutputReplacementValues="Zero" verifyAnalogFBInputsIfStart="false" userFbId="00000000-0000-0000-0000-000000000000" xmlns="http://schemas.microsoft.com/dsltools/SafetyApplicationLanguage">
   <networks>
     <safetyApplicationHasNetworks Id="a4e98494-4d79-4784-a33c-6f8668583bd3">
       <Network Id="78f236b8-47a3-4eb2-9778-317caced6603" name="STO_SS1_1" networkName="STO_SS1_1" intId="1" networkOrderId="0">
@@ -94,7 +94,13 @@
                   <inPort Id="cbb718f6-9c20-418b-b1f1-94e8532a5eea" name="MonIn2" portName="MonIn2" portNum="5" objectIndex="9" varId="5" filter="2" portDataType="1" channelInterface="Both Deactivated" maxDeviation="0" resetTime="0" />
                 </functioBlockHasInPorts>
                 <functioBlockHasInPorts Id="0794154b-c612-4952-ac9a-80f0668ddbf3">
-                  <inPort Id="e4a503ff-2285-4995-b553-115eb8f52256" name="MonIn3" portName="MonIn3" portNum="6" objectIndex="10" varId="6" filter="2" portDataType="1" channelInterface="Both Deactivated" maxDeviation="0" resetTime="0" />
+                  <inPort Id="e4a503ff-2285-4995-b553-115eb8f52256" name="MonIn3" portName="MonIn3" portNum="6" objectIndex="10" varId="6" filter="2" portDataType="1" channelInterface="Single-Channel 1 Activated" deactivate1="Break Contact (NC)" maxDeviation="0" resetTime="0">
+                    <functionBlockPortReferences>
+                      <globalReferenceLink Id="1c5dc378-d3c7-405f-bd78-b0151556c801">
+                        <functionBlockPortReference Id="50226db6-8ed3-4a76-9afe-20600dd4d66b" portId="9770b247-2af1-452b-9452-a94541b105dd" lastKnownPath="ChA_SBT.Ch_A_SafeBrakeTesting_1.FBOr3.OrOut" />
+                      </globalReferenceLink>
+                    </functionBlockPortReferences>
+                  </inPort>
                 </functioBlockHasInPorts>
                 <functioBlockHasInPorts Id="edce6754-558a-4eef-80cd-b53876610bde">
                   <inPort Id="717595d8-cb0c-42ef-a9d3-c1afa25998d7" name="MonIn4" portName="MonIn4" portNum="7" objectIndex="11" varId="7" filter="2" portDataType="1" channelInterface="Both Deactivated" maxDeviation="0" resetTime="0" />

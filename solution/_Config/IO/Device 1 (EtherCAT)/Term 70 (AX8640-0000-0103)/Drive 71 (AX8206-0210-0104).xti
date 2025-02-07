@@ -29,6 +29,15 @@
 			</ArrayInfo>
 		</DataType>
 		<DataType>
+			<Name GUID="{18071995-0000-0000-0000-002000000002}" IecBaseType="true" BitType="true" AutoDeleteType="true" HideSubItems="true">ARRAY [0..1] OF BIT</Name>
+			<BitSize>2</BitSize>
+			<BaseType GUID="{18071995-0000-0000-0000-000000000010}">BIT</BaseType>
+			<ArrayInfo>
+				<LBound>0</LBound>
+				<Elements>2</Elements>
+			</ArrayInfo>
+		</DataType>
+		<DataType>
 			<Name GUID="{18071995-0000-0000-0000-002000000005}" IecBaseType="true" BitType="true" AutoDeleteType="true" HideSubItems="true">ARRAY [0..4] OF BIT</Name>
 			<BitSize>5</BitSize>
 			<BaseType GUID="{18071995-0000-0000-0000-000000000010}">BIT</BaseType>
@@ -2225,13 +2234,19 @@
 				<Entry Name="Message_1__SBT_ChA" BitLen="1" Index="#xf701" Sub="#x03">
 					<Type>BIT</Type>
 				</Entry>
-				<Entry BitLen="4">
-					<Type GUID="{18071995-0000-0000-0000-002000000004}">ARRAY [0..3] OF BIT</Type>
-				</Entry>
-				<Entry Name="Message_1__Error_Ack_ChA" BitLen="1" Index="#xf701" Sub="#x04">
+				<Entry Name="Message_1__Brake1_ChA_STATE" BitLen="1" Index="#xf701" Sub="#x04">
 					<Type>BIT</Type>
 				</Entry>
-				<Entry Name="Message_1__SLS_1_ChA" BitLen="1" Index="#xf701" Sub="#x05">
+				<Entry Name="Message_1__Brake2_ChA_STATE" BitLen="1" Index="#xf701" Sub="#x05">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry BitLen="2">
+					<Type GUID="{18071995-0000-0000-0000-002000000002}">ARRAY [0..1] OF BIT</Type>
+				</Entry>
+				<Entry Name="Message_1__Error_Ack_ChA" BitLen="1" Index="#xf701" Sub="#x06">
+					<Type>BIT</Type>
+				</Entry>
+				<Entry Name="Message_1__SLS_1_ChA" BitLen="1" Index="#xf701" Sub="#x07">
 					<Type>BIT</Type>
 				</Entry>
 				<Entry BitLen="7">
@@ -2240,19 +2255,19 @@
 				<Entry Name="Message_1__FSoE CRC_0" BitLen="16" Index="#xe700" Sub="#x03">
 					<Type>UINT</Type>
 				</Entry>
-				<Entry Name="Message_1__STO_ChB" BitLen="1" Index="#xf701" Sub="#x06">
+				<Entry Name="Message_1__STO_ChB" BitLen="1" Index="#xf701" Sub="#x08">
 					<Type>BIT</Type>
 				</Entry>
-				<Entry Name="Message_1__SS1_ChB" BitLen="1" Index="#xf701" Sub="#x07">
+				<Entry Name="Message_1__SS1_ChB" BitLen="1" Index="#xf701" Sub="#x09">
 					<Type>BIT</Type>
 				</Entry>
 				<Entry BitLen="5">
 					<Type GUID="{18071995-0000-0000-0000-002000000005}">ARRAY [0..4] OF BIT</Type>
 				</Entry>
-				<Entry Name="Message_1__Error_Ack_ChB" BitLen="1" Index="#xf701" Sub="#x08">
+				<Entry Name="Message_1__Error_Ack_ChB" BitLen="1" Index="#xf701" Sub="#x0a">
 					<Type>BIT</Type>
 				</Entry>
-				<Entry Name="Message_1__SLS_1_ChB" BitLen="1" Index="#xf701" Sub="#x09">
+				<Entry Name="Message_1__SLS_1_ChB" BitLen="1" Index="#xf701" Sub="#x0b">
 					<Type>BIT</Type>
 				</Entry>
 				<Entry BitLen="7">
