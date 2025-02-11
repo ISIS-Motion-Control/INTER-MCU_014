@@ -127,19 +127,19 @@
 					<Var>
 						<Name>HEAD</Name>
 						<Type GUID="{D46F6451-58CF-4853-A5DB-DA36D1D59A28}" Namespace="IO">ECAT_HEAD</Type>
-						<BitOffs>1968</BitOffs>
+						<BitOffs>1848</BitOffs>
 					</Var>
 					<Var>
 						<Name>DATA</Name>
 						<Type GUID="{18071995-0000-0000-0000-001300000100}">ARRAY [0..255] OF BYTE</Type>
-						<BitOffs>2048</BitOffs>
+						<BitOffs>1928</BitOffs>
 					</Var>
 					<Var>
 						<Name>CNT</Name>
 						<Comment><![CDATA[Working counter
 After receiving]]></Comment>
 						<Type>UINT</Type>
-						<BitOffs>4096</BitOffs>
+						<BitOffs>3976</BitOffs>
 					</Var>
 				</Vars>
 				<Vars VarGrpType="2">
@@ -147,19 +147,19 @@ After receiving]]></Comment>
 					<Var>
 						<Name>HEAD</Name>
 						<Type GUID="{D46F6451-58CF-4853-A5DB-DA36D1D59A28}" Namespace="IO">ECAT_HEAD</Type>
-						<BitOffs>1968</BitOffs>
+						<BitOffs>1848</BitOffs>
 					</Var>
 					<Var>
 						<Name>DATA</Name>
 						<Type GUID="{18071995-0000-0000-0000-001300000100}">ARRAY [0..255] OF BYTE</Type>
-						<BitOffs>2048</BitOffs>
+						<BitOffs>1928</BitOffs>
 					</Var>
 					<Var>
 						<Name>CNT</Name>
 						<Comment><![CDATA[Working counter
 Before sending]]></Comment>
 						<Type>UINT</Type>
-						<BitOffs>4096</BitOffs>
+						<BitOffs>3976</BitOffs>
 					</Var>
 				</Vars>
 			</EtherCATCmd>
@@ -240,6 +240,8 @@ Before sending]]></Comment>
 				<Link VarA="Term 27 (EK1100)^EL2904-(09)^Module 1 (FSOES)^TxPDO^FSOE" VarB="ConnectionOutputs^Message_16 RxPDO"/>
 				<Link VarA="Term 27 (EK1100)^EL2912-(07)^Module 1 (FSOE)^FSoE Inputs^FSOE" VarB="ConnectionOutputs^Message_9 RxPDO"/>
 				<Link VarA="Term 27 (EK1100)^EL2912-(07)^Module 1 (FSOE)^FSoE Outputs^FSOE" VarB="ConnectionInputs^Message_9 TxPDO"/>
+				<Link VarA="Term 70 (AX8640-0000-0103)^Drive 71 (AX8206-0210-0104)^Device (Safety)^FSoE Slave Connection 1 Master Message^Message_1" VarB="ConnectionInputs^Message_5 TxPDO"/>
+				<Link VarA="Term 70 (AX8640-0000-0103)^Drive 71 (AX8206-0210-0104)^Device (Safety)^FSoE Slave Connection 1 Slave Message^Message_1" VarB="ConnectionOutputs^Message_5 RxPDO"/>
 				<Link VarA="Term 70 (AX8640-0000-0103)^Drive 74 (AX8206-0210-0104)^Device (Safety)^FSoE Slave Connection 1 Master Message^Message_1" VarB="ConnectionInputs^Message_6 TxPDO"/>
 				<Link VarA="Term 70 (AX8640-0000-0103)^Drive 74 (AX8206-0210-0104)^Device (Safety)^FSoE Slave Connection 1 Slave Message^Message_1" VarB="ConnectionOutputs^Message_6 RxPDO"/>
 			</OwnerB>
@@ -248,6 +250,8 @@ Before sending]]></Comment>
 				<Link VarA="Term 70 (AX8640-0000-0103)^Drive 74 (AX8206-0210-0104)^Device^DeviceMain Outputs^Power supply controlword" VarB="PSM Controlword for axis^Controlword for axis"/>
 			</OwnerB>
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 70 (AX8640-0000-0103)^Drive 71 (AX8206-0210-0104)">
+				<Link VarA="Term 27 (EK1100)^EL6910-(04)^ConnectionInputs^Message_5 TxPDO" VarB="Device (Safety)^FSoE Slave Connection 1 Master Message^Message_1"/>
+				<Link VarA="Term 27 (EK1100)^EL6910-(04)^ConnectionOutputs^Message_5 RxPDO" VarB="Device (Safety)^FSoE Slave Connection 1 Slave Message^Message_1"/>
 				<Link VarA="Term 70 (AX8640-0000-0103)^PSM Controlword for axis^Controlword for axis" VarB="Device^DeviceMain Outputs^Power supply controlword"/>
 			</OwnerB>
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 70 (AX8640-0000-0103)^Drive 74 (AX8206-0210-0104)">

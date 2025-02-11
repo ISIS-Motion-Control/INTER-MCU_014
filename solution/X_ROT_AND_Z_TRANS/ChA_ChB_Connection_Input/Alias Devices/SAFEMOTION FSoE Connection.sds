@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<SafetyDeviceDesc Crc="420262736" FileFormatVersion="1.8">
+<SafetyDeviceDesc Crc="3883035477" FileFormatVersion="1.8">
   <AliasDeviceType>
     <Type>16</Type>
     <SubType>0</SubType>
@@ -21,7 +21,7 @@
     <DynPortSafeAddress Type="Unset" />
     <Watchdog>100</Watchdog>
     <ComErrAck Type="Unset" />
-    <Messages InputMessageSize="11" OutputMessageSize="11" Tc2ConnectionType="583335936" CustomFSoEConnectionId="b6fafb55-6c10-43b4-b1d2-cfba4ead67b9">
+    <Messages InputMessageSize="11" OutputMessageSize="11" Tc2ConnectionType="583335936" CustomFSoEConnectionId="c69c2257-d9e5-46e8-b6b6-2e4708dd489d">
       <IO>
         <Name>FSoE Cmd</Name>
         <DataType>USINT</DataType>
@@ -194,7 +194,7 @@
         <BitOffsData>1</BitOffsData>
       </IO>
       <IO>
-        <Name>SBT_ChA</Name>
+        <Name>Brake1_SBT_ChA</Name>
         <DataType>BIT</DataType>
         <Direction>In</Direction>
         <SafetyType>SafetySil3</SafetyType>
@@ -203,7 +203,7 @@
         <BitOffsData>2</BitOffsData>
       </IO>
       <IO>
-        <Name>Brake1_ChA_STATE</Name>
+        <Name>Brake2_SBT_ChA</Name>
         <DataType>BIT</DataType>
         <Direction>In</Direction>
         <SafetyType>SafetySil3</SafetyType>
@@ -212,7 +212,7 @@
         <BitOffsData>3</BitOffsData>
       </IO>
       <IO>
-        <Name>Brake2_ChA_STATE</Name>
+        <Name>Brake1_ChA_STATE</Name>
         <DataType>BIT</DataType>
         <Direction>In</Direction>
         <SafetyType>SafetySil3</SafetyType>
@@ -221,13 +221,22 @@
         <BitOffsData>4</BitOffsData>
       </IO>
       <IO>
+        <Name>Brake2_ChA_STATE</Name>
+        <DataType>BIT</DataType>
+        <Direction>In</Direction>
+        <SafetyType>SafetySil3</SafetyType>
+        <BitSize>1</BitSize>
+        <BitOffsMessage>13</BitOffsMessage>
+        <BitOffsData>5</BitOffsData>
+      </IO>
+      <IO>
         <Name />
         <DataType />
         <Direction>In</Direction>
         <SafetyType>SafetySil3</SafetyType>
-        <BitSize>2</BitSize>
-        <BitOffsMessage>13</BitOffsMessage>
-        <BitOffsData>5</BitOffsData>
+        <BitSize>1</BitSize>
+        <BitOffsMessage>14</BitOffsMessage>
+        <BitOffsData>6</BitOffsData>
       </IO>
       <IO>
         <Name>Error_Ack_ChA</Name>

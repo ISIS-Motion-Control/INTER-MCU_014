@@ -305,20 +305,19 @@ IF NOT CombinedVerticalSetupComplete AND GVL_INTER.OPERATIONAL THEN
 END_IF
 
 //Sometimes the rotation loads in 360degrees out of phase, we need to be able to detect and fix this.
-setPosRotation(Axis:= astAxes[AXIS_ROTATION].Axis);
-setPosRotation.Execute:= FALSE;
+setPosRotation(Axis:= astAxes[AXIS_ROTATION].Axis, Execute:= FALSE);
+
 
 IF ABS(astAxes[AXIS_ROTATION].Axis.NcToPlc.ActPos)>20 AND astAxes[AXIS_ROTATION].Axis.Status.NotMoving THEN
     astAxes[AXIS_ROTATION].stControl.bEnable:= FALSE;
     IF astAxes[AXIS_ROTATION].Axis.NcToPlc.ActPos>20 THEN
         //we need to minus 360
         setPosRotation.Position:= astAxes[AXIS_ROTATION].Axis.NcToPlc.ActPos-360;
-        setPosRotation.Execute:= TRUE;
     ELSIF astAxes[AXIS_ROTATION].Axis.NcToPlc.ActPos<20 THEN
         //we need to add 360
         setPosRotation.Position:= astAxes[AXIS_ROTATION].Axis.NcToPlc.ActPos+360;
-        setPosRotation.Execute:= TRUE;
     END_IF
+    setPosRotation(Axis:= astAxes[AXIS_ROTATION].Axis, Execute:= TRUE);
 ELSE
     bRotationValid:= TRUE;
 END_IF

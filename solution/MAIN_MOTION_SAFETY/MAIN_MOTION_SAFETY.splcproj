@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project Crc="3151150770" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+<Project Crc="2033074373" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
   <PropertyGroup>
     <Configuration Condition="'$(Configuration)' == ''">Debug</Configuration>
     <SchemaVersion>2.0</SchemaVersion>
@@ -10,7 +10,7 @@
     <ProgrammingLanguage>Graphical Editor</ProgrammingLanguage>
     <Worker />
     <IntProjName />
-    <NextSdsId>30</NextSdsId>
+    <NextSdsId>43</NextSdsId>
     <SPlcProjVersion>1.7.0.0</SPlcProjVersion>
     <SortMode>2</SortMode>
   </PropertyGroup>
@@ -47,12 +47,27 @@
     <None Include="Main_Prog\Alias Devices\ResetPossibleAndPressed.sds" />
     <None Include="Main_Prog\Alias Devices\StopAllMotion.sds" />
     <None Include="OpMode\Alias Devices\BrakeTestMode.sds" />
+    <None Include="OpMode\Alias Devices\FinishBrakeTesting.sds" />
     <None Include="OpMode\Alias Devices\LocalMode.sds" />
     <None Include="OpMode\Alias Devices\UnoccupiedMode.sds" />
     <None Include="OpMode\OpMode.sal" />
     <None Include="OpMode\OpMode.sal.diagram">
       <Visible>false</Visible>
       <DependentUpon>OpMode\OpMode.sal</DependentUpon>
+    </None>
+    <None Include="Rotation_SBT_Handler\Alias Devices\Brake1STATE.sds" />
+    <None Include="Rotation_SBT_Handler\Alias Devices\Brake1VALID.sds" />
+    <None Include="Rotation_SBT_Handler\Alias Devices\Brake2STATE.sds" />
+    <None Include="Rotation_SBT_Handler\Alias Devices\Brake2VALID.sds" />
+    <None Include="Rotation_SBT_Handler\Alias Devices\ManualReleaseBrake1.sds" />
+    <None Include="Rotation_SBT_Handler\Alias Devices\ManualReleaseBrake2.sds" />
+    <None Include="Rotation_SBT_Handler\Alias Devices\PLC_TestBrake1.sds" />
+    <None Include="Rotation_SBT_Handler\Alias Devices\PLC_TestBrake2.sds" />
+    <None Include="Rotation_SBT_Handler\Alias Devices\RotationStoSTATE.sds" />
+    <None Include="Rotation_SBT_Handler\Rotation_SBT_Handler.sal" />
+    <None Include="Rotation_SBT_Handler\Rotation_SBT_Handler.sal.diagram">
+      <Visible>false</Visible>
+      <DependentUpon>Rotation_SBT_Handler\Rotation_SBT_Handler.sal</DependentUpon>
     </None>
     <None Include="TargetSystemConfig.xml">
       <Visible>false</Visible>
@@ -71,6 +86,8 @@
     <Folder Include="Main_Prog\Alias Devices" />
     <Folder Include="OpMode" />
     <Folder Include="OpMode\Alias Devices" />
+    <Folder Include="Rotation_SBT_Handler" />
+    <Folder Include="Rotation_SBT_Handler\Alias Devices" />
     <Folder Include="User FBs" />
   </ItemGroup>
 </Project>

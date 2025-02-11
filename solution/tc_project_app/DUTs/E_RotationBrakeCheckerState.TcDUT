@@ -5,7 +5,7 @@
 {attribute 'strict'}
 TYPE E_RotationBrakeCheckerState :
 (
-	Brake_Test_Not_Valid,
+	init,
     Start_Brake_Test,
     Check_Drive_Mode,
     Check_Drive_Mode_To_Op,
@@ -13,8 +13,16 @@ TYPE E_RotationBrakeCheckerState :
     Set_Brake_Mode_To_Op,
     Check_Brake_Mode,
     Check_Brake_Mode_To_Op,
+    Reset_Axis,
+    Confirm_STO_State,
+    Enable_Motor,
+    Wait_For_Test_Trigger,
+    Brake_Disengage_Delay,
+    Brake_Test_Triggered,
+    Brake_Testing_Underway,
     In_Operation,
-    Error
+    Error,
+    Finishing_Brake_Test
 );
 END_TYPE
 ]]></Declaration>

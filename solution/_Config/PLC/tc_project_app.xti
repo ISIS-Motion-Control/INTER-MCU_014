@@ -965,7 +965,7 @@ External Setpoint Generation:
 		</DataType>
 	</DataTypes>
 	<Project GUID="{FB261665-FD20-4BF2-97F8-2854C82B752D}" Name="tc_project_app" PrjFilePath="..\..\tc_project_app\tc_project_app.plcproj" TmcFilePath="..\..\tc_project_app\tc_project_app.tmc" ReloadTmc="true" AmsPort="852" FileArchiveSettings="#x000e" SymbolicMapping="true">
-		<Instance Id="#x08502040" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="tc_project_app\tc_project_app.tmc" TmcHash="{9C0489C1-F288-6EBC-9AB6-4F26DF657F83}">
+		<Instance Id="#x08502040" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="tc_project_app\tc_project_app.tmc" TmcHash="{DE77F5D2-9596-A2E1-DF43-458301169983}">
 			<Name>tc_project_app Instance</Name>
 			<CLSID ClassFactory="TcPlc30">{08500001-0000-0000-F000-000000000064}</CLSID>
 			<Vars VarGrpType="1">
@@ -1785,6 +1785,26 @@ External Setpoint Generation:
 					<Type GUID="{10036166-C9D3-404B-BDD3-323034AAA7F4}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
 				</Var>
 				<Var>
+					<Name>Rotation.Brake1Valid</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>Rotation.Brake2Valid</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>Rotation.Brake1State</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>Rotation.Brake2State</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>Rotation.RotationSTOState</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
 					<Name>Rotation.bInBrakeTestMode</Name>
 					<Type>BOOL</Type>
 				</Var>
@@ -2186,6 +2206,28 @@ ErrorAck_MotionSafety_Y1AndY2 AT %Q* : BOOL;]]></Comment>
 					<Type>BOOL</Type>
 				</Var>
 				<Var>
+					<Name>Rotation.RunBrake1Test</Name>
+					<Comment><![CDATA[ Test trigger to safety system]]></Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>Rotation.RunBrake2Test</Name>
+					<Comment><![CDATA[ Test trigger to safety system]]></Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>Rotation.ManualReleaseBrake1</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>Rotation.ManualReleaseBrake2</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>Rotation.FinishBrakeTesting</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
 					<Name>GVL_Safety.stSafetyData.SafetyGroups[1].RunGroup</Name>
 					<Comment><![CDATA[Auto default to run state]]></Comment>
 					<Type>BOOL</Type>
@@ -2301,10 +2343,20 @@ ErrorAck_MotionSafety_Y1AndY2 AT %Q* : BOOL;]]></Comment>
 				<Link VarA="PlcTask Inputs^GVL_Safety.stSafetyData.aSafetyFBS[9].State" VarB="Function Block Info Data^Main_Prog.ESTOPS.FBMon_EStopsCombined Info Data^State"/>
 				<Link VarA="PlcTask Inputs^GVL_Safety.stSafetyData.bStopAllMotion" VarB="StandardInputs^Standard Out Var 29" Size="1"/>
 				<Link VarA="PlcTask Inputs^PLC_SAFETY_LOGIC.localModeButton_Pressed" VarB="Connection Info Data^Message_14 Info Data^Input Safe Data LocalMode_Enable" Size="1"/>
+				<Link VarA="PlcTask Inputs^Rotation.Brake1State" VarB="StandardInputs^Standard Out Var 34" Size="1"/>
+				<Link VarA="PlcTask Inputs^Rotation.Brake1Valid" VarB="StandardInputs^Standard Out Var 36" Size="1"/>
+				<Link VarA="PlcTask Inputs^Rotation.Brake2State" VarB="StandardInputs^Standard Out Var 35" Size="1"/>
+				<Link VarA="PlcTask Inputs^Rotation.Brake2Valid" VarB="StandardInputs^Standard Out Var 37" Size="1"/>
+				<Link VarA="PlcTask Inputs^Rotation.RotationSTOState" VarB="StandardInputs^Standard Out Var 41" Size="1"/>
 				<Link VarA="PlcTask Inputs^Rotation.bInBrakeTestMode" VarB="StandardInputs^Standard Out Var 28" Size="1"/>
 				<Link VarA="PlcTask Outputs^GVL_Safety.BrakeReset" VarB="StandardOutputs^Standard In Var 24" Size="1"/>
 				<Link VarA="PlcTask Outputs^GVL_Safety.stSafetyData.SafetyGroups[1].AckGroup" VarB="StandardOutputs^Standard In Var 20" Size="1"/>
 				<Link VarA="PlcTask Outputs^GVL_Safety.stSafetyData.SafetyGroups[1].RunGroup" VarB="StandardOutputs^Standard In Var 21" Size="1"/>
+				<Link VarA="PlcTask Outputs^Rotation.FinishBrakeTesting" VarB="StandardOutputs^Standard In Var 42" Size="1"/>
+				<Link VarA="PlcTask Outputs^Rotation.ManualReleaseBrake1" VarB="StandardOutputs^Standard In Var 38" Size="1"/>
+				<Link VarA="PlcTask Outputs^Rotation.ManualReleaseBrake2" VarB="StandardOutputs^Standard In Var 40" Size="1"/>
+				<Link VarA="PlcTask Outputs^Rotation.RunBrake1Test" VarB="StandardOutputs^Standard In Var 32" Size="1"/>
+				<Link VarA="PlcTask Outputs^Rotation.RunBrake2Test" VarB="StandardOutputs^Standard In Var 33" Size="1"/>
 			</OwnerB>
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 70 (AX8640-0000-0103)^Drive 71 (AX8206-0210-0104)">
 				<Link VarA="PlcTask Inputs^GVL_Safety.stSafetyData.SafetyGroups[2].Diag" VarB="Device (Safety)^Group Info Data^ChA_ChB_Connection_Input Info Data^Diag"/>
