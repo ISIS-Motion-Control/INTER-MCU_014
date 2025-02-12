@@ -115,6 +115,9 @@
     <Content Include="packages.config">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="Properties\tchmicertificates.config.json">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="Server\ADS\ADS.Config.default.json">
       <SubType>Content</SubType>
     </Content>
@@ -132,6 +135,9 @@
     <Content Include="UserContent\AxisControlContent.usercontrol.json">
       <SubType>Content</SubType>
       <DependentUpon>UserContent\AxisControlContent.usercontrol</DependentUpon>
+    </Content>
+    <Content Include="UserContent\Content_Events.content">
+      <SubType>Content</SubType>
     </Content>
     <Content Include="UserContent\Content_Safety.content">
       <SubType>Content</SubType>

@@ -965,7 +965,7 @@ External Setpoint Generation:
 		</DataType>
 	</DataTypes>
 	<Project GUID="{FB261665-FD20-4BF2-97F8-2854C82B752D}" Name="tc_project_app" PrjFilePath="..\..\tc_project_app\tc_project_app.plcproj" TmcFilePath="..\..\tc_project_app\tc_project_app.tmc" ReloadTmc="true" AmsPort="852" FileArchiveSettings="#x000e" SymbolicMapping="true">
-		<Instance Id="#x08502040" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="tc_project_app\tc_project_app.tmc" TmcHash="{F3AA52EE-5980-FEE2-4ED6-172E5964B453}">
+		<Instance Id="#x08502040" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="tc_project_app\tc_project_app.tmc" TmcHash="{A7874460-4856-B7B5-8B13-0EA4255ADA82}">
 			<Name>tc_project_app Instance</Name>
 			<CLSID ClassFactory="TcPlc30">{08500001-0000-0000-F000-000000000064}</CLSID>
 			<Vars VarGrpType="1">
@@ -1089,6 +1089,10 @@ External Setpoint Generation:
 					<Type>BOOL</Type>
 				</Var>
 				<Var>
+					<Name>Inclinometer.INC_VAL</Name>
+					<Type>UINT</Type>
+				</Var>
+				<Var>
 					<Name>GVL_Safety.ResetPossibleAndPressed</Name>
 					<Comment><![CDATA[Run_MotionSafety AT %Q* : BOOL := TRUE;
 Run_MotionSafety_XRotAndZHor AT %Q* : BOOL:= TRUE;
@@ -1106,10 +1110,6 @@ ErrorAck_MotionSafety_Y1AndY2 AT %Q* : BOOL;]]></Comment>
 				<Var>
 					<Name>GVL_Safety.UnoccupiedMode</Name>
 					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Safety.fbMon_StateValid_Status</Name>
-					<Type>BYTE</Type>
 				</Var>
 				<Var>
 					<Name>GVL_Safety.stSafetyData.bStopAllMotion</Name>
@@ -1262,6 +1262,10 @@ ErrorAck_MotionSafety_Y1AndY2 AT %Q* : BOOL;]]></Comment>
 				</Var>
 				<Var>
 					<Name>GVL_Safety.stSafetyData.SafetyGroups[3].Status</Name>
+					<Type>BYTE</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Safety.fbMon_StateValid_Status</Name>
 					<Type>BYTE</Type>
 				</Var>
 				<Var>
@@ -2075,8 +2079,8 @@ ErrorAck_MotionSafety_Y1AndY2 AT %Q* : BOOL;]]></Comment>
 					<Type GUID="{10036166-C9D3-404B-BDD3-323034AAA7F4}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
 				</Var>
 				<Var>
-					<Name>Inclinometer.INC_VAL</Name>
-					<Type>UINT</Type>
+					<Name>Rotation.MotionResetButton</Name>
+					<Type>BOOL</Type>
 				</Var>
 			</Vars>
 			<Vars VarGrpType="2" AreaNo="1">
@@ -2415,8 +2419,8 @@ bPowerSwitchesAxis1 AT %Q*: BOOL:= TRUE;]]></Comment>
 				<Link VarA="PlcTask Inputs^GVL_Safety.LocalMode" VarB="StandardInputs^Standard Out Var 26" Size="1"/>
 				<Link VarA="PlcTask Inputs^GVL_Safety.ResetPossibleAndPressed" VarB="StandardInputs^Standard Out Var 25" Size="1"/>
 				<Link VarA="PlcTask Inputs^GVL_Safety.UnoccupiedMode" VarB="StandardInputs^Standard Out Var 27" Size="1"/>
-				<Link VarA="PlcTask Inputs^GVL_Safety.stSafetyData.SafetyGroups[1].Diag" VarB="TwinSAFE Group Info Data^Alias_Decouple Info Data^Diag"/>
-				<Link VarA="PlcTask Inputs^GVL_Safety.stSafetyData.SafetyGroups[1].Status" VarB="TwinSAFE Group Info Data^Alias_Decouple Info Data^State"/>
+				<Link VarA="PlcTask Inputs^GVL_Safety.stSafetyData.SafetyGroups[1].Diag" VarB="TwinSAFE Group Info Data^Alias_Decouple_Input Info Data^Diag"/>
+				<Link VarA="PlcTask Inputs^GVL_Safety.stSafetyData.SafetyGroups[1].Status" VarB="TwinSAFE Group Info Data^Alias_Decouple_Input Info Data^State"/>
 				<Link VarA="PlcTask Inputs^GVL_Safety.stSafetyData.aSafetyFBS[10].Diag" VarB="Function Block Info Data^Main_Prog.ESTOPS.FBMon_StateValid Info Data^Diag"/>
 				<Link VarA="PlcTask Inputs^GVL_Safety.stSafetyData.aSafetyFBS[10].State" VarB="Function Block Info Data^Main_Prog.ESTOPS.FBMon_StateValid Info Data^State"/>
 				<Link VarA="PlcTask Inputs^GVL_Safety.stSafetyData.aSafetyFBS[11].State" VarB="Function Block Info Data^Main_Prog.ESTOPS.FBRs_ResetToAxDrives Info Data^State"/>
@@ -2462,6 +2466,7 @@ bPowerSwitchesAxis1 AT %Q*: BOOL:= TRUE;]]></Comment>
 				<Link VarA="PlcTask Inputs^Rotation.Brake1Valid" VarB="StandardInputs^Standard Out Var 36" Size="1"/>
 				<Link VarA="PlcTask Inputs^Rotation.Brake2State" VarB="StandardInputs^Standard Out Var 35" Size="1"/>
 				<Link VarA="PlcTask Inputs^Rotation.Brake2Valid" VarB="StandardInputs^Standard Out Var 37" Size="1"/>
+				<Link VarA="PlcTask Inputs^Rotation.MotionResetButton" VarB="Connection Info Data^Message_14 Info Data^Input Safe Data Reset" Size="1"/>
 				<Link VarA="PlcTask Inputs^Rotation.RotationSTOState" VarB="StandardInputs^Standard Out Var 41" Size="1"/>
 				<Link VarA="PlcTask Inputs^Rotation.SBC_FailsafeFault" VarB="Connection Info Data^Message_18 Info Data^Input Safe Data FailSafeOutput" Size="1"/>
 				<Link VarA="PlcTask Inputs^Rotation.bInBrakeTestMode" VarB="StandardInputs^Standard Out Var 28" Size="1"/>

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<safetyApplication Crc="3171847834" xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.4.0.0" Id="f9bc667f-d42e-4014-965d-0070f93aac94" name="" mapState="true" mapDiag="true" groupOrderId="1" passificationAllowed="false" temporaryDeactivationAllowed="false" permamentDeactivationAllowed="false" xmlid="0" analogFBOutputReplacementValues="Zero" verifyAnalogFBInputsIfStart="false" userFbId="00000000-0000-0000-0000-000000000000" xmlns="http://schemas.microsoft.com/dsltools/SafetyApplicationLanguage">
+<safetyApplication Crc="817126541" xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.4.0.0" Id="f9bc667f-d42e-4014-965d-0070f93aac94" name="" mapState="true" mapDiag="true" groupOrderId="1" passificationAllowed="false" temporaryDeactivationAllowed="false" permamentDeactivationAllowed="false" xmlid="0" analogFBOutputReplacementValues="Zero" verifyAnalogFBInputsIfStart="false" userFbId="00000000-0000-0000-0000-000000000000" xmlns="http://schemas.microsoft.com/dsltools/SafetyApplicationLanguage">
   <comments>
     <comment Id="c12f665c-be41-411f-a174-b7a6d66242d0" text="Mode 1 : Searched and Locked (Unoccupied)&#xD;&#xA;Mode 2 : Local mode&#xD;&#xA;Mode 3 : Brake test mode" currentNetworkOrderId="0">
       <networks>
@@ -21,12 +21,84 @@
         <fBOrMoniker name="//Network1/FBOr1" />
       </subjects>
     </comment>
-    <comment Id="b1ae0e58-7bba-4d55-8423-679e83734d66" text="Needs checks of estops" currentNetworkOrderId="0">
+    <comment Id="c3ca5c84-97b4-41fb-8bf5-2a76bfa4654c" text="Hold reset for 10 seconds to trigger brake test mode" currentNetworkOrderId="0">
       <networks>
-        <commentReferencesNetworks Id="c8a61e23-2a44-43ca-9d84-c0ace62a6574">
+        <commentReferencesNetworks Id="52e18503-9635-44a2-bbe8-3b15556847a0">
           <networkMoniker name="//Network1" />
         </commentReferencesNetworks>
       </networks>
+      <subjects>
+        <fBSrMoniker name="//Network1/FBSr2" />
+        <fBTonMoniker name="//Network1/FBTon1" />
+      </subjects>
+    </comment>
+    <comment Id="25d22ab5-bd2f-4778-bf4b-3e902ef45108" text="Exit brake test mode via PLC signal or trip of an estop" currentNetworkOrderId="0">
+      <networks>
+        <commentReferencesNetworks Id="c0ee62f7-40d0-429a-b513-885d6114bfd3">
+          <networkMoniker name="//Network1" />
+        </commentReferencesNetworks>
+      </networks>
+      <subjects>
+        <fBAndMoniker name="//Network1/FBAnd5" />
+      </subjects>
+    </comment>
+    <comment Id="6879913b-f72d-4096-9f90-f3ff2124612a" text="Modes not valid if in brake test mode" currentNetworkOrderId="0">
+      <networks>
+        <commentReferencesNetworks Id="ed155f06-3944-4ed1-9cdf-570e44625f3c">
+          <networkMoniker name="//Network1" />
+        </commentReferencesNetworks>
+      </networks>
+      <subjects>
+        <fBAndMoniker name="//Network1/FBAnd2" />
+        <fBAndMoniker name="//Network1/FBAnd4" />
+      </subjects>
+    </comment>
+    <comment Id="1bd7e124-d045-4978-a705-c25a4e532ed9" text="Dominant set of searched and locked signal&#xD;&#xA;Will ignore light curtain whilst SET high" currentNetworkOrderId="0">
+      <networks>
+        <commentReferencesNetworks Id="d990b030-1c39-4976-a8d5-5d6286644c85">
+          <networkMoniker name="//Network1" />
+        </commentReferencesNetworks>
+      </networks>
+    </comment>
+    <comment Id="8d02f152-d90a-4606-975f-680925b5250e" text="SLS override in brake test mode and unoccupied mode" currentNetworkOrderId="0">
+      <networks>
+        <commentReferencesNetworks Id="038117ae-b3f8-4c4f-a50b-65472de47a59">
+          <networkMoniker name="//Network1" />
+        </commentReferencesNetworks>
+      </networks>
+      <subjects>
+        <fBOrMoniker name="//Network1/FBOr2" />
+      </subjects>
+    </comment>
+    <comment Id="116627a4-cce0-492d-8f86-b7427e500915" text="Triggers that disable local mode" currentNetworkOrderId="0">
+      <networks>
+        <commentReferencesNetworks Id="94743867-8c5d-4643-9b93-9f5e60e194e7">
+          <networkMoniker name="//Network1" />
+        </commentReferencesNetworks>
+      </networks>
+      <subjects>
+        <fBAndMoniker name="//Network1/FBAnd1" />
+      </subjects>
+    </comment>
+    <comment Id="94fbc484-3827-42b5-a611-e99bdfefd575" text="Valid states that we can enable local mode" currentNetworkOrderId="0">
+      <networks>
+        <commentReferencesNetworks Id="3e0d92f0-6c9d-481f-b25f-bea35590d2f7">
+          <networkMoniker name="//Network1" />
+        </commentReferencesNetworks>
+      </networks>
+      <subjects>
+        <fBAndMoniker name="//Network1/FBAnd3" />
+      </subjects>
+    </comment>
+    <comment Id="dc54b06e-04be-4b35-af3e-ae4fb21de774" text="Enable local mode and IN local mode" currentNetworkOrderId="0">
+      <networks>
+        <commentReferencesNetworks Id="ad037422-ae4c-418a-8092-048c0060d224">
+          <networkMoniker name="//Network1" />
+        </commentReferencesNetworks>
+      </networks>
+      <subjects>
+        <fBMonMoniker name="//Network1/FBMon3" />
+      </subjects>
     </comment>
   </comments>
   <networks>
@@ -599,11 +671,11 @@
                 </functioBlockHasInPorts>
                 <functioBlockHasInPorts Id="ccb69978-8d15-42ff-9feb-af8fd4be5e25">
                   <inPort Id="57a1292e-9df1-4889-9d5e-94d8219f0e6e" name="AndIn2" portName="AndIn2" portNum="3" objectIndex="9" varId="3" filter="2" portDataType="1" channelInterface="Activated" deactivate1="Break Contact (NC)" maxDeviation="0" resetTime="0">
-                    <functionBlockPortReferences>
-                      <globalReferenceLink Id="3cf445df-fc88-4fbf-807a-e3c0964c1df8">
-                        <functionBlockPortReference Id="cdb3bec6-020c-47e2-a03a-ff5e5bb4d6fd" portId="6204809f-ed2e-43a0-9afd-c0c312f4f87e" lastKnownPath="Main_Prog.ESTOPS.FBMon_EStopsCombined.MonOut" />
-                      </globalReferenceLink>
-                    </functionBlockPortReferences>
+                    <fbPortGlobalVariableReferences>
+                      <functionBlockPortHasFbPortGlobalVariableReferences Id="6116eaff-84c6-49fb-89f9-e03b8392eb39">
+                        <fbPortGlobalVariableReference Id="5b420f77-4298-4199-94ee-0a7061d5dbbb" variableId="d604d93e-2d6d-431f-a872-0148910daef4" lastKnownPath="GVL.CombinedEStops_MonOut" />
+                      </functionBlockPortHasFbPortGlobalVariableReferences>
+                    </fbPortGlobalVariableReferences>
                   </inPort>
                 </functioBlockHasInPorts>
                 <functioBlockHasInPorts Id="505bcbf0-5665-4a67-ab4c-d7d558f71511">

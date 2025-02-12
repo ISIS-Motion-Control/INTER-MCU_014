@@ -53,14 +53,56 @@
             ],
             "then": [
               {
-                "objectType": "WriteToSymbol",
+                "objectType": "Condition",
                 "active": true,
-                "symbolExpression": "%pp%LocalOnOFF%/pp%",
-                "value": {
-                  "objectType": "Symbol",
-                  "valueType": "tchmi:general#/definitions/String",
-                  "symbolExpression": "%f%NOT(%pp%OnOff%/pp%)%/f%"
-                },
+                "parts": [
+                  {
+                    "if": [
+                      {
+                        "compare1": {
+                          "objectType": "Symbol",
+                          "valueType": "tchmi:general#/definitions/String",
+                          "symbolExpression": "%pp%OnOff%/pp%"
+                        },
+                        "compare2": {
+                          "objectType": "StaticValue",
+                          "valueType": "tchmi:general#/definitions/BOOL",
+                          "value": true
+                        },
+                        "compareOperator": "==",
+                        "logic": null
+                      }
+                    ],
+                    "then": [
+                      {
+                        "objectType": "WriteToSymbol",
+                        "active": true,
+                        "symbolExpression": "%pp%LocalOnOFF%/pp%",
+                        "value": {
+                          "objectType": "StaticValue",
+                          "valueType": "tchmi:general#/definitions/BOOL",
+                          "value": false
+                        },
+                        "asyncWait": true
+                      }
+                    ]
+                  },
+                  {
+                    "else": [
+                      {
+                        "objectType": "WriteToSymbol",
+                        "active": true,
+                        "symbolExpression": "%pp%LocalOnOFF%/pp%",
+                        "value": {
+                          "objectType": "StaticValue",
+                          "valueType": "tchmi:general#/definitions/BOOL",
+                          "value": true
+                        },
+                        "asyncWait": true
+                      }
+                    ]
+                  }
+                ],
                 "asyncWait": true
               }
             ]
@@ -68,14 +110,56 @@
           {
             "else": [
               {
-                "objectType": "WriteToSymbol",
+                "objectType": "Condition",
                 "active": true,
-                "symbolExpression": "%pp%LocalOnOFF%/pp%",
-                "value": {
-                  "objectType": "Symbol",
-                  "valueType": "tchmi:general#/definitions/String",
-                  "symbolExpression": "%f%%pp%OnOff%/pp%%/f%"
-                },
+                "parts": [
+                  {
+                    "if": [
+                      {
+                        "compare1": {
+                          "objectType": "Symbol",
+                          "valueType": "tchmi:general#/definitions/BOOL",
+                          "symbolExpression": "%pp%OnOff%/pp%"
+                        },
+                        "compare2": {
+                          "objectType": "StaticValue",
+                          "valueType": "tchmi:general#/definitions/BOOL",
+                          "value": true
+                        },
+                        "compareOperator": "==",
+                        "logic": null
+                      }
+                    ],
+                    "then": [
+                      {
+                        "objectType": "WriteToSymbol",
+                        "active": true,
+                        "symbolExpression": "%pp%LocalOnOFF%/pp%",
+                        "value": {
+                          "objectType": "StaticValue",
+                          "valueType": "tchmi:general#/definitions/BOOL",
+                          "value": true
+                        },
+                        "asyncWait": true
+                      }
+                    ]
+                  },
+                  {
+                    "else": [
+                      {
+                        "objectType": "WriteToSymbol",
+                        "active": true,
+                        "symbolExpression": "%pp%LocalOnOFF%/pp%",
+                        "value": {
+                          "objectType": "StaticValue",
+                          "valueType": "tchmi:general#/definitions/BOOL",
+                          "value": false
+                        },
+                        "asyncWait": true
+                      }
+                    ]
+                  }
+                ],
                 "asyncWait": true
               }
             ]

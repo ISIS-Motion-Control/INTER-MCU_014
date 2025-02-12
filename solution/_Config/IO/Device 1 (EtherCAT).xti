@@ -127,19 +127,19 @@
 					<Var>
 						<Name>HEAD</Name>
 						<Type GUID="{D46F6451-58CF-4853-A5DB-DA36D1D59A28}" Namespace="IO">ECAT_HEAD</Type>
-						<BitOffs>1848</BitOffs>
+						<BitOffs>1880</BitOffs>
 					</Var>
 					<Var>
 						<Name>DATA</Name>
 						<Type GUID="{18071995-0000-0000-0000-001300000100}">ARRAY [0..255] OF BYTE</Type>
-						<BitOffs>1928</BitOffs>
+						<BitOffs>1960</BitOffs>
 					</Var>
 					<Var>
 						<Name>CNT</Name>
 						<Comment><![CDATA[Working counter
 After receiving]]></Comment>
 						<Type>UINT</Type>
-						<BitOffs>3976</BitOffs>
+						<BitOffs>4008</BitOffs>
 					</Var>
 				</Vars>
 				<Vars VarGrpType="2">
@@ -147,19 +147,19 @@ After receiving]]></Comment>
 					<Var>
 						<Name>HEAD</Name>
 						<Type GUID="{D46F6451-58CF-4853-A5DB-DA36D1D59A28}" Namespace="IO">ECAT_HEAD</Type>
-						<BitOffs>1848</BitOffs>
+						<BitOffs>1880</BitOffs>
 					</Var>
 					<Var>
 						<Name>DATA</Name>
 						<Type GUID="{18071995-0000-0000-0000-001300000100}">ARRAY [0..255] OF BYTE</Type>
-						<BitOffs>1928</BitOffs>
+						<BitOffs>1960</BitOffs>
 					</Var>
 					<Var>
 						<Name>CNT</Name>
 						<Comment><![CDATA[Working counter
 Before sending]]></Comment>
 						<Type>UINT</Type>
-						<BitOffs>3976</BitOffs>
+						<BitOffs>4008</BitOffs>
 					</Var>
 				</Vars>
 			</EtherCATCmd>

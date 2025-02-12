@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<SafetyDeviceDesc Crc="1651493641" FileFormatVersion="1.8">
+<SafetyDeviceDesc Crc="1233357514" FileFormatVersion="1.8">
   <AliasDeviceType>
     <Type>4</Type>
     <SubType>190</SubType>
@@ -29,7 +29,7 @@
       <Param Index="32769" SubIndex="3">00</Param>
       <Param Index="32769" SubIndex="4">00</Param>
       <Param Index="32770" SubIndex="1">01</Param>
-      <Param Index="32770" SubIndex="3">01</Param>
+      <Param Index="32770" SubIndex="3">00</Param>
       <Messages>
         <IO>
           <Name>FSoE Master CMD</Name>

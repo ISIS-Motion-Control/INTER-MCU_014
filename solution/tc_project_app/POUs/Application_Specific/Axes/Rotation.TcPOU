@@ -59,6 +59,7 @@ VAR
     BC2_Error AT %I* : BOOL;
     BrakeReset AT %Q* : BOOL;
     
+    MotionResetButton AT %I* : BOOL;
     
     stateTimout : TON;
     brakeDelay : TON;
@@ -69,7 +70,7 @@ VAR
     fbAx8000BrakeTest : FB_CoEAX8000BrakeTest;
     fbReset : MC_Reset();
     
-    TEST_TORQUE : LREAL := 2.1;//1.4142;
+    TEST_TORQUE : LREAL := 2.2;//1.4142;
     ResetCounter : INT;
     ResetCounterLimit : INT := 5;
 //Hardware interlocks
@@ -189,7 +190,8 @@ CASE OpState OF
         ManualReleaseBrake1:= FALSE;
         ManualReleaseBrake2:= FALSE;
         ResetCounter:= 0;
-        IF Reinitialise THEN
+        
+        IF Reinitialise OR MotionResetButton THEN
             OpState:= E_RotationBrakeCheckerState.init;
 		END_IF
         
@@ -276,7 +278,7 @@ CASE OpState OF
         
         E_RotationBrakeCheckerState.Wait_For_Test_Trigger:
             IF GVL.astAxes[AXIS_ROTATION].Axis.Status.Error THEN
-                GVL_INTER.RESET_ALL:= TRUE;
+                OpState:= E_RotationBrakeCheckerState.init;
                 ResetCounter:= ResetCounter +1;
                 IF ResetCounter>ResetCounterLimit THEN
                     OpState:= E_RotationBrakeCheckerState.Error;
@@ -357,6 +359,7 @@ CASE OpState OF
             
         E_RotationBrakeCheckerState.Brake_Testing_Underway:
             astAxes[AXIS_ROTATION].stControl.bEnable:= TRUE;
+            astAxes[AXIS_ROTATION].stConfig.fOverride:=100;
             //Ensure only 1 brake released
             IF TestingBrake1 THEN
                 fbAx8000BrakeTest.Succeeded:= Brake1Valid;
@@ -368,16 +371,18 @@ CASE OpState OF
                 Execute:= TRUE);
 
            IF NOT fbAx8000BrakeTest.Busy AND NOT fbAx8000BrakeTest.Error THEN
-               fbAx8000BrakeTest(Axis:= astAxes[AXIS_ROTATION].Axis, Execute:= FALSE);
-               OpState:= E_RotationBrakeCheckerState.Wait_For_Test_Trigger;
+               fbAx8000BrakeTest(Axis:= astAxes[AXIS_ROTATION].Axis, Torque:=0, Execute:= FALSE);
+               //OpState:= E_RotationBrakeCheckerState.Wait_For_Test_Trigger;
+               OpState:= E_RotationBrakeCheckerState.init;//Just trying, see if it releases torque
                RunBrake1Test:=FALSE;
                RunBrake2Test:=FALSE;
                TriggerBrake1Test:= FALSE;
                TriggerBrake2Test:= FALSE;
                loadDelay(IN:= FALSE, PT:=T#500MS);
 		   ELSIF NOT fbAx8000BrakeTest.Busy AND fbAx8000BrakeTest.Error THEN
-               fbAx8000BrakeTest(Axis:= astAxes[AXIS_ROTATION].Axis, Execute:= FALSE);
-               OpState:= E_RotationBrakeCheckerState.Wait_For_Test_Trigger;
+               fbAx8000BrakeTest(Axis:= astAxes[AXIS_ROTATION].Axis, Torque:=0,Execute:= FALSE);
+               //OpState:= E_RotationBrakeCheckerState.Wait_For_Test_Trigger;
+               OpState:= E_RotationBrakeCheckerState.init;//Just trying, see if it releases torque
                RunBrake1Test:=FALSE;
                RunBrake2Test:=FALSE;
                TriggerBrake1Test:= FALSE;

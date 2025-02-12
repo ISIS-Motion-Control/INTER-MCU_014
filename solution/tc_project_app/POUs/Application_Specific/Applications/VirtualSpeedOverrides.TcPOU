@@ -69,7 +69,7 @@ IF GVL_Safety.UnoccupiedMode THEN
     
     FOR i:=1 TO INTER_LOGIC.ARRAYSIZE_ALLVIRTUALS DO
         astAxes[INTER_LOGIC.aVirtualAxisDefaults[i].axisID].stConfig.fOverride := 100* SPEED_OVERRIDE_MODIFIER;
-        GVL_INTER.SPEED_LIMITING:= FALSE;
+        
 	END_FOR
 
 ELSE
@@ -104,52 +104,12 @@ ELSE
 	END_FOR
 END_IF
 
-
-
-//HIGH SPEED
-    //MEASUREMENT AXIS valid at 0.65 degs/s  
-    //Verts max at 27.5
-    //Rot at 0.65
-    //Hor at 1.3
-    //
-
-
-
-
-(*
-//Check speeds not too high
-IF NOT GVL_INTER.SPEED_LIMITING AND (ABS(axisSpg_Vertical.velocity)>VERTICAL_SPEED_LIMIT OR ABS(axisSpg_Horizontal.velocity)>HORIZONTAL_SPEED_LIMIT OR ABS(axisSpg_Rot.velocity)>ROTATION_SPEED_LIMIT) THEN
-    IF axisSpg_Vertical.velocity>0 THEN
-        axisSpg_Vertical.velocity:= VERTICAL_SPEED_LIMIT;
-    ELSE
-        axisSpg_Vertical.velocity:= -VERTICAL_SPEED_LIMIT;
-    END_IF    
-    
-    IF axisSpg_Horizontal.velocity>0 THEN
-        axisSpg_Horizontal.velocity:= HORIZONTAL_SPEED_LIMIT;
-    ELSE
-        axisSpg_Horizontal.velocity:= -HORIZONTAL_SPEED_LIMIT;
-    END_IF 
-    
-     IF axisSpg_Rot.velocity>0 THEN
-        axisSpg_Rot.velocity:= ROTATION_SPEED_LIMIT;
-    ELSE
-        axisSpg_Rot.velocity:= -ROTATION_SPEED_LIMIT;
-    END_IF 
-
-    FOR i:=1 TO ARRAYSIZE_ALLVIRTUALS DO
-        astAxes[aVirtualAxisDefaults[i].axisID].stConfig.fOverride := 20;
-        GVL_INTER.SPEED_LIMITING:= TRUE;
-	END_FOR
+IF SPEED_OVERRIDE_MODIFIER < 1 THEN
+    GVL_INTER.SPEED_LIMITING:= TRUE;
+ELSE
+    GVL_INTER.SPEED_LIMITING:= FALSE;
 END_IF
-//We have stopped moving so can stop speed limiting
-IF GVL_INTER.VIRTUAL_AXES_NOT_MOVING AND GVL_INTER.SPEED_LIMITING THEN
-    FOR i:=1 TO ARRAYSIZE_ALLVIRTUALS DO
-        astAxes[aVirtualAxisDefaults[i].axisID].stConfig.fOverride := 100;
-        GVL_INTER.SPEED_LIMITING:= FALSE;
-	END_FOR
-END_IF
-*)]]></ST>
+]]></ST>
     </Implementation>
   </POU>
 </TcPlcObject>

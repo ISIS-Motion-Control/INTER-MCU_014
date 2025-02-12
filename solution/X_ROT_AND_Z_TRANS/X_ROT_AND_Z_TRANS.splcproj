@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project Crc="3565585333" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+<Project Crc="628101484" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
   <PropertyGroup>
     <Configuration Condition="'$(Configuration)' == ''">Debug</Configuration>
     <SchemaVersion>2.0</SchemaVersion>
@@ -13,6 +13,17 @@
     <NextSdsId>21</NextSdsId>
     <SPlcProjVersion>1.7.0.0</SPlcProjVersion>
     <SortMode>2</SortMode>
+    <DocuEditor>bem74844</DocuEditor>
+    <PlotDate>2025-02-12</PlotDate>
+    <CompanyName>Beckhoff Automation &amp; Co. KG</CompanyName>
+    <CompanyLogo>Beckhoff Automation &amp; Co. KG</CompanyLogo>
+    <FbPerPage>4</FbPerPage>
+    <AddUserAdministrationPages>False</AddUserAdministrationPages>
+    <AddProjectVersionHistoryPages>False</AddProjectVersionHistoryPages>
+    <AddCustomPages>False</AddCustomPages>
+    <TextBox />
+    <AddMultiSettingDocuments>False</AddMultiSettingDocuments>
+    <AddHashValueTablePages>False</AddHashValueTablePages>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)' == 'Release'">
     <DebugSymbols>false</DebugSymbols>

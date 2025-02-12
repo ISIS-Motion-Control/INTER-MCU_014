@@ -1,6 +1,6 @@
 {
     "AUTHCLIENTCERTIFICATE": false,
-    "AUTO_LOGINUSER": "",
+    "AUTO_LOGINUSER": "default",
     "AUTO_LOGOFF": "P30D",
     "CACHEENABLED": true,
     "CACHEMAXAGE": "P30D",
@@ -10,7 +10,13 @@
     "CERTIFICATEEXPIRATION": "P14000D",
     "CHECKSUMENABLED": true,
     "CHUNKSIZE": 1048576,
-    "CLIENTCERTIFICATES": [],
+    "CLIENTCERTIFICATES": [
+        {
+            "CLIENTCERTIFICATE": "LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tDQpNSUlFdURDQ0FxQ2dBd0lCQWdJUWJvQmRSekxwNXExRW0xdHI1TnVaVlRBTkJna3Foa2lHOXcwQkFRc0ZBREFYTVJVd0V3WURWUVFEDQpFd3hUUTI5dmNHVnlMVWxUU1ZNd0lCY05NalV3TWpFeU1EQXdNREF3V2hnUE1qRXlOVEF5TVRJd01EQXdNREJhTUJjeEZUQVRCZ05WDQpCQU1UREZORGIyOXdaWEl0U1ZOSlV6Q0NBaUl3RFFZSktvWklodmNOQVFFQkJRQURnZ0lQQURDQ0Fnb0NnZ0lCQUxnZnZMeVhLUWhQDQp6aWtSQ3pvUnNKZmdzcjZLMDdEeUJzdCtVd1I2RHpXUDJSNmgzZkd4Z2Ezd3kxdHdZNzg1K0dQTHUwUGJHYVRkZUlDdjltWkljTjJLDQpKT0xQWkMrQW1jNHJrL0pVOWN1elBnbWp3dHVKYW9iTFRQdkljbmxJSWhuaFZ1cEVMbGx3N2M2OVRkZWtPMURhWVJoVW04dWt1NSs3DQowa0RDMXRUMENhNEx5MG1xR3ZtUXZvUURYaWF2UWlHT3oyMmJqSFhqakxPNEZXZ0dEVWJjdnRwaFlmRmVqUFpYbEtFSGVLVTJlR3dRDQo3TXlQdlpXeFF5OTFEb1EzNC9rSFdPcXR0REszMVlWNllBZ1QrdVdYSy90dzg1ODhZcGtqU2lEZUZoM1puUWV3dk8xa1V3VTY5Z2h0DQp0YnFKZHdwSEplWGFTSkJmVGJNNERsQ0N4cXJ1V0hMMzVHcnVhcjhRdVF3bWNiUmNHS0hRRlk4Tm5PSm55NHNCdExVa1RVcGFBejJIDQo1Vml6ZHc5M1J5RStQbE0rYUkyc0FTMThrSkd4VTd2ZGNsenNGNVZaemYzd2NMOWs4SnN4U3RNRlkwZG8yY0oxTlZDZDJsVzFBRHNrDQp2ckU0QlRTN1FtZk03QTBjMi9XTXNVV1J4UG9oMDVoUHNqeXVWMEl5QXJVRXZhZFM5SEFiMlhSZDY4QndYUGRFNS9ubHNteE5vSC9WDQpVQ0FlUnR5TnlFMnhZUWpvbWRLQitDVTg4RlBHaE1IbEovQ2tMUVlwTksvczlaU3ZtWkJrSWNVanR2bU1oQmpJSUxzTVNHYmp6VXEzDQpzWUxzU0x1NDZ1WUxHZnlGWVlZdFpPZ00wZVFERjEwZFgwTUlyZ2NIT1BTUEJGUlZ4cWwweXpHcXQ4OEdlSWN0QWdNQkFBRXdEUVlKDQpLb1pJaHZjTkFRRUxCUUFEZ2dJQkFLOUpIdUV4YXc5NnVWU3VYYkVjNHE5K0Mya001ai81b1lLNVI1b0grVElsdXVtaE1EQlpZZU9vDQp5QjB2bjcvNEdQNTBtQmZPKy9hVmNneUVpMlFJY2NSVTVURU85VW5KMXVMWjM3NTJJV2VZRzZ4MGhic1BBOXE0YWtBQXQxS0FBZHV6DQoxMnlxdHdTR3hVY29lR0oxNlcrUnRZL0ZQdTU2c2tUK0kxZFJnZWY3MURRZkQ3Q0lBNTJidVJPaW54ZS9DY3ROangrTi8zbUw2L3RPDQo4ZzJsbzJ2dFhYOXo5OG9YbXE3aFZwQnpoQ1pMMUprL3g4UERCcEsra0tSMEE2ekJWK3Z6MnpLV2FHdEZHZnlHS1BWOFNZUDIzYkxVDQpydDZWNmNobzRqYnBDNWNRQTBWYU5OWXNNR05yRzRpVldPT0d3b3BEOWVOQml4VFRncm5NQ0gzZmtMRFZ5Mzd1YXRhSEtHMWZhZTlKDQpBODlWNUhxdXRQaloveDZSa0hTNEE4dVJJektwdzhxWCtnb3QxRGd5bzhKb003NERpd3JvQUpxY21iallBeWE2a2JlNnZ0UXEvK2p4DQpraHRRQUEydERKU3htaEZQOGI3dlg5dSt2ZjBmLzZrMjR6V3RvTWw5cjBFV3RqUHZuS3NwRFQ5UThFUFY4TVJEMEJLbGlvRTV0UDBMDQphQkQ3VWlyMEtRUWNMQWNIYnMrWlJUZG4yT2dmYXFpWUdGSW8vd1hkRkN1Y0hwMlQ0S0ZENXg4cUxlbmU0Nm5WWTFWQmFLU1M1czFCDQo1VEZDMlJsbk5weU1BZ01zSTFXaFhEbnJxQy9xcURhcGRNRExESFBvY1VDRDAvZW52WE1KQmhLMmJ5RElYYWp1RzNDdW9tbU5TcXZKDQpYYVhZaFpkK0huUEVnR09Nd2oxYw0KLS0tLS1FTkQgQ0VSVElGSUNBVEUtLS0tLQ0K",
+            "DEFAULTUSER": "",
+            "ENABLECLIENTCERTIFICATE": true
+        }
+    ],
     "CLIENTPRIORITYLIST": [],
     "CLIENT_CACHE_MAX_AGE": 0,
     "CONFIGURATIONS": [
@@ -7879,6 +7885,16 @@
             },
             "USEMAPPING": true
         },
+        "PLC1.GVL_INTER.KINEMATIC_SPG_ALL_DISABLED": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::GVL_INTER::KINEMATIC_SPG_ALL_DISABLED",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
         "PLC1.GVL_INTER.KINEMATIC_SPG_ALL_ENABLED": {
             "ACCESS": 3,
             "DOMAIN": "ADS",
@@ -7903,6 +7919,16 @@
                         "comment": "STATUSES"
                     }
                 ]
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.GVL_INTER.LOGIC_ERROR": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::GVL_INTER::LOGIC_ERROR",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
             },
             "USEMAPPING": true
         },
@@ -8031,6 +8057,16 @@
             "DOMAIN": "ADS",
             "DYNAMIC": true,
             "MAPPING": "PLC1::GVL_INTER::SAFETY_ACK_REQUESTED",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.GVL_INTER.SPEED_LIMITING": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::GVL_INTER::SPEED_LIMITING",
             "SCHEMA": {
                 "$ref": "tchmi:general#/definitions/BOOL"
             },
@@ -8689,6 +8725,23 @@
                         "attributes": {
                             "TcAddressType": "Input"
                         }
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.Rotation.TEST_TORQUE": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::Rotation::TEST_TORQUE",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:general#/definitions/LREAL"
+                    },
+                    {
+                        "comment": "1.4142;"
                     }
                 ]
             },
@@ -9790,6 +9843,7 @@
                 "PLC1.Rotation.Reinitialise": 3,
                 "PLC1.Rotation.RotationSTOState": 3,
                 "PLC1.Rotation.SBC_FailsafeFault": 3,
+                "PLC1.Rotation.TEST_TORQUE": 3,
                 "PLC1.Rotation.TriggerBrake1Test": 3,
                 "PLC1.Rotation.TriggerBrake2Test": 3,
                 "PLC1.Rotation.bInBrakeTestMode": 3,
@@ -9834,6 +9888,15 @@
                     "__SystemUsers"
                 ],
                 "USERGROUPUSERS_LOCALE": "project",
+                "USERGROUPUSERS_TIMEFORMATLOCALE": "project",
+                "USERGROUPUSERS_TIMEZONE": "project"
+            },
+            "default": {
+                "USERGROUPUSERS_AUTO_LOGOFF": "PT0S",
+                "USERGROUPUSERS_GROUPS": [
+                    "__SystemUsers"
+                ],
+                "USERGROUPUSERS_LOCALE": "client",
                 "USERGROUPUSERS_TIMEFORMATLOCALE": "project",
                 "USERGROUPUSERS_TIMEZONE": "project"
             }

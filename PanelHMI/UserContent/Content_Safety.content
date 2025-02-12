@@ -66,7 +66,7 @@
 ]
 </script>
 </div>
-<div id="TcHmiContainer_1" data-tchmi-type="TcHmi.Controls.System.TcHmiContainer" data-tchmi-height="300" data-tchmi-height-unit="px" data-tchmi-left="8" data-tchmi-left-unit="px" data-tchmi-top="159" data-tchmi-top-unit="px" data-tchmi-width="1006" data-tchmi-width-unit="px">
+<div id="TcHmiContainer_1" data-tchmi-type="TcHmi.Controls.System.TcHmiContainer" data-tchmi-height="336" data-tchmi-height-unit="px" data-tchmi-left="9" data-tchmi-left-unit="px" data-tchmi-top="123" data-tchmi-top-unit="px" data-tchmi-width="1006" data-tchmi-width-unit="px">
 <div id="TcHmiTextblock_5" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="33" data-tchmi-height-unit="px" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-text="BRAKE TESTING" data-tchmi-top="10" data-tchmi-top-unit="px" data-tchmi-width="267" data-tchmi-width-unit="px" data-tchmi-word-wrap="true" data-tchmi-text-font-size="24">
 </div>
 <div id="UserControl1_16" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height="48" data-tchmi-height-unit="px" data-tchmi-left="9" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserContent/TextAndIndicator.usercontrol" data-tchmi-text="Brake 1 Valid Status" data-tchmi-top="51" data-tchmi-top-unit="px" data-tchmi-width="320" data-tchmi-width-unit="px" data-tchmi-info="true" data-tchmi-onoff="%s%PLC1.Rotation.Brake1Valid%/s%">
@@ -145,7 +145,7 @@
 ]
 </script>
 </div>
-<div id="TcHmiButton_16" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiButton" data-tchmi-height="33" data-tchmi-height-unit="px" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-text="Reinitialise state logic" data-tchmi-top="260" data-tchmi-top-unit="px" data-tchmi-width="320" data-tchmi-width-unit="px" data-tchmi-word-wrap="true" data-tchmi-text-font-size="18">
+<div id="TcHmiButton_16" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiButton" data-tchmi-height="33" data-tchmi-height-unit="px" data-tchmi-left="6" data-tchmi-left-unit="px" data-tchmi-text="Reinitialise state logic" data-tchmi-top="297" data-tchmi-top-unit="px" data-tchmi-width="320" data-tchmi-width-unit="px" data-tchmi-word-wrap="true" data-tchmi-text-font-size="18">
 <script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
 [
   {
@@ -167,9 +167,9 @@
 ]
 </script>
 </div>
-<div id="TcHmiTextblock_10" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="330" data-tchmi-left-unit="px" data-tchmi-top="267" data-tchmi-top-unit="px" data-tchmi-width="81" data-tchmi-width-unit="px" data-tchmi-word-wrap="true" data-tchmi-text="Current state:">
+<div id="TcHmiTextblock_10" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="336" data-tchmi-left-unit="px" data-tchmi-top="304" data-tchmi-top-unit="px" data-tchmi-width="81" data-tchmi-width-unit="px" data-tchmi-word-wrap="true" data-tchmi-text="Current state:">
 </div>
-<div id="TcHmiTextblock_11" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="411" data-tchmi-left-unit="px" data-tchmi-top="268" data-tchmi-top-unit="px" data-tchmi-width="282" data-tchmi-width-unit="px" data-tchmi-word-wrap="true" data-tchmi-text="%s%PLC1.Rotation.OpSate_String%/s%">
+<div id="TcHmiTextblock_11" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="417" data-tchmi-left-unit="px" data-tchmi-top="305" data-tchmi-top-unit="px" data-tchmi-width="282" data-tchmi-width-unit="px" data-tchmi-word-wrap="true" data-tchmi-text="%s%PLC1.Rotation.OpSate_String%/s%">
 </div>
 <div id="UserControl1_21" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height="48" data-tchmi-height-unit="px" data-tchmi-left="356" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserContent/TextAndIndicator.usercontrol" data-tchmi-text="SBC Fault" data-tchmi-top="96" data-tchmi-top-unit="px" data-tchmi-width="320" data-tchmi-width-unit="px" data-tchmi-error="true" data-tchmi-onoff="%s%PLC1.Rotation.SBC_FailsafeFault%/s%" data-tchmi-invertstate="true">
 </div>
@@ -217,6 +217,97 @@
   "color": "rgba(186, 241, 255, 1)"
 }
 </script>
+<div id="UserControl1_45" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-height="48" data-tchmi-height-unit="px" data-tchmi-info="true" data-tchmi-left="356" data-tchmi-left-unit="px" data-tchmi-status="false" data-tchmi-target-user-control="UserContent/TextAndIndicator.usercontrol" data-tchmi-text="Rotation Enabled" data-tchmi-top="240" data-tchmi-top-unit="px" data-tchmi-width="320" data-tchmi-width-unit="px" data-tchmi-onoff="%s%PLC1.GVL.astAxes.4::Axis::Status::Operational%/s%">
+</div>
+<div id="TcHmiTextblock_26" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="788" data-tchmi-left-unit="px" data-tchmi-top="286" data-tchmi-top-unit="px" data-tchmi-width="81" data-tchmi-width-unit="px" data-tchmi-word-wrap="true" data-tchmi-text="Test torque:">
+</div>
+<div id="TcHmiTextbox_2" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextbox" data-tchmi-height="26" data-tchmi-height-unit="px" data-tchmi-left="869" data-tchmi-left-unit="px" data-tchmi-text="%s%PLC1.Rotation.TEST_TORQUE%/s%" data-tchmi-top="286" data-tchmi-top-unit="px" data-tchmi-width="117" data-tchmi-width-unit="px">
+<script data-tchmi-target-attribute="data-tchmi-content-padding" type="application/json">
+{
+  "top": 3,
+  "right": 3,
+  "bottom": 3,
+  "left": 3
+}
+</script>
+
+
+
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "TcHmiTextbox_2.onUserInteractionFinished",
+    "actions": [
+      {
+        "objectType": "Condition",
+        "active": true,
+        "parts": [
+          {
+            "if": [
+              {
+                "compare1": {
+                  "objectType": "Symbol",
+                  "valueType": "tchmi:general#/definitions/String",
+                  "symbolExpression": "%ctrl%TcHmiTextbox_2::Text%/ctrl%"
+                },
+                "compare2": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/String",
+                  "value": "2.3"
+                },
+                "compareOperator": ">",
+                "logic": null
+              }
+            ],
+            "then": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%TcHmiTextbox_2::Text%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/String",
+                  "value": "2.3"
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%s%PLC1.Rotation.TEST_TORQUE%/s%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/LREAL",
+                  "value": 2.3
+                },
+                "asyncWait": true
+              }
+            ]
+          },
+          {
+            "else": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%s%PLC1.Rotation.TEST_TORQUE%/s%",
+                "value": {
+                  "objectType": "Symbol",
+                  "valueType": "tchmi:general#/definitions/String",
+                  "symbolExpression": "%ctrl%TcHmiTextbox_2::Text%/ctrl%"
+                },
+                "asyncWait": true
+              }
+            ]
+          }
+        ],
+        "asyncWait": true
+      }
+    ]
+  }
+]
+</script>
+</div>
 </div>
 <div id="TcHmiContainer_2" data-tchmi-type="TcHmi.Controls.System.TcHmiContainer" data-tchmi-height="151" data-tchmi-height-unit="px" data-tchmi-left="9" data-tchmi-left-unit="px" data-tchmi-top="466" data-tchmi-top-unit="px" data-tchmi-width="996" data-tchmi-width-unit="px">
 <div id="UserControl1_35" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControlHost" data-tchmi-devicename="EStop1" data-tchmi-left="7" data-tchmi-left-unit="px" data-tchmi-target-user-control="UserContent/TextAndIndicator_SafetyDevice.usercontrol" data-tchmi-top="7" data-tchmi-top-unit="px" data-tchmi-input1="%s%PLC1.PLC_SAFETY_LOGIC.EStop1_ChA%/s%" data-tchmi-input2="%s%PLC1.PLC_SAFETY_LOGIC.EStop1_ChB%/s%" data-tchmi-width-mode="Content" data-tchmi-height-mode="Content">

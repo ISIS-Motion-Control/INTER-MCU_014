@@ -828,7 +828,7 @@
 				</Entry>
 			</Pdo>
 			<Pdo Name="TwinSAFE Group Info Data" Index="#x1bfa" Flags="#x2011" SyncMan="3">
-				<Entry Name="Alias_Decouple Info Data" Index="#x7000" Sub="#x01">
+				<Entry Name="Alias_Decouple_Input Info Data" Index="#x7000" Sub="#x01">
 					<Type GUID="{1553EE7F-0490-4879-4F41-423085C83887}">INFODATA_GRP_3</Type>
 				</Entry>
 				<Entry Name="OpMode Info Data" Index="#x7000" Sub="#x02">

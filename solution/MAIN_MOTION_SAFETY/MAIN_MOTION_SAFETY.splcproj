@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project Crc="2033074373" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+<Project Crc="1378144203" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
   <PropertyGroup>
     <Configuration Condition="'$(Configuration)' == ''">Debug</Configuration>
     <SchemaVersion>2.0</SchemaVersion>
@@ -10,9 +10,20 @@
     <ProgrammingLanguage>Graphical Editor</ProgrammingLanguage>
     <Worker />
     <IntProjName />
-    <NextSdsId>43</NextSdsId>
+    <NextSdsId>44</NextSdsId>
     <SPlcProjVersion>1.7.0.0</SPlcProjVersion>
     <SortMode>2</SortMode>
+    <DocuEditor>bem74844</DocuEditor>
+    <PlotDate>2025-02-12</PlotDate>
+    <CompanyName>Beckhoff Automation &amp; Co. KG</CompanyName>
+    <CompanyLogo>Beckhoff Automation &amp; Co. KG</CompanyLogo>
+    <FbPerPage>4</FbPerPage>
+    <AddUserAdministrationPages>False</AddUserAdministrationPages>
+    <AddProjectVersionHistoryPages>False</AddProjectVersionHistoryPages>
+    <AddCustomPages>False</AddCustomPages>
+    <TextBox />
+    <AddMultiSettingDocuments>False</AddMultiSettingDocuments>
+    <AddHashValueTablePages>False</AddHashValueTablePages>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)' == 'Release'">
     <DebugSymbols>false</DebugSymbols>
@@ -21,26 +32,31 @@
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
-    <None Include="Alias_Decouple\Alias Devices\Connection to X_ROT_AND_Z_TRANS.sds" />
-    <None Include="Alias_Decouple\Alias Devices\Connection to Y_1_AND_Y_2.sds" />
-    <None Include="Alias_Decouple\Alias Devices\EL1904-%2813%29.sds" />
-    <None Include="Alias_Decouple\Alias Devices\EL1904-%2812%29.sds" />
-    <None Include="Alias_Decouple\Alias Devices\EL1904-%2806%29.sds" />
-    <None Include="Alias_Decouple\Alias Devices\EL1904-%2807%29.sds" />
-    <None Include="Alias_Decouple\Alias Devices\EL1904-%2809%29.sds" />
-    <None Include="Alias_Decouple\Alias Devices\EL1904-%2810%29.sds" />
-    <None Include="Alias_Decouple\Alias Devices\EL1904-%2808%29.sds" />
-    <None Include="Alias_Decouple\Alias Devices\EL1904-%2811%29.sds" />
-    <None Include="Alias_Decouple\Alias Devices\EL2904-%2809%29.sds" />
-    <None Include="Alias_Decouple\Alias Devices\EL2904-%2806%29.sds" />
-    <None Include="Alias_Decouple\Alias Devices\EL2904-%2808%29.sds" />
-    <None Include="Alias_Decouple\Alias Devices\EL2912 - Motion Signs.sds" />
-    <None Include="Alias_Decouple\Alias Devices\ErrorAcknowledgement.sds" />
-    <None Include="Alias_Decouple\Alias Devices\Run.sds" />
-    <None Include="Alias_Decouple\Alias_Decouple.sal" />
-    <None Include="Alias_Decouple\Alias_Decouple.sal.diagram">
+    <None Include="Alias_Decouple_Input\Alias Devices\Connection to X_ROT_AND_Z_TRANS.sds" />
+    <None Include="Alias_Decouple_Input\Alias Devices\Connection to Y_1_AND_Y_2.sds" />
+    <None Include="Alias_Decouple_Input\Alias Devices\EL1904-%2813%29.sds" />
+    <None Include="Alias_Decouple_Input\Alias Devices\EL1904-%2812%29.sds" />
+    <None Include="Alias_Decouple_Input\Alias Devices\EL1904-%2806%29.sds" />
+    <None Include="Alias_Decouple_Input\Alias Devices\EL1904-%2807%29.sds" />
+    <None Include="Alias_Decouple_Input\Alias Devices\EL1904-%2809%29.sds" />
+    <None Include="Alias_Decouple_Input\Alias Devices\EL1904-%2810%29.sds" />
+    <None Include="Alias_Decouple_Input\Alias Devices\EL1904-%2808%29.sds" />
+    <None Include="Alias_Decouple_Input\Alias Devices\EL1904-%2811%29.sds" />
+    <None Include="Alias_Decouple_Input\Alias Devices\EL2904-%2809%29.sds" />
+    <None Include="Alias_Decouple_Input\Alias Devices\EL2904-%2806%29.sds" />
+    <None Include="Alias_Decouple_Input\Alias Devices\EL2904-%2808%29.sds" />
+    <None Include="Alias_Decouple_Input\Alias Devices\EL2912 - Motion Signs.sds" />
+    <None Include="Alias_Decouple_Input\Alias Devices\ErrorAcknowledgement.sds" />
+    <None Include="Alias_Decouple_Input\Alias Devices\Run.sds" />
+    <None Include="Alias_Decouple_Input\Alias_Decouple_Input.sal" />
+    <None Include="Alias_Decouple_Input\Alias_Decouple_Input.sal.diagram">
       <Visible>false</Visible>
-      <DependentUpon>Alias_Decouple\Alias_Decouple.sal</DependentUpon>
+      <DependentUpon>Alias_Decouple_Input\Alias_Decouple_Input.sal</DependentUpon>
+    </None>
+    <None Include="Alias_Decouple_Output\Alias_Decouple_Output.sal" />
+    <None Include="Alias_Decouple_Output\Alias_Decouple_Output.sal.diagram">
+      <Visible>false</Visible>
+      <DependentUpon>Alias_Decouple_Output\Alias_Decouple_Output.sal</DependentUpon>
     </None>
     <None Include="GVLs\GVL.sgvl" />
     <None Include="Main_Prog\Alias Devices\PLC_BrakeReset.sds" />
@@ -79,8 +95,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Alias_Decouple" />
-    <Folder Include="Alias_Decouple\Alias Devices" />
+    <Folder Include="Alias_Decouple_Input" />
+    <Folder Include="Alias_Decouple_Input\Alias Devices" />
+    <Folder Include="Alias_Decouple_Output" />
+    <Folder Include="Alias_Decouple_Output\Alias Devices" />
     <Folder Include="GVLs" />
     <Folder Include="Main_Prog" />
     <Folder Include="Main_Prog\Alias Devices" />
