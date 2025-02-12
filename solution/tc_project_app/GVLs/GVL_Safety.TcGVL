@@ -13,7 +13,7 @@ VAR_GLOBAL
     //ErrorAck_MotionSafety_XRotAndZHor AT %Q* : BOOL;    
     //ErrorAck_MotionSafety_Y1AndY2 AT %Q* : BOOL;
     
-    BrakeReset AT %Q* : BOOL;
+    
     
     ResetPossibleAndPressed AT %I* : BOOL;
     

@@ -60,7 +60,13 @@
       "url": "UserContent/AxisControlContent.usercontrol"
     },
     {
+      "url": "UserContent/TextAndIndicator_SafetyDevice.usercontrol"
+    },
+    {
       "url": "UserContent/TextAndIndicator.usercontrol"
+    },
+    {
+      "url": "UserContent/timeRemaining.usercontrol"
     }
   ],
   "content": [

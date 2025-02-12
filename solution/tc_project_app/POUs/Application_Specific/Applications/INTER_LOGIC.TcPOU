@@ -3,6 +3,7 @@
   <POU Name="INTER_LOGIC" Id="{da89d596-93f4-468f-9a43-1a72f2055b25}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM INTER_LOGIC
 VAR
+    checkRotationDrive : MC_ReadStatus;
     IDs_RealAxes : ARRAY[1..ARRAYSIZE_REAL] OF UINT:= 
         [AXIS_HORIZONTAL_TRANSLATION,AXIS_COMBINED_VERTICAL,AXIS_ROTATION];
     vertTon : TON;
@@ -303,12 +304,13 @@ GVL_INTER.OPERATIONAL:= FALSE;  //OVERRIDE IF OPERATIONAL
 IF NOT CombinedVerticalSetupComplete AND GVL_INTER.OPERATIONAL THEN
     eStateInter:= eState_INTER.init;
 END_IF
+checkRotationDrive(Axis:=astAxes[AXIS_ROTATION].Axis,Enable:=TRUE);
 
 //Sometimes the rotation loads in 360degrees out of phase, we need to be able to detect and fix this.
 setPosRotation(Axis:= astAxes[AXIS_ROTATION].Axis, Execute:= FALSE);
 
-
-IF ABS(astAxes[AXIS_ROTATION].Axis.NcToPlc.ActPos)>20 AND astAxes[AXIS_ROTATION].Axis.Status.NotMoving THEN
+IF checkRotationDrive.Valid THEN
+    IF ABS(astAxes[AXIS_ROTATION].Axis.NcToPlc.ActPos)>20 AND astAxes[AXIS_ROTATION].Axis.Status.NotMoving THEN
     astAxes[AXIS_ROTATION].stControl.bEnable:= FALSE;
     IF astAxes[AXIS_ROTATION].Axis.NcToPlc.ActPos>20 THEN
         //we need to minus 360
@@ -321,6 +323,8 @@ IF ABS(astAxes[AXIS_ROTATION].Axis.NcToPlc.ActPos)>20 AND astAxes[AXIS_ROTATION]
 ELSE
     bRotationValid:= TRUE;
 END_IF
+END_IF
+
 
 IF NOT GVL_INTER.BRAKE_TEST_PASSED THEN
     GVL_INTER.RUN_KINEMATICS := FALSE;

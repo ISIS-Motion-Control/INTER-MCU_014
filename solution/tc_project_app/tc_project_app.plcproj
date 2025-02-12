@@ -55,6 +55,9 @@
     <Compile Include="POUs\Application_Specific\Applications\eState_Vertical.TcDUT">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="POUs\Application_Specific\Applications\Inclinometer.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="POUs\Application_Specific\Applications\INTER_LOGIC.TcPOU">
       <SubType>Code</SubType>
     </Compile>

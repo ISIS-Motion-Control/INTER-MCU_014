@@ -16,7 +16,24 @@ VAR
     sTempString : STRING;
     bSafetyDevicesSetup : BOOL:= FALSE;
     
-	Ty: INT;
+    EStop1_ChA AT %I* : BOOL;
+    EStop1_ChB AT %I* : BOOL;
+    EStop2_ChA AT %I* : BOOL;
+    EStop2_ChB AT %I* : BOOL;
+    EStop3_ChA AT %I* : BOOL;
+    EStop3_ChB AT %I* : BOOL;
+    EStop4_ChA AT %I* : BOOL;
+    EStop4_ChB AT %I* : BOOL;
+    EStop5_ChA AT %I* : BOOL;
+    EStop5_ChB AT %I* : BOOL;
+    EStop6_ChA AT %I* : BOOL;
+    EStop6_ChB AT %I* : BOOL;
+    EStop7_ChA AT %I* : BOOL;
+    EStop7_ChB AT %I* : BOOL;
+    LightCurtain_ChA AT %I* : BOOL;
+    LightCurtain_ChB AT %I* : BOOL;
+    
+    
 END_VAR
 ]]></Declaration>
     <Implementation>

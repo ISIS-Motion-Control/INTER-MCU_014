@@ -39,7 +39,60 @@
               {
                 "compare1": {
                   "objectType": "Symbol",
+                  "valueType": "tchmi:general#/definitions/BOOL",
+                  "symbolExpression": "%pp%InvertState%/pp%"
+                },
+                "compare2": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/BOOL",
+                  "value": true
+                },
+                "compareOperator": "==",
+                "logic": null
+              }
+            ],
+            "then": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%pp%LocalOnOFF%/pp%",
+                "value": {
+                  "objectType": "Symbol",
                   "valueType": "tchmi:general#/definitions/String",
+                  "symbolExpression": "%f%NOT(%pp%OnOff%/pp%)%/f%"
+                },
+                "asyncWait": true
+              }
+            ]
+          },
+          {
+            "else": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%pp%LocalOnOFF%/pp%",
+                "value": {
+                  "objectType": "Symbol",
+                  "valueType": "tchmi:general#/definitions/String",
+                  "symbolExpression": "%f%%pp%OnOff%/pp%%/f%"
+                },
+                "asyncWait": true
+              }
+            ]
+          }
+        ],
+        "asyncWait": true
+      },
+      {
+        "objectType": "Condition",
+        "active": true,
+        "parts": [
+          {
+            "if": [
+              {
+                "compare1": {
+                  "objectType": "Symbol",
+                  "valueType": "tchmi:general#/definitions/BOOL",
                   "symbolExpression": "%pp%Status%/pp%"
                 },
                 "compare2": {
@@ -62,7 +115,7 @@
                         "compare1": {
                           "objectType": "Symbol",
                           "valueType": "tchmi:general#/definitions/BOOL",
-                          "symbolExpression": "%pp%OnOff%/pp%"
+                          "symbolExpression": "%pp%LocalOnOFF%/pp%"
                         },
                         "compare2": {
                           "objectType": "StaticValue",
@@ -149,7 +202,7 @@
                         "compare1": {
                           "objectType": "Symbol",
                           "valueType": "tchmi:general#/definitions/BOOL",
-                          "symbolExpression": "%pp%OnOff%/pp%"
+                          "symbolExpression": "%pp%LocalOnOFF%/pp%"
                         },
                         "compare2": {
                           "objectType": "StaticValue",
@@ -187,6 +240,93 @@
                           "valueType": "tchmi:framework#/definitions/Color",
                           "value": {
                             "color": "rgba(62, 0, 0, 1)"
+                          }
+                        },
+                        "asyncWait": true
+                      }
+                    ]
+                  }
+                ],
+                "asyncWait": true
+              }
+            ]
+          },
+          {
+            "else": []
+          }
+        ],
+        "asyncWait": true
+      },
+      {
+        "objectType": "Condition",
+        "active": true,
+        "parts": [
+          {
+            "if": [
+              {
+                "compare1": {
+                  "objectType": "Symbol",
+                  "valueType": "tchmi:general#/definitions/BOOL",
+                  "symbolExpression": "%pp%Info%/pp%"
+                },
+                "compare2": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/BOOL",
+                  "value": true
+                },
+                "compareOperator": "==",
+                "logic": null
+              }
+            ],
+            "then": [
+              {
+                "objectType": "Condition",
+                "active": true,
+                "parts": [
+                  {
+                    "if": [
+                      {
+                        "compare1": {
+                          "objectType": "Symbol",
+                          "valueType": "tchmi:general#/definitions/BOOL",
+                          "symbolExpression": "%pp%LocalOnOFF%/pp%"
+                        },
+                        "compare2": {
+                          "objectType": "StaticValue",
+                          "valueType": "tchmi:general#/definitions/BOOL",
+                          "value": true
+                        },
+                        "compareOperator": "==",
+                        "logic": null
+                      }
+                    ],
+                    "then": [
+                      {
+                        "objectType": "WriteToSymbol",
+                        "active": true,
+                        "symbolExpression": "%ctrl%contentLed::FillColor%/ctrl%",
+                        "value": {
+                          "objectType": "StaticValue",
+                          "valueType": "tchmi:framework#/definitions/Color",
+                          "value": {
+                            "color": "rgba(255, 255, 255, 1)"
+                          }
+                        },
+                        "asyncWait": true
+                      }
+                    ]
+                  },
+                  {
+                    "else": [
+                      {
+                        "objectType": "WriteToSymbol",
+                        "active": true,
+                        "symbolExpression": "%ctrl%contentLed::FillColor%/ctrl%",
+                        "value": {
+                          "objectType": "StaticValue",
+                          "valueType": "tchmi:framework#/definitions/Color",
+                          "value": {
+                            "color": "rgba(63, 63, 63, 1)"
                           }
                         },
                         "asyncWait": true

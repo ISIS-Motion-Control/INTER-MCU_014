@@ -14,8 +14,8 @@
       "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
       "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
       "frameworkUserControlConfig": "UserContent\\TextAndIndicator.usercontrol.json",
-      "type": "object",
-      "id": "tchmi:project#/definitions/TextAndIndicator"
+      "id": "tchmi:project#/definitions/TextAndIndicator",
+      "type": "object"
     },
     "AxisControlContent": {
       "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
@@ -5063,6 +5063,22 @@
       "type": "array",
       "minItems": 8,
       "maxItems": 8
+    },
+    "timeRemaining": {
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "UserContent\\timeRemaining.usercontrol.json",
+      "type": "object",
+      "id": "tchmi:project#/definitions/timeRemaining"
+    },
+    "TextAndIndicator_-_SafetyDevice": {
+      "frameworkControlNamespace": "TcHmi.Controls.Beckhoff",
+      "frameworkControlType": "TcHmi.Controls.System.TcHmiUserControl",
+      "frameworkInstanceOf": "TcHmi.Controls.System.TcHmiControl",
+      "frameworkUserControlConfig": "UserContent\\TextAndIndicator_SafetyDevice.usercontrol.json",
+      "id": "tchmi:project#/definitions/TextAndIndicator_-_SafetyDevice",
+      "type": "object"
     }
   }
 }

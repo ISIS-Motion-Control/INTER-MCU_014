@@ -3,6 +3,7 @@
   <DUT Name="E_RotationBrakeCheckerState" Id="{df6ceeb3-9a81-4fa4-9e63-fc4949d40640}">
     <Declaration><![CDATA[{attribute 'qualified_only'}
 {attribute 'strict'}
+{attribute 'to_string'}
 TYPE E_RotationBrakeCheckerState :
 (
 	init,

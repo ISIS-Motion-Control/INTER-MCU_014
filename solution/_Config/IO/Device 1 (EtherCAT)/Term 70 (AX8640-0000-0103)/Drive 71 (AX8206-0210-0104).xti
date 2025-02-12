@@ -1795,7 +1795,7 @@
 			<SyncMan>001000022600010001000000700000040002001026010000</SyncMan>
 			<SyncMan>001400022200010002000000700000040002001422010000</SyncMan>
 			<SyncMan>001819006400010003000000000000002400001864010000</SyncMan>
-			<SyncMan>002a23002000010004000000000000002e00002a20010000</SyncMan>
+			<SyncMan>002a27002000010004000000000000002e00002a20010000</SyncMan>
 			<SyncMan>003c00002400000005000000000000000000003c24000000</SyncMan>
 			<SyncMan>004e00002000000006000000000000000000004e20000000</SyncMan>
 			<SyncMan>00600e002400010003000000000000000a00006024010000</SyncMan>
@@ -2428,6 +2428,9 @@
 			<Pdo Name="Ch A TorqueControl Inputs" Index="#x1a32" Flags="#x0280" SyncMan="3">
 				<Entry Name="Ch A Torque/force actual value" BitLen="16" Index="#x6077" Flags="#x00002000">
 					<Type>INT</Type>
+				</Entry>
+				<Entry Name="Iq actual" BitLen="32" Index="#x3242" Sub="#x04">
+					<Type>REAL</Type>
 				</Entry>
 			</Pdo>
 			<Pdo Name="Ch A TorqueControl Dynamic Inputs" Index="#x1b12" Flags="#x0280" SyncUnit="1"/>

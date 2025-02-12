@@ -56,6 +56,7 @@ VAR_GLOBAL
     
     TARGET_MEASUREMENT_ANGLE : LREAL;
     
+    INCLINOMETER_ANGLE : LREAL;
     
 END_VAR]]></Declaration>
   </GVL>

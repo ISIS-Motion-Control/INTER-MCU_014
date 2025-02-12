@@ -27,7 +27,7 @@
     <HmiViewportUserScaleable>Default</HmiViewportUserScaleable>
     <HmiPostProcessing>True</HmiPostProcessing>
     <Name>PanelHMI</Name>
-    <HmiCommunicationRouterPort>10103</HmiCommunicationRouterPort>
+    <HmiCommunicationRouterPort>10104</HmiCommunicationRouterPort>
     <HmiCommunicationServerAuthPort>13000</HmiCommunicationServerAuthPort>
     <HmiInitial>1.12.760.42</HmiInitial>
     <HmiRecent>1.12.760.42</HmiRecent>
@@ -142,12 +142,26 @@
     <Content Include="UserContent\Content_Statuses.content">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="UserContent\TextAndIndicator_SafetyDevice.usercontrol">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="UserContent\TextAndIndicator_SafetyDevice.usercontrol.json">
+      <SubType>Content</SubType>
+      <DependentUpon>UserContent\TextAndIndicator_SafetyDevice.usercontrol</DependentUpon>
+    </Content>
     <Content Include="UserContent\TextAndIndicator.usercontrol">
       <SubType>Content</SubType>
     </Content>
     <Content Include="UserContent\TextAndIndicator.usercontrol.json">
       <SubType>Content</SubType>
       <DependentUpon>UserContent\TextAndIndicator.usercontrol</DependentUpon>
+    </Content>
+    <Content Include="UserContent\timeRemaining.usercontrol">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="UserContent\timeRemaining.usercontrol.json">
+      <SubType>Content</SubType>
+      <DependentUpon>UserContent\timeRemaining.usercontrol</DependentUpon>
     </Content>
     <Folder Include="Fonts\" />
     <Folder Include="Images" />

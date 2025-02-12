@@ -10,6 +10,7 @@ VAR
     bEnable : BOOL := TRUE;
     
     OpState : E_RotationBrakeCheckerState := E_RotationBrakeCheckerState.init;
+    OpSate_String : STRING;
     bBrakeTestInProgress : BOOL;
     fbBrakeControl : FB_CoEAX8000BrakeControl;
     
@@ -36,10 +37,34 @@ VAR
     RotationSTOState AT %I* : BOOL;
     Reinitialise : BOOL; //Bool to get out of error state
     
+    Brake1TimeRemaining_RAW AT %I* : UDINT; //In seconds
+    Brake2TimeRemaining_RAW AT %I* : UDINT; //In seconds
+    Brake1TimeRemaining_Breakdown : UDINT;
+    Brake2TimeRemaining_Breakdown : UDINT;
+    
+    Brake1TimeRemaining_Days : UDINT;
+    Brake1TimeRemaining_Hours : UDINT;
+    Brake1TimeRemaining_Minutes : UDINT;
+    Brake1TimeRemaining_Seconds : UDINT;
+    
+    
+    Brake2TimeRemaining_Days : UDINT;
+    Brake2TimeRemaining_Hours : UDINT;
+    Brake2TimeRemaining_Minutes : UDINT;
+    Brake2TimeRemaining_Seconds : UDINT;
+    
+    iQ_Current AT %I* : REAL;
+    SBC_FailsafeFault AT %I* : BOOL;
+    BC1_Error AT %I* : BOOL;
+    BC2_Error AT %I* : BOOL;
+    BrakeReset AT %Q* : BOOL;
+    
+    
     stateTimout : TON;
     brakeDelay : TON;
     loadDelay : TON;
     timeToClearValid : TON;
+    brakeResetTon : TON;
     
     fbAx8000BrakeTest : FB_CoEAX8000BrakeTest;
     fbReset : MC_Reset();
@@ -50,9 +75,37 @@ VAR
 //Hardware interlocks
     //bInterlockFwdOK AT %I*: BOOL;
 END_VAR
+VAR CONSTANT
+    DAY_SECONDS : UDINT := 86400;
+    HOUR_SECONDS : UDINT := 3600;
+    MINUTE_SECONDS : UDINT := 60;
+END_VAR
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[
+      <ST><![CDATA[OpSate_String := TO_STRING(OpState);
+brakeResetTon(IN:=BrakeReset, PT:=T#250MS);
+IF brakeResetTon.Q THEN
+    BrakeReset:= FALSE;
+END_IF
+
+//Time conversion logic
+Brake1TimeRemaining_Days:= Brake1TimeRemaining_RAW/DAY_SECONDS;
+Brake1TimeRemaining_Breakdown := Brake1TimeRemaining_RAW MOD DAY_SECONDS;
+Brake1TimeRemaining_Hours:= Brake1TimeRemaining_Breakdown/HOUR_SECONDS;
+Brake1TimeRemaining_Breakdown:= Brake1TimeRemaining_Breakdown MOD HOUR_SECONDS;
+Brake1TimeRemaining_Minutes:= Brake1TimeRemaining_Breakdown/MINUTE_SECONDS;
+Brake1TimeRemaining_Breakdown:= Brake1TimeRemaining_Breakdown MOD MINUTE_SECONDS;
+Brake1TimeRemaining_Seconds:= Brake1TimeRemaining_Breakdown;
+
+Brake2TimeRemaining_Days:= Brake2TimeRemaining_RAW/DAY_SECONDS;
+Brake2TimeRemaining_Breakdown := Brake2TimeRemaining_RAW MOD DAY_SECONDS;
+Brake2TimeRemaining_Hours:= Brake2TimeRemaining_Breakdown/HOUR_SECONDS;
+Brake2TimeRemaining_Breakdown:= Brake2TimeRemaining_Breakdown MOD HOUR_SECONDS;
+Brake2TimeRemaining_Minutes:= Brake2TimeRemaining_Breakdown/MINUTE_SECONDS;
+Brake2TimeRemaining_Breakdown:= Brake2TimeRemaining_Breakdown MOD MINUTE_SECONDS;
+Brake2TimeRemaining_Seconds:= Brake2TimeRemaining_Breakdown;
+
+//Actual brake logic
 GVL_INTER.BRAKE_TEST_PASSED:= Brake1Valid AND Brake2Valid; //Feedback from safety system as to if brake test is passed
 
 astAxes[AXIS_ROTATION].stControl.bEnable := FALSE;  //Will be overridden by state machine
@@ -116,16 +169,17 @@ CASE OpState OF
                 sErrorMessage:= 'Incorrect drive op mode when moving to InOp';
 			END_IF
 		END_IF
+        IF NOT fbReadDriveOpMode.Busy AND fbReadDriveOpMode.Error THEN
+            fbReadDriveOpMode(Axis:= astAxes[AXIS_ROTATION].Axis,Execute:= FALSE);
+            OpState:= E_RotationBrakeCheckerState.Error;
+            sErrorMessage:= 'Error reading drive operation mode';
+		END_IF
         
      E_RotationBrakeCheckerState.In_Operation:
         //DO NOTHING
         ManualReleaseBrake1:=TRUE;
         ManualReleaseBrake2:=TRUE;
         astAxes[AXIS_ROTATION].stControl.bEnable := bEnable;
-        IF NOT Brake1State OR NOT Brake2State THEN
-            //Brakes not released! :o
-            OpState:= E_RotationBrakeCheckerState.init;
-		END_IF
         
         IF NOT GVL_INTER.BRAKE_TEST_PASSED OR bInBrakeTestMode THEN
             OpState:= E_RotationBrakeCheckerState.init;

@@ -7821,6 +7821,24 @@
             },
             "USEMAPPING": true
         },
+        "PLC1.GVL.astAxes.5.Axis.Status.Error": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::GVL::astAxes[5]::Axis::Status::Error",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:general#/definitions/BOOL"
+                    },
+                    {
+                        "comment": "StateDWord bit 31 - axis error state",
+                        "propertyOrder": 6
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
         "PLC1.GVL.astAxes.6": {
             "ACCESS": 3,
             "DOMAIN": "ADS",
@@ -8038,6 +8056,25 @@
             },
             "USEMAPPING": true
         },
+        "PLC1.GVL_Safety.LocalMode": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::GVL_Safety::LocalMode",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:general#/definitions/BOOL"
+                    },
+                    {
+                        "attributes": {
+                            "TcAddressType": "Input"
+                        }
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
         "PLC1.GVL_Safety.SAFETY_ACK": {
             "ACCESS": 3,
             "DOMAIN": "ADS",
@@ -8057,6 +8094,25 @@
             },
             "USEMAPPING": true
         },
+        "PLC1.GVL_Safety.UnoccupiedMode": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::GVL_Safety::UnoccupiedMode",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:general#/definitions/BOOL"
+                    },
+                    {
+                        "attributes": {
+                            "TcAddressType": "Input"
+                        }
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
         "PLC1.GVL_Safety.stSafetyData.bSafetyAckReq": {
             "ACCESS": 3,
             "DOMAIN": "ADS",
@@ -8070,6 +8126,641 @@
                     {
                         "comment": "SafetyProgram requires acknowledge",
                         "propertyOrder": 1
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.PLC_SAFETY_LOGIC.EStop1_ChA": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::PLC_SAFETY_LOGIC::EStop1_ChA",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:general#/definitions/BOOL"
+                    },
+                    {
+                        "attributes": {
+                            "TcAddressType": "Input"
+                        }
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.PLC_SAFETY_LOGIC.EStop1_ChB": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::PLC_SAFETY_LOGIC::EStop1_ChB",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:general#/definitions/BOOL"
+                    },
+                    {
+                        "attributes": {
+                            "TcAddressType": "Input"
+                        }
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.PLC_SAFETY_LOGIC.EStop2_ChA": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::PLC_SAFETY_LOGIC::EStop2_ChA",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:general#/definitions/BOOL"
+                    },
+                    {
+                        "attributes": {
+                            "TcAddressType": "Input"
+                        }
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.PLC_SAFETY_LOGIC.EStop2_ChB": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::PLC_SAFETY_LOGIC::EStop2_ChB",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:general#/definitions/BOOL"
+                    },
+                    {
+                        "attributes": {
+                            "TcAddressType": "Input"
+                        }
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.PLC_SAFETY_LOGIC.EStop3_ChA": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::PLC_SAFETY_LOGIC::EStop3_ChA",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:general#/definitions/BOOL"
+                    },
+                    {
+                        "attributes": {
+                            "TcAddressType": "Input"
+                        }
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.PLC_SAFETY_LOGIC.EStop3_ChB": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::PLC_SAFETY_LOGIC::EStop3_ChB",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:general#/definitions/BOOL"
+                    },
+                    {
+                        "attributes": {
+                            "TcAddressType": "Input"
+                        }
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.PLC_SAFETY_LOGIC.EStop4_ChA": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::PLC_SAFETY_LOGIC::EStop4_ChA",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:general#/definitions/BOOL"
+                    },
+                    {
+                        "attributes": {
+                            "TcAddressType": "Input"
+                        }
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.PLC_SAFETY_LOGIC.EStop4_ChB": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::PLC_SAFETY_LOGIC::EStop4_ChB",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:general#/definitions/BOOL"
+                    },
+                    {
+                        "attributes": {
+                            "TcAddressType": "Input"
+                        }
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.PLC_SAFETY_LOGIC.EStop5_ChA": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::PLC_SAFETY_LOGIC::EStop5_ChA",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:general#/definitions/BOOL"
+                    },
+                    {
+                        "attributes": {
+                            "TcAddressType": "Input"
+                        }
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.PLC_SAFETY_LOGIC.EStop5_ChB": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::PLC_SAFETY_LOGIC::EStop5_ChB",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:general#/definitions/BOOL"
+                    },
+                    {
+                        "attributes": {
+                            "TcAddressType": "Input"
+                        }
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.PLC_SAFETY_LOGIC.EStop6_ChA": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::PLC_SAFETY_LOGIC::EStop6_ChA",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:general#/definitions/BOOL"
+                    },
+                    {
+                        "attributes": {
+                            "TcAddressType": "Input"
+                        }
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.PLC_SAFETY_LOGIC.EStop6_ChB": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::PLC_SAFETY_LOGIC::EStop6_ChB",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:general#/definitions/BOOL"
+                    },
+                    {
+                        "attributes": {
+                            "TcAddressType": "Input"
+                        }
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.PLC_SAFETY_LOGIC.EStop7_ChA": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::PLC_SAFETY_LOGIC::EStop7_ChA",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:general#/definitions/BOOL"
+                    },
+                    {
+                        "attributes": {
+                            "TcAddressType": "Input"
+                        }
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.PLC_SAFETY_LOGIC.EStop7_ChB": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::PLC_SAFETY_LOGIC::EStop7_ChB",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:general#/definitions/BOOL"
+                    },
+                    {
+                        "attributes": {
+                            "TcAddressType": "Input"
+                        }
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.PLC_SAFETY_LOGIC.LightCurtain_ChA": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::PLC_SAFETY_LOGIC::LightCurtain_ChA",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:general#/definitions/BOOL"
+                    },
+                    {
+                        "attributes": {
+                            "TcAddressType": "Input"
+                        }
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.PLC_SAFETY_LOGIC.LightCurtain_ChB": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::PLC_SAFETY_LOGIC::LightCurtain_ChB",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:general#/definitions/BOOL"
+                    },
+                    {
+                        "attributes": {
+                            "TcAddressType": "Input"
+                        }
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.Rotation.BC1_Error": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::Rotation::BC1_Error",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:general#/definitions/BOOL"
+                    },
+                    {
+                        "attributes": {
+                            "TcAddressType": "Input"
+                        }
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.Rotation.BC2_Error": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::Rotation::BC2_Error",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:general#/definitions/BOOL"
+                    },
+                    {
+                        "attributes": {
+                            "TcAddressType": "Input"
+                        }
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.Rotation.Brake1TimeRemaining_Days": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::Rotation::Brake1TimeRemaining_Days",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/UDINT"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.Rotation.Brake1TimeRemaining_Hours": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::Rotation::Brake1TimeRemaining_Hours",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/UDINT"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.Rotation.Brake1TimeRemaining_Minutes": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::Rotation::Brake1TimeRemaining_Minutes",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/UDINT"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.Rotation.Brake1TimeRemaining_Seconds": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::Rotation::Brake1TimeRemaining_Seconds",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/UDINT"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.Rotation.Brake1Valid": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::Rotation::Brake1Valid",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:general#/definitions/BOOL"
+                    },
+                    {
+                        "attributes": {
+                            "TcAddressType": "Input"
+                        }
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.Rotation.Brake2TimeRemaining_Days": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::Rotation::Brake2TimeRemaining_Days",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/UDINT"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.Rotation.Brake2TimeRemaining_Hours": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::Rotation::Brake2TimeRemaining_Hours",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/UDINT"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.Rotation.Brake2TimeRemaining_Minutes": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::Rotation::Brake2TimeRemaining_Minutes",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/UDINT"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.Rotation.Brake2TimeRemaining_Seconds": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::Rotation::Brake2TimeRemaining_Seconds",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/UDINT"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.Rotation.Brake2Valid": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::Rotation::Brake2Valid",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:general#/definitions/BOOL"
+                    },
+                    {
+                        "attributes": {
+                            "TcAddressType": "Input"
+                        }
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.Rotation.BrakeReset": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::Rotation::BrakeReset",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:general#/definitions/BOOL"
+                    },
+                    {
+                        "attributes": {
+                            "TcAddressType": "Output"
+                        }
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.Rotation.FinishBrakeTesting": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::Rotation::FinishBrakeTesting",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:general#/definitions/BOOL"
+                    },
+                    {
+                        "attributes": {
+                            "TcAddressType": "Output"
+                        }
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.Rotation.OpSate_String": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::Rotation::OpSate_String",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/STRING%2880%29"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.Rotation.Reinitialise": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::Rotation::Reinitialise",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:general#/definitions/BOOL"
+                    },
+                    {
+                        "comment": "Bool to get out of error state"
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.Rotation.RotationSTOState": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::Rotation::RotationSTOState",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:general#/definitions/BOOL"
+                    },
+                    {
+                        "attributes": {
+                            "TcAddressType": "Input"
+                        }
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.Rotation.SBC_FailsafeFault": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::Rotation::SBC_FailsafeFault",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:general#/definitions/BOOL"
+                    },
+                    {
+                        "attributes": {
+                            "TcAddressType": "Input"
+                        }
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.Rotation.TriggerBrake1Test": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::Rotation::TriggerBrake1Test",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:general#/definitions/BOOL"
+                    },
+                    {
+                        "comment": "PLC test trigger"
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.Rotation.TriggerBrake2Test": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::Rotation::TriggerBrake2Test",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:general#/definitions/BOOL"
+                    },
+                    {
+                        "comment": "PLC test trigger"
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.Rotation.bInBrakeTestMode": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::Rotation::bInBrakeTestMode",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:general#/definitions/BOOL"
+                    },
+                    {
+                        "attributes": {
+                            "TcAddressType": "Input"
+                        }
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.Rotation.iQ_Current": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::Rotation::iQ_Current",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:general#/definitions/REAL"
+                    },
+                    {
+                        "attributes": {
+                            "TcAddressType": "Input"
+                        }
                     }
                 ]
             },
@@ -9034,6 +9725,7 @@
                 "PLC1.GVL.astAxes.28": 3,
                 "PLC1.GVL.astAxes.4": 3,
                 "PLC1.GVL.astAxes.5": 3,
+                "PLC1.GVL.astAxes.5.Axis.Status.Error": 3,
                 "PLC1.GVL.astAxes.6": 3,
                 "PLC1.GVL.astAxes.8": 3,
                 "PLC1.GVL.astAxes.9": 3,
@@ -9058,8 +9750,50 @@
                 "PLC1.GVL_INTER.SPEED_LIMITING": 3,
                 "PLC1.GVL_INTER.START_RECOVERY": 3,
                 "PLC1.GVL_INTER.VIRTUAL_AXES_NOT_MOVING": 3,
+                "PLC1.GVL_Safety.LocalMode": 3,
                 "PLC1.GVL_Safety.SAFETY_ACK": 3,
+                "PLC1.GVL_Safety.UnoccupiedMode": 3,
                 "PLC1.GVL_Safety.stSafetyData.bSafetyAckReq": 3,
+                "PLC1.PLC_SAFETY_LOGIC.EStop1_ChA": 3,
+                "PLC1.PLC_SAFETY_LOGIC.EStop1_ChB": 3,
+                "PLC1.PLC_SAFETY_LOGIC.EStop2_ChA": 3,
+                "PLC1.PLC_SAFETY_LOGIC.EStop2_ChB": 3,
+                "PLC1.PLC_SAFETY_LOGIC.EStop3_ChA": 3,
+                "PLC1.PLC_SAFETY_LOGIC.EStop3_ChB": 3,
+                "PLC1.PLC_SAFETY_LOGIC.EStop4_ChA": 3,
+                "PLC1.PLC_SAFETY_LOGIC.EStop4_ChB": 3,
+                "PLC1.PLC_SAFETY_LOGIC.EStop5_ChA": 3,
+                "PLC1.PLC_SAFETY_LOGIC.EStop5_ChB": 3,
+                "PLC1.PLC_SAFETY_LOGIC.EStop6_ChA": 3,
+                "PLC1.PLC_SAFETY_LOGIC.EStop6_ChB": 3,
+                "PLC1.PLC_SAFETY_LOGIC.EStop7_ChA": 3,
+                "PLC1.PLC_SAFETY_LOGIC.EStop7_ChB": 3,
+                "PLC1.PLC_SAFETY_LOGIC.LightCurtain_ChA": 3,
+                "PLC1.PLC_SAFETY_LOGIC.LightCurtain_ChB": 3,
+                "PLC1.Rotation.BC1_Error": 3,
+                "PLC1.Rotation.BC2_Error": 3,
+                "PLC1.Rotation.Brake1TimeRemaining_Days": 3,
+                "PLC1.Rotation.Brake1TimeRemaining_Hours": 3,
+                "PLC1.Rotation.Brake1TimeRemaining_Minutes": 3,
+                "PLC1.Rotation.Brake1TimeRemaining_Seconds": 3,
+                "PLC1.Rotation.Brake1TimeRemaining_String": 3,
+                "PLC1.Rotation.Brake1Valid": 3,
+                "PLC1.Rotation.Brake2TimeRemaining_Days": 3,
+                "PLC1.Rotation.Brake2TimeRemaining_Hours": 3,
+                "PLC1.Rotation.Brake2TimeRemaining_Minutes": 3,
+                "PLC1.Rotation.Brake2TimeRemaining_Seconds": 3,
+                "PLC1.Rotation.Brake2TimeRemaining_String": 3,
+                "PLC1.Rotation.Brake2Valid": 3,
+                "PLC1.Rotation.BrakeReset": 3,
+                "PLC1.Rotation.FinishBrakeTesting": 3,
+                "PLC1.Rotation.OpSate_String": 3,
+                "PLC1.Rotation.Reinitialise": 3,
+                "PLC1.Rotation.RotationSTOState": 3,
+                "PLC1.Rotation.SBC_FailsafeFault": 3,
+                "PLC1.Rotation.TriggerBrake1Test": 3,
+                "PLC1.Rotation.TriggerBrake2Test": 3,
+                "PLC1.Rotation.bInBrakeTestMode": 3,
+                "PLC1.Rotation.iQ_Current": 3,
                 "SAFETY_ResetRequested": 3,
                 "SetLocale": 3,
                 "ShowKeyboard": 3,

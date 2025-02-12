@@ -162,6 +162,8 @@ Slit_East();
 Slit_West();
 Slit_3();
 
+Inclinometer();
+
 
 ]]></ST>
       </Implementation>
