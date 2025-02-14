@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<safetyApplication Crc="817126541" xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.4.0.0" Id="f9bc667f-d42e-4014-965d-0070f93aac94" name="" mapState="true" mapDiag="true" groupOrderId="1" passificationAllowed="false" temporaryDeactivationAllowed="false" permamentDeactivationAllowed="false" xmlid="0" analogFBOutputReplacementValues="Zero" verifyAnalogFBInputsIfStart="false" userFbId="00000000-0000-0000-0000-000000000000" xmlns="http://schemas.microsoft.com/dsltools/SafetyApplicationLanguage">
+<safetyApplication Crc="4022996854" xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.4.0.0" Id="f9bc667f-d42e-4014-965d-0070f93aac94" name="" mapState="true" mapDiag="true" groupOrderId="1" passificationAllowed="false" temporaryDeactivationAllowed="false" permamentDeactivationAllowed="false" xmlid="0" analogFBOutputReplacementValues="Zero" verifyAnalogFBInputsIfStart="false" userFbId="00000000-0000-0000-0000-000000000000" xmlns="http://schemas.microsoft.com/dsltools/SafetyApplicationLanguage">
   <comments>
     <comment Id="c12f665c-be41-411f-a174-b7a6d66242d0" text="Mode 1 : Searched and Locked (Unoccupied)&#xD;&#xA;Mode 2 : Local mode&#xD;&#xA;Mode 3 : Brake test mode" currentNetworkOrderId="0">
       <networks>
@@ -98,6 +98,17 @@
       </networks>
       <subjects>
         <fBMonMoniker name="//Network1/FBMon3" />
+      </subjects>
+    </comment>
+    <comment Id="231e0e4f-c91e-44f1-8b5e-96aa43371d8c" text="Outputs an LM Enable signal for no longer than the delay time" currentNetworkOrderId="0">
+      <networks>
+        <commentReferencesNetworks Id="805f81dc-667f-4279-a3aa-cbe75ef52dce">
+          <networkMoniker name="//Network1" />
+        </commentReferencesNetworks>
+      </networks>
+      <subjects>
+        <fBTonMoniker name="//Network1/FBTon2" />
+        <fBXorMoniker name="//Network1/FBXor2" />
       </subjects>
     </comment>
   </comments>
@@ -505,18 +516,18 @@
             </fBAnd>
           </networkHasFunctionBlocks>
           <networkHasFunctionBlocks Id="f511d9fc-87cb-4f2b-a2dc-3d542b95a408">
-            <fBRs Id="04193318-bf10-443e-8596-655035c7a9a7" name="FBRs1" instanceName="FBRs_LocalEnable" orderOfExecution="13" mapState="false" mapDiag="false" functionName="safeRs">
+            <fBRs Id="04193318-bf10-443e-8596-655035c7a9a7" name="FBRs1" instanceName="FBRs_LocalEnable" orderOfExecution="15" mapState="false" mapDiag="false" functionName="safeRs">
               <inPorts>
                 <functioBlockHasInPorts Id="3b34ba8e-3131-4497-ac62-2de1c0ce911d">
                   <inPort Id="cceac18c-e840-4190-a2d0-060b27878f53" name="Reset" portName="Reset" portNum="2" objectIndex="8" varId="1" filter="2" portDataType="1" channelInterface="Activated" deactivate1="Make Contact (NO)" maxDeviation="0" resetTime="0" />
                 </functioBlockHasInPorts>
                 <functioBlockHasInPorts Id="a62f9db6-1dfb-40de-a597-dd287ae37c00">
                   <inPort Id="0ce7d818-909a-478f-a913-c625aa6a9ce9" name="Set" portName="Set" portNum="3" objectIndex="9" varId="2" filter="2" portDataType="1" channelInterface="Activated" deactivate1="Break Contact (NC)" maxDeviation="0" resetTime="0">
-                    <fbPortGlobalVariableReferences>
-                      <functionBlockPortHasFbPortGlobalVariableReferences Id="b5beae18-41a8-4284-b926-f7aaa1c77a2f">
-                        <fbPortGlobalVariableReference Id="276d0f4c-6b21-4be2-875b-bb3e60d938d7" variableId="81f977f3-6437-4213-babe-82e9efd2ce47" lastKnownPath="GVL.LocalMode_Enable" />
-                      </functionBlockPortHasFbPortGlobalVariableReferences>
-                    </fbPortGlobalVariableReferences>
+                    <targetFunctionBlockPorts>
+                      <wiredLink Id="d0f337b1-d3db-4828-9c4c-ad2906cb62d9">
+                        <outPortMoniker name="//Network1/FBXor2/XorOut1" />
+                      </wiredLink>
+                    </targetFunctionBlockPorts>
                   </inPort>
                 </functioBlockHasInPorts>
               </inPorts>
@@ -534,7 +545,7 @@
             </fBRs>
           </networkHasFunctionBlocks>
           <networkHasFunctionBlocks Id="58449f1a-ac75-4a26-afe0-1b566540a547">
-            <fBTon Id="31df3c71-cab6-4ac5-a1de-4ad2e2727a87" name="FBTon1" instanceName="FBTon_HoldForBrakeTestMode" orderOfExecution="14" mapState="false" mapDiag="false" functionName="safeTon">
+            <fBTon Id="31df3c71-cab6-4ac5-a1de-4ad2e2727a87" name="FBTon1" instanceName="FBTon_HoldForBrakeTestMode" orderOfExecution="16" mapState="false" mapDiag="false" functionName="safeTon">
               <inPorts>
                 <functioBlockHasInPorts Id="280ba835-e2ba-4e25-a5fb-3e0e15fbda2a">
                   <inPort Id="bf059ec8-67e9-420c-b591-5ddda401ee45" name="TonIn" portName="TonIn" portNum="2" objectIndex="8" varId="1" filter="2" portDataType="1" channelInterface="Activated" deactivate1="Break Contact (NC)" maxDeviation="0" resetTime="0">
@@ -565,7 +576,7 @@
             </fBTon>
           </networkHasFunctionBlocks>
           <networkHasFunctionBlocks Id="d15863ac-3e3b-46c0-9b0b-9322eb6990fd">
-            <fBSr Id="933f4eb0-0f08-4936-a875-cebad5837fad" name="FBSr2" instanceName="FBSr_BrakeTestMode" orderOfExecution="16" mapState="false" mapDiag="false" functionName="safeSr">
+            <fBSr Id="933f4eb0-0f08-4936-a875-cebad5837fad" name="FBSr2" instanceName="FBSr_BrakeTestMode" orderOfExecution="18" mapState="false" mapDiag="false" functionName="safeSr">
               <inPorts>
                 <functioBlockHasInPorts Id="3f3eae47-9dc3-41fb-abf7-f2ac165486ce">
                   <inPort Id="91feb1fc-7b39-446c-949e-3dc4cd49888b" name="Set" portName="Set" portNum="2" objectIndex="8" varId="1" filter="2" portDataType="1" channelInterface="Activated" deactivate1="Break Contact (NC)" maxDeviation="0" resetTime="0" />
@@ -664,7 +675,7 @@
             </fBAnd>
           </networkHasFunctionBlocks>
           <networkHasFunctionBlocks Id="863bd42e-120e-46a1-ba31-0eb6d257c4b6">
-            <fBAnd Id="687c8885-3c89-4af0-adc8-1a3baa8e51d5" name="FBAnd5" instanceName="FBAnd_PlcEndBrakeTest" orderOfExecution="15" mapState="false" mapDiag="false" functionName="safeAnd">
+            <fBAnd Id="687c8885-3c89-4af0-adc8-1a3baa8e51d5" name="FBAnd5" instanceName="FBAnd_PlcEndBrakeTest" orderOfExecution="17" mapState="false" mapDiag="false" functionName="safeAnd">
               <inPorts>
                 <functioBlockHasInPorts Id="782e88b8-f2aa-417f-b2a9-9371dde6ecb9">
                   <inPort Id="5cd9248d-a454-4304-9438-19105c420f3f" name="AndIn1" portName="AndIn1" portNum="2" objectIndex="8" varId="2" filter="3" portDataType="1" channelInterface="Activated" deactivate1="Make Contact (NO)" maxDeviation="0" resetTime="0" />
@@ -711,7 +722,7 @@
             </fBAnd>
           </networkHasFunctionBlocks>
           <networkHasFunctionBlocks Id="35d81bf5-7b15-4422-8748-97da0efc098c">
-            <fBOr Id="4ffa89c1-4016-46d4-84f8-671220a9c917" name="FBOr2" instanceName="FBOr_RotationSLS" orderOfExecution="17" mapState="false" mapDiag="false" functionName="safeOr">
+            <fBOr Id="4ffa89c1-4016-46d4-84f8-671220a9c917" name="FBOr2" instanceName="FBOr_RotationSLS" orderOfExecution="19" mapState="false" mapDiag="false" functionName="safeOr">
               <inPorts>
                 <functioBlockHasInPorts Id="7d619a13-057f-4d44-bb98-d73848279eb9">
                   <inPort Id="9e959093-6747-45bc-ad83-23442a468d27" name="OrIn1" portName="OrIn1" portNum="2" objectIndex="8" varId="2" filter="2" portDataType="1" channelInterface="Activated" deactivate1="Break Contact (NC)" maxDeviation="0" resetTime="0" />
@@ -750,6 +761,123 @@
                 </functionBlockHasOutPorts>
               </outPorts>
             </fBOr>
+          </networkHasFunctionBlocks>
+          <networkHasFunctionBlocks Id="5f9899f7-998f-40f5-b4ef-3d352430f50b">
+            <fBXor Id="057ae92b-365b-45d7-9fde-70a6308a8ad4" name="FBXor2" instanceName="FBXor1" orderOfExecution="14" mapState="false" mapDiag="false" functionName="safeXor">
+              <inPorts>
+                <functioBlockHasInPorts Id="3647baf7-6af6-4a54-a9d0-31fdb56c1917">
+                  <inPort Id="189d9087-eaeb-4227-b4a8-a523b4ef4651" name="Xor1In1" portName="Xor1In1" portNum="2" objectIndex="0" varId="1" filter="3" portDataType="1" channelInterface="Single-Channel Both Activated" deactivate1="Break Contact (NC)" deactivate2="Break Contact (NC)" maxDeviation="0" resetTime="0">
+                    <fbPortGlobalVariableReferences>
+                      <functionBlockPortHasFbPortGlobalVariableReferences Id="6b42e431-af01-464d-9aa6-47aa3f862fa2">
+                        <fbPortGlobalVariableReference Id="77621d53-3072-4f0f-8ab4-caec4c67a6c6" variableId="81f977f3-6437-4213-babe-82e9efd2ce47" lastKnownPath="GVL.LocalMode_Enable" />
+                      </functionBlockPortHasFbPortGlobalVariableReferences>
+                    </fbPortGlobalVariableReferences>
+                  </inPort>
+                </functioBlockHasInPorts>
+                <functioBlockHasInPorts Id="33b652ab-3527-4d21-afec-11cd7c09014d">
+                  <inPort Id="d2f709e5-4c3e-4090-b169-0e98e9104c2e" name="Xor2In1" portName="Xor2In1" portNum="3" objectIndex="8" varId="2" filter="2" portDataType="1" channelInterface="Both Deactivated" maxDeviation="0" resetTime="0" />
+                </functioBlockHasInPorts>
+                <functioBlockHasInPorts Id="d0c02e37-feb3-4138-9c6c-bb957934ad21">
+                  <inPort Id="54eb8832-cc13-4798-81de-95493555cf9f" name="Xor1In2" portName="Xor1In2" portNum="4" objectIndex="1" varId="3" filter="2" portDataType="1" channelInterface="Both Deactivated" maxDeviation="0" resetTime="0" />
+                </functioBlockHasInPorts>
+                <functioBlockHasInPorts Id="c4f5a264-340f-40c3-b729-745519f63a73">
+                  <inPort Id="68fbde85-eb12-4351-aadd-8c24e35be083" name="Xor2In2" portName="Xor2In2" portNum="5" objectIndex="9" varId="4" filter="2" portDataType="1" channelInterface="Both Deactivated" maxDeviation="0" resetTime="0" />
+                </functioBlockHasInPorts>
+                <functioBlockHasInPorts Id="17fc268c-5336-4ee3-8474-784cdbc4c1ce">
+                  <inPort Id="74efea03-3f37-4b39-a669-89abcadfd641" name="Xor1In3" portName="Xor1In3" portNum="6" objectIndex="2" varId="5" filter="2" portDataType="1" channelInterface="Both Deactivated" maxDeviation="0" resetTime="0" />
+                </functioBlockHasInPorts>
+                <functioBlockHasInPorts Id="b5df7c8f-cb21-4cbc-9c34-61c0cd397350">
+                  <inPort Id="7fa4873f-5807-4eda-93bd-3bcacf794eeb" name="Xor2In3" portName="Xor2In3" portNum="7" objectIndex="10" varId="6" filter="2" portDataType="1" channelInterface="Both Deactivated" maxDeviation="0" resetTime="0" />
+                </functioBlockHasInPorts>
+                <functioBlockHasInPorts Id="0f5cf66a-5795-421f-a38b-9179605a80bf">
+                  <inPort Id="dfd1eb4a-bc9b-442e-8fa5-c0afc7edfee3" name="Xor1In4" portName="Xor1In4" portNum="8" objectIndex="3" varId="7" filter="2" portDataType="1" channelInterface="Both Deactivated" maxDeviation="0" resetTime="0" />
+                </functioBlockHasInPorts>
+                <functioBlockHasInPorts Id="867770ba-8272-4686-8aa7-d146db225e6d">
+                  <inPort Id="efd9c2db-f807-40d2-9288-32f03e767f5a" name="Xor2In4" portName="Xor2In4" portNum="9" objectIndex="11" varId="8" filter="2" portDataType="1" channelInterface="Both Deactivated" maxDeviation="0" resetTime="0" />
+                </functioBlockHasInPorts>
+                <functioBlockHasInPorts Id="974c0694-d765-418b-8c3f-219c22d23298">
+                  <inPort Id="c921725e-618a-45ea-a337-565d5127f323" name="Xor1In5" portName="Xor1In5" portNum="10" objectIndex="4" varId="9" filter="3" portDataType="1" channelInterface="Both Deactivated" maxDeviation="0" resetTime="0" />
+                </functioBlockHasInPorts>
+                <functioBlockHasInPorts Id="e010738d-5d06-44b9-84a5-73886f473320">
+                  <inPort Id="a8a926cb-ba44-4ecf-9d89-83f4495033bb" name="Xor2In5" portName="Xor2In5" portNum="11" objectIndex="12" varId="10" filter="2" portDataType="1" channelInterface="Both Deactivated" maxDeviation="0" resetTime="0" />
+                </functioBlockHasInPorts>
+                <functioBlockHasInPorts Id="dab59da4-cb28-4fa4-9742-686c26e00d05">
+                  <inPort Id="1b1b4884-962c-47ff-861b-7e114a5a8b45" name="Xor1In6" portName="Xor1In6" portNum="12" objectIndex="5" varId="11" filter="2" portDataType="1" channelInterface="Both Deactivated" maxDeviation="0" resetTime="0" />
+                </functioBlockHasInPorts>
+                <functioBlockHasInPorts Id="6171bd28-4619-457b-99d9-8a506d260495">
+                  <inPort Id="07265f50-26e9-48b5-98e9-08df62b1f5a5" name="Xor2In6" portName="Xor2In6" portNum="13" objectIndex="13" varId="12" filter="2" portDataType="1" channelInterface="Both Deactivated" maxDeviation="0" resetTime="0" />
+                </functioBlockHasInPorts>
+                <functioBlockHasInPorts Id="20e3895b-3ba7-4462-b056-d6c85bc4675a">
+                  <inPort Id="ae1d11d9-52aa-4968-b169-7e24b1d9008d" name="Xor1In7" portName="Xor1In7" portNum="14" objectIndex="6" varId="13" filter="2" portDataType="1" channelInterface="Both Deactivated" maxDeviation="0" resetTime="0" />
+                </functioBlockHasInPorts>
+                <functioBlockHasInPorts Id="75dd7989-dc06-411f-bc1d-685ac4c22bf6">
+                  <inPort Id="50b17c10-77e2-496b-aa84-ec6ca6ad3945" name="Xor2In7" portName="Xor2In7" portNum="15" objectIndex="14" varId="14" filter="2" portDataType="1" channelInterface="Both Deactivated" maxDeviation="0" resetTime="0" />
+                </functioBlockHasInPorts>
+                <functioBlockHasInPorts Id="dbbe79a1-c8cc-47a4-9c6a-b9278ec91caa">
+                  <inPort Id="b7b97c3b-abf7-4843-8454-4b644a6bbf36" name="Xor1In8" portName="Xor1In8" portNum="16" objectIndex="7" varId="15" filter="2" portDataType="1" channelInterface="Both Deactivated" maxDeviation="0" resetTime="0" />
+                </functioBlockHasInPorts>
+                <functioBlockHasInPorts Id="ffe01d6b-2d55-4171-b259-1618a8371869">
+                  <inPort Id="9271142b-2f59-4395-9d38-e520d905a6f6" name="Xor2In8" portName="Xor2In8" portNum="17" objectIndex="15" varId="16" filter="2" portDataType="1" channelInterface="Both Deactivated" maxDeviation="0" resetTime="0" />
+                </functioBlockHasInPorts>
+              </inPorts>
+              <outPorts>
+                <functionBlockHasOutPorts Id="68b105b4-5c5f-418b-ad00-80cc712ef529">
+                  <outPort Id="59c81f2f-83c2-4fac-8852-e49910cb6c5d" name="XorOut1" portName="XorOut1" portNum="3" objectIndex="8" varId="17" filter="7" portDataType="1" replacementValue="0" />
+                </functionBlockHasOutPorts>
+                <functionBlockHasOutPorts Id="a8957c29-ee93-4721-9e05-436d67909449">
+                  <outPort Id="5ca18a7e-1cb4-445d-94d5-46e6380f3926" name="XorOut2" portName="XorOut2" portNum="5" objectIndex="9" varId="18" filter="7" portDataType="1" replacementValue="0" />
+                </functionBlockHasOutPorts>
+                <functionBlockHasOutPorts Id="484073fd-a160-4ed1-bbb3-e53d842a38b4">
+                  <outPort Id="bf2ea00c-276c-41d2-b9ea-051b0a57fe23" name="XorOut3" portName="XorOut3" portNum="7" objectIndex="10" varId="19" filter="7" portDataType="1" replacementValue="0" />
+                </functionBlockHasOutPorts>
+                <functionBlockHasOutPorts Id="820519cb-b09a-49bd-9228-ae35eecbdeed">
+                  <outPort Id="71973111-0a70-4a6d-87d8-8d5a17cff86b" name="XorOut4" portName="XorOut4" portNum="9" objectIndex="11" varId="20" filter="7" portDataType="1" replacementValue="0" />
+                </functionBlockHasOutPorts>
+                <functionBlockHasOutPorts Id="cde7879c-1c0d-4aa9-afbe-3d236fce585e">
+                  <outPort Id="93a165d5-d63f-45f8-978d-40b334ede356" name="XorOut5" portName="XorOut5" portNum="11" objectIndex="12" varId="21" filter="7" portDataType="1" replacementValue="0" />
+                </functionBlockHasOutPorts>
+                <functionBlockHasOutPorts Id="cb491237-4244-4e9d-bc59-ce248b76bd45">
+                  <outPort Id="e636d790-c427-42fa-8ca8-e468e2589b4e" name="XorOut6" portName="XorOut6" portNum="13" objectIndex="13" varId="22" filter="7" portDataType="1" replacementValue="0" />
+                </functionBlockHasOutPorts>
+                <functionBlockHasOutPorts Id="e1fb87cd-c14a-43c3-816e-3f4b905c93fa">
+                  <outPort Id="44087a5a-0bbe-4af0-b1f0-868d1a4f7afd" name="XorOut7" portName="XorOut7" portNum="15" objectIndex="14" varId="23" filter="7" portDataType="1" replacementValue="0" />
+                </functionBlockHasOutPorts>
+                <functionBlockHasOutPorts Id="289706a0-9030-4988-828a-b3e54184a96b">
+                  <outPort Id="f3f66b86-ea11-4062-bf95-8aa63213ef5b" name="XorOut8" portName="XorOut8" portNum="17" objectIndex="15" varId="24" filter="7" portDataType="1" replacementValue="0" />
+                </functionBlockHasOutPorts>
+              </outPorts>
+            </fBXor>
+          </networkHasFunctionBlocks>
+          <networkHasFunctionBlocks Id="f872d3bf-dd7c-4258-bce5-a9b7ddd3b1be">
+            <fBTon Id="ef76c559-04c6-4186-88de-1efd22cf4da0" name="FBTon2" instanceName="FBTon1" orderOfExecution="13" mapState="false" mapDiag="false" functionName="safeTon">
+              <inPorts>
+                <functioBlockHasInPorts Id="ac2b65ae-2735-401a-a2d6-385d25bea459">
+                  <inPort Id="4129efff-272b-4c50-9ffb-09328a1cd866" name="TonIn" portName="TonIn" portNum="2" objectIndex="8" varId="1" filter="2" portDataType="1" channelInterface="Activated" deactivate1="Break Contact (NC)" maxDeviation="0" resetTime="0">
+                    <fbPortGlobalVariableReferences>
+                      <functionBlockPortHasFbPortGlobalVariableReferences Id="27dab6e5-545d-4e60-885b-230b6641cd18">
+                        <fbPortGlobalVariableReference Id="ddb9f237-78e2-4cab-8c32-43723af6461d" variableId="81f977f3-6437-4213-babe-82e9efd2ce47" lastKnownPath="GVL.LocalMode_Enable" />
+                      </functionBlockPortHasFbPortGlobalVariableReferences>
+                    </fbPortGlobalVariableReferences>
+                  </inPort>
+                </functioBlockHasInPorts>
+              </inPorts>
+              <outPorts>
+                <functionBlockHasOutPorts Id="7f92457b-081f-468f-8e7b-451d236dae0b">
+                  <outPort Id="e25db16e-b742-47ef-81f4-4323fff0986c" name="TonOut" portName="TonOut" portNum="4" objectIndex="1" varId="4" filter="6" portDataType="1" replacementValue="0">
+                    <targetFunctionBlockPorts>
+                      <wiredLink Id="b6562713-35a3-45a3-8451-f9d82d25b6f5">
+                        <inPortMoniker name="//Network1/FBXor2/Xor2In1" />
+                      </wiredLink>
+                    </targetFunctionBlockPorts>
+                  </outPort>
+                </functionBlockHasOutPorts>
+              </outPorts>
+              <parameterPorts>
+                <functionBlockHasParamPorts Id="df70a1cc-d01e-439c-b022-740c0cb33668">
+                  <parameterPort Id="aa35bed3-5b78-48d7-920c-3fa3cf2b2d06" name="Delay Time (s)" portName="Delay Time (s)" portNum="4" objectIndex="0" varId="0" filter="0" portDataType="0" timing="0.1" userFbPortName="Delay Time (s)" useInUserFb="false" />
+                </functionBlockHasParamPorts>
+              </parameterPorts>
+            </fBTon>
           </networkHasFunctionBlocks>
         </functionBlocks>
       </Network>

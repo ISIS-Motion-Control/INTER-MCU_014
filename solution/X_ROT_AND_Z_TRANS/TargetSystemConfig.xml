@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TargetSystemConfig Crc="2696995266" Version="1.5">
+<TargetSystemConfig Crc="2615254844" Version="1.5">
   <TargetSystemType>HSafetyPLC</TargetSystemType>
   <TargetSystemSubType>AX891x</TargetSystemSubType>
   <IsExternalDevice>false</IsExternalDevice>
@@ -7,7 +7,7 @@
   <TargetSystemObjectName>Drive 71 (AX8206-0210-0104)</TargetSystemObjectName>
   <SoftwareVersion>03 (V01.13)</SoftwareVersion>
   <SerialNumber>3086003</SerialNumber>
-  <ProjectCRC>4759</ProjectCRC>
+  <ProjectCRC>49796</ProjectCRC>
   <MapProjectCRC>false</MapProjectCRC>
   <MapSerialNumber>false</MapSerialNumber>
   <VersionNumber>1</VersionNumber>

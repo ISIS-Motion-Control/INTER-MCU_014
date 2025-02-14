@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<safetyApplication Crc="1491085162" xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.4.0.0" Id="75ed7a51-1d16-428d-a32f-97200dfae687" name="" mapState="false" mapDiag="false" groupOrderId="3" passificationAllowed="false" temporaryDeactivationAllowed="false" permamentDeactivationAllowed="false" xmlid="0" analogFBOutputReplacementValues="Zero" verifyAnalogFBInputsIfStart="false" userFbId="00000000-0000-0000-0000-000000000000" xmlns="http://schemas.microsoft.com/dsltools/SafetyApplicationLanguage">
+<safetyApplication Crc="2211852727" xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.4.0.0" Id="75ed7a51-1d16-428d-a32f-97200dfae687" name="" mapState="false" mapDiag="false" groupOrderId="3" passificationAllowed="false" temporaryDeactivationAllowed="false" permamentDeactivationAllowed="false" xmlid="0" analogFBOutputReplacementValues="Zero" verifyAnalogFBInputsIfStart="false" userFbId="00000000-0000-0000-0000-000000000000" xmlns="http://schemas.microsoft.com/dsltools/SafetyApplicationLanguage">
   <comments>
-    <comment Id="a03cb420-0ac6-4391-99ff-e05577dad012" text="32bits per revolution&#xD;&#xA;10 motor revs per second for 5mm/s limit&#xD;&#xA;1ms cycle time&#xD;&#xA;42,949,672 limit" currentNetworkOrderId="0">
+    <comment Id="a03cb420-0ac6-4391-99ff-e05577dad012" text="15mm/s (30rps at the motor)&#xD;&#xA;32bits per revolution&#xD;&#xA;1ms cycle time&#xD;&#xA;30*(2^32)/1000&#xD;&#xA;128,849,019 limit" currentNetworkOrderId="0">
       <networks>
         <commentReferencesNetworks Id="9607986e-5c13-4b2d-be21-2f6028246cfd">
           <networkMoniker name="//SLS_1_ChB" />
@@ -54,10 +54,10 @@
               </outPorts>
               <parameterPorts>
                 <functionBlockHasParamPorts Id="1f842042-b8c7-4de6-a591-4b0905ab666f">
-                  <parameterPort Id="d819fd57-c70a-4524-a758-aebfb3e87489" name="Minimum Value" portName="Minimum Value" portNum="5" objectIndex="0" varId="0" filter="0" portDataType="0" timing="-42949672" userFbPortName="Minimum Value" useInUserFb="false" />
+                  <parameterPort Id="d819fd57-c70a-4524-a758-aebfb3e87489" name="Minimum Value" portName="Minimum Value" portNum="5" objectIndex="0" varId="0" filter="0" portDataType="0" timing="-128849019" userFbPortName="Minimum Value" useInUserFb="false" />
                 </functionBlockHasParamPorts>
                 <functionBlockHasParamPorts Id="ba0cbc3f-e69c-4947-9ee2-caf9edcbab70">
-                  <parameterPort Id="06e5e4cc-87be-47d3-ad2b-1afb341dc916" name="Maximum Value" portName="Maximum Value" portNum="6" objectIndex="0" varId="0" filter="0" portDataType="0" timing="42949672" userFbPortName="Maximum Value" useInUserFb="false" />
+                  <parameterPort Id="06e5e4cc-87be-47d3-ad2b-1afb341dc916" name="Maximum Value" portName="Maximum Value" portNum="6" objectIndex="0" varId="0" filter="0" portDataType="0" timing="128849019" userFbPortName="Maximum Value" useInUserFb="false" />
                 </functionBlockHasParamPorts>
               </parameterPorts>
             </fBLimit>

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<safetyApplication Crc="4081046154" xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.4.0.0" Id="7eb1be9a-0566-49c6-aede-0cfaf722d42d" name="" mapState="false" mapDiag="false" groupOrderId="6" passificationAllowed="false" temporaryDeactivationAllowed="false" permamentDeactivationAllowed="false" xmlid="0" analogFBOutputReplacementValues="Zero" verifyAnalogFBInputsIfStart="false" userFbId="00000000-0000-0000-0000-000000000000" xmlns="http://schemas.microsoft.com/dsltools/SafetyApplicationLanguage">
+<safetyApplication Crc="4107323210" xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.4.0.0" Id="7eb1be9a-0566-49c6-aede-0cfaf722d42d" name="" mapState="false" mapDiag="false" groupOrderId="6" passificationAllowed="false" temporaryDeactivationAllowed="false" permamentDeactivationAllowed="false" xmlid="0" analogFBOutputReplacementValues="Zero" verifyAnalogFBInputsIfStart="false" userFbId="00000000-0000-0000-0000-000000000000" xmlns="http://schemas.microsoft.com/dsltools/SafetyApplicationLanguage">
   <comments>
     <comment Id="3027ad19-234c-443e-ad6b-703aad748b56" text="If we are doing a brake test we MUST be in the torque limit specified, if not an SS1 sent to ChA.&#xD;&#xA;&#xD;&#xA;If not doing a brake test, signal output always healthy" currentNetworkOrderId="0">
       <networks>
@@ -22,7 +22,7 @@
         <fBAndMoniker name="//Network1/FBAnd1" />
       </subjects>
     </comment>
-    <comment Id="6a0d08a7-658e-4d09-a01c-8729f09ae79c" text="Approximately equivalent to a 2Nm test torque&#xD;&#xA;Normal operational peak of 1.36Nm&#xD;&#xA;Test interval at 5184000 (60days)&#xD;&#xA;Brake must hold torque for half a second to pass" currentNetworkOrderId="0">
+    <comment Id="6a0d08a7-658e-4d09-a01c-8729f09ae79c" text="Approximately equivalent to a 2Nm test torque&#xD;&#xA;Normal operational peak of 1.36Nm&#xD;&#xA;Test interval at 7776000 (90days)&#xD;&#xA;Brake must hold torque for 5s to pass" currentNetworkOrderId="0">
       <networks>
         <commentReferencesNetworks Id="c1773705-11b2-4264-8cbb-7854ce160c41">
           <networkMoniker name="//Network1" />
@@ -35,7 +35,7 @@
       <Network Id="dc22a459-cab9-4416-ba01-9d15e3327778" name="Network1" networkName="Ch_A_SafeBrakeTesting" intId="1" networkOrderId="0">
         <functionBlocks>
           <networkHasFunctionBlocks Id="a3b6603a-5dbe-4c29-8da8-c1dc7adc8bea">
-            <fBSBT Id="75cd095e-7cce-4da4-9bb1-7dc072c49566" name="FBSBT1" instanceName="FBSBT_Brake1" orderOfExecution="3" mapState="false" mapDiag="false" functionName="safeSBT" brakeTestInterval="5184000" maxPositionDeviation="20" minDuration="50">
+            <fBSBT Id="75cd095e-7cce-4da4-9bb1-7dc072c49566" name="FBSBT1" instanceName="FBSBT_Brake1" orderOfExecution="3" mapState="false" mapDiag="false" functionName="safeSBT" brakeTestInterval="7776000" maxPositionDeviation="20" minDuration="50">
               <inPorts>
                 <functioBlockHasInPorts Id="d32874c4-ab3c-4196-bb16-a77271ca9a79">
                   <inPort Id="5dbeba65-8abe-40a5-9ecb-79388f631804" name="SBT" portName="SBT" portNum="2" objectIndex="0" varId="1" filter="73216" portDataType="1" channelInterface="Activated" deactivate1="Break Contact (NC)" maxDeviation="0" resetTime="0" />
@@ -233,7 +233,7 @@
             </fBOr>
           </networkHasFunctionBlocks>
           <networkHasFunctionBlocks Id="f74b5ac8-46fe-4d8a-9089-a9db008d26a2">
-            <fBSBT Id="506453ce-7d54-4fcd-b07f-4b00f19f79dc" name="FBSBT11" instanceName="FBSBT_Brake2" orderOfExecution="4" mapState="false" mapDiag="false" functionName="safeSBT" brakeTestInterval="5184000" maxPositionDeviation="20" minDuration="50">
+            <fBSBT Id="506453ce-7d54-4fcd-b07f-4b00f19f79dc" name="FBSBT11" instanceName="FBSBT_Brake2" orderOfExecution="4" mapState="false" mapDiag="false" functionName="safeSBT" brakeTestInterval="7776000" maxPositionDeviation="20" minDuration="50">
               <inPorts>
                 <functioBlockHasInPorts Id="2a3816d4-7ba3-4bb7-87f1-02f686fc28e5">
                   <inPort Id="132a7b93-7c43-421f-b628-8f1241b7dc13" name="SBT" portName="SBT" portNum="2" objectIndex="0" varId="1" filter="73216" portDataType="1" channelInterface="Activated" deactivate1="Break Contact (NC)" maxDeviation="0" resetTime="0" />
