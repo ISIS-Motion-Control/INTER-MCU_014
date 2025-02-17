@@ -71,10 +71,19 @@ IF GVL_Safety.UnoccupiedMode THEN
         astAxes[INTER_LOGIC.aVirtualAxisDefaults[i].axisID].stConfig.fOverride := 100* SPEED_OVERRIDE_MODIFIER;
         
 	END_FOR
+    FOR i:=1 TO 3 DO
+        astAxes[AXIS_COMBINED_VERTICAL].stConfig.fOverride := 100;
+        astAxes[AXIS_ROTATION].stConfig.fOverride := 100;
+        astAxes[AXIS_HORIZONTAL_TRANSLATION].stConfig.fOverride := 100;
+	END_FOR
 
 ELSE
     //LOW SPEED MODE
-    
+    FOR i:=1 TO 3 DO
+        astAxes[AXIS_COMBINED_VERTICAL].stConfig.fOverride := LOCALMODE_SPEED_OVERRIDE;
+        astAxes[AXIS_ROTATION].stConfig.fOverride :=LOCALMODE_SPEED_OVERRIDE;
+        astAxes[AXIS_HORIZONTAL_TRANSLATION].stConfig.fOverride := LOCALMODE_SPEED_OVERRIDE;
+	END_FOR
     //Unsure on this maths, the spgs are created from the axes that will have by default had a 20% speed override applied, so I don't need to use that in initial caluclation?
     IF (ABS(INTER_LOGIC.axisSpg_Vertical.velocity)) > (VERTICAL_SAFE_LIMIT*THRESHOLD) THEN
         VerticalOverride:= ((VERTICAL_SAFE_LIMIT*THRESHOLD)/(ABS(INTER_LOGIC.axisSpg_Vertical.velocity)))*NON_LINEAR_FUDGE_FACTOR;

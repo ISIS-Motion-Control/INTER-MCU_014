@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<GlobalVariables Crc="1963616588" Id="698b4b20-b41e-462a-a5b9-146bdbe5707f" FileFormatVersion="1.0">
+<GlobalVariables Crc="24521606" Id="698b4b20-b41e-462a-a5b9-146bdbe5707f" FileFormatVersion="1.0">
   <Variable Id="c490f325-c9fd-4dfa-a098-7ce8edf0a2fb">
     <Name>EStop1_ChA</Name>
     <SourceUsages>
@@ -294,8 +294,8 @@
       </FbPortUsage>
     </SourceUsages>
     <TargetUsages>
-      <FbPortUsage Id="f307cd0a-0bcc-4409-8918-eed3b9466cf9">
-        <ModelElementId>4bce6c82-777d-4386-9642-32f95a385bf1</ModelElementId>
+      <FbPortUsage Id="5c8184b1-9c64-49d4-9cf4-ed76c05426c3">
+        <ModelElementId>f91c67e8-5bb5-4a6a-9f4a-5c97cdb57bcb</ModelElementId>
       </FbPortUsage>
     </TargetUsages>
   </Variable>
@@ -800,6 +800,9 @@
     <TargetUsages>
       <FbPortUsage Id="f09d7a18-fd2f-4976-a8aa-419d5906fba4">
         <ModelElementId>1f446412-67c5-472d-bc89-f2b3ac7ea3c1</ModelElementId>
+      </FbPortUsage>
+      <FbPortUsage Id="5b0599e9-1b19-46f5-95c8-43227eda89b2">
+        <ModelElementId>9e01c2f1-e277-41d7-ac97-3fd820d4fe68</ModelElementId>
       </FbPortUsage>
     </TargetUsages>
   </Variable>
