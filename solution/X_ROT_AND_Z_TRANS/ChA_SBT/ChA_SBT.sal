@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<safetyApplication Crc="4081046154" xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.4.0.0" Id="7eb1be9a-0566-49c6-aede-0cfaf722d42d" name="" mapState="false" mapDiag="false" groupOrderId="6" passificationAllowed="false" temporaryDeactivationAllowed="false" permamentDeactivationAllowed="false" xmlid="0" analogFBOutputReplacementValues="Zero" verifyAnalogFBInputsIfStart="false" userFbId="00000000-0000-0000-0000-000000000000" xmlns="http://schemas.microsoft.com/dsltools/SafetyApplicationLanguage">
+<safetyApplication Crc="883213363" xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.4.0.0" Id="7eb1be9a-0566-49c6-aede-0cfaf722d42d" name="" mapState="false" mapDiag="false" groupOrderId="6" passificationAllowed="false" temporaryDeactivationAllowed="false" permamentDeactivationAllowed="false" xmlid="0" analogFBOutputReplacementValues="Zero" verifyAnalogFBInputsIfStart="false" userFbId="00000000-0000-0000-0000-000000000000" xmlns="http://schemas.microsoft.com/dsltools/SafetyApplicationLanguage">
   <comments>
     <comment Id="3027ad19-234c-443e-ad6b-703aad748b56" text="If we are doing a brake test we MUST be in the torque limit specified, if not an SS1 sent to ChA.&#xD;&#xA;&#xD;&#xA;If not doing a brake test, signal output always healthy" currentNetworkOrderId="0">
       <networks>
@@ -157,7 +157,13 @@
                   </inPort>
                 </functioBlockHasInPorts>
                 <functioBlockHasInPorts Id="079e351d-154d-4b79-8982-f3e448f5f7ed">
-                  <inPort Id="1ea1dc35-299b-4856-b6a7-5e90f26a9e09" name="OrIn2" portName="OrIn2" portNum="3" objectIndex="9" varId="3" filter="2" portDataType="1" channelInterface="Deactivated" maxDeviation="0" resetTime="0" />
+                  <inPort Id="1ea1dc35-299b-4856-b6a7-5e90f26a9e09" name="OrIn2" portName="OrIn2" portNum="3" objectIndex="9" varId="3" filter="2" portDataType="1" channelInterface="Activated" deactivate1="Make Contact (NO)" maxDeviation="0" resetTime="0">
+                    <fbPortGlobalVariableReferences>
+                      <functionBlockPortHasFbPortGlobalVariableReferences Id="9fc7a91e-1631-46fb-9ca0-4d2e0efa8039">
+                        <fbPortGlobalVariableReference Id="be8a2187-05a7-454b-975b-1536aaa9d842" variableId="b0ec7d11-7478-4c52-8ff3-dfea3ea96b3c" lastKnownPath="ChA.Brake2_SBT_CMD" />
+                      </functionBlockPortHasFbPortGlobalVariableReferences>
+                    </fbPortGlobalVariableReferences>
+                  </inPort>
                 </functioBlockHasInPorts>
                 <functioBlockHasInPorts Id="13a73c99-3c41-4abb-ab5f-8f265c6ae680">
                   <inPort Id="7eda311e-026f-45da-98ee-70a9097c6c28" name="OrIn3" portName="OrIn3" portNum="4" objectIndex="10" varId="4" filter="2" portDataType="1" channelInterface="Deactivated" maxDeviation="0" resetTime="0" />
