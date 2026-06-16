@@ -60,10 +60,23 @@
       "url": "UserContent/AxisControlContent.usercontrol"
     },
     {
+      "url": "UserContent/TextAndIndicator_SafetyDevice.usercontrol"
+    },
+    {
       "url": "UserContent/TextAndIndicator.usercontrol"
+    },
+    {
+      "url": "UserContent/timeRemaining.usercontrol"
     }
   ],
   "content": [
+    {
+      "url": "UserContent/Content_Safety.content",
+      "preload": false,
+      "keepAlive": false,
+      "loadSync": false,
+      "preloadBindings": false
+    },
     {
       "url": "UserContent/Content_Axes.content",
       "preload": false,
@@ -73,6 +86,13 @@
     },
     {
       "url": "UserContent/Content_Statuses.content",
+      "preload": false,
+      "keepAlive": false,
+      "loadSync": false,
+      "preloadBindings": false
+    },
+    {
+      "url": "UserContent/Content_Events.content",
       "preload": false,
       "keepAlive": false,
       "loadSync": false,
@@ -430,10 +450,6 @@
     {
       "name": "Beckhoff.TwinCAT.HMI.Functions",
       "basePath": "/Beckhoff.TwinCAT.HMI.Functions"
-    },
-    {
-      "name": "Microsoft.TypeScript.MS",
-      "basePath": "/Microsoft.TypeScript.MS"
     }
   ],
   "keyboardLayouts": [
@@ -448,7 +464,7 @@
     }
   ],
   "systemKeyboard": {
-    "providerName": "",
+    "providerName": "Beckhoff.TcHmiKeyboard",
     "projectKeyboardMapping": {
       "de": {
         "text": "KeyboardLayouts/German - compact.keyboard.json",

@@ -1,0 +1,226 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
+  <POU Name="SBT_CODE_notused" Id="{84700c91-95a1-426b-9760-acd2203f55c1}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM SBT_CODE_notused
+VAR
+	iStep: INT;
+	bTriggerBrakeTest: BOOL;
+	bError: BOOL;
+	bBusy : BOOL;
+	bErrorCode: STRING;
+	fbBrakeControl : FB_CoEAX8000BrakeControl;
+	Axis1 : AXIS_REF;
+	Timer : TON;
+	ErrorAck: BOOL;
+	fbReset : MC_Reset; (*Unsure if this is correct FB but I think it is*)
+	ChA_StartBrakeTest: BOOL;
+	bOutputStageSafetyState: BYTE; (*Input*)
+	MCPower : MC_Power;
+	fbAX8000BrakeTest : FB_CoEAX8000BrakeTest;
+	ChA_TestSucceeded: BOOL;
+	ChA_BrakeTestPassed: BOOL;
+    
+    
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[Axis1.ReadStatus();
+CASE iStep OF
+	
+	0:	(*TriggerBrakeTest*)		
+			IF bTriggerBrakeTest THEN
+				bTriggerBrakeTest := FALSE;
+				iStep := 10;
+				bError := FALSE;
+				bErrorCode := '';
+				ChA_StartBrakeTest := TRUE;
+			END_IF
+			
+			
+	10:	(*CloseBrake*)
+		fbBrakeControl(		(*FB_CoEAX8000BrakeControl*)
+			Axis := Axis1,
+			Execute := TRUE,
+			Mode := E_AX8000BrakeMode.eAX8000BrakeMode_Lock );
+
+		IF NOT fbBrakeControl.Busy AND NOT fbBrakeControl.Error THEN
+			fbBrakeControl(Axis:= Axis1, Execute := FALSE, Mode := E_AX8000BrakeMode.eAX8000BrakeMode_Lock);
+		ELSIF NOT fbBrakeControl.Busy AND fbBrakeControl.Error THEN
+			fbBrakeControl(Axis:= Axis1, Execute := FALSE, Mode := E_AX8000BrakeMode.eAX8000BrakeMode_Lock);
+			bBusy := FALSE;
+			bError := TRUE;
+			bErrorCode := 'CloseBrakeFailed';
+			iStep := 0;
+		END_IF
+		
+		
+	20: (*Time which is required in order to close the brake*)
+		Timer(IN := TRUE, PT := T#100MS, Q => , ET=> );
+			
+		IF Timer.Q THEN
+			Timer(IN := FALSE);
+			iStep := 30;
+		END_IF
+	
+		
+	30: (*Send reset to E-Stop FB inside safety project --> final STO release*)
+		ErrorAck := TRUE;
+		Timer(IN := TRUE, PT := T#500MS);
+		
+		IF Timer.Q THEN
+			ErrorAck := FALSE;
+			Timer(IN := FALSE);
+			iStep := 40;
+		END_IF
+	
+		
+	40: (*Send reset --> in case NC or drive has an error*)
+		IF Axis1.Status.Error THEN
+			fbReset(
+				Axis:= Axis1,
+				Execute := TRUE);
+		ELSE
+			iStep := 50;
+		END_IF
+		
+		IF fbReset.Done THEN
+			fbReset(Axis:= Axis1, Execute := FALSE);
+			iStep := 50;
+		ELSIF NOT fbReset.Busy AND fbReset.Error THEN
+			fbReset(Axis:= Axis1, Execute := FALSE);
+			bError := TRUE;
+			bErrorCode := 'NC-AxisResetFailed';
+			ChA_StartBrakeTest := FALSE;
+			iStep := 999;
+		END_IF
+	
+		
+	50: (*Check if outputstage is blocked via STO*)
+		IF bOutputStageSafetyState.0 THEN
+			iStep := 60;
+			Timer(IN := FALSE);
+		ELSE
+			iStep := 30;
+		END_IF
+		
+		
+	60: (*Enable Motor*)
+		MCPower(
+			Axis := Axis1,
+			Enable := TRUE,
+			Enable_Positive := TRUE,
+			Enable_Negative := TRUE,
+			Override := 100);
+			
+		IF MCPower.Status THEN
+			iStep := 70;
+		ELSIF McPower.Error THEN
+			iStep := 999;
+			bError := TRUE;
+			bErrorCode := 'EnableAxisFailed';
+			ChA_StartBrakeTest := FALSE;
+		END_IF
+		
+		
+		
+	70: (*FB_CoEAX8000BrakeTest*)
+		fbAX8000BrakeTest(
+			Axis := Axis1,
+			Execute := TRUE,
+			Succeeded := ChA_TestSucceeded,
+			Torque := 0.5,
+			VelocityLimit := 100,
+			Timeout := T#10S,
+			Busy => ,
+			Error => ,
+			ErrorID => );
+			
+		IF NOT fbAX8000BrakeTest.Busy AND NOT fbAX8000BrakeTest.Error THEN			
+			fbAX8000BrakeTest(Axis := Axis1 , Execute := FALSE);
+			iStep := 80;
+		ELSIF NOT fbAX8000BrakeTest.Busy AND fbAX8000BrakeTest.Error THEN
+			fbAX8000BrakeTest(Axis := Axis1 , Execute := FALSE);
+			bError := TRUE;
+			bErrorCode := 'FB_BrakeTestSendError';
+			iStep := 80;
+		END_IF
+		
+		
+	80: (*Switch off ChA_StartBrakeTest*)
+		Timer(IN := TRUE, PT := T#1S);
+		
+		IF ChA_BrakeTestPassed THEN
+			ChA_StartBrakeTest := FALSE;
+			Timer(IN := FALSE);
+			iStep := 90;
+		END_IF
+		
+		IF Timer.Q THEN
+			Timer(IN := FALSE);
+			ChA_StartBrakeTest := FALSE;
+			iStep := 90;
+		END_IF
+		
+		
+	90: (*Switch Brake to automatic*)
+		fbBrakeControl(
+			Axis := Axis1,
+			Execute := TRUE,
+			Mode := E_AX8000BrakeMode.eAX8000BrakeMode_Automatic);
+			
+		IF NOT fbBrakeControl.Busy AND NOT fbBrakeControl.Error THEN
+			fbBrakeControl(Axis := Axis1, Execute := FALSE, Mode := E_AX8000BrakeMode.eAX8000BrakeMode_Lock);
+			iStep := 100;
+		ELSIF NOT fbBrakeControl.Busy AND fbBrakeControl.Error THEN
+			fbBrakeControl(Axis := Axis1, Execute := FALSE, Mode := E_AX8000BrakeMode.eAX8000BrakeMode_Lock);
+			bBusy := FALSE;
+			bError := TRUE;
+			bErrorCode := 'SwitchBrakeToAutomaticFailed';
+			iStep := 0;
+		END_IF
+	
+	
+	100: (*Disable Motor*)
+		MCPower(
+			Axis := Axis1,
+			Enable := FALSE,
+			Enable_Positive := FALSE,
+			Enable_Negative := FALSE,
+			Override := 0);	
+
+		IF NOT MCPower.Status THEN
+			iStep := 0;
+		END_IF
+		
+		
+	999:
+		MCPower(
+			Axis := Axis1,
+			Enable := FALSE,
+			Enable_Positive := FALSE,
+			Enable_Negative := FALSE,
+			Override := 0);	
+		
+		fbReset(
+			Axis:= Axis1,
+			Execute := TRUE,
+			Done => ,
+			Busy => ,
+			Error => ,
+			ErrorID => );
+		
+		IF fbReset.Done THEN
+			iStep := 0;
+			fbReset(Axis:= Axis1, Execute := FALSE);
+			ChA_StartBrakeTest := FALSE;
+		ELSIF NOT fbReset.Busy AND fbReset.Error THEN
+			fbReset(Axis:= Axis1, Execute := FALSE);
+			bError := TRUE;
+			bErrorCode := 'NC-Axis reset failed';
+			ChA_StartBrakeTest := FALSE;
+			iStep := 0;
+		END_IF
+END_CASE]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

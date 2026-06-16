@@ -23,6 +23,9 @@ VAR
     afbReadPositionBias: ARRAY [1..GVL_APP.nAXIS_NUM] OF MC_ReadParameter;
     afbWritePositionBias: ARRAY [1..GVL_APP.nAXIS_NUM] OF MC_WriteParameter;
     fbGetDeviceIdentification: FB_GetDeviceIdentificationEx;
+    
+    
+    
 END_VAR
 
 VAR PERSISTENT
@@ -151,13 +154,15 @@ Horizontal_Virtual();
 
 
 INTER_LOGIC();
-
+VirtualSpeedOverrides();
 //Slit setup
 Slit_North();
 Slit_South();
 Slit_East();
 Slit_West();
 Slit_3();
+
+Inclinometer();
 
 
 ]]></ST>

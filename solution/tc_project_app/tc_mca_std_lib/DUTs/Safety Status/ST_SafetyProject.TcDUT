@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
+  <DUT Name="ST_SafetyProject" Id="{b094c47d-2a02-4dbc-8c4a-6e65a300427d}">
+    <Declaration><![CDATA[TYPE ST_SafetyProject :
+STRUCT
+	inRun AT %I* : BOOL;
+	inError AT %I* : BOOL;
+	inResetRequired AT %I* : BOOL;
+	
+	outAcknowledgeError AT %Q* : BOOL;
+	outRunProject AT %Q* : BOOL;
+	
+	//ANY OTHERS?
+	
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

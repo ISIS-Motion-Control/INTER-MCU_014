@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
+  <POU Name="FB_SafeFBDiag" Id="{1992ed91-f349-422e-839a-2474eb3d2dc5}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION FB_SafeFBDiag : STRING
+VAR_INPUT
+    fbType : E_SafetyFbType;
+    diagVal : UINT;
+END_VAR
+VAR
+    diagnosticMessage : STRING;
+END_VAR
+
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[CASE fbType OF
+    E_SafetyFbType.FB_Mon:
+        IF diagVal.0 THEN
+            diagnosticMessage:= 'Discrepancy error input group 1';
+		ELSIF diagVal.1 THEN        
+            diagnosticMessage:= 'Discrepancy error input group 2';
+        ELSIF diagVal.2 THEN
+                diagnosticMessage:= 'Discrepancy error in Secure input group';
+        ELSIF diagVal.4 THEN
+                diagnosticMessage:= 'EDM monitoring error EDM1';
+        ELSIF diagVal.5 THEN
+                diagnosticMessage:= 'EDM monitoring error EDM2';
+        ELSIF diagVal.8 THEN
+                diagnosticMessage:= 'Discrepancy error input group 1';
+        ELSIF diagVal.9 THEN
+                diagnosticMessage:= 'Discrepancy error input group 2';
+        ELSIF diagVal.10 THEN
+                diagnosticMessage:= 'Discrepancy error input group Secure';
+        ELSE
+                diagnosticMessage:= ' ';
+		END_IF
+   ELSE
+       diagnosticMessage:='';
+END_CASE
+
+FB_SafeFBDiag:= diagnosticMessage;]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>

@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
+  <DUT Name="E_RotationBrakeCheckerState" Id="{df6ceeb3-9a81-4fa4-9e63-fc4949d40640}">
+    <Declaration><![CDATA[{attribute 'qualified_only'}
+{attribute 'strict'}
+{attribute 'to_string'}
+TYPE E_RotationBrakeCheckerState :
+(
+	init,
+    Start_Brake_Test,
+    Check_Drive_Mode,
+    Check_Drive_Mode_To_Op,
+    Set_Brake_Mode,
+    Set_Brake_Mode_To_Op,
+    Check_Brake_Mode,
+    Check_Brake_Mode_To_Op,
+    Reset_Axis,
+    Confirm_STO_State,
+    Enable_Motor,
+    Wait_For_Test_Trigger,
+    Brake_Disengage_Delay,
+    Brake_Test_Triggered,
+    Brake_Testing_Underway,
+    In_Operation,
+    Error,
+    Finishing_Brake_Test
+);
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

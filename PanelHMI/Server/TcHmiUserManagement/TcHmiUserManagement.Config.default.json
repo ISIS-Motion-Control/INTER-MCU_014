@@ -17,6 +17,12 @@
             "ENABLED": true,
             "PASSWORD": "",
             "SALT": ""
+        },
+        "default": {
+            "ALGORITHM": 1,
+            "ENABLED": true,
+            "PASSWORD": "b29fa32d452b6186bf62e139a09f69914e5ef835251b779548907eb8c3bb75d5a68a4a146176425705af8ce42b112b894ccc77d7f8e9a591863e95fc31dfbce4",
+            "SALT": "IpajrSZQpMAP+gIwooNAAfgxvW+AsPh/KMPgKRfVn+mcC64s4yJwn1I7lvMRM5dtzmsLQOTxiLBh/xLkir44cg=="
         }
     }
 }

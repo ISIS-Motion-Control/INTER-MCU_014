@@ -12,7 +12,7 @@
     <HmiTitle>Please enter your Title...</HmiTitle>
     <HmiVerboseLevel>2</HmiVerboseLevel>
     <HmiVersion>1.0.0.0</HmiVersion>
-    <HmiCommunicationServerPort>3000</HmiCommunicationServerPort>
+    <HmiCommunicationServerPort>3001</HmiCommunicationServerPort>
     <HmiLogTcHmiServerMessages>false</HmiLogTcHmiServerMessages>
     <HmiLogDesignerModeComMessages>false</HmiLogDesignerModeComMessages>
     <HmiServerVersion>Latest</HmiServerVersion>
@@ -27,7 +27,7 @@
     <HmiViewportUserScaleable>Default</HmiViewportUserScaleable>
     <HmiPostProcessing>True</HmiPostProcessing>
     <Name>PanelHMI</Name>
-    <HmiCommunicationRouterPort>10103</HmiCommunicationRouterPort>
+    <HmiCommunicationRouterPort>10104</HmiCommunicationRouterPort>
     <HmiCommunicationServerAuthPort>13000</HmiCommunicationServerAuthPort>
     <HmiInitial>1.12.760.42</HmiInitial>
     <HmiRecent>1.12.760.42</HmiRecent>
@@ -115,9 +115,13 @@
     <Content Include="packages.config">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="Properties\tchmicertificates.config.json">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="Server\ADS\ADS.Config.default.json">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="Server\ADS\ADS.Config.default.json" />
     <Content Include="UserContent\AxisControlContent - StAxis.usercontrol">
       <SubType>Content</SubType>
     </Content>
@@ -132,11 +136,24 @@
       <SubType>Content</SubType>
       <DependentUpon>UserContent\AxisControlContent.usercontrol</DependentUpon>
     </Content>
+    <Content Include="UserContent\Content_Events.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="UserContent\Content_Safety.content">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="UserContent\Content_Axes.content">
       <SubType>Content</SubType>
     </Content>
     <Content Include="UserContent\Content_Statuses.content">
       <SubType>Content</SubType>
+    </Content>
+    <Content Include="UserContent\TextAndIndicator_SafetyDevice.usercontrol">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="UserContent\TextAndIndicator_SafetyDevice.usercontrol.json">
+      <SubType>Content</SubType>
+      <DependentUpon>UserContent\TextAndIndicator_SafetyDevice.usercontrol</DependentUpon>
     </Content>
     <Content Include="UserContent\TextAndIndicator.usercontrol">
       <SubType>Content</SubType>
@@ -144,6 +161,13 @@
     <Content Include="UserContent\TextAndIndicator.usercontrol.json">
       <SubType>Content</SubType>
       <DependentUpon>UserContent\TextAndIndicator.usercontrol</DependentUpon>
+    </Content>
+    <Content Include="UserContent\timeRemaining.usercontrol">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="UserContent\timeRemaining.usercontrol.json">
+      <SubType>Content</SubType>
+      <DependentUpon>UserContent\timeRemaining.usercontrol</DependentUpon>
     </Content>
     <Folder Include="Fonts\" />
     <Folder Include="Images" />

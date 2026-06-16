@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
+  <DUT Name="E_SafetyFbState" Id="{f5676452-0efe-45d4-b427-6865209b3723}">
+    <Declaration><![CDATA[TYPE E_SafetyFbState :
+(
+	RUN := 1,
+    STOP :=2,
+    SAFE :=3,
+    ERROR := 4,
+    RESET := 5,
+    START := 6,
+    ERRORDELAY := 7,
+    DELAYOUT := 8,
+    FUNCTEST := 9
+);
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

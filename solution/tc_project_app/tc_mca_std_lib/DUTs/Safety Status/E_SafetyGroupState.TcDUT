@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
+  <DUT Name="E_SafetyGroupState" Id="{53f7bbd4-5d96-42be-a64e-1a30f9e10ae0}">
+    <Declaration><![CDATA[TYPE E_SafetyGroupState :
+(
+	RUN := 1,
+    STOP := 2,
+    ERROR := 4,
+    RESET := 5,
+    START := 6,
+    STOPERROR := 7,
+    DEACTIVE := 16,
+    WAITCOMERROR := 17
+);
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

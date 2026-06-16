@@ -965,40 +965,308 @@ External Setpoint Generation:
 		</DataType>
 	</DataTypes>
 	<Project GUID="{FB261665-FD20-4BF2-97F8-2854C82B752D}" Name="tc_project_app" PrjFilePath="..\..\tc_project_app\tc_project_app.plcproj" TmcFilePath="..\..\tc_project_app\tc_project_app.tmc" ReloadTmc="true" AmsPort="852" FileArchiveSettings="#x000e" SymbolicMapping="true">
-		<Instance Id="#x08502040" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="tc_project_app\tc_project_app.tmc" TmcHash="{1E12EE10-AEFC-4A7D-D822-F82982DC1C11}">
+		<Instance Id="#x08502040" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="tc_project_app\tc_project_app.tmc" TmcHash="{0C3071FE-972D-D4A5-5CC0-BA9792F288B9}">
 			<Name>tc_project_app Instance</Name>
 			<CLSID ClassFactory="TcPlc30">{08500001-0000-0000-F000-000000000064}</CLSID>
 			<Vars VarGrpType="1">
 				<Name>PlcTask Inputs</Name>
 				<Var>
-					<Name>GVL_Safety.SafetyReset_ButtonIn</Name>
+					<Name>PLC_SAFETY_LOGIC.localModeButton_Pressed</Name>
 					<Type>BOOL</Type>
 				</Var>
 				<Var>
-					<Name>GVL_Safety.RESET_REQUESTED</Name>
-					<Comment><![CDATA[ THIS IS THE ACTUAL ACK REQUEST SIGNAL]]></Comment>
+					<Name>PLC_SAFETY_LOGIC.EStop1_ChA</Name>
 					<Type>BOOL</Type>
 				</Var>
 				<Var>
-					<Name>GVL_Safety.Drive71_InRun</Name>
-					<Comment><![CDATA[SAFETY_ACK_REQUESTED : BOOL;]]></Comment>
+					<Name>PLC_SAFETY_LOGIC.EStop1_ChB</Name>
 					<Type>BOOL</Type>
 				</Var>
 				<Var>
-					<Name>GVL_Safety.Drive74_InRun</Name>
+					<Name>PLC_SAFETY_LOGIC.EStop2_ChA</Name>
 					<Type>BOOL</Type>
 				</Var>
 				<Var>
-					<Name>GVL_Safety.EL69010_InRun</Name>
+					<Name>PLC_SAFETY_LOGIC.EStop2_ChB</Name>
 					<Type>BOOL</Type>
 				</Var>
 				<Var>
-					<Name>GVL_Safety.tempChASLS</Name>
+					<Name>PLC_SAFETY_LOGIC.EStop3_ChA</Name>
 					<Type>BOOL</Type>
 				</Var>
 				<Var>
-					<Name>GVL_Safety.tempChASLSperm</Name>
+					<Name>PLC_SAFETY_LOGIC.EStop3_ChB</Name>
 					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>PLC_SAFETY_LOGIC.EStop4_ChA</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>PLC_SAFETY_LOGIC.EStop4_ChB</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>PLC_SAFETY_LOGIC.EStop5_ChA</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>PLC_SAFETY_LOGIC.EStop5_ChB</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>PLC_SAFETY_LOGIC.EStop6_ChA</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>PLC_SAFETY_LOGIC.EStop6_ChB</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>PLC_SAFETY_LOGIC.EStop7_ChA</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>PLC_SAFETY_LOGIC.EStop7_ChB</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>PLC_SAFETY_LOGIC.LightCurtain_ChA</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>PLC_SAFETY_LOGIC.LightCurtain_ChB</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>Rotation.bInBrakeTestMode</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>Rotation.Brake1Valid</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>Rotation.Brake1State</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>Rotation.Brake2Valid</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>Rotation.Brake2State</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>Rotation.RotationSTOState</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>Rotation.Brake1TimeRemaining_RAW</Name>
+					<Comment><![CDATA[In seconds]]></Comment>
+					<Type>UDINT</Type>
+				</Var>
+				<Var>
+					<Name>Rotation.Brake2TimeRemaining_RAW</Name>
+					<Comment><![CDATA[In seconds]]></Comment>
+					<Type>UDINT</Type>
+				</Var>
+				<Var>
+					<Name>Rotation.iQ_Current</Name>
+					<Type>REAL</Type>
+				</Var>
+				<Var>
+					<Name>Rotation.SBC_FailsafeFault</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>Rotation.BC1_Error</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>Rotation.BC2_Error</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>Inclinometer.INC_VAL</Name>
+					<Type>UINT</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Safety.ResetPossibleAndPressed</Name>
+					<Comment><![CDATA[Run_MotionSafety AT %Q* : BOOL := TRUE;
+Run_MotionSafety_XRotAndZHor AT %Q* : BOOL:= TRUE;
+Run_MotionSafety_Y1AndY2 AT %Q* : BOOL:= TRUE;
+    
+ErrorAck_MotionSafety AT %Q* : BOOL;   
+ErrorAck_MotionSafety_XRotAndZHor AT %Q* : BOOL;    
+ErrorAck_MotionSafety_Y1AndY2 AT %Q* : BOOL;]]></Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Safety.LocalMode</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Safety.UnoccupiedMode</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Safety.stSafetyData.bStopAllMotion</Name>
+					<Comment><![CDATA[Command bool to IBEX to initiate a non-ss1 stop on galil axes]]></Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Safety.stSafetyData.bSearchedAndLocked</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Safety.stSafetyData.aSafetyFBS[1].Diag</Name>
+					<Type>UINT</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Safety.stSafetyData.aSafetyFBS[1].State</Name>
+					<Type>USINT</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Safety.stSafetyData.aSafetyFBS[2].Diag</Name>
+					<Type>UINT</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Safety.stSafetyData.aSafetyFBS[2].State</Name>
+					<Type>USINT</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Safety.stSafetyData.aSafetyFBS[3].Diag</Name>
+					<Type>UINT</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Safety.stSafetyData.aSafetyFBS[3].State</Name>
+					<Type>USINT</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Safety.stSafetyData.aSafetyFBS[4].Diag</Name>
+					<Type>UINT</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Safety.stSafetyData.aSafetyFBS[4].State</Name>
+					<Type>USINT</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Safety.stSafetyData.aSafetyFBS[5].Diag</Name>
+					<Type>UINT</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Safety.stSafetyData.aSafetyFBS[5].State</Name>
+					<Type>USINT</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Safety.stSafetyData.aSafetyFBS[6].Diag</Name>
+					<Type>UINT</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Safety.stSafetyData.aSafetyFBS[6].State</Name>
+					<Type>USINT</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Safety.stSafetyData.aSafetyFBS[7].Diag</Name>
+					<Type>UINT</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Safety.stSafetyData.aSafetyFBS[7].State</Name>
+					<Type>USINT</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Safety.stSafetyData.aSafetyFBS[8].Diag</Name>
+					<Type>UINT</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Safety.stSafetyData.aSafetyFBS[8].State</Name>
+					<Type>USINT</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Safety.stSafetyData.aSafetyFBS[9].Diag</Name>
+					<Type>UINT</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Safety.stSafetyData.aSafetyFBS[9].State</Name>
+					<Type>USINT</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Safety.stSafetyData.aSafetyFBS[10].Diag</Name>
+					<Type>UINT</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Safety.stSafetyData.aSafetyFBS[10].State</Name>
+					<Type>USINT</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Safety.stSafetyData.aSafetyFBS[11].Diag</Name>
+					<Type>UINT</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Safety.stSafetyData.aSafetyFBS[11].State</Name>
+					<Type>USINT</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Safety.stSafetyData.aSafetyFBS[12].Diag</Name>
+					<Type>UINT</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Safety.stSafetyData.aSafetyFBS[12].State</Name>
+					<Type>USINT</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Safety.stSafetyData.aSafetyFBS[13].Diag</Name>
+					<Type>UINT</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Safety.stSafetyData.aSafetyFBS[13].State</Name>
+					<Type>USINT</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Safety.stSafetyData.aSafetyFBS[14].Diag</Name>
+					<Type>UINT</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Safety.stSafetyData.aSafetyFBS[14].State</Name>
+					<Type>USINT</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Safety.stSafetyData.aSafetyFBS[15].Diag</Name>
+					<Type>UINT</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Safety.stSafetyData.aSafetyFBS[15].State</Name>
+					<Type>USINT</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Safety.stSafetyData.SafetyGroups[1].Diag</Name>
+					<Type>BYTE</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Safety.stSafetyData.SafetyGroups[1].Status</Name>
+					<Type>BYTE</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Safety.stSafetyData.SafetyGroups[2].Diag</Name>
+					<Type>BYTE</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Safety.stSafetyData.SafetyGroups[2].Status</Name>
+					<Type>BYTE</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Safety.stSafetyData.SafetyGroups[3].Diag</Name>
+					<Type>BYTE</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Safety.stSafetyData.SafetyGroups[3].Status</Name>
+					<Type>BYTE</Type>
+				</Var>
+				<Var>
+					<Name>GVL_Safety.fbMon_StateValid_Status</Name>
+					<Type>BYTE</Type>
 				</Var>
 				<Var>
 					<Name>GVL.astAxes[1].stStatus.nEncoderRawCounter</Name>
@@ -1810,6 +2078,10 @@ External Setpoint Generation:
 					<Name>GVL.astAxes[30].Axis.NcToPlc</Name>
 					<Type GUID="{10036166-C9D3-404B-BDD3-323034AAA7F4}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
 				</Var>
+				<Var>
+					<Name>Rotation.MotionResetButton</Name>
+					<Type>BOOL</Type>
+				</Var>
 			</Vars>
 			<Vars VarGrpType="2" AreaNo="1">
 				<Name>PlcTask Outputs</Name>
@@ -1849,6 +2121,32 @@ bPowerSwitchesAxis1 AT %Q*: BOOL:= TRUE;]]></Comment>
 				</Var>
 				<Var>
 					<Name>Rotation.bBwdLimitPower</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>Rotation.RunBrake1Test</Name>
+					<Comment><![CDATA[ Test trigger to safety system]]></Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>Rotation.RunBrake2Test</Name>
+					<Comment><![CDATA[ Test trigger to safety system]]></Comment>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>Rotation.FinishBrakeTesting</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>Rotation.ManualReleaseBrake1</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>Rotation.ManualReleaseBrake2</Name>
+					<Type>BOOL</Type>
+				</Var>
+				<Var>
+					<Name>Rotation.BrakeReset</Name>
 					<Type>BOOL</Type>
 				</Var>
 				<Var>
@@ -1908,62 +2206,30 @@ bPowerSwitchesAxis1 AT %Q*: BOOL:= TRUE;]]></Comment>
 					<Type>BOOL</Type>
 				</Var>
 				<Var>
-					<Name>GVL_Safety.SafetyReset</Name>
+					<Name>GVL_Safety.stSafetyData.SafetyGroups[1].RunGroup</Name>
+					<Comment><![CDATA[Auto default to run state]]></Comment>
 					<Type>BOOL</Type>
 				</Var>
 				<Var>
-					<Name>GVL_Safety.SafetyReset_ButtonOut</Name>
+					<Name>GVL_Safety.stSafetyData.SafetyGroups[1].AckGroup</Name>
 					<Type>BOOL</Type>
 				</Var>
 				<Var>
-					<Name>GVL_Safety.Drive71_ErrorAck</Name>
-					<Comment><![CDATA[RUN_SAFETY AT %Q* : BOOL := TRUE;
-RUN_SAFETY_SPEED AT %Q* : BOOL := TRUE;
-ACK_DRIVE_71_SAFETY AT %Q* : BOOL;
-ACK_DRIVE_74_SAFETY AT %Q* : BOOL;]]></Comment>
+					<Name>GVL_Safety.stSafetyData.SafetyGroups[2].RunGroup</Name>
+					<Comment><![CDATA[Auto default to run state]]></Comment>
 					<Type>BOOL</Type>
 				</Var>
 				<Var>
-					<Name>GVL_Safety.Drive74_ErrorAck</Name>
+					<Name>GVL_Safety.stSafetyData.SafetyGroups[2].AckGroup</Name>
 					<Type>BOOL</Type>
 				</Var>
 				<Var>
-					<Name>GVL_Safety.Main_ErrorAck</Name>
+					<Name>GVL_Safety.stSafetyData.SafetyGroups[3].RunGroup</Name>
+					<Comment><![CDATA[Auto default to run state]]></Comment>
 					<Type>BOOL</Type>
 				</Var>
 				<Var>
-					<Name>GVL_Safety.Drive71_RunSafety</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Safety.Drive74_RunSafety</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Safety.Main_RunSafety</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Safety.Drive71_ChA_Reset</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Safety.Drive71_ChB_Reset</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Safety.Drive74_ChA_Reset</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Safety.Drive74_ChB_Reset</Name>
-					<Type>BOOL</Type>
-				</Var>
-				<Var>
-					<Name>GVL_Safety.SAFETY_ACK</Name>
-					<Comment><![CDATA[Drive71_ChA_InRun AT %I* :BOOL;
-Drive71_ChB_InRun AT %I* : BOOL;
-EL6910_InRun AT %I* : BOOL;]]></Comment>
+					<Name>GVL_Safety.stSafetyData.SafetyGroups[3].AckGroup</Name>
 					<Type>BOOL</Type>
 				</Var>
 				<Var>
@@ -2136,11 +2402,8 @@ EL6910_InRun AT %I* : BOOL;]]></Comment>
 				<Link VarA="PlcTask Outputs^Slit_3.EastWestPowerOutput" VarB="Channel 2^M3_M4_Limits" Size="1"/>
 				<Link VarA="PlcTask Outputs^Slit_3.NorthSouthPowerOutput" VarB="Channel 1^M1_M2_Limits" Size="1"/>
 			</OwnerB>
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 7 (EL1008)">
-				<Link VarA="PlcTask Inputs^GVL_Safety.SafetyReset_ButtonIn" VarB="Channel 1^Input" Size="1"/>
-			</OwnerB>
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 8 (EL2008)">
-				<Link VarA="PlcTask Outputs^GVL_Safety.SafetyReset_ButtonOut" VarB="Channel 1^Output" Size="1"/>
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 50 (EL3152)">
+				<Link VarA="PlcTask Inputs^Inclinometer.INC_VAL" VarB="AI Standard Channel 1^Value"/>
 			</OwnerB>
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 9 (EL1008)">
 				<Link VarA="PlcTask Inputs^GVL.astAxes[5].stInputs.bLimitBwd" VarB="Channel 8^Rotation Bwd Limit In" Size="1"/>
@@ -2153,26 +2416,83 @@ EL6910_InRun AT %I* : BOOL;]]></Comment>
 				<Link VarA="PlcTask Inputs^GVL.astAxes[8].stInputs.bLimitFwd" VarB="Channel 5^Vertical Z2 Fwd Limit In" Size="1"/>
 			</OwnerB>
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 27 (EK1100)^EL6910-(04)">
-				<Link VarA="PlcTask Inputs^GVL_Safety.EL69010_InRun" VarB="StandardInputs^Standard Out Var 23" Size="1"/>
-				<Link VarA="PlcTask Inputs^GVL_Safety.RESET_REQUESTED" VarB="StandardInputs^Standard Out Var 24" Size="1"/>
-				<Link VarA="PlcTask Outputs^GVL_Safety.Main_ErrorAck" VarB="StandardOutputs^Standard In Var 1" Size="1"/>
-				<Link VarA="PlcTask Outputs^GVL_Safety.Main_RunSafety" VarB="StandardOutputs^Standard In Var 2" Size="1"/>
-				<Link VarA="PlcTask Outputs^GVL_Safety.SafetyReset" VarB="StandardOutputs^Standard In Var 20" Size="1"/>
+				<Link VarA="PlcTask Inputs^GVL_Safety.LocalMode" VarB="StandardInputs^Standard Out Var 26" Size="1"/>
+				<Link VarA="PlcTask Inputs^GVL_Safety.ResetPossibleAndPressed" VarB="StandardInputs^Standard Out Var 25" Size="1"/>
+				<Link VarA="PlcTask Inputs^GVL_Safety.UnoccupiedMode" VarB="StandardInputs^Standard Out Var 27" Size="1"/>
+				<Link VarA="PlcTask Inputs^GVL_Safety.stSafetyData.SafetyGroups[1].Diag" VarB="TwinSAFE Group Info Data^Alias_Decouple_Input Info Data^Diag"/>
+				<Link VarA="PlcTask Inputs^GVL_Safety.stSafetyData.SafetyGroups[1].Status" VarB="TwinSAFE Group Info Data^Alias_Decouple_Input Info Data^State"/>
+				<Link VarA="PlcTask Inputs^GVL_Safety.stSafetyData.aSafetyFBS[10].Diag" VarB="Function Block Info Data^Main_Prog.ESTOPS.FBMon_StateValid Info Data^Diag"/>
+				<Link VarA="PlcTask Inputs^GVL_Safety.stSafetyData.aSafetyFBS[10].State" VarB="Function Block Info Data^Main_Prog.ESTOPS.FBMon_StateValid Info Data^State"/>
+				<Link VarA="PlcTask Inputs^GVL_Safety.stSafetyData.aSafetyFBS[11].State" VarB="Function Block Info Data^Main_Prog.ESTOPS.FBRs_ResetToAxDrives Info Data^State"/>
+				<Link VarA="PlcTask Inputs^GVL_Safety.stSafetyData.aSafetyFBS[1].Diag" VarB="Function Block Info Data^OpMode.DeviceMonitoring.FBMon_LightCurtain Info Data^Diag"/>
+				<Link VarA="PlcTask Inputs^GVL_Safety.stSafetyData.aSafetyFBS[1].State" VarB="Function Block Info Data^OpMode.DeviceMonitoring.FBMon_LightCurtain Info Data^State"/>
+				<Link VarA="PlcTask Inputs^GVL_Safety.stSafetyData.aSafetyFBS[2].Diag" VarB="Function Block Info Data^OpMode.DeviceMonitoring.FBMon_Searched Info Data^Diag"/>
+				<Link VarA="PlcTask Inputs^GVL_Safety.stSafetyData.aSafetyFBS[2].State" VarB="Function Block Info Data^OpMode.DeviceMonitoring.FBMon_Searched Info Data^State"/>
+				<Link VarA="PlcTask Inputs^GVL_Safety.stSafetyData.aSafetyFBS[3].Diag" VarB="Function Block Info Data^OpMode.DeviceMonitoring.FBMon_LocalMode_Disable Info Data^Diag"/>
+				<Link VarA="PlcTask Inputs^GVL_Safety.stSafetyData.aSafetyFBS[3].State" VarB="Function Block Info Data^OpMode.DeviceMonitoring.FBMon_LocalMode_Disable Info Data^State"/>
+				<Link VarA="PlcTask Inputs^GVL_Safety.stSafetyData.aSafetyFBS[4].Diag" VarB="Function Block Info Data^OpMode.OperationModes.OpMode Info Data^Diag" Size="8"/>
+				<Link VarA="PlcTask Inputs^GVL_Safety.stSafetyData.aSafetyFBS[4].State" VarB="Function Block Info Data^OpMode.OperationModes.OpMode Info Data^State"/>
+				<Link VarA="PlcTask Inputs^GVL_Safety.stSafetyData.aSafetyFBS[5].Diag" VarB="Function Block Info Data^Main_Prog.DeviceMonitoring.FBMon_EStopsCloche Info Data^Diag"/>
+				<Link VarA="PlcTask Inputs^GVL_Safety.stSafetyData.aSafetyFBS[5].State" VarB="Function Block Info Data^Main_Prog.DeviceMonitoring.FBMon_EStopsCloche Info Data^State"/>
+				<Link VarA="PlcTask Inputs^GVL_Safety.stSafetyData.aSafetyFBS[6].Diag" VarB="Function Block Info Data^Main_Prog.DeviceMonitoring.FBMon_EStopsSample Info Data^Diag"/>
+				<Link VarA="PlcTask Inputs^GVL_Safety.stSafetyData.aSafetyFBS[6].State" VarB="Function Block Info Data^Main_Prog.DeviceMonitoring.FBMon_EStopsSample Info Data^State"/>
+				<Link VarA="PlcTask Inputs^GVL_Safety.stSafetyData.aSafetyFBS[7].Diag" VarB="Function Block Info Data^Main_Prog.DeviceMonitoring.FBMon_EStopsRear Info Data^Diag"/>
+				<Link VarA="PlcTask Inputs^GVL_Safety.stSafetyData.aSafetyFBS[7].State" VarB="Function Block Info Data^Main_Prog.DeviceMonitoring.FBMon_EStopsRear Info Data^State"/>
+				<Link VarA="PlcTask Inputs^GVL_Safety.stSafetyData.aSafetyFBS[8].Diag" VarB="Function Block Info Data^Main_Prog.DeviceMonitoring.FBMon_EStopPanel Info Data^Diag"/>
+				<Link VarA="PlcTask Inputs^GVL_Safety.stSafetyData.aSafetyFBS[8].State" VarB="Function Block Info Data^Main_Prog.DeviceMonitoring.FBMon_EStopPanel Info Data^State"/>
+				<Link VarA="PlcTask Inputs^GVL_Safety.stSafetyData.aSafetyFBS[9].Diag" VarB="Function Block Info Data^Main_Prog.ESTOPS.FBMon_EStopsCombined Info Data^Diag"/>
+				<Link VarA="PlcTask Inputs^GVL_Safety.stSafetyData.aSafetyFBS[9].State" VarB="Function Block Info Data^Main_Prog.ESTOPS.FBMon_EStopsCombined Info Data^State"/>
+				<Link VarA="PlcTask Inputs^GVL_Safety.stSafetyData.bStopAllMotion" VarB="StandardInputs^Standard Out Var 29" Size="1"/>
+				<Link VarA="PlcTask Inputs^PLC_SAFETY_LOGIC.EStop1_ChA" VarB="Connection Info Data^Message_10 Info Data^Input Safe Data EStop1_ChA" Size="1"/>
+				<Link VarA="PlcTask Inputs^PLC_SAFETY_LOGIC.EStop1_ChB" VarB="Connection Info Data^Message_10 Info Data^Input Safe Data EStop1_ChB" Size="1"/>
+				<Link VarA="PlcTask Inputs^PLC_SAFETY_LOGIC.EStop2_ChA" VarB="Connection Info Data^Message_10 Info Data^Input Safe Data EStop2_ChA" Size="1"/>
+				<Link VarA="PlcTask Inputs^PLC_SAFETY_LOGIC.EStop2_ChB" VarB="Connection Info Data^Message_10 Info Data^Input Safe Data EStop2_ChB" Size="1"/>
+				<Link VarA="PlcTask Inputs^PLC_SAFETY_LOGIC.EStop3_ChA" VarB="Connection Info Data^Message_11 Info Data^Input Safe Data EStop3_ChA" Size="1"/>
+				<Link VarA="PlcTask Inputs^PLC_SAFETY_LOGIC.EStop3_ChB" VarB="Connection Info Data^Message_11 Info Data^Input Safe Data EStop3_ChB" Size="1"/>
+				<Link VarA="PlcTask Inputs^PLC_SAFETY_LOGIC.EStop4_ChA" VarB="Connection Info Data^Message_12 Info Data^Input Safe Data EStop4_ChA" Size="1"/>
+				<Link VarA="PlcTask Inputs^PLC_SAFETY_LOGIC.EStop4_ChB" VarB="Connection Info Data^Message_12 Info Data^Input Safe Data EStop4_ChB" Size="1"/>
+				<Link VarA="PlcTask Inputs^PLC_SAFETY_LOGIC.EStop5_ChA" VarB="Connection Info Data^Message_12 Info Data^Input Safe Data EStop5_ChA" Size="1"/>
+				<Link VarA="PlcTask Inputs^PLC_SAFETY_LOGIC.EStop5_ChB" VarB="Connection Info Data^Message_12 Info Data^Input Safe Data EStop5_ChB" Size="1"/>
+				<Link VarA="PlcTask Inputs^PLC_SAFETY_LOGIC.EStop6_ChA" VarB="Connection Info Data^Message_13 Info Data^Input Safe Data EStop6_ChA" Size="1"/>
+				<Link VarA="PlcTask Inputs^PLC_SAFETY_LOGIC.EStop6_ChB" VarB="Connection Info Data^Message_13 Info Data^Input Safe Data EStop6_ChB" Size="1"/>
+				<Link VarA="PlcTask Inputs^PLC_SAFETY_LOGIC.EStop7_ChA" VarB="Connection Info Data^Message_7 Info Data^Input Safe Data EStop7_ChA" Size="1"/>
+				<Link VarA="PlcTask Inputs^PLC_SAFETY_LOGIC.EStop7_ChB" VarB="Connection Info Data^Message_7 Info Data^Input Safe Data EStop7_ChB" Size="1"/>
+				<Link VarA="PlcTask Inputs^PLC_SAFETY_LOGIC.LightCurtain_ChA" VarB="Connection Info Data^Message_17 Info Data^Input Safe Data LightCurtain_ChA" Size="1"/>
+				<Link VarA="PlcTask Inputs^PLC_SAFETY_LOGIC.LightCurtain_ChB" VarB="Connection Info Data^Message_17 Info Data^Input Safe Data LightCurtain_ChB" Size="1"/>
+				<Link VarA="PlcTask Inputs^PLC_SAFETY_LOGIC.localModeButton_Pressed" VarB="Connection Info Data^Message_14 Info Data^Input Safe Data LocalMode_Enable" Size="1"/>
+				<Link VarA="PlcTask Inputs^Rotation.BC1_Error" VarB="Connection Info Data^Message_17 Info Data^Input Safe Data BrakeChecker1_Error" Size="1"/>
+				<Link VarA="PlcTask Inputs^Rotation.BC2_Error" VarB="Connection Info Data^Message_17 Info Data^Input Safe Data BrakeChecker2_Error" Size="1"/>
+				<Link VarA="PlcTask Inputs^Rotation.Brake1State" VarB="StandardInputs^Standard Out Var 34" Size="1"/>
+				<Link VarA="PlcTask Inputs^Rotation.Brake1Valid" VarB="StandardInputs^Standard Out Var 36" Size="1"/>
+				<Link VarA="PlcTask Inputs^Rotation.Brake2State" VarB="StandardInputs^Standard Out Var 35" Size="1"/>
+				<Link VarA="PlcTask Inputs^Rotation.Brake2Valid" VarB="StandardInputs^Standard Out Var 37" Size="1"/>
+				<Link VarA="PlcTask Inputs^Rotation.MotionResetButton" VarB="Connection Info Data^Message_14 Info Data^Input Safe Data Reset" Size="1"/>
+				<Link VarA="PlcTask Inputs^Rotation.RotationSTOState" VarB="StandardInputs^Standard Out Var 41" Size="1"/>
+				<Link VarA="PlcTask Inputs^Rotation.SBC_FailsafeFault" VarB="Connection Info Data^Message_18 Info Data^Input Safe Data FailSafeOutput" Size="1"/>
+				<Link VarA="PlcTask Inputs^Rotation.bInBrakeTestMode" VarB="StandardInputs^Standard Out Var 28" Size="1"/>
+				<Link VarA="PlcTask Outputs^GVL_Safety.stSafetyData.SafetyGroups[1].AckGroup" VarB="StandardOutputs^Standard In Var 20" Size="1"/>
+				<Link VarA="PlcTask Outputs^GVL_Safety.stSafetyData.SafetyGroups[1].RunGroup" VarB="StandardOutputs^Standard In Var 21" Size="1"/>
+				<Link VarA="PlcTask Outputs^Rotation.BrakeReset" VarB="StandardOutputs^Standard In Var 24" Size="1"/>
+				<Link VarA="PlcTask Outputs^Rotation.FinishBrakeTesting" VarB="StandardOutputs^Standard In Var 42" Size="1"/>
+				<Link VarA="PlcTask Outputs^Rotation.ManualReleaseBrake1" VarB="StandardOutputs^Standard In Var 38" Size="1"/>
+				<Link VarA="PlcTask Outputs^Rotation.ManualReleaseBrake2" VarB="StandardOutputs^Standard In Var 40" Size="1"/>
+				<Link VarA="PlcTask Outputs^Rotation.RunBrake1Test" VarB="StandardOutputs^Standard In Var 32" Size="1"/>
+				<Link VarA="PlcTask Outputs^Rotation.RunBrake2Test" VarB="StandardOutputs^Standard In Var 33" Size="1"/>
 			</OwnerB>
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 70 (AX8640-0000-0103)^Drive 71 (AX8206-0210-0104)">
-				<Link VarA="PlcTask Inputs^GVL_Safety.Drive71_InRun" VarB="Device (Safety)^Standard Inputdata^Standard Out Var 9" Size="1"/>
-				<Link VarA="PlcTask Inputs^GVL_Safety.tempChASLS" VarB="Device (Safety)^Standard Inputdata^Standard Out Var 11" Size="1"/>
-				<Link VarA="PlcTask Outputs^GVL_Safety.Drive71_ChA_Reset" VarB="Device (Safety)^Standard Outputdata^Standard In Var 7" Size="1"/>
-				<Link VarA="PlcTask Outputs^GVL_Safety.Drive71_ChB_Reset" VarB="Device (Safety)^Standard Outputdata^Standard In Var 8" Size="1"/>
-				<Link VarA="PlcTask Outputs^GVL_Safety.Drive71_ErrorAck" VarB="Device (Safety)^Standard Outputdata^Standard In Var 3" Size="1"/>
-				<Link VarA="PlcTask Outputs^GVL_Safety.Drive71_RunSafety" VarB="Device (Safety)^Standard Outputdata^Standard In Var 2" Size="1"/>
+				<Link VarA="PlcTask Inputs^GVL_Safety.stSafetyData.SafetyGroups[2].Diag" VarB="Device (Safety)^Group Info Data^ChA_ChB_Connection_Input Info Data^Diag"/>
+				<Link VarA="PlcTask Inputs^GVL_Safety.stSafetyData.SafetyGroups[2].Status" VarB="Device (Safety)^Group Info Data^ChA_ChB_Connection_Input Info Data^State"/>
+				<Link VarA="PlcTask Inputs^Rotation.Brake1TimeRemaining_RAW" VarB="Device (Safety)^Standard Inputdata^Standard Out Var 19"/>
+				<Link VarA="PlcTask Inputs^Rotation.Brake2TimeRemaining_RAW" VarB="Device (Safety)^Standard Inputdata^Standard Out Var 20"/>
+				<Link VarA="PlcTask Inputs^Rotation.iQ_Current" VarB="Ch A^Ch A TorqueControl Inputs^Iq actual"/>
+				<Link VarA="PlcTask Outputs^GVL_Safety.stSafetyData.SafetyGroups[2].AckGroup" VarB="Device (Safety)^Standard Outputdata^Standard In Var 3" Size="1"/>
+				<Link VarA="PlcTask Outputs^GVL_Safety.stSafetyData.SafetyGroups[2].RunGroup" VarB="Device (Safety)^Standard Outputdata^Standard In Var 2" Size="1"/>
 			</OwnerB>
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 70 (AX8640-0000-0103)^Drive 74 (AX8206-0210-0104)">
-				<Link VarA="PlcTask Inputs^GVL_Safety.Drive74_InRun" VarB="Device (Safety)^Standard Inputdata^Standard Out Var 9" Size="1"/>
-				<Link VarA="PlcTask Outputs^GVL_Safety.Drive74_ChA_Reset" VarB="Device (Safety)^Standard Outputdata^Standard In Var 7" Size="1"/>
-				<Link VarA="PlcTask Outputs^GVL_Safety.Drive74_ChB_Reset" VarB="Device (Safety)^Standard Outputdata^Standard In Var 8" Size="1"/>
-				<Link VarA="PlcTask Outputs^GVL_Safety.Drive74_ErrorAck" VarB="Device (Safety)^Standard Outputdata^Standard In Var 3" Size="1"/>
-				<Link VarA="PlcTask Outputs^GVL_Safety.Drive74_RunSafety" VarB="Device (Safety)^Standard Outputdata^Standard In Var 2" Size="1"/>
+				<Link VarA="PlcTask Inputs^GVL_Safety.stSafetyData.SafetyGroups[3].Diag" VarB="Device (Safety)^Group Info Data^ChA_ChB_Connection_Input Info Data^Diag"/>
+				<Link VarA="PlcTask Inputs^GVL_Safety.stSafetyData.SafetyGroups[3].Status" VarB="Device (Safety)^Group Info Data^ChA_ChB_Connection_Input Info Data^State"/>
+				<Link VarA="PlcTask Outputs^GVL_Safety.stSafetyData.SafetyGroups[3].AckGroup" VarB="Device (Safety)^Standard Outputdata^Standard In Var 3" Size="1"/>
+				<Link VarA="PlcTask Outputs^GVL_Safety.stSafetyData.SafetyGroups[3].RunGroup" VarB="Device (Safety)^Standard Outputdata^Standard In Var 2" Size="1"/>
 			</OwnerB>
 			<OwnerB Name="TINC^NC-Task 1 SAF^Axes^Combined Vertical">
 				<Link VarA="PlcTask Inputs^GVL.astAxes[9].Axis.NcToPlc" VarB="Outputs^ToPlc"/>

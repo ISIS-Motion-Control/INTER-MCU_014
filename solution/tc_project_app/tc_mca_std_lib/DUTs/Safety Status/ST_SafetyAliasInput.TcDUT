@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.11">
+  <DUT Name="ST_SafetyAliasInput" Id="{209574b0-26ef-49a3-9c13-e6f0fed4df2d}">
+    <Declaration><![CDATA[TYPE ST_SafetyAliasInput :
+STRUCT
+	sName : STRING; //Name descriptor for the safety output
+    bState : BOOL;
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

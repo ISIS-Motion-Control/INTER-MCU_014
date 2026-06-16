@@ -3,116 +3,225 @@
   <POU Name="PLC_SAFETY_LOGIC" Id="{33cb3f8d-dfd1-442b-932e-74cbe3827726}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM PLC_SAFETY_LOGIC
 VAR
-    ackTON : TON;
-    ackFTrig : F_TRIG;
-    driveAckTON : TON;
     
-    remoteTon : TON;
+    iCounter : UINT := 1;
     
-    resetFtrig : F_TRIG;
-    secondResetStartTON : TON;
-    secondResetStopTON : TON;
+    safetyAckTon : TON;
     
-    buttonPressedTimeCheck : TON;
-    buttonPressedRTrig : R_TRIG;
+    localModeButton_Pressed AT %I* : BOOL;
+    localModeTon : TON;
     
-    resetHoldTON : TON;
+    unoccupiedTon : TON;
+    unoccupiedTrig : R_TRIG;
+    sTempString : STRING;
+    bSafetyDevicesSetup : BOOL:= FALSE;
+    
+    EStop1_ChA AT %I* : BOOL;
+    EStop1_ChB AT %I* : BOOL;
+    EStop2_ChA AT %I* : BOOL;
+    EStop2_ChB AT %I* : BOOL;
+    EStop3_ChA AT %I* : BOOL;
+    EStop3_ChB AT %I* : BOOL;
+    EStop4_ChA AT %I* : BOOL;
+    EStop4_ChB AT %I* : BOOL;
+    EStop5_ChA AT %I* : BOOL;
+    EStop5_ChB AT %I* : BOOL;
+    EStop6_ChA AT %I* : BOOL;
+    EStop6_ChB AT %I* : BOOL;
+    EStop7_ChA AT %I* : BOOL;
+    EStop7_ChB AT %I* : BOOL;
+    LightCurtain_ChA AT %I* : BOOL;
+    LightCurtain_ChB AT %I* : BOOL;
+    
     
 END_VAR
 ]]></Declaration>
     <Implementation>
-      <ST><![CDATA[remoteTon(PT:=T#500MS,IN:= GVL_INTER.REMOTE_RESET);
-IF remoteTon.Q THEN
-    GVL_INTER.REMOTE_RESET:= FALSE;
-END_IF
-
-GVL_Safety.SafetyReset := GVL_Safety.SafetyReset_ButtonIn OR GVL_INTER.REMOTE_RESET;// THIS IS WHAT RESETS THE ESTOP AT THE MOMENT
-GVL_Safety.Drive71_ChA_Reset := GVL_Safety.SafetyReset_ButtonIn OR GVL_Safety.SafetyReset;
-GVL_Safety.Drive71_ChB_Reset := GVL_Safety.SafetyReset_ButtonIn OR GVL_Safety.SafetyReset;
-GVL_Safety.Drive74_ChA_Reset := GVL_Safety.SafetyReset_ButtonIn OR GVL_Safety.SafetyReset;
-GVL_Safety.Drive74_ChB_Reset := GVL_Safety.SafetyReset_ButtonIn OR GVL_Safety.SafetyReset;
-
-GVL_Safety.Main_ErrorAck := GVL_Safety.SAFETY_ACK;
-GVL_Safety.Drive71_ErrorAck := GVL_Safety.SAFETY_ACK;
-GVL_Safety.Drive74_ErrorAck := GVL_Safety.SAFETY_ACK;
-
-GVL_Safety.SAFETY_ACK := FALSE;
-
-GVL_INTER.RESET_REQUESTED:= GVL_Safety.RESET_REQUESTED;
-GVL_Safety.SafetyReset_ButtonOut:= GVL_INTER.RESET_REQUESTED;
-GVL_INTER.SAFETY_ACK_REQUESTED:=NOT(GVL_Safety.EL69010_InRun AND GVL_Safety.Drive71_InRun AND GVL_Safety.Drive74_InRun);
-
-(*//ACknowledges for the safety block triggered one after other.
-ackTON(IN:= GVL_Safety.SAFETY_ACK, PT:= T#500MS);
-driveAckTON(PT:= T#500MS);
-IF ackTON.Q THEN
-    GVL_Safety.SAFETY_ACK:= FALSE;
-END_IF
-ackFTrig(CLK:= GVL_Safety.SAFETY_ACK);
-IF ackFTrig.Q THEN
-    driveAckTON.IN := TRUE;
-    GVL_Safety.ACK_DRIVE_71_SAFETY := TRUE;
-END_IF
-IF driveAckTON.Q THEN
-    driveAckTON.IN:= FALSE;
-    GVL_Safety.ACK_DRIVE_71_SAFETY := FALSE;
-END_IF
-
-GVL_INTER.SAFETY_ACK_REQUESTED:=NOT(GVL_Safety.EL6910_InRun AND GVL_Safety.Drive71_ChA_InRun AND GVL_Safety.Drive71_ChB_InRun);
-
-
-
-
-buttonPressedTimeCheck(IN:= GVL_Safety.SafetyReset_ButtonIn, PT:= T#250MS);
-buttonPressedRTrig(CLK:= buttonPressedTimeCheck.Q);
-resetHoldTON(PT:=T#250MS);
-secondResetStartTON(PT:=T#250MS);
-secondResetStopTON(PT:=T#250MS);
-
-
-
-IF buttonPressedRTrig.Q THEN
-    resetHoldTON.IN:= TRUE;
-    GVL_Safety.SafetyReset:= TRUE;
-END_IF
-IF resetHoldTON.Q THEN
-    resetHoldTON.IN:= FALSE;
-    GVL_Safety.SafetyReset:= FALSE;
-    secondResetStartTON.IN:= TRUE;
-END_IF
-IF secondResetStartTON.Q THEN
-    secondResetStartTON.IN:= FALSE;
-    secondResetStopTON.IN:= TRUE;
-    GVL_Safety.ACK_SAFE_SPEED_1_ChA:= TRUE;
-    GVL_Safety.ACK_SAFE_SPEED_1_ChB:= TRUE;
-END_IF
-IF secondResetStopTON.Q THEN
-    secondResetStopTON.IN:= FALSE;
-    GVL_Safety.ACK_SAFE_SPEED_1_ChA:= FALSE;
-    GVL_Safety.ACK_SAFE_SPEED_1_ChB:= FALSE;
+      <ST><![CDATA[IF bSafetyDevicesSetup = FALSE THEN
+    ACT_SetupSafetyDevices();
 END_IF
 
 
-//GVL_Safety.SafetyReset := GVL_Safety.SafetyReset_ButtonIn;// THIS IS WHAT RESETS THE ESTOP AT THE MOMENT
+
+GVL_Safety.stSafetyData.SafetyGroups[1].AckGroup:= GVL_Safety.SAFETY_ACK;
+GVL_Safety.stSafetyData.SafetyGroups[2].AckGroup:= GVL_Safety.SAFETY_ACK;
+GVL_Safety.stSafetyData.SafetyGroups[3].AckGroup:= GVL_Safety.SAFETY_ACK;
+
+//Convert STATE byte data to enum
+
+ACT_ConvertFBState();
+ACT_ConvertState();
+ACT_LoadDiagnosticString();
+ACT_ErrorAckReq();
+
+IF GVL_Safety.stSafetyData.bSafetyAckReq THEN
+    sTempString:= CONCAT(STR1:= 'Error on ',STR2:= GVL_Safety.stSafetyData.sInError);
+    sTempString:= CONCAT(STR1:= sTempString,STR2:= ' : ');
+    sTempString:= CONCAT(STR1:= sTempString,STR2:= GVL_Safety.stSafetyData.sInErrorDiag);
+    GVL_Safety.stSafetyData.sDiagMessageToUser:= sTempString;
+ELSE
+    GVL_Safety.stSafetyData.sDiagMessageToUser:= '';
+END_IF
+
+
+//Load Diagnostics
 
 
 
-//GVL_Safety.SAFTEY_ACK := GVL_Safety.SafetyReset_ButtonIn;
-//GVL_Safety.ACK_SAFE_SPEED_1_ChA:= GVL_Safety.SafetyReset_ButtonIn;
-//GVL_Safety.ACK_SAFE_SPEED_1_ChB:= GVL_Safety.SafetyReset_ButtonIn;
-//GVL_Safety.ACK_SAFE_SPEED_2_ChA:= GVL_Safety.SafetyReset_ButtonIn;
-//GVL_Safety.ACK_SAFE_SPEED_2_ChB:= GVL_Safety.SafetyReset_ButtonIn;
-//GVL_Safety.ACK_DRIVE_71_SAFETY:= GVL_Safety.SAFETY_ACK;
-//GVL_Safety.ACK_DRIVE_74_SAFETY:= GVL_Safety.SAFETY_ACK;
+/////OLD CODE BELOW
+//GVL_Safety.ErrorAck_MotionSafety := GVL_Safety.Safety_Ack;
+//GVL_Safety.ErrorAck_MotionSafety_XRotAndZHor := GVL_Safety.Safety_Ack;
+//GVL_Safety.ErrorAck_MotionSafety_Y1AndY2 := GVL_Safety.Safety_Ack;
+
+safetyAckTon(IN:= GVL_Safety.Safety_Ack, PT:= T#500MS);
+
+IF safetyAckTon.Q  THEN
+    GVL_Safety.Safety_Ack:= FALSE;
+END_IF
+
+//State valid monitoring block
+IF GVL_Safety.stSafetyData.aSafetyFBS[10].State = 1 THEN
+    GVL_Safety.LocalMode_Disabled:= FALSE;
+ELSE
+    GVL_Safety.LocalMode_Disabled:= TRUE;
+END_IF
 
 
 
 
+IF localModeButton_Pressed THEN
+    localModeTon.IN:= TRUE;
+    localModeTon.PT:= T#1S;        
+END_IF
+IF localModeTon.Q THEN
+    GVL_INTER.RESET_ALL:= TRUE;
+    localModeTon.IN:= FALSE;
+END_IF
+localModeTon();
 
+unoccupiedTrig(CLK:= GVL_Safety.UnoccupiedMode);
+IF unoccupiedTrig.Q THEN
+    unoccupiedTon.IN:= TRUE;
+    unoccupiedTon.PT:= T#1S;
+END_IF
+IF unoccupiedTon.Q THEN
+    GVL_INTER.RESET_ALL:= TRUE;
+    unoccupiedTon.IN:= FALSE;
+END_IF
+unoccupiedTon();
 
-
-
-*)]]></ST>
+]]></ST>
     </Implementation>
+    <Action Name="ACT_ConvertFBState" Id="{10a8604a-e5a3-4ffa-8d79-0d64de5a7a19}">
+      <Implementation>
+        <ST><![CDATA[GVL_Safety.stSafetyData.bSafetyAckReq:= FALSE;
+FOR iCounter:=1 TO GVL_Safety.nSAFETY_FBS DO
+    GVL_Safety.stSafetyData.aSafetyFBS[iCounter].fbState:= USINT_TO_INT(GVL_Safety.stSafetyData.aSafetyFBS[iCounter].State); 
+END_FOR]]></ST>
+      </Implementation>
+    </Action>
+    <Action Name="ACT_ConvertState" Id="{626eb780-7575-4399-b556-dedf6c804746}">
+      <Implementation>
+        <ST><![CDATA[
+FOR iCounter:=1 TO GVL_Safety.nSAFETY_GROUPS DO
+    GVL_Safety.stSafetyData.SafetyGroups[iCounter].groupState:= BYTE_TO_INT(GVL_Safety.stSafetyData.SafetyGroups[iCounter].Status); 
+END_FOR]]></ST>
+      </Implementation>
+    </Action>
+    <Action Name="ACT_ErrorAckReq" Id="{977c2c25-6e29-4695-8e2f-a64d4bd31047}">
+      <Implementation>
+        <ST><![CDATA[GVL_Safety.stSafetyData.bSafetyAckReq:= FALSE;
+FOR iCounter:=1 TO GVL_Safety.nSAFETY_GROUPS DO
+    IF GVL_Safety.stSafetyData.SafetyGroups[iCounter].groupState = E_SafetyGroupState.ERROR THEN
+        GVL_Safety.stSafetyData.bSafetyAckReq:= TRUE;
+       GVL_Safety.stSafetyData.sInError := GVL_Safety.stSafetyData.SafetyGroups[iCounter].Name;
+	END_IF
+END_FOR
+
+FOR iCounter:=1 TO GVL_Safety.nSAFETY_FBS DO
+    IF GVL_Safety.stSafetyData.aSafetyFBS[iCounter].fbState = E_SafetyFbState.ERROR THEN
+        GVL_Safety.stSafetyData.bSafetyAckReq:= TRUE;
+        GVL_Safety.stSafetyData.sInError := GVL_Safety.stSafetyData.aSafetyFBS[iCounter].sName;
+        GVL_Safety.stSafetyData.sInErrorDiag := GVL_Safety.stSafetyData.aSafetyFBS[iCounter].DiagString;
+	END_IF
+END_FOR]]></ST>
+      </Implementation>
+    </Action>
+    <Action Name="ACT_LoadDiagnosticString" Id="{c4345b13-7963-4357-b7f0-13ff1e94d56d}">
+      <Implementation>
+        <ST><![CDATA[FOR iCounter:=1 TO GVL_Safety.nSAFETY_FBS DO
+    IF GVL_Safety.stSafetyData.aSafetyFBS[iCounter].State=4 THEN
+        GVL_Safety.stSafetyData.aSafetyFBS[iCounter].DiagString:= FB_SafeFBDiag(
+        fbType:= GVL_Safety.stSafetyData.aSafetyFBS[iCounter].eFbType,
+        diagVal:= GVL_Safety.stSafetyData.aSafetyFBS[iCounter].Diag);
+	ELSE
+        GVL_Safety.stSafetyData.aSafetyFBS[iCounter].DiagString:='';
+    END_IF
+    
+
+END_FOR]]></ST>
+      </Implementation>
+    </Action>
+    <Action Name="ACT_SetupSafetyDevices" Id="{4ca00b4d-a809-466c-96b6-9d77eff5525e}">
+      <Implementation>
+        <ST><![CDATA[//DO ALL STRING AND TYPE SETUP HERE
+GVL_Safety.stSafetyData.SafetyGroups[1].Name:= 'EL6910';
+GVL_Safety.stSafetyData.SafetyGroups[2].Name:= 'XRot and ZTrans - AXdrives';
+GVL_Safety.stSafetyData.SafetyGroups[3].Name:= 'Y1 and Y2 - AXdrives';
+
+GVL_Safety.stSafetyData.aSafetyFBS[1].sName:= 'FB_Mon - Lightcurtain';
+GVL_Safety.stSafetyData.aSafetyFBS[1].eFbType:= E_SafetyFbType.FB_Mon;
+
+GVL_Safety.stSafetyData.aSafetyFBS[2].sName:= 'FB_Mon - SearchedAndLocked';
+GVL_Safety.stSafetyData.aSafetyFBS[2].eFbType:= E_SafetyFbType.FB_Mon;
+
+GVL_Safety.stSafetyData.aSafetyFBS[3].sName:= 'FB_Mon - LocalModeDisable';
+GVL_Safety.stSafetyData.aSafetyFBS[3].eFbType:= E_SafetyFbType.FB_Mon;
+
+GVL_Safety.stSafetyData.aSafetyFBS[4].sName:= 'FB_OpMode - OpMode';
+GVL_Safety.stSafetyData.aSafetyFBS[4].eFbType:= E_SafetyFbType.FB_OpMode;
+
+GVL_Safety.stSafetyData.aSafetyFBS[5].sName:= 'FB_Mon - EStopsCloche';
+GVL_Safety.stSafetyData.aSafetyFBS[5].eFbType:= E_SafetyFbType.FB_Mon;
+
+GVL_Safety.stSafetyData.aSafetyFBS[6].sName:= 'FB_Mon - EStopsSample';
+GVL_Safety.stSafetyData.aSafetyFBS[6].eFbType:= E_SafetyFbType.FB_Mon;
+
+GVL_Safety.stSafetyData.aSafetyFBS[7].sName:= 'FB_Mon - EStopsRear';
+GVL_Safety.stSafetyData.aSafetyFBS[7].eFbType:= E_SafetyFbType.FB_Mon;
+
+GVL_Safety.stSafetyData.aSafetyFBS[8].sName:= 'FB_Mon - EStopsPanel';
+GVL_Safety.stSafetyData.aSafetyFBS[8].eFbType:= E_SafetyFbType.FB_Mon;
+
+GVL_Safety.stSafetyData.aSafetyFBS[9].sName:= 'FB_Mon - EStopsCombined';
+GVL_Safety.stSafetyData.aSafetyFBS[9].eFbType:= E_SafetyFbType.FB_Mon;
+
+GVL_Safety.stSafetyData.aSafetyFBS[10].sName:= 'FB_Mon - StateValid';
+GVL_Safety.stSafetyData.aSafetyFBS[10].eFbType:= E_SafetyFbType.FB_Mon;
+
+GVL_Safety.stSafetyData.aSafetyFBS[11].sName:= 'FB_RS - ResetToAxDrives';
+GVL_Safety.stSafetyData.aSafetyFBS[11].eFbType:= E_SafetyFbType.FB_RS;
+
+GVL_Safety.stSafetyData.aSafetyFBS[12].sName:= 'FB_EDM - BeckhoffContactor';
+GVL_Safety.stSafetyData.aSafetyFBS[12].eFbType:= E_SafetyFbType.FB_EDM;
+
+GVL_Safety.stSafetyData.aSafetyFBS[13].sName:= 'FB_EDM - GalilContactor';
+GVL_Safety.stSafetyData.aSafetyFBS[13].eFbType:= E_SafetyFbType.FB_EDM;
+
+GVL_Safety.stSafetyData.aSafetyFBS[14].sName:= 'FB_EDM - RotationBrake1';
+GVL_Safety.stSafetyData.aSafetyFBS[14].eFbType:= E_SafetyFbType.FB_EDM;
+
+GVL_Safety.stSafetyData.aSafetyFBS[15].sName:= 'FB_EDM - RotationBrake2';
+GVL_Safety.stSafetyData.aSafetyFBS[15].eFbType:= E_SafetyFbType.FB_EDM;
+
+
+
+
+
+
+
+bSafetyDevicesSetup:= TRUE;]]></ST>
+      </Implementation>
+    </Action>
   </POU>
 </TcPlcObject>

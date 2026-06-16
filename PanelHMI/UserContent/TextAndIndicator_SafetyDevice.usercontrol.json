@@ -1,0 +1,59 @@
+{
+  "parameters": [
+    {
+      "name": "data-tchmi-devicename",
+      "displayName": "DeviceName",
+      "allowSymbolExpressionsInObject": false,
+      "visible": true,
+      "type": "tchmi:general#/definitions/String",
+      "category": "",
+      "description": "",
+      "defaultValue": "Default",
+      "requiredOnCompile": false,
+      "readOnly": false,
+      "bindable": true,
+      "heritable": true,
+      "propertyName": "DeviceName",
+      "propertySetterName": "setDeviceName",
+      "propertyGetterName": "getDeviceName",
+      "refTo": ""
+    },
+    {
+      "name": "data-tchmi-input1",
+      "displayName": "Input1",
+      "allowSymbolExpressionsInObject": false,
+      "visible": true,
+      "type": "tchmi:general#/definitions/BOOL",
+      "category": "",
+      "description": "",
+      "requiredOnCompile": false,
+      "readOnly": false,
+      "bindable": true,
+      "heritable": true,
+      "propertyName": "Input1",
+      "propertySetterName": "setInput1",
+      "propertyGetterName": "getInput1",
+      "refTo": ""
+    },
+    {
+      "name": "data-tchmi-input2",
+      "displayName": "Input2",
+      "allowSymbolExpressionsInObject": false,
+      "visible": true,
+      "type": "tchmi:general#/definitions/BOOL",
+      "category": "",
+      "description": "",
+      "requiredOnCompile": false,
+      "readOnly": false,
+      "bindable": true,
+      "heritable": true,
+      "propertyName": "Input2",
+      "propertySetterName": "setInput2",
+      "propertyGetterName": "getInput2",
+      "refTo": ""
+    }
+  ],
+  "virtualRights": [],
+  "$schema": "./../../Packages/Beckhoff.TwinCAT.HMI.Framework.12.760.42/runtimes/native1.12-tchmi/Schema/UserControlConfig.Schema.json",
+  "description": ""
+}

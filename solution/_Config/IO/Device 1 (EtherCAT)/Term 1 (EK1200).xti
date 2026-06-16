@@ -46,11 +46,11 @@
 		<Box File="EL2008-(03).xti" Id="14">
 			<EtherCAT PortABoxInfo="#x0100000d"/>
 		</Box>
-		<Box File="Term 15 (EL6224).xti" Id="15">
+		<Box File="Term 50 (EL3152).xti" Id="50">
 			<EtherCAT PortABoxInfo="#x0100000e"/>
 		</Box>
 		<Box File="Term 16 (EK1110).xti" Id="16">
-			<EtherCAT PortABoxInfo="#x0100000f"/>
+			<EtherCAT PortABoxInfo="#x01000032"/>
 		</Box>
 	</Box>
 </TcSmItem>
